@@ -18,6 +18,22 @@
 		3967935F26D74BAC00DC2D2D /* DownloadCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967935E26D74BAC00DC2D2D /* DownloadCommand.swift */; };
 		3967936126D74C2400DC2D2D /* DownloadOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967936026D74C2400DC2D2D /* DownloadOptions.swift */; };
 		3967936426D7757800DC2D2D /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967936326D7757800DC2D2D /* Version.swift */; };
+		39B0955926E84D8100E68472 /* MistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B0955826E84D8100E68472 /* MistApp.swift */; };
+		39B0955B26E84D8100E68472 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B0955A26E84D8100E68472 /* ContentView.swift */; };
+		39B0955D26E84D8300E68472 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39B0955C26E84D8300E68472 /* Assets.xcassets */; };
+		39B0956626E84FDC00E68472 /* OutputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C236E26DF68BF004755BF /* OutputType.swift */; };
+		39B0956726E84FDC00E68472 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D1358125F9F8E5003467B2 /* Package.swift */; };
+		39B0956826E84FDC00E68472 /* PlatformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967935926D7293C00DC2D2D /* PlatformType.swift */; };
+		39B0956926E84FDC00E68472 /* MistError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D135AA25FED139003467B2 /* MistError.swift */; };
+		39B0956A26E84FDC00E68472 /* Firmware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967935B26D7304500DC2D2D /* Firmware.swift */; };
+		39B0956B26E84FDC00E68472 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5744141E25F8675000DE5540 /* Product.swift */; };
+		39B0956C26E84FDC00E68472 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D5090260034E10066E4C9 /* Catalog.swift */; };
+		39B0956D26E8564B00E68472 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C236726DDA494004755BF /* Dictionary+Extension.swift */; };
+		39B0956E26E8564B00E68472 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5744141125F8607800DE5540 /* String+Extension.swift */; };
+		39B0956F26E8564B00E68472 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C237026DF84E0004755BF /* Sequence+Extension.swift */; };
+		39B0957026E8564B00E68472 /* Int64+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0F3CD2600907D00480DEE /* Int64+Extension.swift */; };
+		39B0957326E8565E00E68472 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 39B0957226E8565E00E68472 /* Yams */; };
+		39B0957526E8569500E68472 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 39B0957426E8569500E68472 /* ArgumentParser */; };
 		570D5091260034E10066E4C9 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D5090260034E10066E4C9 /* Catalog.swift */; };
 		5744140025F85EF300DE5540 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574413FF25F85EF300DE5540 /* main.swift */; };
 		5744140925F8603300DE5540 /* Mist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5744140825F8603300DE5540 /* Mist.swift */; };
@@ -62,8 +78,14 @@
 		3967935E26D74BAC00DC2D2D /* DownloadCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCommand.swift; sourceTree = "<group>"; };
 		3967936026D74C2400DC2D2D /* DownloadOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadOptions.swift; sourceTree = "<group>"; };
 		3967936326D7757800DC2D2D /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		39B0955626E84D8100E68472 /* Mist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39B0955826E84D8100E68472 /* MistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistApp.swift; sourceTree = "<group>"; };
+		39B0955A26E84D8100E68472 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		39B0955C26E84D8300E68472 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		39B0956126E84D8300E68472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39B0956226E84D8300E68472 /* Mist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mist.entitlements; sourceTree = "<group>"; };
 		570D5090260034E10066E4C9 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
-		574413FC25F85EF300DE5540 /* mist */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mist; sourceTree = BUILT_PRODUCTS_DIR; };
+		574413FC25F85EF300DE5540 /* mistcli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mistcli; sourceTree = BUILT_PRODUCTS_DIR; };
 		574413FF25F85EF300DE5540 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5744140825F8603300DE5540 /* Mist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mist.swift; sourceTree = "<group>"; };
 		5744141125F8607800DE5540 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -82,6 +104,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		39B0955326E84D8100E68472 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39B0957526E8569500E68472 /* ArgumentParser in Frameworks */,
+				39B0957326E8565E00E68472 /* Yams in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		574413F925F85EF300DE5540 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -134,18 +165,40 @@
 			path = Download;
 			sourceTree = "<group>";
 		};
+		39B0955726E84D8100E68472 /* Mist */ = {
+			isa = PBXGroup;
+			children = (
+				39B0955826E84D8100E68472 /* MistApp.swift */,
+				39B0955A26E84D8100E68472 /* ContentView.swift */,
+				39B0955C26E84D8300E68472 /* Assets.xcassets */,
+				39B0956126E84D8300E68472 /* Info.plist */,
+				39B0956226E84D8300E68472 /* Mist.entitlements */,
+			);
+			path = Mist;
+			sourceTree = "<group>";
+		};
+		39B0957126E8565E00E68472 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		574413F325F85EF300DE5540 = {
 			isa = PBXGroup;
 			children = (
 				574413FE25F85EF300DE5540 /* Mist */,
+				39B0955726E84D8100E68472 /* Mist */,
 				574413FD25F85EF300DE5540 /* Products */,
+				39B0957126E8565E00E68472 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		574413FD25F85EF300DE5540 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				574413FC25F85EF300DE5540 /* mist */,
+				574413FC25F85EF300DE5540 /* mistcli */,
+				39B0955626E84D8100E68472 /* Mist.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,9 +256,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		574413FB25F85EF300DE5540 /* mist */ = {
+		39B0955526E84D8100E68472 /* Mist */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5744140325F85EF300DE5540 /* Build configuration list for PBXNativeTarget "mist" */;
+			buildConfigurationList = 39B0956526E84D8300E68472 /* Build configuration list for PBXNativeTarget "Mist" */;
+			buildPhases = (
+				39B0955226E84D8100E68472 /* Sources */,
+				39B0955326E84D8100E68472 /* Frameworks */,
+				39B0955426E84D8100E68472 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mist;
+			packageProductDependencies = (
+				39B0957226E8565E00E68472 /* Yams */,
+				39B0957426E8569500E68472 /* ArgumentParser */,
+			);
+			productName = Mist;
+			productReference = 39B0955626E84D8100E68472 /* Mist.app */;
+			productType = "com.apple.product-type.application";
+		};
+		574413FB25F85EF300DE5540 /* mistcli */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5744140325F85EF300DE5540 /* Build configuration list for PBXNativeTarget "mistcli" */;
 			buildPhases = (
 				574413F825F85EF300DE5540 /* Sources */,
 				574413F925F85EF300DE5540 /* Frameworks */,
@@ -217,13 +291,13 @@
 			);
 			dependencies = (
 			);
-			name = mist;
+			name = mistcli;
 			packageProductDependencies = (
 				5744140E25F8606500DE5540 /* ArgumentParser */,
 				57D135B725FEEE48003467B2 /* Yams */,
 			);
 			productName = MIC;
-			productReference = 574413FC25F85EF300DE5540 /* mist */;
+			productReference = 574413FC25F85EF300DE5540 /* mistcli */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -232,9 +306,12 @@
 		574413F425F85EF300DE5540 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					39B0955526E84D8100E68472 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
 					574413FB25F85EF300DE5540 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -257,10 +334,22 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				574413FB25F85EF300DE5540 /* mist */,
+				39B0955526E84D8100E68472 /* Mist */,
+				574413FB25F85EF300DE5540 /* mistcli */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39B0955426E84D8100E68472 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39B0955D26E84D8300E68472 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		393C236926DDC995004755BF /* Run DrString */ = {
@@ -302,6 +391,26 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		39B0955226E84D8100E68472 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39B0956C26E84FDC00E68472 /* Catalog.swift in Sources */,
+				39B0956E26E8564B00E68472 /* String+Extension.swift in Sources */,
+				39B0956A26E84FDC00E68472 /* Firmware.swift in Sources */,
+				39B0956B26E84FDC00E68472 /* Product.swift in Sources */,
+				39B0956F26E8564B00E68472 /* Sequence+Extension.swift in Sources */,
+				39B0956726E84FDC00E68472 /* Package.swift in Sources */,
+				39B0956826E84FDC00E68472 /* PlatformType.swift in Sources */,
+				39B0957026E8564B00E68472 /* Int64+Extension.swift in Sources */,
+				39B0955B26E84D8100E68472 /* ContentView.swift in Sources */,
+				39B0956626E84FDC00E68472 /* OutputType.swift in Sources */,
+				39B0955926E84D8100E68472 /* MistApp.swift in Sources */,
+				39B0956926E84FDC00E68472 /* MistError.swift in Sources */,
+				39B0956D26E8564B00E68472 /* Dictionary+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		574413F825F85EF300DE5540 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,6 +448,62 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		39B0956326E84D8300E68472 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mist/Mist.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 200;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 7K3HVCLV7Z;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Mist/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		39B0956426E84D8300E68472 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mist/Mist.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 200;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 7K3HVCLV7Z;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Mist/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		5744140125F85EF300DE5540 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -462,7 +627,7 @@
 				DEVELOPMENT_TEAM = 7K3HVCLV7Z;
 				ENABLE_HARDENED_RUNTIME = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mistcli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -477,7 +642,7 @@
 				DEVELOPMENT_TEAM = 7K3HVCLV7Z;
 				ENABLE_HARDENED_RUNTIME = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mistcli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -487,6 +652,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		39B0956526E84D8300E68472 /* Build configuration list for PBXNativeTarget "Mist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39B0956326E84D8300E68472 /* Debug */,
+				39B0956426E84D8300E68472 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		574413F725F85EF300DE5540 /* Build configuration list for PBXProject "Mist" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -496,7 +670,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5744140325F85EF300DE5540 /* Build configuration list for PBXNativeTarget "mist" */ = {
+		5744140325F85EF300DE5540 /* Build configuration list for PBXNativeTarget "mistcli" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5744140425F85EF300DE5540 /* Debug */,
@@ -527,6 +701,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		39B0957226E8565E00E68472 /* Yams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57D135B625FEEE48003467B2 /* XCRemoteSwiftPackageReference "Yams" */;
+			productName = Yams;
+		};
+		39B0957426E8569500E68472 /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5744140D25F8606500DE5540 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
 		5744140E25F8606500DE5540 /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5744140D25F8606500DE5540 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;

@@ -538,7 +538,7 @@
 			<key>USE_HFS+_COMPRESSION</key>
 			<false/>
 			<key>VERSION</key>
-			<string>1.5</string>
+			<string>2.0</string>
 		</dict>
 		<key>PROJECT_COMMENTS</key>
 		<dict>
@@ -731,7 +731,7 @@
 				</dict>
 			</array>
 			<key>NAME</key>
-			<string>Mist 1.5</string>
+			<string>Mist 2.0</string>
 			<key>PAYLOAD_ONLY</key>
 			<false/>
 		</dict>
