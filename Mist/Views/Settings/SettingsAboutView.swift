@@ -16,7 +16,7 @@ struct SettingsAboutView: View {
         Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
     }
     private let length: CGFloat = 128
-    private let spacing: CGFloat = 0
+    private let spacing: CGFloat = 5
 
     var body: some View {
         VStack(alignment: .leading) {
