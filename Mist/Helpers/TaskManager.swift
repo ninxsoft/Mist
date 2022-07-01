@@ -216,7 +216,7 @@ class TaskManager: ObservableObject {
         if !FileManager.default.fileExists(atPath: cacheDirectoryURL.path) {
             tasks += [
                 MistTask(type: .configure, description: "cache directory") {
-                    try await DirectoryCreator.create(cacheDirectoryURL)
+                    try await DirectoryCreator.create(cacheDirectoryURL, withIntermediateDirectories: true)
                 }
             ]
         }
