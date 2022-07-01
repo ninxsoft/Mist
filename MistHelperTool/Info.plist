@@ -11,10 +11,10 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.1</string>
 	<key>CFBundleVersion</key>
-	<string>10</string>
+	<string>0.1</string>
 	<key>SMAuthorizedClients</key>
 	<array>
-		<string>anchor apple generic and identifier "com.ninxsoft.mist" and info[CFBundleVersion] &gt;= "10" and certificate leaf[subject.OU] = "7K3HVCLV7Z"</string>
+		<string>anchor apple generic and identifier "com.ninxsoft.mist" and info[CFBundleVersion] &gt;= "0.1" and certificate leaf[subject.OU] = "7K3HVCLV7Z"</string>
 	</array>
 </dict>
 </plist>

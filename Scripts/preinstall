@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+identifier="system/com.ninxsoft.mist.helper"
+
+if launchtl print "system/$identifier" ; then
+  launchctl bootout "system/$identifier"
+fi
+
+exit 0
