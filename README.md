@@ -8,6 +8,8 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
 
 ![Example - Installers](Readme%20Resources/Example%20-%20Installers.png)
 
+## :information_source: Check out [mist-cli](https://github.com/ninxsoft/mist-cli) for the companion command-line tool!
+
 ## Features
 
 - [x] List all available macOS Firmwares / Installers available for download:
