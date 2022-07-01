@@ -5,5 +5,49 @@
     <description>A Mac utility that automatically downloads macOS Firmwares / Installers.</description>
     <language>en</language>
     <link>https://github.com/ninxsoft/mist</link>
+    <item>
+      <title>Version 0.1.1</title>
+      <link>https://github.com/ninxsoft/mist</link>
+      <sparkle:version>0.1.1</sparkle:version>
+      <description>
+        <![CDATA[
+          <style>
+            ul li {
+              margin-bottom: 15px;
+            }
+            .tag {
+              float: left;
+              width: 36px;
+              padding: 5px;
+              border-radius: 5px;
+              font-weight: medium;
+              color: white;
+              margin-right: 5px;
+              text-align: center;
+            }
+            .tag-new {
+              background: #007bff;
+            }
+            .tag-fixed {
+              background: #ff9501;
+            }
+            .description {
+              overflow: hidden;
+            }
+          </style>
+          <ul>
+            <li><span class="tag tag-fixed">FIXED</span><span class="description">Intermediate cache directories are now created if required.</span></span></li>
+            <li><span class="tag tag-fixed">FIXED</span><span class="description">Downloads no longer retry indefinitely.</span></li>
+          </ul>
+        ]]>
+      </description>
+      <pubDate>Fri, 1 Jul 2022 12:00:00 +0000</pubDate>
+      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.1.1/Mist.0.1.1.pkg"
+                 type="application/octet-stream"
+                 sparkle:installationType="package"
+                 sparkle:edSignature="s6QaNxcaDsMxdeRXOcCrHs0K485ZINAL5lul3jFNY3T8UQCCGDNujFdLvvgpWpops8s9mKD8TBcUhbSutS6wBw=="
+                 length="6535927"
+      />
+    </item>
   </channel>
 </rss>
