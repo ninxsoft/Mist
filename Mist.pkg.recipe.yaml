@@ -1,0 +1,34 @@
+---
+Identifier: com.ninxsoft.pkg.mist
+Input:
+  NAME: Mist
+Process:
+  - Processor: URLDownloader
+    Arguments:
+      PKG: /Applications/Mist.app
+      url: ""
+  - Processor: EndOfCheckPhase
+  - Processor: CodeSignatureVerifier
+    Arguments:
+      input_path: "%pathname%"
+      requirement: 'anchor apple generic and identifier "com.ninxsoft.mist" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "7K3HVCLV7Z")'
+  - Processor: Versioner
+    Arguments:
+      input_plist_path: "%pathname%/Contents/Info.plist"
+  - Processor: AppPkgCreator
+    Arguments:
+      app_path: "%pathname%"
+      pkg_path: "%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg"
+      version: "%version%"
+  - Processor: PkgSigner
+    Arguments:
+      pkg_path: "%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg"
+      signing_cert: "%DEVELOPER_ID_INSTALLER%"
+  - Processor: FileMover
+    Arguments:
+      source: "%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg"
+      target: "%DESTINATION_DIR%/%NAME% %version%.pkg"
+  - Processor: PathDeleter
+    Arguments:
+      path_list:
+        - "%RECIPE_CACHE_DIR%/%NAME%-%version%-unsigned.pkg"

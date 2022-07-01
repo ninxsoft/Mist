@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Firmware.png",
+      "idiom" : "mac"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "images": [
+    {
+      "filename": "macOS Catalina Light.png",
+      "idiom": "mac"
+    },
+    {
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "filename": "macOS Catalina Dark.png",
+      "idiom": "mac"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}

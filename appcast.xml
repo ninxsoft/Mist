@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Mist Changelog</title>
+    <description>A Mac utility that automatically downloads macOS Firmwares / Installers.</description>
+    <language>en</language>
+    <link>https://github.com/ninxsoft/mist</link>
+  </channel>
+</rss>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SMPrivilegedExecutables</key>
+	<dict>
+		<key>com.ninxsoft.mist.helper</key>
+		<string>anchor apple generic and identifier &quot;com.ninxsoft.mist.helper&quot; and certificate leaf[subject.OU] = &quot;7K3HVCLV7Z&quot;</string>
+	</dict>
+	<key>SUPublicEDKey</key>
+	<string>5keDBd5mvIAICok49UqfX9WE/HVJIpe0zQCfDDqmnMg=</string>
+	<key>SUFeedURL</key>
+	<string>https://github.com/ninxsoft/Mist/blob/main/appcast.xml</string>
+</dict>
+</plist>
