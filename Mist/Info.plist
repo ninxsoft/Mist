@@ -10,6 +10,6 @@
 	<key>SUPublicEDKey</key>
 	<string>5keDBd5mvIAICok49UqfX9WE/HVJIpe0zQCfDDqmnMg=</string>
 	<key>SUFeedURL</key>
-	<string>https://github.com/ninxsoft/Mist/blob/main/appcast.xml</string>
+	<string>https://raw.githubusercontent.com/ninxsoft/Mist/main/appcast.xml</string>
 </dict>
 </plist>
