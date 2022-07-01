@@ -26,12 +26,14 @@ class DownloadManager: NSObject, ObservableObject {
         var mistError: MistError?
         var urlError: URLError?
         var retries: Int = 0
+        var completed: Bool = false
         let completionHandler: (URL?, URLResponse?, Error?) -> Void = { url, _, error in
 
             if let error: URLError = error as? URLError {
 
                 guard error.code != .cancelled else {
                     mistError = .userCancelled
+                    completed = true
                     semaphore.signal()
                     return
                 }
@@ -43,12 +45,14 @@ class DownloadManager: NSObject, ObservableObject {
 
             if let error: Error = error {
                 mistError = MistError.generalError(error.localizedDescription)
+                completed = true
                 semaphore.signal()
                 return
             }
 
             guard let url: URL = url else {
                 mistError = MistError.invalidDestinationURL
+                completed = true
                 semaphore.signal()
                 return
             }
@@ -63,10 +67,11 @@ class DownloadManager: NSObject, ObservableObject {
                 mistError = MistError.generalError(error.localizedDescription)
             }
 
+            completed = true
             semaphore.signal()
         }
 
-        while mistError == nil {
+        while !completed {
 
             guard retries < retriesMaximum else {
                 throw MistError.maximumRetriesReached
