@@ -4,6 +4,8 @@ set -e
 
 identifier="com.ninxsoft.mist.helper"
 
-launchctl bootstrap system "/Library/LaunchDaemons/$identifier.plist"
+if ! launchctl print "system/$identifier" &> /dev/null ; then
+  launchctl bootstrap system "/Library/LaunchDaemons/$identifier.plist"
+fi
 
 exit 0
