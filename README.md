@@ -56,6 +56,11 @@ Grab the latest version of **Mist** from the [releases page](https://github.com/
 
 ## Version History
 
+- 0.1.1
+
+  - Intermediate cache directories are now created if required
+  - Downloads no longer retry indefinitely
+
 - 0.1
 
   - Initial release
