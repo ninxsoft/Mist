@@ -14,7 +14,7 @@ struct SettingsInstallersCatalogsView: View {
     private let height: CGFloat = 200
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("Catalog URLs:")
             FooterText("Apple Software Update Catalogs are used to determine all available macOS Installers.")
             List(selection: $selectedCatalogRow) {
