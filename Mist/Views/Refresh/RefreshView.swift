@@ -124,10 +124,11 @@ struct RefreshView: View {
 
     private func retrieveInstallers() throws -> [Installer] {
         var installers: [Installer] = []
+        let catalogs: [String] = UserDefaults.standard.array(forKey: "catalogURLs") as? [String] ?? Catalog.urls
 
-        for catalog in Catalog.allCases {
+        for catalog in catalogs {
 
-            guard let url: URL = URL(string: catalog.url) else {
+            guard let url: URL = URL(string: catalog) else {
                 continue
             }
 
