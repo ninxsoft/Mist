@@ -30,13 +30,14 @@ struct InstallerListRow: View {
 
     var body: some View {
         ListRow(
+            type: .installer,
             image: installer.imageName,
             version: installer.version,
             build: installer.build,
             beta: installer.beta,
             date: installer.date,
             size: installer.size.bytesString(),
-            alertMessage: "The Mist Privileged Helper Tool is required to perform Administrator tasks when creating macOS Installers.",
+            compatible: installer.compatible,
             showPanel: $showOpenPanel,
             taskManager: taskManager
         )

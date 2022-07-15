@@ -24,7 +24,7 @@ struct DownloadView: View {
     @ObservedObject var taskManager: TaskManager
     @State private var value: Double = 0
     @State private var showAlert: Bool = false
-    @State private var alertType: AlertType = .cancel
+    @State private var alertType: ProgressAlertType = .cancel
     @State private var error: MistError?
     @State private var degrees: CGFloat = 0
     @State private var timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()

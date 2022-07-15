@@ -63,7 +63,7 @@
 		3935F4852866B64900760AB0 /* MistTaskSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4842866B64900760AB0 /* MistTaskSection.swift */; };
 		3935F4892866C68000760AB0 /* DownloadSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4882866C68000760AB0 /* DownloadSectionHeaderView.swift */; };
 		3935F48E2869278200760AB0 /* InstallerExportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F48D2869278100760AB0 /* InstallerExportType.swift */; };
-		3935F490286976D000760AB0 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F48F286976D000760AB0 /* AlertType.swift */; };
+		3935F490286976D000760AB0 /* ProgressAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F48F286976D000760AB0 /* ProgressAlertType.swift */; };
 		3935F49D286ABE4D00760AB0 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F49C286ABE4D00760AB0 /* FooterView.swift */; };
 		3935F49F286AC32C00760AB0 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F49E286AC32C00760AB0 /* ListRow.swift */; };
 		3935F4A2286ACD4D00760AB0 /* InstallerExportViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4A1286ACD4D00760AB0 /* InstallerExportViewItem.swift */; };
@@ -84,6 +84,7 @@
 		393F35BC28641181005B7165 /* RefreshState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F35BB28641181005B7165 /* RefreshState.swift */; };
 		393F35BE2864197F005B7165 /* PrivilegedHelperTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F35BD2864197F005B7165 /* PrivilegedHelperTool.swift */; };
 		393F35C228641E1F005B7165 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F35C128641E1F005B7165 /* HeaderView.swift */; };
+		395DCD16287FE36E00C411CE /* DownloadAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395DCD15287FE36E00C411CE /* DownloadAlertType.swift */; };
 		398734C428600E6E00B4C357 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734C328600E6E00B4C357 /* TaskManager.swift */; };
 		398734C6286011C300B4C357 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734C5286011C300B4C357 /* Validator.swift */; };
 		398734C828601FFC00B4C357 /* FileMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734C728601FFC00B4C357 /* FileMover.swift */; };
@@ -211,7 +212,7 @@
 		3935F4842866B64900760AB0 /* MistTaskSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistTaskSection.swift; sourceTree = "<group>"; };
 		3935F4882866C68000760AB0 /* DownloadSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSectionHeaderView.swift; sourceTree = "<group>"; };
 		3935F48D2869278100760AB0 /* InstallerExportType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallerExportType.swift; sourceTree = "<group>"; };
-		3935F48F286976D000760AB0 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
+		3935F48F286976D000760AB0 /* ProgressAlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressAlertType.swift; sourceTree = "<group>"; };
 		3935F49C286ABE4D00760AB0 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		3935F49E286AC32C00760AB0 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		3935F4A1286ACD4D00760AB0 /* InstallerExportViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerExportViewItem.swift; sourceTree = "<group>"; };
@@ -228,6 +229,7 @@
 		393F35BB28641181005B7165 /* RefreshState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshState.swift; sourceTree = "<group>"; };
 		393F35BD2864197F005B7165 /* PrivilegedHelperTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivilegedHelperTool.swift; sourceTree = "<group>"; };
 		393F35C128641E1F005B7165 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		395DCD15287FE36E00C411CE /* DownloadAlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAlertType.swift; sourceTree = "<group>"; };
 		398734C328600E6E00B4C357 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		398734C5286011C300B4C357 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		398734C728601FFC00B4C357 /* FileMover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMover.swift; sourceTree = "<group>"; };
@@ -382,11 +384,11 @@
 		390451C32856E4A500E0B563 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3935F48F286976D000760AB0 /* AlertType.swift */,
 				390451E428574F0000E0B563 /* Catalog.swift */,
 				39CF4E722859C03D009E708C /* CatalogRow.swift */,
 				398734CB28603D5F00B4C357 /* Chunklist.swift */,
 				398734CD28603D7F00B4C357 /* Chunk.swift */,
+				395DCD15287FE36E00C411CE /* DownloadAlertType.swift */,
 				390451CD2856F42800E0B563 /* DownloadType.swift */,
 				390451D928573ADC00E0B563 /* ExportListType.swift */,
 				390451B82856E24200E0B563 /* Firmware.swift */,
@@ -399,6 +401,7 @@
 				39252A98285BFE2C00956C74 /* MistTaskState.swift */,
 				39252A96285BF8BC00956C74 /* MistTaskType.swift */,
 				390451D32856F74B00E0B563 /* Package.swift */,
+				3935F48F286976D000760AB0 /* ProgressAlertType.swift */,
 				393F35BB28641181005B7165 /* RefreshState.swift */,
 			);
 			path = Model;
@@ -730,7 +733,7 @@
 				398734C6286011C300B4C357 /* Validator.swift in Sources */,
 				39252ABB285C7D3800956C74 /* SettingsInstallersCatalogsView.swift in Sources */,
 				393D8029286EB4D6008AA8E3 /* EmptyCollectionView.swift in Sources */,
-				3935F490286976D000760AB0 /* AlertType.swift in Sources */,
+				3935F490286976D000760AB0 /* ProgressAlertType.swift in Sources */,
 				39FF05F62859850F00A86670 /* SettingsFirmwaresView.swift in Sources */,
 				3935F4A6286AD3E100760AB0 /* DownloadHeaderView.swift in Sources */,
 				3935F480286551FB00760AB0 /* Double+Extension.swift in Sources */,
@@ -792,6 +795,7 @@
 				390451E1285740E800E0B563 /* Sequence+Extension.swift in Sources */,
 				398734D4286046B000B4C357 /* UInt32+Extension.swift in Sources */,
 				390451D42856F74B00E0B563 /* Package.swift in Sources */,
+				395DCD16287FE36E00C411CE /* DownloadAlertType.swift in Sources */,
 				39CF560028619147006FB5D2 /* HelperToolCommandType.swift in Sources */,
 				39252A87285ACE9C00956C74 /* FooterText.swift in Sources */,
 				3935F48E2869278200760AB0 /* InstallerExportType.swift in Sources */,

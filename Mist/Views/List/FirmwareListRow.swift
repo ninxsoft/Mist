@@ -20,13 +20,14 @@ struct FirmwareListRow: View {
 
     var body: some View {
         ListRow(
+            type: .firmware,
             image: firmware.imageName,
             version: firmware.version,
             build: firmware.build,
             beta: firmware.beta,
             date: firmware.formattedDate,
             size: firmware.size.bytesString(),
-            alertMessage: "The Mist Privileged Helper Tool is required to perform Administrator tasks when downloading macOS Firmwares.",
+            compatible: firmware.compatible,
             showPanel: $showSavePanel,
             taskManager: taskManager
         )
