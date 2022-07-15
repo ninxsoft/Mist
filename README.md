@@ -40,7 +40,7 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
 ## Build Requirements
 
 - Swift **5.5**.
-- Xcode **13.0**.
+- Xcode **14.0**.
 - Runs on macOS Monterey **12.0** and later.
 
 ## Download
@@ -50,11 +50,18 @@ Grab the latest version of **Mist** from the [releases page](https://github.com/
 ## Credits / Thank You
 
 - Project created and maintained by Nindi Gill ([ninxsoft](https://github.com/ninxsoft)).
-- JP Simard ([jpsim](https://github.com/jpsim)) for [Yams](https://github.com/jpsim/Yams), used to import YAML.
+- JP Simard ([jpsim](https://github.com/jpsim)) for [Yams](https://github.com/jpsim/Yams), used to export lists as YAML.
 - Josh Kaplan ([jakaplan](https://github.com/jakaplan)) for [Blessed](https://github.com/trilemma-dev/Blessed), [EmbeddedPropertyList](https://github.com/trilemma-dev/EmbeddedPropertyList), and [SecureXPC](https://github.com/trilemma-dev/SecureXPC), which are all used to support the Privileged Helper Tool.
 - The Sparkle Project ([sparkle-project](https://github.com/sparkle-project)) for [Sparkle](https://github.com/sparkle-project/Sparkle), used to auto update Mist.
 
 ## Version History
+
+- 0.2
+
+  - Users are now notified of incompatible macOS Firmwares / Installers before downloading
+  - Placeholder icons for macOS Ventura have been updated with the real deal
+  - Custom Catalog URLs are no longer being ignored
+  - The Catalog URLs heading is now aligned correctly under Preferences
 
 - 0.1.1
 
