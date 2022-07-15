@@ -6,9 +6,9 @@
     <language>en</language>
     <link>https://github.com/ninxsoft/mist</link>
     <item>
-      <title>Version 0.1.1</title>
+      <title>Version 0.2</title>
       <link>https://github.com/ninxsoft/mist</link>
-      <sparkle:version>0.1.1</sparkle:version>
+      <sparkle:version>0.2</sparkle:version>
       <description>
         <![CDATA[
           <style>
@@ -36,17 +36,19 @@
             }
           </style>
           <ul>
-            <li><span class="tag tag-fixed">FIXED</span><span class="description">Intermediate cache directories are now created if required.</span></span></li>
-            <li><span class="tag tag-fixed">FIXED</span><span class="description">Downloads no longer retry indefinitely.</span></li>
+            <li><span class="tag tag-new">NEW</span><span class="description">Users are now notified of incompatible macOS Firmwares / Installers before downloading.</span></li>
+            <li><span class="tag tag-new">NEW</span><span class="description">Placeholder icons for macOS Ventura have been updated with the real deal.</span></li>
+            <li><span class="tag tag-fixed">FIXED</span><span class="description">Custom Catalog URLs are no longer being ignored.</span></li>
+            <li><span class="tag tag-fixed">FIXED</span><span class="description">The Catalog URLs heading is now aligned correctly under Preferences.</span></li>
           </ul>
         ]]>
       </description>
-      <pubDate>Fri, 1 Jul 2022 12:00:00 +0000</pubDate>
-      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.1.1/Mist.0.1.1.pkg"
+      <pubDate>Fri, 15 Jul 2022 12:00:00 +0000</pubDate>
+      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.2/Mist.0.2.pkg"
                  type="application/octet-stream"
                  sparkle:installationType="package"
-                 sparkle:edSignature="s6QaNxcaDsMxdeRXOcCrHs0K485ZINAL5lul3jFNY3T8UQCCGDNujFdLvvgpWpops8s9mKD8TBcUhbSutS6wBw=="
-                 length="6535927"
+                 sparkle:edSignature="UP7z/JDlLeZBOZ/UTOJOtWefMiWFJgXh2huzp6Gkp7H73V9/yNrgfmuvflN3n0lPxXd32YSL5SmbRdUp2V0RAg=="
+                 length="6567762"
       />
     </item>
   </channel>
