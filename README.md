@@ -53,6 +53,7 @@ Grab the latest version of **Mist** from the [releases page](https://github.com/
 - JP Simard ([jpsim](https://github.com/jpsim)) for [Yams](https://github.com/jpsim/Yams), used to export lists as YAML.
 - Josh Kaplan ([jakaplan](https://github.com/jakaplan)) for [Blessed](https://github.com/trilemma-dev/Blessed), [EmbeddedPropertyList](https://github.com/trilemma-dev/EmbeddedPropertyList), and [SecureXPC](https://github.com/trilemma-dev/SecureXPC), which are all used to support the Privileged Helper Tool.
 - The Sparkle Project ([sparkle-project](https://github.com/sparkle-project)) for [Sparkle](https://github.com/sparkle-project/Sparkle), used to auto update Mist.
+- Callum Jones ([cj123](https://github.com/cj123)) for [IPSW Downloads API](https://ipswdownloads.docs.apiary.io), used to determine macOS Firmware metadata.
 
 ## Version History
 
