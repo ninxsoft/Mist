@@ -97,17 +97,27 @@ class TaskManager: ObservableObject {
         retries: Int,
         delay retryDelay: Int
     ) -> [MistTask] {
-        [
+        var tasks: [MistTask] = [
             MistTask(type: .download, description: firmwareURL.lastPathComponent, downloadSize: firmware.size) {
                 try await DownloadManager.shared.download(firmwareURL, to: temporaryFirmwareURL, retries: retries, delay: retryDelay)
-            },
-            MistTask(type: .verify, description: firmwareURL.lastPathComponent) {
-                try await Validator.validate(firmware, at: temporaryFirmwareURL)
-            },
+            }
+        ]
+
+        if !firmware.shasum.isEmpty {
+            tasks += [
+                MistTask(type: .verify, description: firmwareURL.lastPathComponent) {
+                    try await Validator.validate(firmware, at: temporaryFirmwareURL)
+                }
+            ]
+        }
+
+        tasks += [
             MistTask(type: .save, description: "Firmware to destination") {
                 try await FileMover.move(temporaryFirmwareURL, to: destinationURL)
             }
         ]
+
+        return tasks
     }
 
     // swiftlint:enable function_parameter_count
