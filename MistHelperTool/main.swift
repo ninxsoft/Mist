@@ -54,7 +54,7 @@ guard getppid() == 1 else {
 }
 
 /// XPCServer used to monitor incoming requests
-let server: XPCServer = try XPCServer.forThisXPCService()
+let server: XPCServer = try XPCServer.forMachService()
 server.registerRoute(XPCRoute.commandRoute, handler: HelperToolCommandRunner.run(_:))
 server.setErrorHandler { error in
     if case .connectionInvalid = error {
