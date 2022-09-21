@@ -100,10 +100,8 @@
 		39CF55AD28615530006FB5D2 /* SettingsGeneralHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF55AC28615530006FB5D2 /* SettingsGeneralHelperView.swift */; };
 		39CF55AF2861582F006FB5D2 /* AuthorizationError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF55AE2861582F006FB5D2 /* AuthorizationError+Extension.swift */; };
 		39CF55B228615D30006FB5D2 /* SecureXPC in Frameworks */ = {isa = PBXBuildFile; productRef = 39CF55B128615D30006FB5D2 /* SecureXPC */; };
-		39CF55B528615D41006FB5D2 /* EmbeddedPropertyList in Frameworks */ = {isa = PBXBuildFile; productRef = 39CF55B428615D41006FB5D2 /* EmbeddedPropertyList */; };
 		39CF55B828615D5F006FB5D2 /* Blessed in Frameworks */ = {isa = PBXBuildFile; productRef = 39CF55B728615D5F006FB5D2 /* Blessed */; };
 		39CF55BA28615D5F006FB5D2 /* SecureXPC in Frameworks */ = {isa = PBXBuildFile; productRef = 39CF55B928615D5F006FB5D2 /* SecureXPC */; };
-		39CF55BC28615D5F006FB5D2 /* EmbeddedPropertyList in Frameworks */ = {isa = PBXBuildFile; productRef = 39CF55BB28615D5F006FB5D2 /* EmbeddedPropertyList */; };
 		39CF560028619147006FB5D2 /* HelperToolCommandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF55FF28619147006FB5D2 /* HelperToolCommandType.swift */; };
 		39CF560128619147006FB5D2 /* HelperToolCommandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF55FF28619147006FB5D2 /* HelperToolCommandType.swift */; };
 		39CF56092861AE7F006FB5D2 /* HelperToolCommandRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF56082861AE7F006FB5D2 /* HelperToolCommandRequest.swift */; };
@@ -280,7 +278,6 @@
 				390451DF28573FAA00E0B563 /* Yams in Frameworks */,
 				39CF55AA286154A5006FB5D2 /* Blessed in Frameworks */,
 				39CF55B228615D30006FB5D2 /* SecureXPC in Frameworks */,
-				39CF55B528615D41006FB5D2 /* EmbeddedPropertyList in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +287,6 @@
 			files = (
 				39CF55B828615D5F006FB5D2 /* Blessed in Frameworks */,
 				39CF55BA28615D5F006FB5D2 /* SecureXPC in Frameworks */,
-				39CF55BC28615D5F006FB5D2 /* EmbeddedPropertyList in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,7 +539,6 @@
 				390451DE28573FAA00E0B563 /* Yams */,
 				39CF55A9286154A5006FB5D2 /* Blessed */,
 				39CF55B128615D30006FB5D2 /* SecureXPC */,
-				39CF55B428615D41006FB5D2 /* EmbeddedPropertyList */,
 				3935F4C4286B546A00760AB0 /* Sparkle */,
 			);
 			productName = Mist;
@@ -567,7 +562,6 @@
 			packageProductDependencies = (
 				39CF55B728615D5F006FB5D2 /* Blessed */,
 				39CF55B928615D5F006FB5D2 /* SecureXPC */,
-				39CF55BB28615D5F006FB5D2 /* EmbeddedPropertyList */,
 			);
 			productName = MistHelperTool;
 			productReference = 39CF559D28614DD8006FB5D2 /* com.ninxsoft.mist.helper */;
@@ -604,7 +598,6 @@
 				390451DD28573FAA00E0B563 /* XCRemoteSwiftPackageReference "Yams" */,
 				39CF55A8286154A5006FB5D2 /* XCRemoteSwiftPackageReference "Blessed" */,
 				39CF55B028615D30006FB5D2 /* XCRemoteSwiftPackageReference "SecureXPC" */,
-				39CF55B328615D41006FB5D2 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */,
 				3935F4C3286B546A00760AB0 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			productRefGroup = 390451A72856E1D900E0B563 /* Products */;
@@ -1103,7 +1096,7 @@
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.0;
+				minimumVersion = 2.2.2;
 			};
 		};
 		39CF55A8286154A5006FB5D2 /* XCRemoteSwiftPackageReference "Blessed" */ = {
@@ -1119,15 +1112,7 @@
 			repositoryURL = "https://github.com/trilemma-dev/SecureXPC";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.7.0;
-			};
-		};
-		39CF55B328615D41006FB5D2 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/trilemma-dev/EmbeddedPropertyList";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.2;
+				minimumVersion = 0.8.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1153,11 +1138,6 @@
 			package = 39CF55B028615D30006FB5D2 /* XCRemoteSwiftPackageReference "SecureXPC" */;
 			productName = SecureXPC;
 		};
-		39CF55B428615D41006FB5D2 /* EmbeddedPropertyList */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 39CF55B328615D41006FB5D2 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */;
-			productName = EmbeddedPropertyList;
-		};
 		39CF55B728615D5F006FB5D2 /* Blessed */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 39CF55A8286154A5006FB5D2 /* XCRemoteSwiftPackageReference "Blessed" */;
@@ -1167,11 +1147,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 39CF55B028615D30006FB5D2 /* XCRemoteSwiftPackageReference "SecureXPC" */;
 			productName = SecureXPC;
-		};
-		39CF55BB28615D5F006FB5D2 /* EmbeddedPropertyList */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 39CF55B328615D41006FB5D2 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */;
-			productName = EmbeddedPropertyList;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
