@@ -17,7 +17,7 @@ struct DiskImageCreator {
     ///   - size: The fixed size of the disk image.
     ///
     /// - Throws: An `MistError` if the command failed to execute.
-    static func create(_ url: URL, size: UInt64) async throws {
+    static func create(_ url: URL, size: Double) async throws {
 
         let arguments: [String] = [
             "hdiutil", "create",

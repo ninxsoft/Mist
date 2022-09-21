@@ -162,11 +162,11 @@ struct Installer: Decodable, Hashable, Identifiable {
     var size: UInt64 {
         UInt64(packages.map { $0.size }.reduce(0, +))
     }
-    var diskImageSize: UInt64 {
-        UInt64(ceil(Double(size) / Double(UInt64.gigabyte))) + 1
+    var diskImageSize: Double {
+        ceil(Double(size) / Double(UInt64.gigabyte)) + 1.5
     }
-    var isoSize: UInt64 {
-        UInt64(ceil(Double(size) / Double(UInt64.gigabyte))) + 1
+    var isoSize: Double {
+        ceil(Double(size) / Double(UInt64.gigabyte)) + 1.5
     }
     var postinstall: String {
         """
