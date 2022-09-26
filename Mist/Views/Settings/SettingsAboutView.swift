@@ -16,7 +16,7 @@ struct SettingsAboutView: View {
         Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
     }
     private let length: CGFloat = 128
-    private let spacing: CGFloat = 5
+    private let spacing: CGFloat = 3
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,8 +28,7 @@ struct SettingsAboutView: View {
                     Text("The macOS Installer Super Tool")
                         .font(.title3)
                     HStack(spacing: spacing) {
-                        Text("Version: ")
-                        Text(version)
+                        Text("Version: \(version)")
                         Text("(\(build))")
                             .foregroundColor(.secondary)
                     }
