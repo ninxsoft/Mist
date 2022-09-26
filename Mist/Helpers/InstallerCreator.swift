@@ -14,11 +14,12 @@ struct InstallerCreator {
     /// Creates a recently downloaded macOS Installer.
     ///
     /// - Parameters:
-    ///   - installer:  The selected macOS Installer that was downloaded.
-    ///   - mountPoint: The URL of the directory mount point.
+    ///   - installer:      The selected macOS Installer that was downloaded.
+    ///   - mountPoint:     The URL of the directory mount point.
+    ///   - cacheDirectory: The cache directory storing all macOS Installer components.
     ///
     /// - Throws: A `MistError` if the downloaded macOS Installer fails to generate.
-    static func create(_ installer: Installer, mountPoint: URL) async throws {
+    static func create(_ installer: Installer, mountPoint: URL, cacheDirectory: String) async throws {
 
         guard let url: URL = URL(string: installer.distributionURL) else {
             throw MistError.invalidURL(installer.distributionURL)
@@ -26,7 +27,7 @@ struct InstallerCreator {
 
         try await DirectoryRemover.remove(installer.temporaryInstallerURL)
 
-        let cacheDirectoryURL: URL = URL(fileURLWithPath: .cacheDirectory)
+        let cacheDirectoryURL: URL = URL(fileURLWithPath: cacheDirectory)
         let distributionURL: URL = cacheDirectoryURL.appendingPathComponent(installer.id).appendingPathComponent(url.lastPathComponent)
         var argumentsArrays: [[String]] = [
             ["installer", "-pkg", distributionURL.path, "-target", mountPoint.path]

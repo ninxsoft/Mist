@@ -8,27 +8,42 @@
 import SwiftUI
 
 struct SettingsInstallersCacheView: View {
-    @Binding var enabled: Bool
+    @Binding var cacheDownloads: Bool
+    @Binding var cacheDirectory: String
     @State private var cacheSize: String = ""
     @State private var buttonClicked: Bool = false
+    @State private var openPanel: NSOpenPanel = NSOpenPanel()
 
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Toggle(isOn: $enabled) {
-                    Text("Cache downloads")
+        VStack(alignment: .leading) {
+            HStack(alignment: .firstTextBaseline) {
+                VStack(alignment: .leading) {
+                    Toggle(isOn: $cacheDownloads) {
+                        Text("Cache downloads")
+                    }
+                    FooterText("Speed up future operations by caching a local copy of macOS Installer files.")
                 }
-                FooterText("Speed up future operations by caching a local copy of macOS Installer files.")
+                Spacer()
+                Button("Select...") {
+                    selectCacheDirectory()
+                }
+                .disabled(!cacheDownloads)
             }
-            Spacer()
-            VStack {
+            PathControl(path: $cacheDirectory)
+                .disabled(true)
+            HStack(alignment: .firstTextBaseline) {
+                FooterText("Cache directory currently contains \(cacheSize) of data.")
+                Spacer()
                 Button("Empty Cache...") {
                     buttonClicked.toggle()
                 }
-                FooterText(cacheSize)
             }
+            .disabled(!cacheDownloads)
         }
         .onAppear {
+            getCacheSize()
+        }
+        .onChange(of: cacheDirectory) { _ in
             getCacheSize()
         }
         .alert(isPresented: $buttonClicked) {
@@ -41,9 +56,28 @@ struct SettingsInstallersCacheView: View {
         }
     }
 
+    private func selectCacheDirectory() {
+        openPanel.prompt = "Select"
+        openPanel.canCreateDirectories = true
+        openPanel.canChooseFiles = false
+        openPanel.canChooseDirectories = true
+        openPanel.resolvesAliases = true
+        openPanel.allowsMultipleSelection = false
+        openPanel.isAccessoryViewDisclosed = true
+
+        let response: NSApplication.ModalResponse = openPanel.runModal()
+
+        guard response == .OK,
+            let url: URL = openPanel.url else {
+            return
+        }
+
+        cacheDirectory = url.path
+    }
+
     private func getCacheSize() {
 
-        let url: URL = URL(fileURLWithPath: .cacheDirectory)
+        let url: URL = URL(fileURLWithPath: cacheDirectory)
         var isDirectory: ObjCBool = false
 
         do {
@@ -61,10 +95,10 @@ struct SettingsInstallersCacheView: View {
     private func emptyCache() {
 
         do {
-            let paths: [String] = try FileManager.default.contentsOfDirectory(atPath: .cacheDirectory)
+            let paths: [String] = try FileManager.default.contentsOfDirectory(atPath: cacheDirectory)
 
             for path in paths {
-                let url: URL = URL(fileURLWithPath: .cacheDirectory + "/" + path)
+                let url: URL = URL(fileURLWithPath: cacheDirectory + "/" + path)
                 try FileManager.default.removeItem(at: url)
             }
         } catch {
@@ -75,6 +109,6 @@ struct SettingsInstallersCacheView: View {
 
 struct SettingsInstallersCacheView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsInstallersCacheView(enabled: .constant(true))
+        SettingsInstallersCacheView(cacheDownloads: .constant(true), cacheDirectory: .constant(.cacheDirectory))
     }
 }

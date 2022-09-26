@@ -9,9 +9,11 @@ import SwiftUI
 
 struct SettingsInstallersView: View {
     @AppStorage("cacheDownloads") private var cacheDownloads: Bool = false
+    @AppStorage("cacheDirectory") private var cacheDirectory: String = .cacheDirectory
     @State private var catalogRows: [CatalogRow] = []
     @State private var selectedCatalogRow: CatalogRow?
     private let cacheDownloadsDefault: Bool = false
+    private let cacheDirectoryDefault: String = .cacheDirectory
     private var defaultCatalogRows: [CatalogRow] = Catalog.urls.map { CatalogRow(url: $0) }
     private let imageName: String = "Installer"
     private let title: String = "Installers"
@@ -21,7 +23,7 @@ struct SettingsInstallersView: View {
         VStack(alignment: .leading) {
             SettingsHeaderView(imageName: imageName, title: title, description: description, fade: .constant(false))
             PaddedDivider()
-            SettingsInstallersCacheView(enabled: $cacheDownloads)
+            SettingsInstallersCacheView(cacheDownloads: $cacheDownloads, cacheDirectory: $cacheDirectory)
             PaddedDivider()
             SettingsInstallersCatalogsView(catalogRows: $catalogRows, selectedCatalogRow: $selectedCatalogRow)
             PaddedDivider()
@@ -50,6 +52,7 @@ struct SettingsInstallersView: View {
 
     private func reset() {
         cacheDownloads = cacheDownloadsDefault
+        cacheDirectory = cacheDirectoryDefault
         catalogRows = defaultCatalogRows
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct InstallerListRow: View {
     @AppStorage("cacheDownloads") private var cacheDownloads: Bool = false
+    @AppStorage("cacheDirectory") private var cacheDirectory: String = .cacheDirectory
     @AppStorage("applicationFilename") private var applicationFilename: String = .applicationFilenameTemplate
     @AppStorage("diskImageFilename") private var diskImageFilename: String = .diskImageFilenameTemplate
     @AppStorage("diskImageSign") private var diskImageSign: Bool = false
@@ -83,6 +84,7 @@ struct InstallerListRow: View {
                 destination: openPanel.url,
                 exports: exports,
                 cacheDownloads: cacheDownloads,
+                cacheDirectory: cacheDirectory,
                 retries: retries,
                 delay: retryDelay,
                 applicationFilename: applicationFilename,

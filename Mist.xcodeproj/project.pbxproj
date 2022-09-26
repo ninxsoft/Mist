@@ -28,6 +28,7 @@
 		390451E1285740E800E0B563 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451E0285740E800E0B563 /* Sequence+Extension.swift */; };
 		390451E528574F0000E0B563 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451E428574F0000E0B563 /* Catalog.swift */; };
 		390451E72857510C00E0B563 /* TextTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451E62857510B00E0B563 /* TextTag.swift */; };
+		39148CFC28DD55B300011FF5 /* PathControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39148CFB28DD55B300011FF5 /* PathControl.swift */; };
 		39252A77285A849F00956C74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252A76285A849F00956C74 /* AppDelegate.swift */; };
 		39252A79285A85AF00956C74 /* SettingsInstallersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252A78285A85AF00956C74 /* SettingsInstallersView.swift */; };
 		39252A7B285AC50400956C74 /* SettingsDiskImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252A7A285AC50400956C74 /* SettingsDiskImagesView.swift */; };
@@ -175,6 +176,7 @@
 		390451E0285740E800E0B563 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 		390451E428574F0000E0B563 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		390451E62857510B00E0B563 /* TextTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTag.swift; sourceTree = "<group>"; };
+		39148CFB28DD55B300011FF5 /* PathControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathControl.swift; sourceTree = "<group>"; };
 		39252A76285A849F00956C74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39252A78285A85AF00956C74 /* SettingsInstallersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInstallersView.swift; sourceTree = "<group>"; };
 		39252A7A285AC50400956C74 /* SettingsDiskImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDiskImagesView.swift; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				39252AA4285C463A00956C74 /* DynamicTextView.swift */,
 				39252A86285ACE9C00956C74 /* FooterText.swift */,
 				39252AA0285C2A1600956C74 /* PaddedDivider.swift */,
+				39148CFB28DD55B300011FF5 /* PathControl.swift */,
 				39252A84285ACDC800956C74 /* ResetToDefaultButton.swift */,
 				390451C92856F1D300E0B563 /* ScaledImage.swift */,
 				390451CB2856F23100E0B563 /* ScaledSystemImage.swift */,
@@ -756,6 +759,7 @@
 				390451CA2856F1D300E0B563 /* ScaledImage.swift in Sources */,
 				39252A95285BF83D00956C74 /* MistTask.swift in Sources */,
 				39CF56272861E10F006FB5D2 /* Codesigner.swift in Sources */,
+				39148CFC28DD55B300011FF5 /* PathControl.swift in Sources */,
 				3935F4892866C68000760AB0 /* DownloadSectionHeaderView.swift in Sources */,
 				39252AB5285C706000956C74 /* URL+Extension.swift in Sources */,
 				39CF56352862D4BF006FB5D2 /* FileCompressor.swift in Sources */,
