@@ -40,6 +40,10 @@ Process:
     Arguments:
       source_path: "%MIST_RECIPE_DIR%/Scripts"
       destination_path: "%RECIPE_CACHE_DIR%/scripts"
+  - Processor: PathDeleter
+    Arguments:
+      path_list:
+        - "%RECIPE_CACHE_DIR%/scripts/uninstall.sh"
   - Processor: PkgCreator
     Arguments:
       pkg_request:
