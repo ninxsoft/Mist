@@ -6,9 +6,9 @@
     <language>en</language>
     <link>https://github.com/ninxsoft/mist</link>
     <item>
-      <title>Version 0.2</title>
+      <title>Version 0.3</title>
       <link>https://github.com/ninxsoft/mist</link>
-      <sparkle:version>0.2</sparkle:version>
+      <sparkle:version>0.3</sparkle:version>
       <description>
         <![CDATA[
           <style>
@@ -36,19 +36,19 @@
             }
           </style>
           <ul>
-            <li><span class="tag tag-new">NEW</span><span class="description">Users are now notified of incompatible macOS Firmwares / Installers before downloading.</span></li>
-            <li><span class="tag tag-new">NEW</span><span class="description">Placeholder icons for macOS Ventura have been updated with the real deal.</span></li>
-            <li><span class="tag tag-fixed">FIXED</span><span class="description">Custom Catalog URLs are no longer being ignored.</span></li>
-            <li><span class="tag tag-fixed">FIXED</span><span class="description">The Catalog URLs heading is now aligned correctly under Preferences.</span></li>
+            <li><span class="tag tag-new">NEW</span><span class="description">The macOS Installer cache directory can now be customised in the app preferences.</span></li>
+            <li><span class="tag tag-new">FIXED</span><span class="description">Calculating ISO image sizes is slightly more dynamic (to better support macOS Ventura ISOs).</span></li>
+            <li><span class="tag tag-fixed">FIXED</span><span class="description">macOS Installer SHA-1 checksums are now only validated when they are present.</span></li>
+            <li><span class="tag tag-fixed">FIXED</span><span class="description">Minor cosmetic tweaks.</span></li>
           </ul>
         ]]>
       </description>
-      <pubDate>Fri, 15 Jul 2022 12:00:00 +0000</pubDate>
-      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.2/Mist.0.2.pkg"
+      <pubDate>Mon, 26 Sep 2022 12:00:00 +0000</pubDate>
+      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.3/Mist.0.3.pkg"
                  type="application/octet-stream"
                  sparkle:installationType="package"
-                 sparkle:edSignature="UP7z/JDlLeZBOZ/UTOJOtWefMiWFJgXh2huzp6Gkp7H73V9/yNrgfmuvflN3n0lPxXd32YSL5SmbRdUp2V0RAg=="
-                 length="6567762"
+                 sparkle:edSignature="8tM5eWVYAMiaeIfl8JAkJdXafOuDiDd7wARcvxKZC5BQUPCGhVDPAS0unlCV+OZnmAplbnzVgSMdHAVEFD5ZDw=="
+                 length="6869970"
       />
     </item>
   </channel>
