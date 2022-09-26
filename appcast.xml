@@ -37,7 +37,7 @@
           </style>
           <ul>
             <li><span class="tag tag-new">NEW</span><span class="description">The macOS Installer cache directory can now be customised in the app preferences.</span></li>
-            <li><span class="tag tag-new">FIXED</span><span class="description">Calculating ISO image sizes is slightly more dynamic (to better support macOS Ventura ISOs).</span></li>
+            <li><span class="tag tag-fixed">FIXED</span><span class="description">Calculating ISO image sizes is slightly more dynamic (to better support macOS Ventura ISOs).</span></li>
             <li><span class="tag tag-fixed">FIXED</span><span class="description">macOS Installer SHA-1 checksums are now only validated when they are present.</span></li>
             <li><span class="tag tag-fixed">FIXED</span><span class="description">Minor cosmetic tweaks.</span></li>
           </ul>
