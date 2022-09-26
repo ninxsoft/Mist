@@ -39,8 +39,7 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
 
 ## Build Requirements
 
-- Swift **5.5**.
-- Xcode **14.0**.
+- Swift **5.7** | Xcode **14.0**.
 - Runs on macOS Monterey **12.0** and later.
 
 ## Download
@@ -56,6 +55,13 @@ Grab the latest version of **Mist** from the [releases page](https://github.com/
 - Callum Jones ([cj123](https://github.com/cj123)) for [IPSW Downloads API](https://ipswdownloads.docs.apiary.io), used to determine macOS Firmware metadata.
 
 ## Version History
+
+- 0.3
+
+  - The macOS Installer cache directory can now be customised in the app preferences
+  - Calculating ISO image sizes is _slightly_ more dynamic (to better support macOS Ventura ISOs)
+  - macOS Installer SHA-1 checksums are now only validated when they are present
+  - Minor cosmetic tweaks
 
 - 0.2
 
