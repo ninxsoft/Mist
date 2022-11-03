@@ -203,7 +203,7 @@ class TaskManager: ObservableObject {
                 (
                     section: .package,
                     // swiftlint:disable:next line_length
-                    tasks: packageTasks(for: installer, filename: packageFilename, identifier: packageIdentifier, sign: packageSign, identity: packageSigningIdentity, destination: destinationURL, temporaryDirectory: temporaryDirectoryURL)
+                    tasks: packageTasks(for: installer, filename: packageFilename, identifier: packageIdentifier, sign: packageSign, identity: packageSigningIdentity, destination: destinationURL, temporaryDirectory: temporaryDirectoryURL, cacheDirectory: cacheDirectoryURL)
                 )
             ]
         }
@@ -371,66 +371,36 @@ class TaskManager: ObservableObject {
         sign packageSign: Bool,
         identity packageSigningIdentity: String,
         destination destinationURL: URL,
-        temporaryDirectory temporaryDirectoryURL: URL
+        temporaryDirectory temporaryDirectoryURL: URL,
+        cacheDirectory cacheDirectoryURL: URL
     ) -> [MistTask] {
 
-        let temporaryPackageURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).pkg")
-        let identifier: String = packageIdentifier.stringWithSubstitutions(name: installer.name, version: installer.version, build: installer.build).replacingOccurrences(of: " ", with: "-")
         let packageURL: URL = destinationURL.appendingPathComponent(filename.stringWithSubstitutions(name: installer.name, version: installer.version, build: installer.build))
-        let identity: String? = (packageSign && !packageSigningIdentity.isEmpty && packageSigningIdentity != "-") ? packageSigningIdentity : nil
         var tasks: [MistTask] = []
 
         if installer.bigSurOrNewer {
-            let packageDirectoryURL: URL = temporaryDirectoryURL.appendingPathComponent(installer.id)
-            let payloadDirectoryURL: URL = packageDirectoryURL.appendingPathComponent("Payload")
-            let zipURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).zip")
-            let splitPrefix: String = "\(installer.id).zip."
-            let scriptsDirectoryURL: URL = packageDirectoryURL.appendingPathComponent("Scripts")
-            let postinstallURL: URL = scriptsDirectoryURL.appendingPathComponent("postinstall")
-            let scriptPermissions: Int = 0o755
+            let sourceURL: URL = cacheDirectoryURL.appendingPathComponent("InstallAssistant.pkg")
 
             tasks = [
-                MistTask(type: .configure, description: "temporary Package directory") {
-                    try await DirectoryCreator.create(packageDirectoryURL)
-                },
-                MistTask(type: .compress, description: "macOS Installer") {
-                    try await FileCompressor.compress(installer.temporaryInstallerURL, to: zipURL)
-                },
-                MistTask(type: .configure, description: "temporary Payload directory") {
-                    try await DirectoryCreator.create(payloadDirectoryURL)
-                },
-                MistTask(type: .split, description: "compressed macOS Installer") {
-                    try await FileSplitter.split(zipURL, from: payloadDirectoryURL, prefix: splitPrefix)
-                },
-                MistTask(type: .remove, description: "compressed macOS Installer") {
-                    try await DirectoryRemover.remove(zipURL)
-                },
-                MistTask(type: .configure, description: "temporary Scripts directory") {
-                    try await DirectoryCreator.create(scriptsDirectoryURL)
-                },
-                MistTask(type: .create, description: "Postinstall Script") {
-                    try await FileCreator.create(postinstallURL, contents: installer.postinstall, permissions: scriptPermissions)
-                },
-                MistTask(type: .create, description: "Package") {
-                    try await PackageCreator.create(temporaryPackageURL, from: installer, identifier: identifier, root: payloadDirectoryURL, scripts: scriptsDirectoryURL, identity: identity)
-                },
-                MistTask(type: .remove, description: "temporary Package directory") {
-                    try await DirectoryRemover.remove(packageDirectoryURL)
+                MistTask(type: .save, description: "Package to destination") {
+                    try await FileCopier.copy(sourceURL, to: packageURL)
                 }
             ]
         } else {
+            let temporaryPackageURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).pkg")
+            let identifier: String = packageIdentifier.stringWithSubstitutions(name: installer.name, version: installer.version, build: installer.build).replacingOccurrences(of: " ", with: "-")
+            let identity: String? = (packageSign && !packageSigningIdentity.isEmpty && packageSigningIdentity != "-") ? packageSigningIdentity : nil
+
             tasks = [
                 MistTask(type: .create, description: "Package") {
                     try await PackageCreator.create(temporaryPackageURL, from: installer, identifier: identifier, identity: identity)
+                },
+                MistTask(type: .save, description: "Package to destination") {
+                    try await FileMover.move(temporaryPackageURL, to: packageURL)
                 }
             ]
         }
 
-        tasks += [
-            MistTask(type: .save, description: "Package to destination") {
-                try await FileMover.move(temporaryPackageURL, to: packageURL)
-            }
-        ]
         return tasks
     }
 

@@ -121,7 +121,6 @@
 		39CF56312862A8C5006FB5D2 /* InstallMediaCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF56302862A8C5006FB5D2 /* InstallMediaCreator.swift */; };
 		39CF56332862B7A2006FB5D2 /* PackageCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF56322862B7A2006FB5D2 /* PackageCreator.swift */; };
 		39CF56352862D4BF006FB5D2 /* FileCompressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF56342862D4BF006FB5D2 /* FileCompressor.swift */; };
-		39CF56372862D580006FB5D2 /* FileSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF56362862D580006FB5D2 /* FileSplitter.swift */; };
 		39CF56392862D75D006FB5D2 /* FileCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF56382862D75D006FB5D2 /* FileCreator.swift */; };
 		39D68B892861369B00A7848C /* InstallerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D68B882861369B00A7848C /* InstallerCreator.swift */; };
 		39FF05EE2859820900A86670 /* AppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF05ED2859820900A86670 /* AppCommands.swift */; };
@@ -260,7 +259,6 @@
 		39CF56302862A8C5006FB5D2 /* InstallMediaCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallMediaCreator.swift; sourceTree = "<group>"; };
 		39CF56322862B7A2006FB5D2 /* PackageCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCreator.swift; sourceTree = "<group>"; };
 		39CF56342862D4BF006FB5D2 /* FileCompressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCompressor.swift; sourceTree = "<group>"; };
-		39CF56362862D580006FB5D2 /* FileSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSplitter.swift; sourceTree = "<group>"; };
 		39CF56382862D75D006FB5D2 /* FileCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCreator.swift; sourceTree = "<group>"; };
 		39D68B882861369B00A7848C /* InstallerCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerCreator.swift; sourceTree = "<group>"; };
 		39FF05ED2859820900A86670 /* AppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommands.swift; sourceTree = "<group>"; };
@@ -365,7 +363,6 @@
 				39CF56342862D4BF006FB5D2 /* FileCompressor.swift */,
 				39CF56162861BE66006FB5D2 /* FileCopier.swift */,
 				398734C728601FFC00B4C357 /* FileMover.swift */,
-				39CF56362862D580006FB5D2 /* FileSplitter.swift */,
 				39D68B882861369B00A7848C /* InstallerCreator.swift */,
 				39CF56302862A8C5006FB5D2 /* InstallMediaCreator.swift */,
 				39CF562E2862A797006FB5D2 /* ISOConverter.swift */,
@@ -770,7 +767,6 @@
 				390451C22856E3F500E0B563 /* Hardware.swift in Sources */,
 				39CF56092861AE7F006FB5D2 /* HelperToolCommandRequest.swift in Sources */,
 				390451C82856E94900E0B563 /* FirmwareListRow.swift in Sources */,
-				39CF56372862D580006FB5D2 /* FileSplitter.swift in Sources */,
 				39CF4E732859C03D009E708C /* CatalogRow.swift in Sources */,
 				390451E528574F0000E0B563 /* Catalog.swift in Sources */,
 				3935F4852866B64900760AB0 /* MistTaskSection.swift in Sources */,

@@ -168,40 +168,6 @@ struct Installer: Decodable, Hashable, Identifiable {
     var isoSize: Double {
         ceil(Double(size) / Double(UInt64.gigabyte)) + 1.5
     }
-    var postinstall: String {
-        """
-        #!/usr/bin/env bash
-
-        set -e
-
-        PRODUCT="\(id)"
-        TEMP_DIR="\(String.temporaryDirectory)/$PRODUCT"
-        ZIP="$TEMP_DIR/$PRODUCT.zip"
-        APPS_DIR="/Applications"
-        APP="$APPS_DIR/Install \(name).app"
-
-        # merge the split zip files
-        cat "$ZIP."* > "$ZIP"
-
-        # remove installer app if it already exists
-        if [[ -d "$APP" ]] ; then
-            rm -rf "$APP"
-        fi
-
-        # unpack the app bundle
-        ditto -x -k "$ZIP" "$APPS_DIR"
-
-        # cleanup
-        rm -rf "$TEMP_DIR"
-
-        # change ownership and permissions
-        chown -R root:wheel "$APP"
-        chmod -R 755 "$APP"
-
-        exit 0
-
-        """
-    }
 }
 
 extension Installer: Equatable {
