@@ -163,12 +163,17 @@ class TaskManager: ObservableObject {
             (
                 section: .download,
                 tasks: try downloadTasks(for: installer, cacheDirectory: cacheDirectoryURL, retries: retries, delay: retryDelay)
-            ),
-            (
-                section: .setup,
-                tasks: installTasks(for: installer, temporaryDirectory: temporaryDirectoryURL, mountPoint: mountPointURL, cacheDirectory: cacheDirectory)
             )
         ]
+
+        if !installer.bigSurOrNewer || exports != [.package] {
+            taskGroups += [
+                (
+                    section: .setup,
+                    tasks: installTasks(for: installer, temporaryDirectory: temporaryDirectoryURL, mountPoint: mountPointURL, cacheDirectory: cacheDirectory)
+                )
+            ]
+        }
 
         if exports.contains(.application) {
             taskGroups += [
@@ -208,12 +213,14 @@ class TaskManager: ObservableObject {
             ]
         }
 
-        taskGroups += [
-            (
-                section: .cleanup,
-                tasks: cleanupTasks(mountPoint: mountPointURL, temporaryDirectory: temporaryDirectoryURL, cacheDownloads: cacheDownloads, cacheDirectory: cacheDirectoryURL)
-            )
-        ]
+        if !installer.bigSurOrNewer || exports != [.package] {
+            taskGroups += [
+                (
+                    section: .cleanup,
+                    tasks: cleanupTasks(mountPoint: mountPointURL, temporaryDirectory: temporaryDirectoryURL, cacheDownloads: cacheDownloads, cacheDirectory: cacheDirectoryURL)
+                )
+            ]
+        }
 
         return taskGroups
     }
