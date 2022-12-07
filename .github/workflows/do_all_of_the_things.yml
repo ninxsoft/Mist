@@ -1,0 +1,23 @@
+name: Do all of the things!
+on: [push, pull_request]
+jobs:
+  do-all-of-the-things:
+    name: Do all of the things!
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v3
+      - uses: swift-actions/setup-swift@v1
+      - name: Print SwiftLint version
+        run: swiftlint --version
+      - name: Run SwiftLint
+        run: swiftlint --strict
+      - name: Download DrString
+        run: curl --silent https://api.github.com/repos/dduan/DrString/releases/latest | grep "browser_download_url.*drstring-x86_64-apple-darwin.tar.gz" | awk '{ print $NF }' | tr -d '"' | curl --location --silent --output drstring-x86_64-apple-darwin.tar.gz
+      - name: Extract DrString
+        run: tar --extract --file drstring-x86_64-apple-darwin.tar.gz --directory drstring-x86_64-apple-darwin
+      - name: Add DrString to $PATH
+        run: echo "$GITHUB_WORKSPACE/drstring-x86_64-apple-darwin" >> $GITHUB_PATH
+      - name: Print DrString version
+        run: drstring --version
+      - name: Run DrString
+        run: drstring check --config-file .drstring.toml
