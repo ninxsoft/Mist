@@ -26,7 +26,7 @@
 		390451DC28573F1000E0B563 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451DB28573F1000E0B563 /* Dictionary+Extension.swift */; };
 		390451DF28573FAA00E0B563 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 390451DE28573FAA00E0B563 /* Yams */; };
 		390451E1285740E800E0B563 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451E0285740E800E0B563 /* Sequence+Extension.swift */; };
-		390451E528574F0000E0B563 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451E428574F0000E0B563 /* Catalog.swift */; };
+		390451E528574F0000E0B563 /* CatalogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451E428574F0000E0B563 /* CatalogType.swift */; };
 		390451E72857510C00E0B563 /* TextTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451E62857510B00E0B563 /* TextTag.swift */; };
 		39148CFC28DD55B300011FF5 /* PathControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39148CFB28DD55B300011FF5 /* PathControl.swift */; };
 		39252A77285A849F00956C74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252A76285A849F00956C74 /* AppDelegate.swift */; };
@@ -94,7 +94,8 @@
 		398734D028603D9E00B4C357 /* UInt8+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734CF28603D9E00B4C357 /* UInt8+Extension.swift */; };
 		398734D228603DE700B4C357 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734D128603DE700B4C357 /* Array+Extension.swift */; };
 		398734D4286046B000B4C357 /* UInt32+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734D3286046B000B4C357 /* UInt32+Extension.swift */; };
-		39CF4E732859C03D009E708C /* CatalogRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF4E722859C03D009E708C /* CatalogRow.swift */; };
+		39CB5E3D293F5C2E00CFDBB8 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */; };
+		39CB5E3F2941486D00CFDBB8 /* CatalogSeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB5E3E2941486D00CFDBB8 /* CatalogSeedType.swift */; };
 		39CF55A028614DD8006FB5D2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF559F28614DD8006FB5D2 /* main.swift */; };
 		39CF55AA286154A5006FB5D2 /* Blessed in Frameworks */ = {isa = PBXBuildFile; productRef = 39CF55A9286154A5006FB5D2 /* Blessed */; };
 		39CF55AB286154D1006FB5D2 /* com.ninxsoft.mist.helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 39CF559D28614DD8006FB5D2 /* com.ninxsoft.mist.helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -173,7 +174,7 @@
 		390451D928573ADC00E0B563 /* ExportListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportListType.swift; sourceTree = "<group>"; };
 		390451DB28573F1000E0B563 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		390451E0285740E800E0B563 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
-		390451E428574F0000E0B563 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
+		390451E428574F0000E0B563 /* CatalogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogType.swift; sourceTree = "<group>"; };
 		390451E62857510B00E0B563 /* TextTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTag.swift; sourceTree = "<group>"; };
 		39148CFB28DD55B300011FF5 /* PathControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathControl.swift; sourceTree = "<group>"; };
 		39252A76285A849F00956C74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -237,7 +238,8 @@
 		398734CF28603D9E00B4C357 /* UInt8+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt8+Extension.swift"; sourceTree = "<group>"; };
 		398734D128603DE700B4C357 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		398734D3286046B000B4C357 /* UInt32+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt32+Extension.swift"; sourceTree = "<group>"; };
-		39CF4E722859C03D009E708C /* CatalogRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogRow.swift; sourceTree = "<group>"; };
+		39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
+		39CB5E3E2941486D00CFDBB8 /* CatalogSeedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSeedType.swift; sourceTree = "<group>"; };
 		39CF559D28614DD8006FB5D2 /* com.ninxsoft.mist.helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = com.ninxsoft.mist.helper; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CF559F28614DD8006FB5D2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		39CF55A528614E66006FB5D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -379,8 +381,9 @@
 		390451C32856E4A500E0B563 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				390451E428574F0000E0B563 /* Catalog.swift */,
-				39CF4E722859C03D009E708C /* CatalogRow.swift */,
+				39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */,
+				390451E428574F0000E0B563 /* CatalogType.swift */,
+				39CB5E3E2941486D00CFDBB8 /* CatalogSeedType.swift */,
 				398734CB28603D5F00B4C357 /* Chunklist.swift */,
 				398734CD28603D7F00B4C357 /* Chunk.swift */,
 				395DCD15287FE36E00C411CE /* DownloadAlertType.swift */,
@@ -740,6 +743,7 @@
 				398734C428600E6E00B4C357 /* TaskManager.swift in Sources */,
 				390451D62856F7FE00E0B563 /* UInt64+Extension.swift in Sources */,
 				3935F47E2864813B00760AB0 /* DownloadManager.swift in Sources */,
+				39CB5E3D293F5C2E00CFDBB8 /* Catalog.swift in Sources */,
 				39252AA1285C2A1600956C74 /* PaddedDivider.swift in Sources */,
 				39CF560C2861AE93006FB5D2 /* HelperToolCommandResponse.swift in Sources */,
 				39252A99285BFE2C00956C74 /* MistTaskState.swift in Sources */,
@@ -767,14 +771,14 @@
 				390451C22856E3F500E0B563 /* Hardware.swift in Sources */,
 				39CF56092861AE7F006FB5D2 /* HelperToolCommandRequest.swift in Sources */,
 				390451C82856E94900E0B563 /* FirmwareListRow.swift in Sources */,
-				39CF4E732859C03D009E708C /* CatalogRow.swift in Sources */,
-				390451E528574F0000E0B563 /* Catalog.swift in Sources */,
+				390451E528574F0000E0B563 /* CatalogType.swift in Sources */,
 				3935F4852866B64900760AB0 /* MistTaskSection.swift in Sources */,
 				390451AC2856E1D900E0B563 /* ContentView.swift in Sources */,
 				3935F4A4286AD21000760AB0 /* DownloadProgressView.swift in Sources */,
 				39252A89285AD0AB00956C74 /* SettingsHeaderView.swift in Sources */,
 				39252A85285ACDC800956C74 /* ResetToDefaultButton.swift in Sources */,
 				39CF560F2861B857006FB5D2 /* XPCRoute+Extension.swift in Sources */,
+				39CB5E3F2941486D00CFDBB8 /* CatalogSeedType.swift in Sources */,
 				39252A7F285AC6F600956C74 /* SettingsPackagesView.swift in Sources */,
 				39CF562F2862A797006FB5D2 /* ISOConverter.swift in Sources */,
 				39CF56392862D75D006FB5D2 /* FileCreator.swift in Sources */,
