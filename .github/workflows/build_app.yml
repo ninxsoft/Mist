@@ -1,0 +1,36 @@
+name: Build Mist
+on: [push, pull_request]
+jobs:
+  build-app:
+    name: Build Mist
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v3
+      - uses: swift-actions/setup-swift@v1
+      - name: Install Apple Developer Application Certificate
+        env:
+          APPLE_DEVELOPER_CERTIFICATE: ${{ secrets.APPLE_DEVELOPER_CERTIFICATE }}
+          APPLE_DEVELOPER_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_DEVELOPER_CERTIFICATE_PASSWORD }}
+          APPLE_DEVELOPER_CERTIFICATE_AUTHORITY: ${{ secrets.APPLE_DEVELOPER_CERTIFICATE_AUTHORITY }}
+          APPLE_DEVELOPER_KEYCHAIN_PASSWORD: ${{ secrets.APPLE_DEVELOPER_KEYCHAIN_PASSWORD }}
+        run: |
+          CERTIFICATE_PATH="$RUNNER_TEMP/apple-developer-application-certificate.p12"
+          CERTIFICATE_AUTHORITY_PATH="$RUNNER_TEMP/apple-developer-certificate-authority.cer"
+          KEYCHAIN_PATH="$RUNNER_TEMP/apple-developer.keychain-db"
+          echo -n "$APPLE_DEVELOPER_CERTIFICATE" | base64 --decode --output "$CERTIFICATE_PATH"
+          echo -n "$APPLE_DEVELOPER_CERTIFICATE_AUTHORITY" | base64 --decode --output "$CERTIFICATE_AUTHORITY_PATH"
+          security create-keychain -p "$APPLE_DEVELOPER_KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
+          security unlock-keychain -p "$APPLE_DEVELOPER_KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security import "$CERTIFICATE_PATH" -P "$APPLE_DEVELOPER_CERTIFICATE_PASSWORD" -A -t cert -f pkcs12 -k "$KEYCHAIN_PATH"
+          security import "$CERTIFICATE_AUTHORITY_PATH" -P "$APPLE_DEVELOPER_CERTIFICATE_PASSWORD" -A -t cert -f pkcs7 -k "$KEYCHAIN_PATH"
+          security list-keychain -d user -s "$KEYCHAIN_PATH"
+      - name: Archive Mist
+        run: xcodebuild -scheme Mist clean archive -configuration release -archivePath Mist -quiet
+      - name: Export Mist
+        run: xcodebuild -exportArchive -archivePath Mist.xcarchive -exportPath Export -exportOptionsPlist ExportOptions.plist
+      - name: Print Mist version
+        run: defaults read Export/Mist.app CFBundleShortVersionString
+      - name: Remove Apple Developer Keychain
+        if: ${{ always() }}
+        run: security delete-keychain $RUNNER_TEMP/apple-developer.keychain-db

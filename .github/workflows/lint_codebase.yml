@@ -1,12 +1,11 @@
-name: Do all of the things!
+name: Lint Codebase
 on: [push, pull_request]
 jobs:
-  do-all-of-the-things:
-    name: Do all of the things!
+  lint-codebase:
+    name: Lint Codebase
     runs-on: macos-12
     steps:
       - uses: actions/checkout@v3
-      - uses: swift-actions/setup-swift@v1
       - name: Print SwiftLint version
         run: swiftlint --version
       - name: Run SwiftLint
@@ -23,9 +22,3 @@ jobs:
         run: drstring --version
       - name: Run DrString
         run: drstring check --config-file .drstring.toml
-      - name: Archive Mist
-        run: xcodebuild -scheme Mist clean archive -configuration release -archivePath Mist
-      - name: Export Mist
-        run: xcodebuild -exportArchive -archivePath Mist.xcarchive -exportPath Export -exportOptionsPlist ExportOptions.plist
-      - name: Print Mist version
-        run: defaults read Export/Mist.app CFBundleShortVersionString

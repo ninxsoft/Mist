@@ -1,0 +1,10 @@
+name: Run Unit Tests
+on: [push, pull_request]
+jobs:
+  run_unit_tests:
+    name: Run Unit Tests
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Unit Tests
+        run: xcodebuild -scheme MistTests clean test -quiet
