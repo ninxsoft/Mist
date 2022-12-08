@@ -22,12 +22,12 @@ struct Firmware: Decodable, Hashable, Identifiable {
 
     static var example: Firmware {
         Firmware(
-            version: "12.4",
-            build: "21F79",
-            shasum: "b5553b62da22e5fdbab2b56b6eb1fb74b58555ac",
-            size: 13_837_340_777,
-            url: "https://updates.cdn-apple.com/2022SpringFCS/fullrestores/012-06874/9CECE956-D945-45E2-93E9-4FFDC81BB49A/UniversalMac_12.4_21F79_Restore.ipsw",
-            date: "2022-05-16T18:23:48Z",
+            version: "13.0",
+            build: "22A380",
+            shasum: "348f49da377d8c394672d1b2800d23452a1d6215",
+            size: 12_197_669_257,
+            url: "https://updates.cdn-apple.com/2022FallFCS/fullrestores/012-92188/2C38BCD1-2BFF-4A10-B358-94E8E28BE805/UniversalMac_13.0_22A380_Restore.ipsw",
+            date: "2022-10-24T17:20:22Z",
             signed: true,
             compatible: true
         )
