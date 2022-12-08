@@ -23,3 +23,9 @@ jobs:
         run: drstring --version
       - name: Run DrString
         run: drstring check --config-file .drstring.toml
+      - name: Archive Mist
+        run: xcodebuild -scheme Mist clean archive -configuration release -archivePath Mist
+      - name: Export Mist
+        run: xcodebuild -exportArchive -archivePath Mist.xcarchive -exportPath Export -exportOptionsPlist ExportOptions.plist
+      - name: Print Mist version
+        run: defaults read Export/Mist.app CFBundleShortVersionString
