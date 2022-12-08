@@ -127,7 +127,7 @@ class TaskManager: ObservableObject {
         ]
     }
 
-    // swiftlint:disable:next function_parameter_count
+    // swiftlint:disable:next function_body_length function_parameter_count
     static func taskGroups(
         for installer: Installer,
         destination destinationURL: URL?,

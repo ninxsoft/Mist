@@ -71,7 +71,6 @@ struct InstallerListRow: View {
         openPanel.accessoryView = NSHostingView(rootView: InstallerExportView(exports: $exports))
         openPanel.isAccessoryViewDisclosed = true
 
-        // swiftlint:disable:next closure_body_length
         Task {
             let response: NSApplication.ModalResponse = openPanel.runModal()
 

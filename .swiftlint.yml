@@ -1,9 +1,9 @@
 excluded:
   - .build
 
-closure_body_length:
-  warning: 20
-  error: 40
+large_tuple:
+  warning: 3
+  error: 5
 
 line_length:
   warning: 200

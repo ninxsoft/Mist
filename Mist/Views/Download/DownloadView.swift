@@ -140,7 +140,7 @@ struct DownloadView: View {
 
     private func checkForUserCancellation(_ failure: Error) -> Bool {
 
-        if let _: CancellationError = failure as? CancellationError {
+        if failure as? CancellationError != nil {
             return true
         }
 
