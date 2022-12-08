@@ -8,47 +8,81 @@
 import SwiftUI
 
 struct SettingsInstallersCatalogsView: View {
-    @Binding var catalogRows: [CatalogRow]
-    @Binding var selectedCatalogRow: CatalogRow?
+    @Binding var catalogs: [Catalog]
+    // swiftlint:disable:next line_length
+    private let description: String = "Apple Software Update Catalogs are used to determine available macOS Installers.\n\n- **Standard:** The default catalog that ships with macOS\n- **Customer Seed:** The catalog available as part of the [AppleSeed Program](https://appleseed.apple.com/)\n- **Developer Seed:** The catalog available as part of the [Apple Developer Program](https://developer.apple.com/programs/)\n- **Public Seed:** The catalog available as part of the [Apple Beta Software Program](https://beta.apple.com/)\n\n**Note:** Catalogs from the Seed Programs may contain beta / unreleased versions of macOS. Ensure you are a member of these programs before proceeding."
+    private let height: CGFloat = 120
+    private let width: CGFloat = 150
     private let length: CGFloat = 16
-    private let height: CGFloat = 200
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Catalog URLs:")
-            FooterText("Apple Software Update Catalogs are used to determine all available macOS Installers.")
-            List(selection: $selectedCatalogRow) {
-                ForEach($catalogRows) { catalogRow in
-                    HStack {
-                        ScaledSystemImage(systemName: "line.3.horizontal", length: length)
-                            .foregroundColor(.secondary)
-                        TextEditor(text: catalogRow.url)
-                    }
+            Text("Software Update Catalogs:")
+            FooterText(description)
+            Table(catalogs) {
+                TableColumn("") { catalog in
+                    ScaledImage(name: catalog.type.imageName, length: length)
                 }
-                .onMove { indexSet, offset in
-                    catalogRows.move(fromOffsets: indexSet, toOffset: offset)
+                .width(length)
+                TableColumn("Catalog Type") { catalog in
+                    Text(catalog.type.description)
                 }
-                .onDelete { indexSet in
-                    catalogRows.remove(atOffsets: indexSet)
+                .width(width)
+                TableColumn(CatalogSeedType.standard.description) { catalog in
+                    toggle(.standard, using: catalog)
+                }
+                TableColumn(CatalogSeedType.customer.description) { catalog in
+                    toggle(.customer, using: catalog)
+                }
+                TableColumn(CatalogSeedType.developer.description) { catalog in
+                    toggle(.developer, using: catalog)
+                }
+                TableColumn(CatalogSeedType.public.description) { catalog in
+                    toggle(.public, using: catalog)
                 }
             }
-            .frame(minHeight: height)
-            HStack {
-                Spacer()
-                Button("Add") {
-                    addCatalog()
-                }
-            }
+            .tableStyle(.bordered)
+            .frame(minHeight: height, maxHeight: height)
         }
     }
 
-    private func addCatalog() {
-        catalogRows.append(CatalogRow(url: "https://"))
+    private func toggle(_ catalogSeedType: CatalogSeedType, using catalog: Catalog) -> some View {
+        Toggle(catalogSeedType.description, isOn: Binding<Bool>(
+            get: {
+                switch catalogSeedType {
+                case .standard:
+                    return catalog.standard
+                case .customer:
+                    return catalog.customerSeed
+                case .developer:
+                    return catalog.developerSeed
+                case .public:
+                    return catalog.publicSeed
+                }
+            },
+            set: {
+                guard let index: Int = catalogs.firstIndex(where: { $0.id == catalog.id }) else {
+                    return
+                }
+
+                switch catalogSeedType {
+                case .standard:
+                    catalogs[index].standard = $0
+                case .customer:
+                    catalogs[index].customerSeed = $0
+                case .developer:
+                    catalogs[index].developerSeed = $0
+                case .public:
+                    catalogs[index].publicSeed = $0
+                }
+            }
+        ))
+        .labelsHidden()
     }
 }
 
 struct SettingsInstallersCatalogsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsInstallersCatalogsView(catalogRows: .constant([.example]), selectedCatalogRow: .constant(.example))
+        SettingsInstallersCatalogsView(catalogs: .constant([.example]))
     }
 }

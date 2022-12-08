@@ -16,6 +16,7 @@ class DownloadManager: NSObject, ObservableObject {
         progress.fractionCompleted
     }
 
+    // swiftlint:disable:next cyclomatic_complexity function_body_length
     func download(_ url: URL, to destination: URL, retries retriesMaximum: Int, delay retryDelay: Int) async throws {
 
         guard !FileManager.default.fileExists(atPath: destination.path) else {
@@ -27,6 +28,7 @@ class DownloadManager: NSObject, ObservableObject {
         var urlError: URLError?
         var retries: Int = 0
         var completed: Bool = false
+        // swiftlint:disable:next closure_body_length
         let completionHandler: (URL?, URLResponse?, Error?) -> Void = { url, _, error in
 
             if let error: URLError = error as? URLError {

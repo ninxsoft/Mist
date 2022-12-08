@@ -87,8 +87,7 @@ class TaskManager: ObservableObject {
         ]
     }
 
-    // swiftlint:disable function_parameter_count
-
+    // swiftlint:disable:next function_parameter_count
     private static func firmwareDownloadTasks(
         firmware: Firmware,
         firmwareURL: URL,
@@ -120,8 +119,6 @@ class TaskManager: ObservableObject {
         return tasks
     }
 
-    // swiftlint:enable function_parameter_count
-
     private static func firmwareCleanupTasks(temporaryDirectory temporaryDirectoryURL: URL) -> [MistTask] {
         [
             MistTask(type: .remove, description: "temporary directory") {
@@ -130,8 +127,7 @@ class TaskManager: ObservableObject {
         ]
     }
 
-    // swiftlint:disable function_parameter_count
-
+    // swiftlint:disable:next function_body_length function_parameter_count
     static func taskGroups(
         for installer: Installer,
         destination destinationURL: URL?,
@@ -225,8 +221,6 @@ class TaskManager: ObservableObject {
         return taskGroups
     }
 
-    // swiftlint:enable function_parameter_count
-
     private static func downloadTasks(for installer: Installer, cacheDirectory cacheDirectoryURL: URL, retries: Int, delay retryDelay: Int) throws -> [MistTask] {
 
         var tasks: [MistTask] = []
@@ -292,8 +286,7 @@ class TaskManager: ObservableObject {
         ]
     }
 
-    // swiftlint:disable function_parameter_count
-
+    // swiftlint:disable:next function_parameter_count
     private static func diskImageTasks(
         for installer: Installer,
         filename: String,
@@ -338,8 +331,6 @@ class TaskManager: ObservableObject {
         return tasks
     }
 
-    // swiftlint:enable function_parameter_count
-
     private static func isoTasks(for installer: Installer, filename: String, destination destinationURL: URL, temporaryDirectory temporaryDirectoryURL: URL) -> [MistTask] {
 
         let temporaryImageURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).dmg")
@@ -369,8 +360,7 @@ class TaskManager: ObservableObject {
         ]
     }
 
-    // swiftlint:disable function_parameter_count
-
+    // swiftlint:disable:next function_parameter_count
     private static func packageTasks(
         for installer: Installer,
         filename: String,
@@ -410,8 +400,6 @@ class TaskManager: ObservableObject {
 
         return tasks
     }
-
-    // swiftlint:enable function_parameter_count
 
     private static func cleanupTasks(mountPoint mountPointURL: URL, temporaryDirectory temporaryDirectoryURL: URL, cacheDownloads: Bool, cacheDirectory cacheDirectoryURL: URL) -> [MistTask] {
 

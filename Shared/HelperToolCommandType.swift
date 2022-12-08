@@ -8,9 +8,12 @@
 import Foundation
 
 enum HelperToolCommandType: String, Codable {
-    // swiftlint:disable redundant_string_enum_value
+    // swiftlint:disable:next redundant_string_enum_value
     case remove = "remove"
+    // swiftlint:disable:next redundant_string_enum_value
     case installer = "installer"
+    // swiftlint:disable:next redundant_string_enum_value
     case createinstallmedia = "createinstallmedia"
+    // swiftlint:disable:next redundant_string_enum_value
     case kill = "kill"
 }

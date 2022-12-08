@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// swiftlint:disable:next type_body_length
 struct RefreshView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var firmwares: [Firmware]
@@ -124,11 +125,11 @@ struct RefreshView: View {
 
     private func retrieveInstallers() throws -> [Installer] {
         var installers: [Installer] = []
-        let catalogs: [String] = UserDefaults.standard.array(forKey: "catalogURLs") as? [String] ?? Catalog.urls
+        let catalogURLs: [String] = getCatalogURLs()
 
-        for catalog in catalogs {
+        for catalogURL in catalogURLs {
 
-            guard let url: URL = URL(string: catalog) else {
+            guard let url: URL = URL(string: catalogURL) else {
                 continue
             }
 
@@ -159,6 +160,49 @@ struct RefreshView: View {
         }
 
         return installers
+    }
+
+    private func getCatalogURLs() -> [String] {
+
+        var catalogURLs: [String] = []
+        var catalogs: [Catalog] = []
+        let defaultCatalogs: [Catalog] = CatalogType.allCases.map { Catalog(type: $0, standard: true, customerSeed: false, developerSeed: false, publicSeed: false) }
+
+        if let array: [[String: Any]] = UserDefaults.standard.array(forKey: "catalogs") as? [[String: Any]] {
+            do {
+                catalogs = try JSONDecoder().decode([Catalog].self, from: JSONSerialization.data(withJSONObject: array))
+                let catalogTypes: [CatalogType] = catalogs.map { $0.type }
+
+                for catalogType in CatalogType.allCases where !catalogTypes.contains(catalogType) {
+                    let catalog: Catalog = Catalog(type: catalogType, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)
+                    catalogs.append(catalog)
+                }
+            } catch {
+                catalogs = defaultCatalogs
+            }
+        } else {
+            catalogs = defaultCatalogs
+        }
+
+        for catalog in catalogs {
+            if catalog.standard {
+                catalogURLs.append(catalog.type.url(for: .standard))
+            }
+
+            if catalog.customerSeed {
+                catalogURLs.append(catalog.type.url(for: .customer))
+            }
+
+            if catalog.developerSeed {
+                catalogURLs.append(catalog.type.url(for: .developer))
+            }
+
+            if catalog.publicSeed {
+                catalogURLs.append(catalog.type.url(for: .public))
+            }
+        }
+
+        return catalogURLs
     }
 
     private func getInstallers(from dictionary: [String: Any]) -> [Installer] {

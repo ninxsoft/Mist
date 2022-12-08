@@ -10,11 +10,10 @@ import SwiftUI
 struct SettingsInstallersView: View {
     @AppStorage("cacheDownloads") private var cacheDownloads: Bool = false
     @AppStorage("cacheDirectory") private var cacheDirectory: String = .cacheDirectory
-    @State private var catalogRows: [CatalogRow] = []
-    @State private var selectedCatalogRow: CatalogRow?
+    @State private var catalogs: [Catalog] = []
     private let cacheDownloadsDefault: Bool = false
     private let cacheDirectoryDefault: String = .cacheDirectory
-    private var defaultCatalogRows: [CatalogRow] = Catalog.urls.map { CatalogRow(url: $0) }
+    private let defaultCatalogs: [Catalog] = CatalogType.allCases.map { Catalog(type: $0, standard: true, customerSeed: false, developerSeed: false, publicSeed: false) }
     private let imageName: String = "Installer"
     private let title: String = "Installers"
     private let description: String = "macOS Installers are a collection of files that can be used to build macOS Installer **Applications**, **Disk Images**, **ISOs** and **Packages**."
@@ -25,7 +24,7 @@ struct SettingsInstallersView: View {
             PaddedDivider()
             SettingsInstallersCacheView(cacheDownloads: $cacheDownloads, cacheDirectory: $cacheDirectory)
             PaddedDivider()
-            SettingsInstallersCatalogsView(catalogRows: $catalogRows, selectedCatalogRow: $selectedCatalogRow)
+            SettingsInstallersCatalogsView(catalogs: $catalogs)
             PaddedDivider()
             ResetToDefaultButton {
                 reset()
@@ -33,27 +32,38 @@ struct SettingsInstallersView: View {
         }
         .padding()
         .onAppear {
-            populateCatalogURLs()
+            catalogs = getCatalogs()
         }
-        .onChange(of: catalogRows) { catalogRows in
-            UserDefaults.standard.setValue(catalogRows.map { $0.url }, forKey: "catalogURLs")
+        .onChange(of: catalogs) { catalogs in
+            UserDefaults.standard.setValue(catalogs.map { $0.dictionary() }, forKey: "catalogs")
         }
     }
 
-    private func populateCatalogURLs() {
+    private func getCatalogs() -> [Catalog] {
 
-        guard let urls: [String] = UserDefaults.standard.array(forKey: "catalogURLs") as? [String] else {
-            catalogRows = defaultCatalogRows
-            return
+        guard let array: [[String: Any]] = UserDefaults.standard.array(forKey: "catalogs") as? [[String: Any]] else {
+            return defaultCatalogs
         }
 
-        catalogRows = urls.map { CatalogRow(url: $0) }
+        do {
+            var catalogs: [Catalog] = try JSONDecoder().decode([Catalog].self, from: JSONSerialization.data(withJSONObject: array))
+            let catalogTypes: [CatalogType] = catalogs.map { $0.type }
+
+            for catalogType in CatalogType.allCases where !catalogTypes.contains(catalogType) {
+                let catalog: Catalog = Catalog(type: catalogType, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)
+                catalogs.append(catalog)
+            }
+
+            return catalogs.sorted { $0.type < $1.type }
+        } catch {
+            return defaultCatalogs
+        }
     }
 
     private func reset() {
         cacheDownloads = cacheDownloadsDefault
         cacheDirectory = cacheDirectoryDefault
-        catalogRows = defaultCatalogRows
+        catalogs = defaultCatalogs
     }
 }
 

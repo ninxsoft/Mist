@@ -13,8 +13,6 @@ class ShellExecutor: NSObject {
     static var shared: ShellExecutor = ShellExecutor()
     private var process: Process = Process()
 
-    // swiftlint:disable large_tuple
-
     /// Executes custom shell commands.
     ///
     /// - Parameters:
