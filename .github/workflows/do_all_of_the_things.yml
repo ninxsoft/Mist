@@ -12,7 +12,7 @@ jobs:
       - name: Run SwiftLint
         run: swiftlint --strict
       - name: Download DrString
-        run: curl --silent https://api.github.com/repos/dduan/DrString/releases/latest | grep "browser_download_url.*drstring-x86_64-apple-darwin.tar.gz" | awk '{ print $NF }' | tr -d '"' | curl --location --silent --output drstring-x86_64-apple-darwin.tar.gz
+        run: curl --location --remote-name https://github.com/dduan/DrString/releases/latest/download/drstring-x86_64-apple-darwin.tar.gz
       - name: Extract DrString
         run: tar --extract --file drstring-x86_64-apple-darwin.tar.gz --directory drstring-x86_64-apple-darwin
       - name: Add DrString to $PATH
