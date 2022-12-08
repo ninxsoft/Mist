@@ -1,4 +1,4 @@
-<img align="left" width="128" height="128" src="Readme%20Resources/App%20Icon.png">
+<img align="left" width="128" height="128" src="README%20Resources/App%20Icon.png">
 
 # MIST - macOS Installer Super Tool
 
@@ -6,7 +6,7 @@
 
 A Mac utility that automatically downloads macOS Firmwares / Installers:
 
-![Example Screenshot](Readme%20Resources/Example.png)
+![Example Screenshot](README%20Resources/Example.png)
 
 ## :information_source: Check out [mist-cli](https://github.com/ninxsoft/mist-cli) for the companion command-line tool!
 
