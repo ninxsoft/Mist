@@ -1,8 +1,8 @@
-name: Run Unit Tests
+name: Unit Tests
 on: [push, pull_request]
 jobs:
-  run_unit_tests:
-    name: Run Unit Tests
+  unit_tests:
+    name: Unit Tests
     runs-on: macos-12
     steps:
       - uses: actions/checkout@v3

@@ -1,8 +1,8 @@
-name: Build Mist
+name: Build
 on: [push, pull_request]
 jobs:
-  build-app:
-    name: Build Mist
+  build:
+    name: Build
     runs-on: macos-12
     steps:
       - uses: actions/checkout@v3
@@ -30,7 +30,7 @@ jobs:
       - name: Export Mist
         run: xcodebuild -exportArchive -archivePath Mist.xcarchive -exportPath Export -exportOptionsPlist ExportOptions.plist
       - name: Print Mist version
-        run: defaults read Export/Mist.app CFBundleShortVersionString
+        run: defaults read Export/Mist.app/Contents/Info.plist CFBundleShortVersionString
       - name: Remove Apple Developer Keychain
         if: ${{ always() }}
         run: security delete-keychain $RUNNER_TEMP/apple-developer.keychain-db

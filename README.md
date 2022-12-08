@@ -2,6 +2,8 @@
 
 # MIST - macOS Installer Super Tool
 
+![Latest Release](https://img.shields.io/github/v/release/ninxsoft/Mist?display_name=tag&label=Latest%20Release&sort=semver) [![Linting](https://github.com/ninxsoft/Mist/actions/workflows/linting.yml/badge.svg)](https://github.com/ninxsoft/Mist/actions/workflows/linting.yml) [![Unit Tests](https://github.com/ninxsoft/Mist/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/ninxsoft/Mist/actions/workflows/unit_tests.yml) [![Build](https://github.com/ninxsoft/Mist/actions/workflows/build.yml/badge.svg)](https://github.com/ninxsoft/Mist/actions/workflows/build.yml)
+
 A Mac utility that automatically downloads macOS Firmwares / Installers:
 
 ![Example - Firmwares](Readme%20Resources/Example%20-%20Firmwares.png)
