@@ -94,6 +94,7 @@
 		398734D028603D9E00B4C357 /* UInt8+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734CF28603D9E00B4C357 /* UInt8+Extension.swift */; };
 		398734D228603DE700B4C357 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734D128603DE700B4C357 /* Array+Extension.swift */; };
 		398734D4286046B000B4C357 /* UInt32+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734D3286046B000B4C357 /* UInt32+Extension.swift */; };
+		39CA25E32941D8BB0030711E /* FileAttributesUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CA25E22941D8BB0030711E /* FileAttributesUpdater.swift */; };
 		39CB5E3D293F5C2E00CFDBB8 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */; };
 		39CB5E3F2941486D00CFDBB8 /* CatalogSeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB5E3E2941486D00CFDBB8 /* CatalogSeedType.swift */; };
 		39CB5E5429418A2900CFDBB8 /* MistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB5E5329418A2900CFDBB8 /* MistTests.swift */; };
@@ -239,6 +240,7 @@
 		398734CF28603D9E00B4C357 /* UInt8+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt8+Extension.swift"; sourceTree = "<group>"; };
 		398734D128603DE700B4C357 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		398734D3286046B000B4C357 /* UInt32+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt32+Extension.swift"; sourceTree = "<group>"; };
+		39CA25E22941D8BB0030711E /* FileAttributesUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAttributesUpdater.swift; sourceTree = "<group>"; };
 		39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		39CB5E3E2941486D00CFDBB8 /* CatalogSeedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSeedType.swift; sourceTree = "<group>"; };
 		39CB5E5129418A2900CFDBB8 /* MistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -373,6 +375,7 @@
 				39CF56202861C992006FB5D2 /* DiskImageMounter.swift */,
 				39CF56232861CA85006FB5D2 /* DiskImageUnmounter.swift */,
 				3935F47D2864813B00760AB0 /* DownloadManager.swift */,
+				39CA25E22941D8BB0030711E /* FileAttributesUpdater.swift */,
 				39CF56382862D75D006FB5D2 /* FileCreator.swift */,
 				39CF56342862D4BF006FB5D2 /* FileCompressor.swift */,
 				39CF56162861BE66006FB5D2 /* FileCopier.swift */,
@@ -803,6 +806,7 @@
 				390451D02856F63700E0B563 /* Installer.swift in Sources */,
 				3935F47628643AF000760AB0 /* UNNotificationAction+Extension.swift in Sources */,
 				39252AB3285C5D7700956C74 /* SettingsGeneralUpdatesView.swift in Sources */,
+				39CA25E32941D8BB0030711E /* FileAttributesUpdater.swift in Sources */,
 				3935F4AB286B04BC00760AB0 /* HelperToolInfoPropertyList.swift in Sources */,
 				393F35BC28641181005B7165 /* RefreshState.swift in Sources */,
 				390451CA2856F1D300E0B563 /* ScaledImage.swift in Sources */,

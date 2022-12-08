@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import System
 
 // swiftlint:disable file_length
 // swiftlint:disable:next type_body_length
@@ -231,6 +232,24 @@ class TaskManager: ObservableObject {
                     try await DirectoryCreator.create(cacheDirectoryURL, withIntermediateDirectories: true)
                 }
             ]
+        } else {
+            let attributes: [FileAttributeKey: Any] = try FileManager.default.attributesOfItem(atPath: cacheDirectoryURL.path)
+
+            guard let posixPermissions: NSNumber = attributes[.posixPermissions] as? NSNumber,
+                let ownerAccountName: String = attributes[.ownerAccountName] as? String,
+                let groupOwnerAccountName: String = attributes[.groupOwnerAccountName] as? String else {
+                throw MistError.missingFileAttributes
+            }
+
+            let filePermissions: FilePermissions = FilePermissions(rawValue: CModeT(posixPermissions.int16Value))
+
+            if filePermissions != [.ownerReadWriteExecute, .groupReadExecute, .otherReadExecute] || ownerAccountName != NSUserName() || groupOwnerAccountName != "staff" {
+                tasks += [
+                    MistTask(type: .configure, description: "cache directory") {
+                        try await FileAttributesUpdater.update(url: cacheDirectoryURL, ownerAccountName: ownerAccountName)
+                    }
+                ]
+            }
         }
 
         for package in installer.allDownloads {
