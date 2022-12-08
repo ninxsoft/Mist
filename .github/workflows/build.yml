@@ -30,7 +30,7 @@ jobs:
       - name: Export Mist
         run: xcodebuild -exportArchive -archivePath Mist.xcarchive -exportPath Export -exportOptionsPlist ExportOptions.plist
       - name: Print Mist version
-        run: defaults read Export/Mist.app/Contents/Info.plist CFBundleShortVersionString
+        run: defaults read "$GITHUB_WORKSPACE/Export/Mist.app/Contents/Info.plist CFBundleShortVersionString
       - name: Remove Apple Developer Keychain
         if: ${{ always() }}
         run: security delete-keychain $RUNNER_TEMP/apple-developer.keychain-db
