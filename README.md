@@ -35,7 +35,7 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
         **Customer Seed:** The catalog available as part of the [AppleSeed Program](https://appleseed.apple.com/)
       - **Developer Seed:** The catalog available as part of the [Apple Developer Program](https://developer.apple.com/programs/)
       - **Public Seed:** The catalog available as part of the [Apple Beta Software Program](https://beta.apple.com/)
-        **Note:** Catalogs from the Seed Programs may contain beta / unreleased versions of macOS. Ensure you are a member of these programs before proceeding.
+      - **Note:** Catalogs from the Seed Programs may contain beta / unreleased versions of macOS. Ensure you are a member of these programs before proceeding.
     - Validates the Chunklist checksums upon download
   - Automatic retries for failed downloads!
 
