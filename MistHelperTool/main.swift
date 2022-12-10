@@ -25,7 +25,7 @@ struct HelperToolCommandRunner {
         case .remove:
 
             guard let path: String = request.arguments.first else {
-                return HelperToolCommandResponse(terminationStatus: 1, standardOutput: nil, standardError: "Invalid URL")
+                return HelperToolCommandResponse(terminationStatus: 1, standardOutput: nil, standardError: "Invalid URL: \(request.arguments)")
             }
 
             guard FileManager.default.fileExists(atPath: path) else {
@@ -34,6 +34,25 @@ struct HelperToolCommandRunner {
 
             do {
                 try FileManager.default.removeItem(atPath: path)
+                return HelperToolCommandResponse(terminationStatus: 0, standardOutput: nil, standardError: nil)
+            } catch {
+                return HelperToolCommandResponse(terminationStatus: 1, standardOutput: nil, standardError: error.localizedDescription)
+            }
+        case .fileAttributes:
+
+            guard let path: String = request.arguments.first,
+                let ownerAccountName: String = request.arguments.last else {
+                return HelperToolCommandResponse(terminationStatus: 1, standardOutput: nil, standardError: "Invalid attributes: \(request.arguments)")
+            }
+
+            let attributes: [FileAttributeKey: Any] = [
+                .posixPermissions: 0o755,
+                .ownerAccountName: ownerAccountName,
+                .groupOwnerAccountName: "staff"
+            ]
+
+            do {
+                try FileManager.default.setAttributes(attributes, ofItemAtPath: path)
                 return HelperToolCommandResponse(terminationStatus: 0, standardOutput: nil, standardError: nil)
             } catch {
                 return HelperToolCommandResponse(terminationStatus: 1, standardOutput: nil, standardError: error.localizedDescription)

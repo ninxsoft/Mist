@@ -7,6 +7,7 @@
 
 import Blessed
 import SwiftUI
+import System
 
 struct ListRow: View {
     var type: DownloadType
@@ -21,6 +22,8 @@ struct ListRow: View {
     @ObservedObject var taskManager: TaskManager
     @State private var alertType: DownloadAlertType = .compatibility
     @State private var showAlert: Bool = false
+    @AppStorage("cacheDownloads") private var cacheDownloads: Bool = false
+    @AppStorage("cacheDirectory") private var cacheDirectory: String = .cacheDirectory
     private let length: CGFloat = 48
     private let spacing: CGFloat = 5
     private var compatibilityTitle: String {
@@ -42,6 +45,12 @@ struct ListRow: View {
     }
     private var privilegedHelperToolMessage: String {
         "The Mist Privileged Helper Tool is required to perform Administrator tasks when \(type == .firmware ? "downloading macOS Firmwares" : "creating macOS Installers")."
+    }
+    private var cacheDirectoryTitle: String {
+        "Cache directory settings incorrect!"
+    }
+    private var cacheDirectoryMessage: String {
+        "The cache directory has incorrect ownership and/or permissions, which will cause issues caching macOS Installers.\n\nRepair the cache directory ownership and/or permissions and try again."
     }
 
     var body: some View {
@@ -83,7 +92,14 @@ struct ListRow: View {
                 return Alert(
                     title: Text(privilegedHelperToolTitle),
                     message: Text(privilegedHelperToolMessage),
-                    primaryButton: .default(Text("Install...")) { install() },
+                    primaryButton: .default(Text("Install...")) { installPrivilegedHelperTool() },
+                    secondaryButton: .default(Text("Cancel"))
+                )
+            case .cacheDirectory:
+                return Alert(
+                    title: Text(cacheDirectoryTitle),
+                    message: Text(cacheDirectoryMessage),
+                    primaryButton: .default(Text("Repair...")) { Task { try await repairCacheDirectoryOwnershipAndPermissions() } },
                     secondaryButton: .default(Text("Cancel"))
                 )
             }
@@ -103,11 +119,46 @@ struct ListRow: View {
             return
         }
 
+        if cacheDownloads {
+
+            do {
+                let attributes: [FileAttributeKey: Any] = try FileManager.default.attributesOfItem(atPath: cacheDirectory)
+
+                guard let posixPermissions: NSNumber = attributes[.posixPermissions] as? NSNumber else {
+                    alertType = .cacheDirectory
+                    showAlert = true
+                    return
+                }
+
+                let filePermissions: FilePermissions = FilePermissions(rawValue: CModeT(posixPermissions.int16Value))
+
+                guard filePermissions == [.ownerReadWriteExecute, .groupReadExecute, .otherReadExecute],
+                    let ownerAccountName: String = attributes[.ownerAccountName] as? String,
+                    ownerAccountName == NSUserName(),
+                    let groupOwnerAccountName: String = attributes[.groupOwnerAccountName] as? String,
+                    groupOwnerAccountName == "staff" else {
+                    alertType = .cacheDirectory
+                    showAlert = true
+                    return
+                }
+            } catch {
+                alertType = .cacheDirectory
+                showAlert = true
+                return
+            }
+        }
+
         showPanel = true
     }
 
-    private func install() {
+    private func installPrivilegedHelperTool() {
         try? PrivilegedHelperManager.shared.authorizeAndBless()
+    }
+
+    private func repairCacheDirectoryOwnershipAndPermissions() async throws {
+        let url: URL = URL(fileURLWithPath: cacheDirectory)
+        let ownerAccountName: String = NSUserName()
+        try await FileAttributesUpdater.update(url: url, ownerAccountName: ownerAccountName)
     }
 }
 

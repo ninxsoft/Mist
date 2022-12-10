@@ -19,6 +19,7 @@ enum MistError: Error, Equatable {
     case invalidTerminationStatus(status: Int32, string: String?)
     case invalidURL(_ url: String)
     case maximumRetriesReached
+    case missingFileAttributes
     case outputStreamBufferError
     case outputStreamWriteError
     case userCancelled
@@ -51,6 +52,8 @@ enum MistError: Error, Equatable {
             return "Invalid URL: '\(url)'"
         case .maximumRetriesReached:
             return "Maximum number of retries reached"
+        case .missingFileAttributes:
+            return "Missing file attributes"
         case .outputStreamBufferError:
             return "Output Stream Buffer Error"
         case .outputStreamWriteError:

@@ -59,8 +59,6 @@ class ShellExecutor: NSObject {
         return (terminationStatus: terminationStatus, standardOutput: standardOutput, standardError: (standardError ?? "").isEmpty ? nil : standardError)
     }
 
-    // swiftlint:enable large_tuple
-
     func terminate() {
 
         guard process.isRunning else {
