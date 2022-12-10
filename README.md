@@ -14,10 +14,10 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
 
 - [x] List all available macOS Firmwares / Installers available for download:
   - Display names, versions, builds, release dates and sizes
-  - Show / hide betas
-  - Show / hide macOS versions compatible with the Mac the app is being run from
+  - Optionally show beta versions of macOS
+  - Filter macOS versions that are compatible with the Mac the app is being run from
   - Export lists as **CSV**, **JSON**, **Property List** or **YAML**
-- [x] Download an available macOS Firmware / Installer:
+- [x] Download available macOS Firmwares / Installers:
   - For Apple Silicon Macs:
     - Download a Firmware Restore file (.ipsw)
     - Validates the SHA-1 checksum upon download
@@ -30,10 +30,12 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
       - Supports packages on **macOS Big Sur and newer** with a massive 12GB+ payload!
     - Optionally codesign Disk Images and macOS Installer Packages
     - Cache downloads to speed up build operations
-    - Optionally specify custom catalog URLs, allowing you to list and download macOS Installers from the following:
-      - **Customer Seed** - AppleSeed Program
-      - **Developer Seed** - Apple Developer Program
-      - **Public Seed** - Apple Beta Software Program
+    - Select custom Software Update Catalogs, allowing you to list and download macOS Installers from the following:
+      - **Standard:** The default catalog that ships with macOS
+        **Customer Seed:** The catalog available as part of the [AppleSeed Program](https://appleseed.apple.com/)
+      - **Developer Seed:** The catalog available as part of the [Apple Developer Program](https://developer.apple.com/programs/)
+      - **Public Seed:** The catalog available as part of the [Apple Beta Software Program](https://beta.apple.com/)
+        **Note:** Catalogs from the Seed Programs may contain beta / unreleased versions of macOS. Ensure you are a member of these programs before proceeding.
     - Validates the Chunklist checksums upon download
   - Automatic retries for failed downloads!
 
@@ -55,6 +57,15 @@ Grab the latest version of **Mist** from the [releases page](https://github.com/
 - Callum Jones ([cj123](https://github.com/cj123)) for [IPSW Downloads API](https://ipswdownloads.docs.apiary.io), used to determine macOS Firmware metadata.
 
 ## Version History
+
+- 0.4
+
+  - Building a package for macOS Big Sur or newer is now much faster, as the Apple-provided package is just re-used
+  - Custom Catalog URLs have been replaced with a default set of Apple-provided Software Update Catalogs in the app preferences
+    - The standard catalog that ships with macOS is enabled by default
+    - Additional Seed Program catalogs can be enabled
+    - **Note:** Catalogs from the Seed Programs may contain beta / unreleased versions of macOS. Ensure you are a member of these programs before proceeding
+  - Users are now notified when the macOS Installer cache directory has incorrect ownership / permissions, and are given the option to repair. Cache directories for specific macOS Installers with incorrect ownership / permissions will attempt to repair on-the-fly
 
 - 0.3
 
