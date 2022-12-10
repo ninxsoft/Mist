@@ -1,5 +1,11 @@
 name: Linting
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - "**.swift"
+  pull_request:
+    branches:
+      - main
 jobs:
   linting:
     name: Linting
