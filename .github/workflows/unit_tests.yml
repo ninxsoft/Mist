@@ -13,4 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run Unit Tests
-        run: xcodebuild -scheme MistTests clean test -quiet || true
+        run: xcodebuild -scheme MistTests clean test -quiet
