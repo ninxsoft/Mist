@@ -36,7 +36,7 @@ for file in "${files[@]}" ; do
   fi
 
   if [[ -d "$file" ]] ; then
-    rm -r "$file"
+    rm -rf "$file"
     did_something="Yes"
   fi
 done
