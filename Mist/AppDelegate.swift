@@ -19,6 +19,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let success: UNNotificationCategory = UNNotificationCategory(identifier: UNNotificationCategory.Identifier.success, actions: [show], intentIdentifiers: [], options: [])
         let failure: UNNotificationCategory = UNNotificationCategory(identifier: UNNotificationCategory.Identifier.failure, actions: [], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([success, failure])
+
+        NSWindow.allowsAutomaticWindowTabbing = false
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
