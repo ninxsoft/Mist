@@ -16,7 +16,7 @@ extension Dictionary where Key == String {
             let name: String = self["name"] as? String,
             let version: String = self["version"] as? String,
             let build: String = self["build"] as? String,
-            let size: Int64 = self["size"] as? Int64,
+            let size: UInt64 = self["size"] as? UInt64,
             let date: String = self["date"] as? String,
             let compatible: Bool = self["compatible"] as? Bool else {
             return ""
@@ -32,7 +32,7 @@ extension Dictionary where Key == String {
             let name: String = self["name"] as? String,
             let version: String = self["version"] as? String,
             let build: String = self["build"] as? String,
-            let size: Int64 = self["size"] as? Int64,
+            let size: UInt64 = self["size"] as? UInt64,
             let date: String = self["date"] as? String,
             let compatible: Bool = self["compatible"] as? Bool else {
             return ""
