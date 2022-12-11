@@ -28,7 +28,6 @@ struct AppCommands: Commands {
             .keyboardShortcut("r")
             .disabled(refreshing || downloadInProgress)
         }
-        CommandGroup(replacing: .saveItem) {}
         CommandGroup(replacing: .systemServices) {
             Button("Install Privileged Helper Tool...") {
                 install()
