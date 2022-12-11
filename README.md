@@ -32,7 +32,7 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
     - Cache downloads to speed up build operations
     - Select custom Software Update Catalogs, allowing you to list and download macOS Installers from the following:
       - **Standard:** The default catalog that ships with macOS
-        **Customer Seed:** The catalog available as part of the [AppleSeed Program](https://appleseed.apple.com/)
+      - **Customer Seed:** The catalog available as part of the [AppleSeed Program](https://appleseed.apple.com/)
       - **Developer Seed:** The catalog available as part of the [Apple Developer Program](https://developer.apple.com/programs/)
       - **Public Seed:** The catalog available as part of the [Apple Beta Software Program](https://beta.apple.com/)
       - **Note:** Catalogs from the Seed Programs may contain beta / unreleased versions of macOS. Ensure you are a member of these programs before proceeding.
