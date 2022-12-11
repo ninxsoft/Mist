@@ -26,6 +26,7 @@ struct ListRow: View {
     @AppStorage("cacheDirectory") private var cacheDirectory: String = .cacheDirectory
     private let length: CGFloat = 48
     private let spacing: CGFloat = 5
+    private let padding: CGFloat = 3
     private var compatibilityTitle: String {
         "macOS \(type.description) not compatible!"
     }
@@ -78,6 +79,7 @@ struct ListRow: View {
                 Image(systemName: "arrow.down.circle")
                     .foregroundColor(.accentColor)
             }
+            .padding(.trailing, padding)
         }
         .alert(isPresented: $showAlert) {
             switch alertType {
