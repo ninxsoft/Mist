@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsInstallersCacheView: View {
     @Binding var cacheDownloads: Bool
     @Binding var cacheDirectory: String
-    @State private var cacheSize: String = ""
+    @State private var cacheSize: UInt64 = 0
     @State private var buttonClicked: Bool = false
     @State private var openPanel: NSOpenPanel = NSOpenPanel()
 
@@ -32,26 +32,26 @@ struct SettingsInstallersCacheView: View {
             PathControl(path: $cacheDirectory)
                 .disabled(true)
             HStack(alignment: .firstTextBaseline) {
-                FooterText("Cache directory currently contains \(cacheSize) of data.")
+                FooterText("Cache directory currently contains \(cacheSize.bytesString()) of data.")
                 Spacer()
                 Button("Empty Cache...") {
                     buttonClicked.toggle()
                 }
+                .disabled(cacheSize == 0)
             }
-            .disabled(!cacheDownloads)
         }
         .onAppear {
-            getCacheSize()
+            retrieveCacheSize()
         }
         .onChange(of: cacheDirectory) { _ in
-            getCacheSize()
+            retrieveCacheSize()
         }
         .alert(isPresented: $buttonClicked) {
             Alert(
                 title: Text("Empty Cache Directory?"),
-                message: Text("Emptying the cache directory will free up \(cacheSize)."),
+                message: Text("Emptying the cache directory will free up \(cacheSize.bytesString())."),
                 primaryButton: .cancel(),
-                secondaryButton: .destructive(Text("Empty")) { emptyCache() ; getCacheSize() }
+                secondaryButton: .destructive(Text("Empty")) { emptyCache() ; retrieveCacheSize() }
             )
         }
     }
@@ -75,7 +75,7 @@ struct SettingsInstallersCacheView: View {
         cacheDirectory = url.path
     }
 
-    private func getCacheSize() {
+    private func retrieveCacheSize() {
 
         let url: URL = URL(fileURLWithPath: cacheDirectory)
         var isDirectory: ObjCBool = false
@@ -85,8 +85,7 @@ struct SettingsInstallersCacheView: View {
                 try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
             }
 
-            let size: UInt64 = try FileManager.default.sizeOfDirectory(at: url)
-            cacheSize = size.bytesString()
+            cacheSize = try FileManager.default.sizeOfDirectory(at: url)
         } catch {
             print(error.localizedDescription)
         }
