@@ -234,7 +234,7 @@ struct Installer: Decodable, Hashable, Identifiable {
         temporaryDiskImageMountPointURL.appendingPathComponent("/Applications/Install \(name).app")
     }
     var temporaryISOMountPointURL: URL {
-        URL(fileURLWithPath: "/Volumes/Install \(name).app")
+        URL(fileURLWithPath: "/Volumes/Install \(name)")
     }
     var dictionary: [String: Any] {
         [
