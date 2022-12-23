@@ -227,11 +227,14 @@ struct Installer: Decodable, Hashable, Identifiable {
     var allDownloads: [Package] {
         [Package(url: distributionURL, size: distributionSize, integrityDataURL: nil, integrityDataSize: nil)] + packages.sorted { $0.filename < $1.filename }
     }
-    var temporaryMountPointURL: URL {
-        URL(fileURLWithPath: "/Volumes/Install \(name)")
+    var temporaryDiskImageMountPointURL: URL {
+        URL(fileURLWithPath: "/Volumes/\(id) Temp")
     }
     var temporaryInstallerURL: URL {
-        URL(fileURLWithPath: "/Volumes/\(id) Temp/Applications/Install \(name).app")
+        temporaryDiskImageMountPointURL.appendingPathComponent("/Applications/Install \(name).app")
+    }
+    var temporaryISOMountPointURL: URL {
+        URL(fileURLWithPath: "/Volumes/\(id)")
     }
     var dictionary: [String: Any] {
         [

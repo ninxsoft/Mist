@@ -150,7 +150,6 @@ class TaskManager: ObservableObject {
         var taskGroups: [(section: MistTaskSection, tasks: [MistTask])] = []
         let cacheDirectoryURL: URL = URL(fileURLWithPath: cacheDirectory).appendingPathComponent(installer.id)
         let temporaryDirectoryURL: URL = URL(fileURLWithPath: .temporaryDirectory)
-        let mountPointURL: URL = URL(fileURLWithPath: "/Volumes/\(installer.id) Temp")
 
         guard let destinationURL: URL = destinationURL else {
             throw MistError.invalidDestinationURL
@@ -167,7 +166,7 @@ class TaskManager: ObservableObject {
             taskGroups += [
                 (
                     section: .setup,
-                    tasks: installTasks(for: installer, temporaryDirectory: temporaryDirectoryURL, mountPoint: mountPointURL, cacheDirectory: cacheDirectory)
+                    tasks: installTasks(for: installer, temporaryDirectory: temporaryDirectoryURL, mountPoint: installer.temporaryDiskImageMountPointURL, cacheDirectory: cacheDirectory)
                 )
             ]
         }
@@ -214,7 +213,12 @@ class TaskManager: ObservableObject {
             taskGroups += [
                 (
                     section: .cleanup,
-                    tasks: cleanupTasks(mountPoint: mountPointURL, temporaryDirectory: temporaryDirectoryURL, cacheDownloads: cacheDownloads, cacheDirectory: cacheDirectoryURL)
+                    tasks: cleanupTasks(
+                        mountPoint: installer.temporaryDiskImageMountPointURL,
+                        temporaryDirectory: temporaryDirectoryURL,
+                        cacheDownloads: cacheDownloads,
+                        cacheDirectory: cacheDirectoryURL
+                    )
                 )
             ]
         }
@@ -276,7 +280,6 @@ class TaskManager: ObservableObject {
     private static func installTasks(for installer: Installer, temporaryDirectory temporaryDirectoryURL: URL, mountPoint mountPointURL: URL, cacheDirectory: String) -> [MistTask] {
 
         let imageURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id) Temp.dmg")
-        let mountPointURL: URL = URL(fileURLWithPath: "/Volumes/\(installer.id) Temp")
 
         return [
             MistTask(type: .configure, description: "temporary directory") {
@@ -362,13 +365,13 @@ class TaskManager: ObservableObject {
                 try await DiskImageCreator.create(temporaryImageURL, size: installer.isoSize)
             },
             MistTask(type: .mount, description: "temporary Disk Image") {
-                try await DiskImageMounter.mount(temporaryImageURL, mountPoint: installer.temporaryMountPointURL)
+                try await DiskImageMounter.mount(temporaryImageURL, mountPoint: installer.temporaryISOMountPointURL)
             },
             MistTask(type: .create, description: "macOS Installer in temporary Disk Image") {
-                try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: installer.temporaryMountPointURL)
+                try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: installer.temporaryISOMountPointURL)
             },
             MistTask(type: .unmount, description: "temporary Disk Image") {
-                try await DiskImageUnmounter.unmount(installer.temporaryMountPointURL)
+                try await DiskImageUnmounter.unmount(installer.temporaryISOMountPointURL)
             },
             MistTask(type: .convert, description: "temporary Disk Image to ISO") {
                 try await ISOConverter.convert(temporaryImageURL, destination: temporaryCDRURL)
