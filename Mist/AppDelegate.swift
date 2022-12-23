@@ -5,7 +5,7 @@
 //  Created by Nindi Gill on 16/6/2022.
 //
 
-import Cocoa
+import AppKit
 import UserNotifications
 
 class AppDelegate: NSObject, NSApplicationDelegate {

@@ -5,8 +5,6 @@
 //  Created by Nindi Gill on 17/6/2022.
 //
 
-import Foundation
-
 enum MistTaskType: String {
     case download = "Download"
     case verify = "Verify"

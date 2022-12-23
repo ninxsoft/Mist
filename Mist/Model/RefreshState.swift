@@ -5,7 +5,6 @@
 //  Created by Nindi Gill on 23/6/2022.
 //
 
-import Foundation
 import SwiftUI
 
 enum RefreshState: String, CaseIterable, Identifiable {

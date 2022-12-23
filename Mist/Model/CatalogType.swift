@@ -5,8 +5,6 @@
 //  Created by Nindi Gill on 13/6/2022.
 //
 
-import Foundation
-
 enum CatalogType: String, CaseIterable, Comparable, Decodable {
     case ventura = "macOS Ventura"
     case monterey = "macOS Monterey"

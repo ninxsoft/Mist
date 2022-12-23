@@ -5,8 +5,6 @@
 //  Created by Nindi Gill on 17/6/2022.
 //
 
-import Foundation
-
 enum InstallerExportType: String, CaseIterable, Identifiable {
     case application = "Application"
     case diskImage = "Disk Image"

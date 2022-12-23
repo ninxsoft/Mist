@@ -5,8 +5,6 @@
 //  Created by Nindi Gill on 25/6/2022.
 //
 
-import Foundation
-
 enum MistTaskSection: String, CaseIterable, Identifiable {
     case download = "Download"
     case setup = "Setup"

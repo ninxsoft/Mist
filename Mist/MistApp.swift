@@ -5,7 +5,6 @@
 //  Created by Nindi Gill on 13/6/2022.
 //
 
-import Sparkle
 import SwiftUI
 
 @main

@@ -5,7 +5,6 @@
 //  Created by Nindi Gill on 29/6/2022.
 //
 
-import Foundation
 import SecureXPC
 
 /// Helper struct to kill the child process of the Privileted Helper Tool.

@@ -5,7 +5,6 @@
 //  Created by Nindi Gill on 21/6/2022.
 //
 
-import Foundation
 import SecureXPC
 
 extension XPCRoute {

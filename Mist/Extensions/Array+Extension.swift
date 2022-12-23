@@ -5,8 +5,6 @@
 //  Created by Nindi Gill on 20/6/2022.
 //
 
-import Foundation
-
 extension Array where Element == UInt8 {
 
     func uInt8(at offset: Int) -> UInt8 {

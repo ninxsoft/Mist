@@ -17,6 +17,11 @@ missing_docs:
     - public
     - open
 
+analyzer_rules:
+  - capture_variable
+  - unused_declaration
+  - unused_import
+
 opt_in_rules:
   - attributes
   - balanced_xctest_lifecycle
@@ -71,8 +76,6 @@ opt_in_rules:
   - trailing_closure
   - type_contents_order
   - unneeded_parentheses_in_closure_argument
-  - unused_declaration
-  - unused_import
   - vertical_parameter_alignment_on_call
   - vertical_whitespace_closing_braces
   - yoda_condition
