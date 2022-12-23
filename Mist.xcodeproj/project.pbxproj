@@ -123,8 +123,6 @@
 		39CF562F2862A797006FB5D2 /* ISOConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF562E2862A797006FB5D2 /* ISOConverter.swift */; };
 		39CF56312862A8C5006FB5D2 /* InstallMediaCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF56302862A8C5006FB5D2 /* InstallMediaCreator.swift */; };
 		39CF56332862B7A2006FB5D2 /* PackageCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF56322862B7A2006FB5D2 /* PackageCreator.swift */; };
-		39CF56352862D4BF006FB5D2 /* FileCompressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF56342862D4BF006FB5D2 /* FileCompressor.swift */; };
-		39CF56392862D75D006FB5D2 /* FileCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF56382862D75D006FB5D2 /* FileCreator.swift */; };
 		39D68B892861369B00A7848C /* InstallerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D68B882861369B00A7848C /* InstallerCreator.swift */; };
 		39FF05EE2859820900A86670 /* AppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF05ED2859820900A86670 /* AppCommands.swift */; };
 		39FF05F02859848500A86670 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF05EF2859848500A86670 /* SettingsView.swift */; };
@@ -265,8 +263,6 @@
 		39CF562E2862A797006FB5D2 /* ISOConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISOConverter.swift; sourceTree = "<group>"; };
 		39CF56302862A8C5006FB5D2 /* InstallMediaCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallMediaCreator.swift; sourceTree = "<group>"; };
 		39CF56322862B7A2006FB5D2 /* PackageCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCreator.swift; sourceTree = "<group>"; };
-		39CF56342862D4BF006FB5D2 /* FileCompressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCompressor.swift; sourceTree = "<group>"; };
-		39CF56382862D75D006FB5D2 /* FileCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCreator.swift; sourceTree = "<group>"; };
 		39D68B882861369B00A7848C /* InstallerCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerCreator.swift; sourceTree = "<group>"; };
 		39FF05ED2859820900A86670 /* AppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommands.swift; sourceTree = "<group>"; };
 		39FF05EF2859848500A86670 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -376,8 +372,6 @@
 				39CF56232861CA85006FB5D2 /* DiskImageUnmounter.swift */,
 				3935F47D2864813B00760AB0 /* DownloadManager.swift */,
 				39CA25E22941D8BB0030711E /* FileAttributesUpdater.swift */,
-				39CF56382862D75D006FB5D2 /* FileCreator.swift */,
-				39CF56342862D4BF006FB5D2 /* FileCompressor.swift */,
 				39CF56162861BE66006FB5D2 /* FileCopier.swift */,
 				398734C728601FFC00B4C357 /* FileMover.swift */,
 				39D68B882861369B00A7848C /* InstallerCreator.swift */,
@@ -815,7 +809,6 @@
 				39148CFC28DD55B300011FF5 /* PathControl.swift in Sources */,
 				3935F4892866C68000760AB0 /* DownloadSectionHeaderView.swift in Sources */,
 				39252AB5285C706000956C74 /* URL+Extension.swift in Sources */,
-				39CF56352862D4BF006FB5D2 /* FileCompressor.swift in Sources */,
 				390451D828573A2500E0B563 /* ExportListView.swift in Sources */,
 				39FF05EE2859820900A86670 /* AppCommands.swift in Sources */,
 				39252AA3285C3CC400956C74 /* CodesigningPickerView.swift in Sources */,
@@ -833,7 +826,6 @@
 				39CB5E3F2941486D00CFDBB8 /* CatalogSeedType.swift in Sources */,
 				39252A7F285AC6F600956C74 /* SettingsPackagesView.swift in Sources */,
 				39CF562F2862A797006FB5D2 /* ISOConverter.swift in Sources */,
-				39CF56392862D75D006FB5D2 /* FileCreator.swift in Sources */,
 				39FF05FA285985DD00A86670 /* SettingsAboutView.swift in Sources */,
 				3935F4AC286B04BC00760AB0 /* HelperToolLaunchdPropertyList.swift in Sources */,
 				39FF05F42859850500A86670 /* SettingsGeneralView.swift in Sources */,

@@ -10,35 +10,6 @@ import Foundation
 /// Helper struct to create macOS Installer Packages.
 struct PackageCreator {
 
-    /// Create a macOS Installer Package with a custom root directory and scripts.
-    ///
-    /// - Parameters:
-    ///   - url:        The URL of the Package to be created.
-    ///   - installer:  The `Installer` struct containing metadata of the macOS Installer.
-    ///   - identifier: The package identifier.
-    ///   - root:       The URL of the package root directory.
-    ///   - scripts:    The URL of the package scripts directory.
-    ///   - identity:   Optional Codesigning identity used to sign the package.
-    ///
-    /// - Throws: An `Error` if the command failed to execute.
-    static func create(_ url: URL, from installer: Installer, identifier: String, root: URL, scripts: URL, identity: String? = nil) async throws {
-        var arguments: [String] = [
-            "pkgbuild",
-            "--identifier", identifier,
-            "--version", installer.version,
-            "--root", root.path,
-            "--scripts", scripts.path,
-            "--install-location", "\(String.temporaryDirectory)/\(installer.id)"
-        ]
-
-        if let identity: String = identity {
-            arguments.append(contentsOf: ["--sign", identity])
-        }
-
-        arguments.append(url.path)
-        try await create(url, with: arguments)
-    }
-
     /// Create a macOS Installer Package based off the passed in `Installer` struct.
     ///
     /// - Parameters:

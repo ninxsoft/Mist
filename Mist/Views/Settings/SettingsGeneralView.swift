@@ -26,7 +26,6 @@ struct SettingsGeneralView: View {
     private let enableAutomaticChecksDefault: Bool = true
     private let scheduledCheckIntervalDefault: Int = 86_400
     private let width: CGFloat = 150
-    private let length: CGFloat = 24
 
     var body: some View {
         VStack(alignment: .leading) {

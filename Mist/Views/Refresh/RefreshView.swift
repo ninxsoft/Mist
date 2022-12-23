@@ -14,7 +14,6 @@ struct RefreshView: View {
     @Binding var installers: [Installer]
     @State private var firmwaresState: RefreshState = .pending
     @State private var installersState: RefreshState = .pending
-    private let length: CGFloat = 18
     private let width: CGFloat = 200
     private let height: CGFloat = 200
     private var buttonText: String {

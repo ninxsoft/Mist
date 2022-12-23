@@ -13,8 +13,6 @@ struct DownloadView: View {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @AppStorage("enableNotifications") private var enableNotifications: Bool = false
-    @AppStorage("retries") private var retries: Int = 10
-    @AppStorage("retryDelay") private var retryDelay: Int = 30
     var downloadType: DownloadType
     var imageName: String
     var name: String
