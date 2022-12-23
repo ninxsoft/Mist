@@ -228,7 +228,7 @@ struct Installer: Decodable, Hashable, Identifiable {
         [Package(url: distributionURL, size: distributionSize, integrityDataURL: nil, integrityDataSize: nil)] + packages.sorted { $0.filename < $1.filename }
     }
     var temporaryDiskImageMountPointURL: URL {
-        URL(fileURLWithPath: "/Volumes/\(id) Temp")
+        URL(fileURLWithPath: "/Volumes/\(id)-Temp")
     }
     var temporaryInstallerURL: URL {
         temporaryDiskImageMountPointURL.appendingPathComponent("/Applications/Install \(name).app")
