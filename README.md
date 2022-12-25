@@ -41,6 +41,10 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
     - Validates the Chunklist checksums upon download
   - Automatic retries for failed downloads!
 
+**Note:** Depending on what **Mist** downloads, you may require allowing **Full Disk Access** for **Mist** via [System Settings](https://support.apple.com/en-us/guide/mac-help/mh15217/13.0/mac/13.0):
+
+![Full Disk Access](README%20Resources/Full%20Disk%20Access.png)
+
 ## Build Requirements
 
 - Swift **5.7** | Xcode **14.0**.
