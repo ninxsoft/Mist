@@ -124,6 +124,12 @@ struct ListRow: View {
         if cacheDownloads {
 
             do {
+                var isDirectory: ObjCBool = false
+
+                if !FileManager.default.fileExists(atPath: cacheDirectory, isDirectory: &isDirectory) {
+                    try FileManager.default.createDirectory(atPath: cacheDirectory, withIntermediateDirectories: true)
+                }
+
                 let attributes: [FileAttributeKey: Any] = try FileManager.default.attributesOfItem(atPath: cacheDirectory)
 
                 guard let posixPermissions: NSNumber = attributes[.posixPermissions] as? NSNumber else {
