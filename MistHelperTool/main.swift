@@ -48,7 +48,7 @@ struct HelperToolCommandRunner {
             let attributes: [FileAttributeKey: Any] = [
                 .posixPermissions: 0o755,
                 .ownerAccountName: ownerAccountName,
-                .groupOwnerAccountName: "staff"
+                .groupOwnerAccountName: "wheel"
             ]
 
             do {

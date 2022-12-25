@@ -138,7 +138,7 @@ struct ListRow: View {
                     let ownerAccountName: String = attributes[.ownerAccountName] as? String,
                     ownerAccountName == NSUserName(),
                     let groupOwnerAccountName: String = attributes[.groupOwnerAccountName] as? String,
-                    groupOwnerAccountName == "staff" else {
+                    groupOwnerAccountName == "wheel" else {
                     alertType = .cacheDirectory
                     showAlert = true
                     return
