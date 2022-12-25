@@ -4,6 +4,8 @@ on:
     paths:
       - "**.swift"
   pull_request:
+    paths:
+      - "**.swift"
     branches:
       - main
 jobs:
