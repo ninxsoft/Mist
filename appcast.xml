@@ -6,9 +6,9 @@
     <language>en</language>
     <link>https://github.com/ninxsoft/Mist</link>
     <item>
-      <title>Version 0.4</title>
+      <title>Version 0.5</title>
       <link>https://github.com/ninxsoft/Mist</link>
-      <sparkle:version>0.4</sparkle:version>
+      <sparkle:version>0.5</sparkle:version>
       <description>
         <![CDATA[
           <style>
@@ -36,19 +36,21 @@
             }
           </style>
           <ul>
-            <li><span class="tag tag-new">NEW</span><span class="description">Building a package for macOS Big Sur or newer is now much faster, as the Apple-provided package is just re-used.</span></li>
-            <li><span class="tag tag-new">NEW</span><span class="description">Custom Catalog URLs have been replaced with a default set of Apple-provided Software Update Catalogs in the app preferences.</span></li>
-            <li><span class="tag tag-new">NEW</span><span class="description">Users are now notified when the macOS Installer cache directory has incorrect ownership / permissions, and are given the option to repair.</span></li>
-            <li><span class="tag tag-fixed">FIXED</span><span class="description">Cache directories for specific macOS Installers with incorrect ownership / permissions will attempt to repair on-the-fly.</span></li>
+            <li><span class="tag tag-new">NEW</span><span class="description">The macOS Installer cache can now be emptied even if Cache Downloads is disabled.</span></li>
+            <li><span class="tag tag-fixed">FIXED</span><span class="description">Window tabs are now disabled.</span></li>
+            <li><span class="tag tag-fixed">FIXED</span><span class="description">The Close Window (&#8984;-W) keyboard shortcut is now available once again.</span></li>
+            <li><span class="tag tag-fixed">FIXED</span><span class="description">CSV exports are now working correctly again.</span></li>
+            <li><span class="tag tag-fixed">FIXED</span><span class="description">Removed unused declarations and imports (ie. dead code).</span></li>
+            <li><span class="tag tag-fixed">FIXED</span><span class="description">Minor cosmetic fixes.</span></li>
           </ul>
         ]]>
       </description>
-      <pubDate>Sat, 10 Dec 2022 12:00:00 +0000</pubDate>
-      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.4/Mist.0.4.pkg"
+      <pubDate>Thu, 29 Dec 2022 12:00:00 +0000</pubDate>
+      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.5/Mist.0.5.pkg"
                  type="application/octet-stream"
                  sparkle:installationType="package"
-                 sparkle:edSignature="cUmWPyDTXYoSh5lHosa75K3dIy/QLQAKDhOfS/5+5vx58kqrPCFJPpz8h9GyXYFwY5yPy47Dgl4NLoqPE2ZRDA=="
-                 length="6831690"
+                 sparkle:edSignature="2WoldfelY/vsmfcKI/v339anuvMWhdCuAje7F2JX6mMtFO79fue1xu6lAZHDOzMcnF54azh/H++HZMDNwEQuBg=="
+                 length="6827343"
       />
     </item>
   </channel>
