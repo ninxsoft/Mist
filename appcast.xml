@@ -4,10 +4,10 @@
     <title>Mist Changelog</title>
     <description>A Mac utility that automatically downloads macOS Firmwares / Installers.</description>
     <language>en</language>
-    <link>https://github.com/ninxsoft/mist</link>
+    <link>https://github.com/ninxsoft/Mist</link>
     <item>
       <title>Version 0.4</title>
-      <link>https://github.com/ninxsoft/mist</link>
+      <link>https://github.com/ninxsoft/Mist</link>
       <sparkle:version>0.4</sparkle:version>
       <description>
         <![CDATA[

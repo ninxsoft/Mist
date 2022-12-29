@@ -62,41 +62,6 @@ Grab the latest version of **Mist** from the [releases page](https://github.com/
 - The Sparkle Project ([sparkle-project](https://github.com/sparkle-project)) for [Sparkle](https://github.com/sparkle-project/Sparkle), used to auto update Mist.
 - Callum Jones ([cj123](https://github.com/cj123)) for [IPSW Downloads API](https://ipswdownloads.docs.apiary.io), used to determine macOS Firmware metadata.
 
-## Version History
-
-- 0.4
-
-  - Building a package for macOS Big Sur or newer is now much faster, as the Apple-provided package is just re-used
-  - Custom Catalog URLs have been replaced with a default set of Apple-provided Software Update Catalogs in the app preferences
-    - The standard catalog that ships with macOS is enabled by default
-    - Additional Seed Program catalogs can be enabled
-    - **Note:** Catalogs from the Seed Programs may contain beta / unreleased versions of macOS. Ensure you are a member of these programs before proceeding
-  - Users are now notified when the macOS Installer cache directory has incorrect ownership / permissions, and are given the option to repair
-  - Cache directories for specific macOS Installers with incorrect ownership / permissions will attempt to repair on-the-fly
-
-- 0.3
-
-  - The macOS Installer cache directory can now be customised in the app preferences
-  - Calculating ISO image sizes is _slightly_ more dynamic (to better support macOS Ventura ISOs)
-  - macOS Installer SHA-1 checksums are now only validated when they are present
-  - Minor cosmetic tweaks
-
-- 0.2
-
-  - Users are now notified of incompatible macOS Firmwares / Installers before downloading
-  - Placeholder icons for macOS Ventura have been updated with the real deal
-  - Custom Catalog URLs are no longer being ignored
-  - The Catalog URLs heading is now aligned correctly under Preferences
-
-- 0.1.1
-
-  - Intermediate cache directories are now created if required
-  - Downloads no longer retry indefinitely
-
-- 0.1
-
-  - Initial release
-
 ## License
 
 > Copyright © 2022 Nindi Gill
