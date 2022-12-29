@@ -83,7 +83,7 @@ Process:
             group: wheel
             mode: "0544"
         scripts: "%RECIPE_CACHE_DIR%/scripts"
-  - Processor: PkgSigner
+  - Processor: com.github.rtrouton.SharedProcessors/PkgSigner
     Arguments:
       pkg_path: "%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg"
       signing_cert: "%DEVELOPER_ID_INSTALLER%"
