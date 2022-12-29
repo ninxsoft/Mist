@@ -14,7 +14,7 @@ extension String {
     static let helperIdentifier: String = "\(appIdentifier).helper"
     static let helperLaunchDaemonURL: String = "/Library/LaunchDaemons/\(helperIdentifier).plist"
     static let helperURL: String = "/Library/PrivilegedHelperTools/\(helperIdentifier)"
-    static let repositoryURL: String = "https://github.com/ninxsoft/\(appName)"
+    static let repositoryURL: String = "https://github.com/ninxsoft/Mist"
     static let filenameTemplate: String = "Install %NAME% %VERSION%_%BUILD%"
     static let firmwareFilenameTemplate: String = "\(filenameTemplate).ipsw"
     static let applicationFilenameTemplate: String = "\(filenameTemplate).app"
