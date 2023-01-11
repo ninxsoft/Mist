@@ -9,5 +9,9 @@
 		<key>com.ninxsoft.mist.helper</key>
 		<true/>
 	</dict>
+	<key>AssociatedBundleIdentifiers</key>
+	<array>
+		<string>com.ninxsoft.mist</string>
+	</array>
 </dict>
 </plist>
