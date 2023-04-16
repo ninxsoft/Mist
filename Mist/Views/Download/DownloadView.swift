@@ -16,6 +16,8 @@ struct DownloadView: View {
     var presentationMode: Binding<PresentationMode>
     @AppStorage("enableNotifications")
     private var enableNotifications: Bool = false
+    @AppStorage("showInFinder")
+    private var showInFinder: Bool = false
     var downloadType: DownloadType
     var imageName: String
     var name: String
@@ -63,8 +65,12 @@ struct DownloadView: View {
                 }
             }
             Divider()
-            Button(buttonText) {
-                stop()
+            HStack {
+                Toggle("Show in Finder upon completion", isOn: $showInFinder)
+                Spacer()
+                Button(buttonText) {
+                    stop()
+                }
             }
             .padding()
         }
@@ -136,6 +142,14 @@ struct DownloadView: View {
 
         if enableNotifications {
             sendNotification(for: downloadType, name: name, version: version, build: build, success: true)
+        }
+
+        if showInFinder {
+            guard let url: URL = destinationURL else {
+                return
+            }
+
+            NSWorkspace.shared.selectFile(url.path, inFileViewerRootedAtPath: "")
         }
     }
 
