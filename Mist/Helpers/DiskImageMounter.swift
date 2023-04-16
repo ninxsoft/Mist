@@ -25,7 +25,7 @@ struct DiskImageMounter {
             // do nothing
         }
 
-        let arguments: [String] = ["hdiutil", "attach", url.path, "-noverify", "-mountpoint", mountPoint.path]
+        let arguments: [String] = ["hdiutil", "attach", url.path, "-noverify", "-nobrowse", "-mountpoint", mountPoint.path]
         let result: (terminationStatus: Int32, standardOutput: String?, standardError: String?) = try ShellExecutor.shared.execute(arguments)
 
         guard result.terminationStatus == 0 else {
