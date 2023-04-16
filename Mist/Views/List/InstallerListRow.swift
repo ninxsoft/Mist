@@ -8,19 +8,32 @@
 import SwiftUI
 
 struct InstallerListRow: View {
-    @AppStorage("cacheDownloads") private var cacheDownloads: Bool = false
-    @AppStorage("cacheDirectory") private var cacheDirectory: String = .cacheDirectory
-    @AppStorage("applicationFilename") private var applicationFilename: String = .applicationFilenameTemplate
-    @AppStorage("diskImageFilename") private var diskImageFilename: String = .diskImageFilenameTemplate
-    @AppStorage("diskImageSign") private var diskImageSign: Bool = false
-    @AppStorage("diskImageSigningIdentity") private var diskImageSigningIdentity: String = ""
-    @AppStorage("isoFilename") private var isoFilename: String = .isoFilenameTemplate
-    @AppStorage("packageFilename") private var packageFilename: String = .packageFilenameTemplate
-    @AppStorage("packageIdentifier") private var packageIdentifier: String = .packageIdentifierTemplate
-    @AppStorage("packageSign") private var packageSign: Bool = false
-    @AppStorage("packageSigningIdentity") private var packageSigningIdentity: String = ""
-    @AppStorage("retries") private var retries: Int = 10
-    @AppStorage("retryDelay") private var retryDelay: Int = 30
+    @AppStorage("cacheDownloads")
+    private var cacheDownloads: Bool = false
+    @AppStorage("cacheDirectory")
+    private var cacheDirectory: String = .cacheDirectory
+    @AppStorage("applicationFilename")
+    private var applicationFilename: String = .applicationFilenameTemplate
+    @AppStorage("diskImageFilename")
+    private var diskImageFilename: String = .diskImageFilenameTemplate
+    @AppStorage("diskImageSign")
+    private var diskImageSign: Bool = false
+    @AppStorage("diskImageSigningIdentity")
+    private var diskImageSigningIdentity: String = ""
+    @AppStorage("isoFilename")
+    private var isoFilename: String = .isoFilenameTemplate
+    @AppStorage("packageFilename")
+    private var packageFilename: String = .packageFilenameTemplate
+    @AppStorage("packageIdentifier")
+    private var packageIdentifier: String = .packageIdentifierTemplate
+    @AppStorage("packageSign")
+    private var packageSign: Bool = false
+    @AppStorage("packageSigningIdentity")
+    private var packageSigningIdentity: String = ""
+    @AppStorage("retries")
+    private var retries: Int = 10
+    @AppStorage("retryDelay")
+    private var retryDelay: Int = 30
     var installer: Installer
     @Binding var openPanel: NSOpenPanel
     @Binding var downloadInProgress: Bool

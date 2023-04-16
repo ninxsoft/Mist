@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct SettingsGeneralView: View {
-    @AppStorage("enableNotifications") private var enableNotifications: Bool = false
-    @AppStorage("retries") private var retries: Int = 10
-    @AppStorage("retryDelay") private var retryDelay: Int = 30
-    @AppStorage("SUEnableAutomaticChecks") private var enableAutomaticChecks: Bool = true
-    @AppStorage("SUScheduledCheckInterval") private var scheduledCheckInterval: Int = 86_400
+    @AppStorage("enableNotifications")
+    private var enableNotifications: Bool = false
+    @AppStorage("retries")
+    private var retries: Int = 10
+    @AppStorage("retryDelay")
+    private var retryDelay: Int = 30
+    @AppStorage("SUEnableAutomaticChecks")
+    private var enableAutomaticChecks: Bool = true
+    @AppStorage("SUScheduledCheckInterval")
+    private var scheduledCheckInterval: Int = 86_400
     @ObservedObject var sparkleUpdater: SparkleUpdater
     private let enableNotificationsDefault: Bool = false
     private let retriesDefault: Int = 10

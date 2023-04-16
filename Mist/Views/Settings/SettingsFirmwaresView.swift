@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SettingsFirmwaresView: View {
-    @AppStorage("firmwareFilename") private var firmwareFilename: String = .firmwareFilenameTemplate
+    @AppStorage("firmwareFilename")
+    private var firmwareFilename: String = .firmwareFilenameTemplate
     private let imageName: String = "Firmware"
     private let title: String = "Firmwares"
     // swiftlint:disable:next line_length

@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct SettingsPackagesView: View {
-    @AppStorage("packageFilename") private var packageFilename: String = .packageFilenameTemplate
-    @AppStorage("packageIdentifier") private var packageIdentifier: String = .packageIdentifierTemplate
-    @AppStorage("packageSign") private var packageSign: Bool = false
-    @AppStorage("packageSigningIdentity") private var packageSigningIdentity: String = ""
+    @AppStorage("packageFilename")
+    private var packageFilename: String = .packageFilenameTemplate
+    @AppStorage("packageIdentifier")
+    private var packageIdentifier: String = .packageIdentifierTemplate
+    @AppStorage("packageSign")
+    private var packageSign: Bool = false
+    @AppStorage("packageSigningIdentity")
+    private var packageSigningIdentity: String = ""
     @State private var codesigningIdentities: [String] = ["Loading..."]
     private let packageSignDefault: Bool = false
     private let packageSigningIdentityDefault: String = ""

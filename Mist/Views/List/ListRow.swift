@@ -22,8 +22,10 @@ struct ListRow: View {
     @ObservedObject var taskManager: TaskManager
     @State private var alertType: DownloadAlertType = .compatibility
     @State private var showAlert: Bool = false
-    @AppStorage("cacheDownloads") private var cacheDownloads: Bool = false
-    @AppStorage("cacheDirectory") private var cacheDirectory: String = .cacheDirectory
+    @AppStorage("cacheDownloads")
+    private var cacheDownloads: Bool = false
+    @AppStorage("cacheDirectory")
+    private var cacheDirectory: String = .cacheDirectory
     private let length: CGFloat = 48
     private let spacing: CGFloat = 5
     private let padding: CGFloat = 3

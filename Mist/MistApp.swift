@@ -10,7 +10,8 @@ import SwiftUI
 @main
 struct MistApp: App {
     // swiftlint:disable:next weak_delegate
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
+    @NSApplicationDelegateAdaptor(AppDelegate.self)
+    var appDelegate: AppDelegate
     @StateObject var sparkleUpdater: SparkleUpdater = SparkleUpdater()
     @State private var refreshing: Bool = false
     @State private var downloadInProgress: Bool = false

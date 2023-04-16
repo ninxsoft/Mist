@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @AppStorage("includeBetas") private var includeBetas: Bool = false
-    @AppStorage("showCompatible") private var showCompatible: Bool = false
+    @AppStorage("includeBetas")
+    private var includeBetas: Bool = false
+    @AppStorage("showCompatible")
+    private var showCompatible: Bool = false
     @Binding var refreshing: Bool
     @Binding var downloadInProgress: Bool
     @State private var downloadType: DownloadType = .firmware

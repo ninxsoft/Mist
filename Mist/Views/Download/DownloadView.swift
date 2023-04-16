@@ -10,9 +10,12 @@ import SwiftUI
 
 struct DownloadView: View {
     // swiftlint:disable:next weak_delegate
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @AppStorage("enableNotifications") private var enableNotifications: Bool = false
+    @NSApplicationDelegateAdaptor(AppDelegate.self)
+    var appDelegate: AppDelegate
+    @Environment(\.presentationMode)
+    var presentationMode: Binding<PresentationMode>
+    @AppStorage("enableNotifications")
+    private var enableNotifications: Bool = false
     var downloadType: DownloadType
     var imageName: String
     var name: String

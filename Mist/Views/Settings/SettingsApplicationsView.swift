@@ -18,7 +18,8 @@ struct SettingsApplicationsView: View {
         "Application - macOS High Sierra"
     ]
 
-    @AppStorage("applicationFilename") private var applicationFilename: String = .applicationFilenameTemplate
+    @AppStorage("applicationFilename")
+    private var applicationFilename: String = .applicationFilenameTemplate
     @State private var imageName: String = randomImageName()
     @State private var fade: Bool = false
     private let timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(every: 3, on: .main, in: .common).autoconnect()

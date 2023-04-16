@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct InstallerExportView: View {
-    @AppStorage("exportApplication") private var exportApplication: Bool = true
-    @AppStorage("exportDiskImage") private var exportDiskImage: Bool = false
-    @AppStorage("exportISO") private var exportISO: Bool = false
-    @AppStorage("exportPackage") private var exportPackage: Bool = false
+    @AppStorage("exportApplication")
+    private var exportApplication: Bool = true
+    @AppStorage("exportDiskImage")
+    private var exportDiskImage: Bool = false
+    @AppStorage("exportISO")
+    private var exportISO: Bool = false
+    @AppStorage("exportPackage")
+    private var exportPackage: Bool = false
     @Binding var exports: [InstallerExportType]
 
     var body: some View {

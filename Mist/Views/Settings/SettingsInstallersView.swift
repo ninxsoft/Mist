@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct SettingsInstallersView: View {
-    @AppStorage("cacheDownloads") private var cacheDownloads: Bool = false
-    @AppStorage("cacheDirectory") private var cacheDirectory: String = .cacheDirectory
+    @AppStorage("cacheDownloads")
+    private var cacheDownloads: Bool = false
+    @AppStorage("cacheDirectory")
+    private var cacheDirectory: String = .cacheDirectory
     @State private var catalogs: [Catalog] = []
     private let cacheDownloadsDefault: Bool = false
     private let cacheDirectoryDefault: String = .cacheDirectory

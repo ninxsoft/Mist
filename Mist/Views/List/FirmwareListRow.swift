@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct FirmwareListRow: View {
-    @AppStorage("firmwareFilename") private var firmwareFilename: String = .firmwareFilenameTemplate
-    @AppStorage("retries") private var retries: Int = 10
-    @AppStorage("retryDelay") private var retryDelay: Int = 30
+    @AppStorage("firmwareFilename")
+    private var firmwareFilename: String = .firmwareFilenameTemplate
+    @AppStorage("retries")
+    private var retries: Int = 10
+    @AppStorage("retryDelay")
+    private var retryDelay: Int = 30
     var firmware: Firmware
     @Binding var savePanel: NSSavePanel
     @Binding var downloadInProgress: Bool

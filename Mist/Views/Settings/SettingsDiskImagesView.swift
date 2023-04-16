@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct SettingsDiskImagesView: View {
-    @AppStorage("diskImageFilename") private var diskImageFilename: String = .diskImageFilenameTemplate
-    @AppStorage("diskImageSign") private var diskImageSign: Bool = false
-    @AppStorage("diskImageSigningIdentity") private var diskImageSigningIdentity: String = ""
+    @AppStorage("diskImageFilename")
+    private var diskImageFilename: String = .diskImageFilenameTemplate
+    @AppStorage("diskImageSign")
+    private var diskImageSign: Bool = false
+    @AppStorage("diskImageSigningIdentity")
+    private var diskImageSigningIdentity: String = ""
     @State private var codesigningIdentities: [String] = ["Loading..."]
     private let diskImageSignDefault: Bool = false
     private let diskImageSigningIdentityDefault: String = ""

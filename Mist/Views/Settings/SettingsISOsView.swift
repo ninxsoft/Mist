@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SettingsISOsView: View {
-    @AppStorage("isoFilename") private var isoFilename: String = .isoFilenameTemplate
+    @AppStorage("isoFilename")
+    private var isoFilename: String = .isoFilenameTemplate
     private let imageName: String = "ISO"
     private let title: String = "ISOs"
     // swiftlint:disable:next line_length
