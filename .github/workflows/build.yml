@@ -1,13 +1,11 @@
 name: Build
 on:
   push:
-    paths:
-      - "**.swift"
+    paths: ["**.swift"]
+    branches: [main]
   pull_request:
-    paths:
-      - "**.swift"
-    branches:
-      - main
+    paths: ["**.swift"]
+    branches: [main]
 jobs:
   build:
     name: Build
