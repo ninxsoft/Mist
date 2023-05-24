@@ -1,3 +1,13 @@
+### :mega: Layoffs are less than ideal
+
+I am a seasoned Mac Sys Admin who also makes Mac apps in Swift :hammer_and_wrench:
+
+If you feel I would be a great fit for any job opportunities, please don't hesitate to reach out: [nindi@ninxsoft.com](mailto:nindi@ninxsoft.com) | [LinkedIn](https://www.linkedin.com/in/nindigill/)
+
+Thank you :bow:
+
+---
+
 <img align="left" width="128" height="128" src="README%20Resources/App%20Icon.png">
 
 # MIST - macOS Installer Super Tool
