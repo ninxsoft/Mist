@@ -1,4 +1,4 @@
-### :mega: Layoffs are less than ideal
+### :mega: Looking for work!
 
 I am a seasoned Mac Sys Admin who also makes Mac apps in Swift :hammer_and_wrench:
 
