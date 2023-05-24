@@ -280,8 +280,7 @@ class TaskManager: ObservableObject {
     private static func installTasks(for installer: Installer, temporaryDirectory temporaryDirectoryURL: URL, mountPoint mountPointURL: URL, cacheDirectory: String) -> [MistTask] {
 
         let imageURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id) Temp.dmg")
-
-        return [
+        var tasks: [MistTask] = [
             MistTask(type: .configure, description: "temporary directory") {
                 try await DirectoryCreator.create(temporaryDirectoryURL)
             },
@@ -290,11 +289,34 @@ class TaskManager: ObservableObject {
             },
             MistTask(type: .mount, description: "Disk Image") {
                 try await DiskImageMounter.mount(imageURL, mountPoint: mountPointURL)
-            },
-            MistTask(type: .create, description: "macOS Installer in Disk Image") {
-                try await InstallerCreator.create(installer, mountPoint: mountPointURL, cacheDirectory: cacheDirectory)
             }
         ]
+
+        if installer.sierraOrOlder,
+            let package: Package = installer.packages.first {
+            let legacyDiskImageURL: URL = URL(fileURLWithPath: "\(cacheDirectory)/\(installer.id)/\(package.filename)")
+            let legacyDiskImageMountPointURL: URL = URL(fileURLWithPath: "/Volumes/Install \(installer.name)")
+
+            tasks += [
+                MistTask(type: .mount, description: "macOS Installer Disk Image") {
+                    try await DiskImageMounter.mount(legacyDiskImageURL, mountPoint: legacyDiskImageMountPointURL)
+                },
+                MistTask(type: .create, description: "macOS Installer in Disk Image") {
+                    try await InstallerCreator.create(installer, mountPoint: mountPointURL, cacheDirectory: cacheDirectory)
+                },
+                MistTask(type: .unmount, description: "macOS Installer Disk Image") {
+                    try await DiskImageUnmounter.unmount(legacyDiskImageMountPointURL)
+                }
+            ]
+        } else {
+            tasks += [
+                MistTask(type: .create, description: "macOS Installer in Disk Image") {
+                    try await InstallerCreator.create(installer, mountPoint: mountPointURL, cacheDirectory: cacheDirectory)
+                }
+            ]
+        }
+
+        return tasks
     }
 
     private static func applicationTasks(for installer: Installer, filename: String, destination destinationURL: URL) -> [MistTask] {

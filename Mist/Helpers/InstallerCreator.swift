@@ -21,16 +21,27 @@ struct InstallerCreator {
     /// - Throws: A `MistError` if the downloaded macOS Installer fails to generate.
     static func create(_ installer: Installer, mountPoint: URL, cacheDirectory: String) async throws {
 
-        guard let url: URL = URL(string: installer.distributionURL) else {
-            throw MistError.invalidURL(installer.distributionURL)
+        let packageURL: URL
+
+        if installer.sierraOrOlder {
+
+            guard let package: Package = installer.packages.first else {
+                throw MistError.invalidData
+            }
+
+            packageURL = URL(fileURLWithPath: "/Volumes/Install \(installer.name)").appendingPathComponent(package.filename.replacingOccurrences(of: ".dmg", with: ".pkg"))
+        } else {
+            guard let url: URL = URL(string: installer.distributionURL) else {
+                throw MistError.invalidURL(installer.distributionURL)
+            }
+
+            packageURL = URL(fileURLWithPath: cacheDirectory).appendingPathComponent(installer.id).appendingPathComponent(url.lastPathComponent)
         }
 
         try await DirectoryRemover.remove(installer.temporaryInstallerURL)
 
-        let cacheDirectoryURL: URL = URL(fileURLWithPath: cacheDirectory)
-        let distributionURL: URL = cacheDirectoryURL.appendingPathComponent(installer.id).appendingPathComponent(url.lastPathComponent)
         var argumentsArrays: [[String]] = [
-            ["installer", "-pkg", distributionURL.path, "-target", mountPoint.path]
+            ["installer", "-pkg", packageURL.path, "-target", mountPoint.path]
         ]
 
         if installer.catalinaOrNewer {

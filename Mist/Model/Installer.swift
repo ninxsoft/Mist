@@ -7,6 +7,7 @@
 
 import Foundation
 
+// swiftlint:disable:next type_body_length
 struct Installer: Decodable, Hashable, Identifiable {
 
     enum CodingKeys: String, CodingKey {
@@ -137,6 +138,106 @@ struct Installer: Decodable, Hashable, Identifiable {
         )
     }
 
+    static var legacyInstallers: [Installer] {
+        [
+            Installer(
+                id: "10.12.6-16G29",
+                version: "10.12.6",
+                build: "16G29",
+                date: "2017-07-15",
+                distributionURL: "",
+                distributionSize: 0,
+                packages: [
+                    Package(
+                        url: "http://updates-http.cdn-apple.com/2019/cert/061-39476-20191023-48f365f4-0015-4c41-9f44-39d3d2aca067/InstallOS.dmg",
+                        size: 5_007_882_126,
+                        integrityDataURL: nil,
+                        integrityDataSize: nil
+                    )
+                ],
+                boardIDs: [],
+                deviceIDs: [],
+                unsupportedModelIdentifiers: []
+            ),
+            Installer(
+                id: "10.11.6-15G31",
+                version: "10.11.6",
+                build: "15G31",
+                date: "2016-05-18",
+                distributionURL: "",
+                distributionSize: 0,
+                packages: [
+                    Package(
+                        url: "http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg",
+                        size: 6_204_629_298,
+                        integrityDataURL: nil,
+                        integrityDataSize: nil
+                    )
+                ],
+                boardIDs: [],
+                deviceIDs: [],
+                unsupportedModelIdentifiers: []
+            ),
+            Installer(
+                id: "10.10.5-14F27",
+                version: "10.10.5",
+                build: "14F27",
+                date: "2015-08-05",
+                distributionURL: "",
+                distributionSize: 0,
+                packages: [
+                    Package(
+                        url: "http://updates-http.cdn-apple.com/2019/cert/061-41343-20191023-02465f92-3ab5-4c92-bfe2-b725447a070d/InstallMacOSX.dmg",
+                        size: 5_718_074_248,
+                        integrityDataURL: nil,
+                        integrityDataSize: nil
+                    )
+                ],
+                boardIDs: [],
+                deviceIDs: [],
+                unsupportedModelIdentifiers: []
+            ),
+            Installer(
+                id: "10.8.5-12F45",
+                version: "10.8.5",
+                build: "12F45",
+                date: "2013-09-27",
+                distributionURL: "",
+                distributionSize: 0,
+                packages: [
+                    Package(
+                        url: "https://updates.cdn-apple.com/2021/macos/031-0627-20210614-90D11F33-1A65-42DD-BBEA-E1D9F43A6B3F/InstallMacOSX.dmg",
+                        size: 4_449_317_520,
+                        integrityDataURL: nil,
+                        integrityDataSize: nil
+                    )
+                ],
+                boardIDs: [],
+                deviceIDs: [],
+                unsupportedModelIdentifiers: []
+            ),
+            Installer(
+                id: "10.7.5-11G63",
+                version: "10.7.5",
+                build: "11G63",
+                date: "2012-09-28",
+                distributionURL: "",
+                distributionSize: 0,
+                packages: [
+                    Package(
+                        url: "https://updates.cdn-apple.com/2021/macos/041-7683-20210614-E610947E-C7CE-46EB-8860-D26D71F0D3EA/InstallMacOSX.dmg",
+                        size: 4_720_237_409,
+                        integrityDataURL: nil,
+                        integrityDataSize: nil
+                    )
+                ],
+                boardIDs: [],
+                deviceIDs: [],
+                unsupportedModelIdentifiers: []
+            )
+        ]
+    }
+
     static var filenameDescription: String {
         """
         Use the following variables to set the filename dynamically. For example:
@@ -182,6 +283,18 @@ struct Installer: Decodable, Hashable, Identifiable {
             name = "macOS Mojave"
         } else if version.range(of: "^10\\.13", options: .regularExpression) != nil {
             name = "macOS High Sierra"
+        } else if version.range(of: "^10\\.12", options: .regularExpression) != nil {
+            name = "macOS Sierra"
+        } else if version.range(of: "^10\\.11", options: .regularExpression) != nil {
+            name = "OS X El Capitan"
+        } else if version.range(of: "^10\\.10", options: .regularExpression) != nil {
+            name = "OS X Yosemite"
+        } else if version.range(of: "^10\\.9", options: .regularExpression) != nil {
+            name = "OS X Mavericks"
+        } else if version.range(of: "^10\\.8", options: .regularExpression) != nil {
+            name = "OS X Mountain Lion"
+        } else if version.range(of: "^10\\.7", options: .regularExpression) != nil {
+            name = "Mac OS X Lion"
         } else {
             name = "macOS \(version)"
         }
@@ -225,7 +338,7 @@ struct Installer: Decodable, Hashable, Identifiable {
         return true
     }
     var allDownloads: [Package] {
-        [Package(url: distributionURL, size: distributionSize, integrityDataURL: nil, integrityDataSize: nil)] + packages.sorted { $0.filename < $1.filename }
+        (sierraOrOlder ? [] : [Package(url: distributionURL, size: distributionSize, integrityDataURL: nil, integrityDataSize: nil)]) + packages.sorted { $0.filename < $1.filename }
     }
     var temporaryDiskImageMountPointURL: URL {
         URL(fileURLWithPath: "/Volumes/\(id)")
@@ -249,6 +362,9 @@ struct Installer: Decodable, Hashable, Identifiable {
             "packages": packages.map { $0.dictionary },
             "beta": beta
         ]
+    }
+    var sierraOrOlder: Bool {
+        version.range(of: "^10\\.([7-9]|1[0-2])\\.", options: .regularExpression) != nil
     }
     var catalinaOrNewer: Bool {
         bigSurOrNewer || version.range(of: "^10\\.15\\.", options: .regularExpression) != nil
