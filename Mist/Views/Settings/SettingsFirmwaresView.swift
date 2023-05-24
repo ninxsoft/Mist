@@ -17,7 +17,7 @@ struct SettingsFirmwaresView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            SettingsHeaderView(imageName: imageName, title: title, description: description, fade: .constant(false))
+            SettingsHeaderView(imageName: imageName, title: title, description: description)
             PaddedDivider()
             DynamicTextView(title: "Firmware filename:", text: $firmwareFilename, placeholder: .firmwareFilenameTemplate) { text in
                 text.stringWithSubstitutions(name: Firmware.example.name, version: Firmware.example.version, build: Firmware.example.build)

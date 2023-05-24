@@ -25,7 +25,7 @@ struct SettingsDiskImagesView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            SettingsHeaderView(imageName: imageName, title: title, description: description, fade: .constant(false))
+            SettingsHeaderView(imageName: imageName, title: title, description: description)
             PaddedDivider()
             DynamicTextView(title: "Disk Image filename: ", text: $diskImageFilename, placeholder: .diskImageFilenameTemplate) { text in
                 text.stringWithSubstitutions(name: Installer.example.name, version: Installer.example.version, build: Installer.example.build)

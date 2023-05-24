@@ -22,7 +22,7 @@ struct SettingsInstallersView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            SettingsHeaderView(imageName: imageName, title: title, description: description, fade: .constant(false))
+            SettingsHeaderView(imageName: imageName, title: title, description: description)
             PaddedDivider()
             SettingsInstallersCacheView(cacheDownloads: $cacheDownloads, cacheDirectory: $cacheDirectory)
             PaddedDivider()
