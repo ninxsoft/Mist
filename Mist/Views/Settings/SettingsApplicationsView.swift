@@ -15,7 +15,13 @@ struct SettingsApplicationsView: View {
         "Application - macOS Big Sur",
         "Application - macOS Catalina",
         "Application - macOS Mojave",
-        "Application - macOS High Sierra"
+        "Application - macOS High Sierra",
+        "Application - macOS Sierra",
+        "Application - OS X El Capitan",
+        "Application - OS X Yosemite",
+        "Application - OS X Mavericks",
+        "Application - OS X Mountain Lion",
+        "Application - Mac OS X Lion"
     ]
 
     @AppStorage("applicationFilename")
