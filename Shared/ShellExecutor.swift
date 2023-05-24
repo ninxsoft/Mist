@@ -27,7 +27,7 @@ class ShellExecutor: NSObject {
         _ arguments: [String],
         environment variables: [String: String] = [:],
         currentDirectoryPath: String? = nil
-    ) throws -> (terminationStatus: Int32, standardOutput: String?, standardError: String?) {
+    ) throws -> HelperToolCommandResponse {
         let outputPipe: Pipe = Pipe()
         let errorPipe: Pipe = Pipe()
         process = Process()
@@ -56,7 +56,7 @@ class ShellExecutor: NSObject {
         let errorData: Data = errorPipe.fileHandleForReading.readDataToEndOfFile()
         let standardError: String? = String(data: errorData, encoding: .utf8)
         let terminationStatus: Int32 = process.terminationStatus
-        return (terminationStatus: terminationStatus, standardOutput: standardOutput, standardError: (standardError ?? "").isEmpty ? nil : standardError)
+        return HelperToolCommandResponse(terminationStatus: terminationStatus, standardOutput: standardOutput, standardError: standardError)
     }
 
     func terminate() {

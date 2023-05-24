@@ -61,7 +61,7 @@ struct HelperToolCommandRunner {
             ShellExecutor.shared.terminate()
             return HelperToolCommandResponse(terminationStatus: 0, standardOutput: nil, standardError: nil)
         default:
-            let response: (terminationStatus: Int32, standardOutput: String?, standardError: String?) = try ShellExecutor.shared.execute(request.arguments, environment: request.environment)
+            let response: HelperToolCommandResponse = try ShellExecutor.shared.execute(request.arguments, environment: request.environment)
             return HelperToolCommandResponse(terminationStatus: response.terminationStatus, standardOutput: response.standardOutput, standardError: response.standardError)
         }
     }

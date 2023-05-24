@@ -18,10 +18,10 @@ struct DiskImageUnmounter {
     /// - Throws: A `MistError` if the command failed to execute.
     static func unmount(_ url: URL) async throws {
         let arguments: [String] = ["hdiutil", "detach", url.path, "-force"]
-        let result: (terminationStatus: Int32, standardOutput: String?, standardError: String?) = try ShellExecutor.shared.execute(arguments)
+        let response: HelperToolCommandResponse = try ShellExecutor.shared.execute(arguments)
 
-        guard result.terminationStatus == 0 else {
-            throw MistError.invalidTerminationStatus(status: result.terminationStatus, string: result.standardError)
+        guard response.terminationStatus == 0 else {
+            throw MistError.invalidTerminationStatus(status: response.terminationStatus, output: response.standardOutput, error: response.standardError)
         }
     }
 }

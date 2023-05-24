@@ -19,7 +19,7 @@ struct ProcessKiller {
         let response: HelperToolCommandResponse = try await client.sendMessage(request, to: XPCRoute.commandRoute)
 
         guard response.terminationStatus == 0 else {
-            throw MistError.invalidTerminationStatus(status: response.terminationStatus, string: response.standardError)
+            throw MistError.invalidTerminationStatus(status: response.terminationStatus, output: response.standardOutput, error: response.standardError)
         }
     }
 }

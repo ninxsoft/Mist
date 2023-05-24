@@ -23,9 +23,9 @@ struct PrivilegedHelperTool {
         do {
             // launchctl service is loaded
             let arguments: [String] = ["launchctl", "print", "system/\(String.helperIdentifier)"]
-            let result: (terminationStatus: Int32, standardOutput: String?, standardError: String?) = try ShellExecutor().execute(arguments)
+            let response: HelperToolCommandResponse = try ShellExecutor().execute(arguments)
 
-            guard result.terminationStatus == 0 else {
+            guard response.terminationStatus == 0 else {
                 return false
             }
 

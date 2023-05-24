@@ -16,7 +16,7 @@ enum MistError: Error, Equatable {
     case invalidDownloadResumeData
     case invalidFileSize(invalid: UInt64, valid: UInt64)
     case invalidShasum(invalid: String, valid: String)
-    case invalidTerminationStatus(status: Int32, string: String?)
+    case invalidTerminationStatus(status: Int32, output: String?, error: String?)
     case invalidURL(_ url: String)
     case maximumRetriesReached
     case missingFileAttributes
@@ -42,12 +42,20 @@ enum MistError: Error, Equatable {
             return "Invalid File Size: '\(invalid)', should be: '\(valid)'"
         case .invalidShasum(let invalid, let valid):
             return "Invalid Shasum: '\(invalid)', should be: '\(valid)'"
-        case .invalidTerminationStatus(let status, let string):
-            if let string: String = string {
-                return "Invalid Termination Status '\(status)': \(string)"
-            } else {
-                return "Invalid Termination Status: \(status)"
+        case .invalidTerminationStatus(let status, let output, let error):
+            var string: String = "Invalid Termination Status: \(status)"
+
+            if let output: String = output,
+                !output.isEmpty {
+                string += "\n\n\(output)"
             }
+
+            if let error: String = error,
+                !error.isEmpty {
+                string += "\n\n\(error)"
+            }
+
+            return string
         case .invalidURL(let url):
             return "Invalid URL: '\(url)'"
         case .maximumRetriesReached:

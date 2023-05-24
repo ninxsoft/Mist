@@ -19,10 +19,10 @@ struct ISOConverter {
     /// - Throws: An `Error` if the command failed to execute.
     static func convert(_ source: URL, destination: URL) async throws {
         let arguments: [String] = ["hdiutil", "convert", source.path, "-format", "UDTO", "-o", destination.path]
-        let result: (terminationStatus: Int32, standardOutput: String?, standardError: String?) = try ShellExecutor.shared.execute(arguments)
+        let response: HelperToolCommandResponse = try ShellExecutor.shared.execute(arguments)
 
-        guard result.terminationStatus == 0 else {
-            throw MistError.invalidTerminationStatus(status: result.terminationStatus, string: result.standardError)
+        guard response.terminationStatus == 0 else {
+            throw MistError.invalidTerminationStatus(status: response.terminationStatus, output: response.standardOutput, error: response.standardError)
         }
     }
 }

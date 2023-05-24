@@ -166,7 +166,7 @@ struct DownloadView: View {
         switch error {
         case .userCancelled:
             return true
-        case .invalidTerminationStatus(let status, _):
+        case .invalidTerminationStatus(let status, _, _):
 
             // SIGTERM triggered via Privileged Helper Tool due to user cancellation
             guard status == 15 else {
