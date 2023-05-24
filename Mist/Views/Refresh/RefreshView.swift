@@ -9,7 +9,8 @@ import SwiftUI
 
 // swiftlint:disable:next type_body_length
 struct RefreshView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode)
+    var presentationMode: Binding<PresentationMode>
     @Binding var firmwares: [Firmware]
     @Binding var installers: [Installer]
     @State private var firmwaresState: RefreshState = .pending

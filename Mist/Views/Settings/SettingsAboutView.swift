@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SettingsAboutView: View {
-    @Environment(\.openURL) var openURL: OpenURLAction
+    @Environment(\.openURL)
+    var openURL: OpenURLAction
     private var version: String {
         Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
     }
