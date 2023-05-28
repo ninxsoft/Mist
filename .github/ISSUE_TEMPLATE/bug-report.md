@@ -1,10 +1,9 @@
 ---
 name: Bug Report
 about: File a bug report to fix something that is not working
-title: ''
+title: ""
 labels: bug
-assignees: ''
-
+assignees: ""
 ---
 
 ### :beetle: Description

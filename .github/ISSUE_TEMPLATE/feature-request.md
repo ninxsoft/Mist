@@ -1,10 +1,9 @@
 ---
 name: Feature Request
 about: Submit a feature request to help improve this project
-title: ''
+title: ""
 labels: enhancement
-assignees: ''
-
+assignees: ""
 ---
 
 ### :bulb: Description
