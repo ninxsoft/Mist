@@ -298,13 +298,13 @@ class TaskManager: ObservableObject {
             let legacyDiskImageMountPointURL: URL = URL(fileURLWithPath: "/Volumes/Install \(installer.name)")
 
             tasks += [
-                MistTask(type: .mount, description: "macOS Installer Disk Image") {
+                MistTask(type: .mount, description: "Installer Disk Image") {
                     try await DiskImageMounter.mount(legacyDiskImageURL, mountPoint: legacyDiskImageMountPointURL)
                 },
-                MistTask(type: .create, description: "macOS Installer in Disk Image") {
+                MistTask(type: .create, description: "Installer in Disk Image") {
                     try await InstallerCreator.create(installer, mountPoint: mountPointURL, cacheDirectory: cacheDirectory)
                 },
-                MistTask(type: .unmount, description: "macOS Installer Disk Image") {
+                MistTask(type: .unmount, description: "Installer Disk Image") {
                     try await DiskImageUnmounter.unmount(legacyDiskImageMountPointURL)
                 }
             ]
