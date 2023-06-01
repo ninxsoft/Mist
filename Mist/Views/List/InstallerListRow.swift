@@ -81,7 +81,7 @@ struct InstallerListRow: View {
         openPanel.canChooseDirectories = true
         openPanel.allowsMultipleSelection = false
         openPanel.prompt = "Save"
-        openPanel.accessoryView = NSHostingView(rootView: InstallerExportView(exports: $exports))
+        openPanel.accessoryView = NSHostingView(rootView: InstallerExportView(installer: installer, exports: $exports))
         openPanel.isAccessoryViewDisclosed = true
 
         Task {
