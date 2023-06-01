@@ -132,6 +132,7 @@
 		39FF05FA285985DD00A86670 /* SettingsAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF05F9285985DD00A86670 /* SettingsAboutView.swift */; };
 		573A235E2A285E8900EC9470 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 573A235D2A285E8900EC9470 /* SQLite */; };
 		573A23602A285EAE00EC9470 /* FullDiskAccessVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A235F2A285EAE00EC9470 /* FullDiskAccessVerifier.swift */; };
+		573A23622A28711C00EC9470 /* Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A23612A28711C00EC9470 /* Architecture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -273,6 +274,7 @@
 		39FF05F72859851800A86670 /* SettingsApplicationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationsView.swift; sourceTree = "<group>"; };
 		39FF05F9285985DD00A86670 /* SettingsAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAboutView.swift; sourceTree = "<group>"; };
 		573A235F2A285EAE00EC9470 /* FullDiskAccessVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiskAccessVerifier.swift; sourceTree = "<group>"; };
+		573A23612A28711C00EC9470 /* Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architecture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +397,7 @@
 		390451C32856E4A500E0B563 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				573A23612A28711C00EC9470 /* Architecture.swift */,
 				39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */,
 				390451E428574F0000E0B563 /* CatalogType.swift */,
 				39CB5E3E2941486D00CFDBB8 /* CatalogSeedType.swift */,
@@ -775,6 +778,7 @@
 				3935F47C2864434B00760AB0 /* SettingsGeneralNotificationsView.swift in Sources */,
 				3935F4C7286B54E200760AB0 /* SparkleUpdater.swift in Sources */,
 				393F35BE2864197F005B7165 /* PrivilegedHelperTool.swift in Sources */,
+				573A23622A28711C00EC9470 /* Architecture.swift in Sources */,
 				390451B92856E24200E0B563 /* Firmware.swift in Sources */,
 				390451CE2856F42800E0B563 /* DownloadType.swift in Sources */,
 				3935F4CB286C1EC500760AB0 /* DownloadView.swift in Sources */,

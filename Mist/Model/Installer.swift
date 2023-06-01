@@ -323,8 +323,8 @@ struct Installer: Decodable, Hashable, Identifiable {
         // macOS Catalina 10.15 or older
         if version.range(of: "^10\\.", options: .regularExpression) != nil {
 
-            if let architecture: String = Hardware.architecture,
-                architecture.contains("arm64") {
+            if let architecture: Architecture = Hardware.architecture,
+                architecture == .appleSilicon {
                 return false
             }
 

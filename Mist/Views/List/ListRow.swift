@@ -34,13 +34,12 @@ struct ListRow: View {
     }
     private var compatibilityMessage: String {
 
-        guard let architecture: String = Hardware.architecture else {
+        guard let architecture: Architecture = Hardware.architecture else {
             return "Invalid architecture!"
         }
 
-        let deviceType: String = architecture.contains("arm64") ? "Apple Silicon" : "Intel-based"
         let operation: String = type == .firmware ? "restore" : "re-install"
-        let string: String = "This macOS \(type.description) download cannot be used to \(operation) macOS on this \(deviceType) Mac.\n\nAre you sure you want to continue?"
+        let string: String = "This macOS \(type.description) download cannot be used to \(operation) macOS on this \(architecture.description) Mac.\n\nAre you sure you want to continue?"
         return string
     }
     private var privilegedHelperToolTitle: String {
