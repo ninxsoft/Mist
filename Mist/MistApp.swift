@@ -23,6 +23,7 @@ struct MistApp: App {
                     hideZoomButton()
                 }
         }
+        .fixedWindow()
         .commands {
             AppCommands(sparkleUpdater: sparkleUpdater, refreshing: $refreshing, downloadInProgress: $downloadInProgress)
         }

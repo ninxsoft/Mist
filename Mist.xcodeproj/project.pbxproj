@@ -133,6 +133,7 @@
 		573A235E2A285E8900EC9470 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 573A235D2A285E8900EC9470 /* SQLite */; };
 		573A23602A285EAE00EC9470 /* FullDiskAccessVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A235F2A285EAE00EC9470 /* FullDiskAccessVerifier.swift */; };
 		573A23622A28711C00EC9470 /* Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A23612A28711C00EC9470 /* Architecture.swift */; };
+		573A23642A28791F00EC9470 /* Scene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A23632A28791F00EC9470 /* Scene+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -275,6 +276,7 @@
 		39FF05F9285985DD00A86670 /* SettingsAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAboutView.swift; sourceTree = "<group>"; };
 		573A235F2A285EAE00EC9470 /* FullDiskAccessVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiskAccessVerifier.swift; sourceTree = "<group>"; };
 		573A23612A28711C00EC9470 /* Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architecture.swift; sourceTree = "<group>"; };
+		573A23632A28791F00EC9470 /* Scene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +357,7 @@
 				390451DB28573F1000E0B563 /* Dictionary+Extension.swift */,
 				3935F47F286551FB00760AB0 /* Double+Extension.swift */,
 				39252AB6285C718C00956C74 /* FileManager+Extension.swift */,
+				573A23632A28791F00EC9470 /* Scene+Extension.swift */,
 				390451E0285740E800E0B563 /* Sequence+Extension.swift */,
 				390451BE2856E34700E0B563 /* String+Extension.swift */,
 				398734CF28603D9E00B4C357 /* UInt8+Extension.swift */,
@@ -851,6 +854,7 @@
 				395DCD16287FE36E00C411CE /* DownloadAlertType.swift in Sources */,
 				39CF560028619147006FB5D2 /* HelperToolCommandType.swift in Sources */,
 				39252A87285ACE9C00956C74 /* FooterText.swift in Sources */,
+				573A23642A28791F00EC9470 /* Scene+Extension.swift in Sources */,
 				3935F48E2869278200760AB0 /* InstallerExportType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
