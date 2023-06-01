@@ -247,7 +247,7 @@ class TaskManager: ObservableObject {
 
             let filePermissions: FilePermissions = FilePermissions(rawValue: CModeT(posixPermissions.int16Value))
 
-            if filePermissions != [.ownerReadWriteExecute, .groupReadExecute, .otherReadExecute] || ownerAccountName != NSUserName() || groupOwnerAccountName != "staff" {
+            if filePermissions != [.ownerReadWriteExecute, .groupReadExecute, .otherReadExecute] || ownerAccountName != NSUserName() || groupOwnerAccountName != "wheel" {
                 tasks += [
                     MistTask(type: .configure, description: "cache directory") {
                         try await FileAttributesUpdater.update(url: cacheDirectoryURL, ownerAccountName: ownerAccountName)
