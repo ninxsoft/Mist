@@ -90,7 +90,7 @@ struct ListRow: View {
                     title: Text(compatibilityTitle),
                     message: Text(compatibilityMessage),
                     primaryButton: .default(Text("Cancel")),
-                    secondaryButton: .default(Text("Continue")) { validate() }
+                    secondaryButton: .default(Text("Continue")) { Task { validate() } }
                 )
             case .helperTool:
                 return Alert(
