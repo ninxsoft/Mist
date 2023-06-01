@@ -49,6 +49,12 @@ struct ListRow: View {
     private var privilegedHelperToolMessage: String {
         "The Mist Privileged Helper Tool is required to perform Administrator tasks when \(type == .firmware ? "downloading macOS Firmwares" : "creating macOS Installers")."
     }
+    private var fullDiskAccessTitle: String {
+        "Full Disk Access required!"
+    }
+    private var fullDiskAccessMessage: String {
+        "Mist requires Full Disk Access to perform Administrator tasks when creating macOS Installers."
+    }
     private var cacheDirectoryTitle: String {
         "Cache directory settings incorrect!"
     }
@@ -99,6 +105,13 @@ struct ListRow: View {
                     primaryButton: .default(Text("Install...")) { installPrivilegedHelperTool() },
                     secondaryButton: .default(Text("Cancel"))
                 )
+            case .fullDiskAccess:
+                return Alert(
+                    title: Text(fullDiskAccessTitle),
+                    message: Text(fullDiskAccessMessage),
+                    primaryButton: .default(Text("Allow...")) { openFullDiskAccessPreferences() },
+                    secondaryButton: .default(Text("Cancel"))
+                )
             case .cacheDirectory:
                 return Alert(
                     title: Text(cacheDirectoryTitle),
@@ -119,6 +132,13 @@ struct ListRow: View {
 
         guard PrivilegedHelperTool.isInstalled() else {
             alertType = .helperTool
+            showAlert = true
+            return
+        }
+
+        guard type == .installer,
+            FullDiskAccessVerifier.isAllowed() else {
+            alertType = .fullDiskAccess
             showAlert = true
             return
         }
@@ -163,6 +183,15 @@ struct ListRow: View {
 
     private func installPrivilegedHelperTool() {
         try? PrivilegedHelperManager.shared.authorizeAndBless()
+    }
+
+    private func openFullDiskAccessPreferences() {
+
+        guard let url: URL = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles") else {
+            return
+        }
+
+        NSWorkspace.shared.open(url)
     }
 
     private func repairCacheDirectoryOwnershipAndPermissions() async throws {
