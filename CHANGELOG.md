@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.6](https://github.com/ninxsoft/Mist/releases/tag/v0.6) - 2023-06-06
+
+- Added support for the following legacy operating systems:
+  - macOS Sierra 10.12.6
+  - OS X El Capitan 10.11.6
+  - OS X Yosemite 10.10.5
+  - OS X Mountain Lion 10.8.5
+  - Mac OS X Lion 10.7.5
+  - Thanks Nate Felton ([n8felton](https://github.com/n8felton))!
+- Added a **Show in Finder upon completion** checkbox to the download screen - thanks Trevor Sysock ([BigMacAdmin](https://github.com/BigMacAdmin))!
+- Added a **Full Disk Access** verfication step prior to downloading a macOS Firmware / Installer - thanks ihubgit ([ihubgit](https://github.com/ihubgit)) & Nathan Pierce ([NorseGaud](https://github.com/NorseGaud))!
+- Added a warning when attempting to build an **ISO** for **macOS Catalina 10.15 or older** on Apple Silicon Macs - thanks Karol Woźniak ([KenjiTakahashi](https://github.com/KenjiTakahashi))!
+- The Mist.app **Login Item** title now displays the app name and not the developer's name - thanks Pico Mitchell ([PicoMitchell](https://github.com/PicoMitchell))!
+- Temporary volumes are now hidden, and no longer show in Finder when mounted during image creation - thanks Richard Smith ([wakco](https://github.com/wakco))!
+- Mist now has more comprehensive error messages of failed tasks - thanks IronCraftMan ([IronCraftMan](https://github.com/IronCraftMan))!
+- Fixed a bug where warning messages would not cascade correctly
+- Fixed a bug where file and directory ownership was being checked incorrectly
+- Fixed a bug where icons would flicker during animation in the **Settings > Applications** tab
+- Fixed a bug where the Mist window would not resize correctly
+
 ## [0.5](https://github.com/ninxsoft/Mist/releases/tag/v0.5) - 2022-12-29
 
 - The macOS Installer cache can now be emptied even if **Cache downloads** is disabled - thanks Pico Mitchell ([PicoMitchell](https://github.com/PicoMitchell))!
