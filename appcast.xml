@@ -6,51 +6,83 @@
     <language>en</language>
     <link>https://github.com/ninxsoft/Mist</link>
     <item>
-      <title>Version 0.5</title>
+      <title>Version 0.6</title>
       <link>https://github.com/ninxsoft/Mist</link>
-      <sparkle:version>0.5</sparkle:version>
+      <sparkle:version>0.6</sparkle:version>
+      <sparkle:fullReleaseNotesLink>https://github.com/ninxsoft/Mist/blob/main/CHANGELOG.md</sparkle:fullReleaseNotesLink>
       <description>
         <![CDATA[
           <style>
-            ul li {
+            .styled {
+              list-style: none;
+              padding: 0;
+            }
+            .styled li {
+              padding-left: 1rem;
+              text-indent: -0.75rem;
+              margin-top: 15px;
               margin-bottom: 15px;
             }
-            .tag {
-              float: left;
-              width: 36px;
-              padding: 5px;
-              border-radius: 5px;
-              font-weight: medium;
-              color: white;
-              margin-right: 5px;
-              text-align: center;
+            .styled li::before {
+              content: "🆕 ";
             }
-            .tag-new {
-              background: #007bff;
+            .styled li:nth-child(n + 5)::before {
+              content: "✅ ";
             }
-            .tag-fixed {
-              background: #ff9501;
-            }
-            .description {
-              overflow: hidden;
+            .styled li ul li:nth-child(n)::before {
+              content: "";
             }
           </style>
-          <ul>
-             <li><span class="tag tag-new">NEW</span><span class="description">The macOS Installer cache can now be emptied even if Cache Downloads is disabled.</span></li>
-             <li><span class="tag tag-fixed">FIXED</span><span class="description">Window tabs are now disabled.</span></li>
-             <li><span class="tag tag-fixed">FIXED</span><span class="description">The Close Window (&#8984;-W) keyboard shortcut is now available once again.</span></li>
-             <li><span class="tag tag-fixed">FIXED</span><span class="description">CSV exports are now working correctly again.</span></li>
-             <li><span class="tag tag-fixed">FIXED</span><span class="description">Removed unused declarations and imports (ie. dead code).</span></li>
-             <li><span class="tag tag-fixed">FIXED</span><span class="description">Minor cosmetic fixes.</span></li>
+          <ul class="styled">
+            <li>
+              Added support for the following legacy operating systems:
+              <ul>
+                <li>macOS Sierra 10.12.6</li>
+                <li>OS X El Capitan 10.11.6</li>
+                <li>OS X Yosemite 10.10.5</li>
+                <li>OS X Mountain Lion 10.8.5</li>
+                <li>Mac OS X Lion 10.7.5</li>
+              </ul>
+            </li>
+            <li>
+              Added a <strong>Show in Finder upon completion</strong> checkbox to the download screen
+            </li>
+            <li>
+              Added a <strong>Full Disk Access</strong> verfication step prior to downloading a macOS Firmware / Installer
+            </li>
+            <li>
+              Added a warning when attempting to build an <strong>ISO</strong> for <strong>macOS Catalina 10.15 or older</strong> on Apple Silicon Macs
+            </li>
+            <li>
+              The Mist.app <strong>Login Item</strong> title now displays the app name and not the developer&#39;s name
+            </li>
+            <li>
+              Temporary volumes are now hidden, and no longer show in Finder when mounted during image creation
+            </li>
+            <li>
+              Mist now has more comprehensive error messages of failed tasks
+            </li>
+            <li>
+              Fixed a bug where warning messages would not cascade correctly
+            </li>
+            <li>
+              Fixed a bug where file and directory ownership was being checked incorrectly
+            </li>
+            <li>
+              Fixed a bug where icons would flicker during animation in the <strong>Settings &gt; Applications</strong> tab
+            </li>
+            <li>
+              Fixed a bug where the Mist window would not resize correctly
+            </li>
           </ul>
         ]]>
       </description>
-      <pubDate>Thu, 29 Dec 2022 12:00:00 +0000</pubDate>
-      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.5/Mist.0.5.pkg"
+      <pubDate>Thu, 08 Jun 2023 12:00:00 +0000</pubDate>
+      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.6/Mist.0.6.pkg"
                  type="application/octet-stream"
                  sparkle:installationType="package"
-                 sparkle:edSignature="ADT+tYleqKTOmZZHpY87DgbvhVamsSx+cT6MfKwVECTW/XZ8GvETcvsrQ8mP0sTa8S2i7tfwfyOwgznsPy+eAg=="
-                 length="6827343"
+                 sparkle:edSignature="7kvCzhCis95VQ8xd5n3vmutMlDVH+Tdx4rkgb3VQBi20xHPEdIqntqLpRNqUcLTJeWxn8R2blPlETiprrSm0AA=="
+                 length="7505827"
       />
     </item>
   </channel>
