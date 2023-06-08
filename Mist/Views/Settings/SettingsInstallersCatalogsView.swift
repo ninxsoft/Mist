@@ -11,7 +11,7 @@ struct SettingsInstallersCatalogsView: View {
     @Binding var catalogs: [Catalog]
     // swiftlint:disable:next line_length
     private let description: String = "Apple Software Update Catalogs are used to determine available macOS Installers.\n\n- **Standard:** The default catalog that ships with macOS\n- **Customer Seed:** The catalog available as part of the [AppleSeed Program](https://appleseed.apple.com/)\n- **Developer Seed:** The catalog available as part of the [Apple Developer Program](https://developer.apple.com/programs/)\n- **Public Seed:** The catalog available as part of the [Apple Beta Software Program](https://beta.apple.com/)\n\n**Note:** Catalogs from the Seed Programs may contain beta / unreleased versions of macOS. Ensure you are a member of these programs before proceeding."
-    private let height: CGFloat = 120
+    private let height: CGFloat = 126
     private let width: CGFloat = 150
     private let length: CGFloat = 16
 
