@@ -12,22 +12,13 @@ struct Hardware {
 
     /// Hardware Architecture (Apple Silicon or Intel).
     static var architecture: Architecture? {
-
-        guard let cString: UnsafePointer<CChar> = NXGetLocalArchInfo().pointee.name else {
-            return nil
-        }
-
-        let string: String = String(cString: cString)
-
-        if string.contains(Architecture.appleSilicon.identifier) {
+        #if arch(arm64)
             return .appleSilicon
-        }
-
-        if string.contains(Architecture.intel.identifier) {
+        #elseif arch(x86_64)
             return .intel
-        }
-
-        return nil
+        #else
+            return nil
+        #endif
     }
 
     /// Hardware Board ID (Intel).
