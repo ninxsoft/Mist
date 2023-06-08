@@ -109,6 +109,7 @@ struct ContentView: View {
                 Label("Refresh", systemImage: "arrow.clockwise")
                     .foregroundColor(.accentColor)
             }
+            .help("Refresh")
         }
         .searchable(text: $searchString)
         .sheet(isPresented: $refreshing) {
