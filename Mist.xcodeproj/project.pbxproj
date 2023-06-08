@@ -134,6 +134,8 @@
 		573A23602A285EAE00EC9470 /* FullDiskAccessVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A235F2A285EAE00EC9470 /* FullDiskAccessVerifier.swift */; };
 		573A23622A28711C00EC9470 /* Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A23612A28711C00EC9470 /* Architecture.swift */; };
 		573A23642A28791F00EC9470 /* Scene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A23632A28791F00EC9470 /* Scene+Extension.swift */; };
+		5795700B2A31B06F004C7051 /* ButtonStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5795700A2A31B06F004C7051 /* ButtonStyle+Extension.swift */; };
+		5795700D2A31B081004C7051 /* DownloadButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5795700C2A31B081004C7051 /* DownloadButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -277,6 +279,8 @@
 		573A235F2A285EAE00EC9470 /* FullDiskAccessVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiskAccessVerifier.swift; sourceTree = "<group>"; };
 		573A23612A28711C00EC9470 /* Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architecture.swift; sourceTree = "<group>"; };
 		573A23632A28791F00EC9470 /* Scene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+Extension.swift"; sourceTree = "<group>"; };
+		5795700A2A31B06F004C7051 /* ButtonStyle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ButtonStyle+Extension.swift"; sourceTree = "<group>"; };
+		5795700C2A31B081004C7051 /* DownloadButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +358,7 @@
 			children = (
 				398734D128603DE700B4C357 /* Array+Extension.swift */,
 				39CF55AE2861582F006FB5D2 /* AuthorizationError+Extension.swift */,
+				5795700A2A31B06F004C7051 /* ButtonStyle+Extension.swift */,
 				390451DB28573F1000E0B563 /* Dictionary+Extension.swift */,
 				3935F47F286551FB00760AB0 /* Double+Extension.swift */,
 				39252AB6285C718C00956C74 /* FileManager+Extension.swift */,
@@ -407,6 +412,7 @@
 				398734CB28603D5F00B4C357 /* Chunklist.swift */,
 				398734CD28603D7F00B4C357 /* Chunk.swift */,
 				395DCD15287FE36E00C411CE /* DownloadAlertType.swift */,
+				5795700C2A31B081004C7051 /* DownloadButtonStyle.swift */,
 				390451CD2856F42800E0B563 /* DownloadType.swift */,
 				390451D928573ADC00E0B563 /* ExportListType.swift */,
 				390451B82856E24200E0B563 /* Firmware.swift */,
@@ -763,6 +769,7 @@
 				398734CE28603D7F00B4C357 /* Chunk.swift in Sources */,
 				3935F4A2286ACD4D00760AB0 /* InstallerExportViewItem.swift in Sources */,
 				393F35C228641E1F005B7165 /* HeaderView.swift in Sources */,
+				5795700D2A31B081004C7051 /* DownloadButtonStyle.swift in Sources */,
 				3935F4CD286C6A5D00760AB0 /* ProcessKiller.swift in Sources */,
 				390451BF2856E34700E0B563 /* String+Extension.swift in Sources */,
 				39CF56242861CA85006FB5D2 /* DiskImageUnmounter.swift in Sources */,
@@ -848,6 +855,7 @@
 				39252AA9285C4C9000956C74 /* RefreshRowView.swift in Sources */,
 				3935F47828643B1F00760AB0 /* UserNotificationCenterDelegate.swift in Sources */,
 				390451E72857510C00E0B563 /* TextTag.swift in Sources */,
+				5795700B2A31B06F004C7051 /* ButtonStyle+Extension.swift in Sources */,
 				390451E1285740E800E0B563 /* Sequence+Extension.swift in Sources */,
 				398734D4286046B000B4C357 /* UInt32+Extension.swift in Sources */,
 				390451D42856F74B00E0B563 /* Package.swift in Sources */,

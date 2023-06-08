@@ -80,12 +80,10 @@ struct ListRow: View {
                 .textSelection(.enabled)
             Text(size)
                 .textSelection(.enabled)
-            Button {
+            Button("DOWNLOAD") {
                 compatible ? validate() : showCompatibilityWarning()
-            } label: {
-                Image(systemName: "arrow.down.circle")
-                    .foregroundColor(.accentColor)
             }
+            .buttonStyle(.download)
             .padding(.trailing, padding)
         }
         .alert(isPresented: $showAlert) {
