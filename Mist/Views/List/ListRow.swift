@@ -63,7 +63,12 @@ struct ListRow: View {
 
     var body: some View {
         HStack {
-            ScaledImage(name: image, length: length)
+            ZStack {
+                ScaledImage(name: image, length: length)
+                if beta {
+                    TextRibbon(title: "BETA", length: length * 0.9)
+                }
+            }
             HStack(spacing: spacing) {
                 Text(version)
                     .font(.title2)
@@ -71,9 +76,6 @@ struct ListRow: View {
                     .foregroundColor(.secondary)
             }
             .textSelection(.enabled)
-            if beta {
-                TextTag(title: "Beta")
-            }
             Spacer()
             Text(date)
                 .foregroundColor(.secondary)

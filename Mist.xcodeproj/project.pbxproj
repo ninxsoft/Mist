@@ -27,7 +27,7 @@
 		390451DF28573FAA00E0B563 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 390451DE28573FAA00E0B563 /* Yams */; };
 		390451E1285740E800E0B563 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451E0285740E800E0B563 /* Sequence+Extension.swift */; };
 		390451E528574F0000E0B563 /* CatalogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451E428574F0000E0B563 /* CatalogType.swift */; };
-		390451E72857510C00E0B563 /* TextTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451E62857510B00E0B563 /* TextTag.swift */; };
+		390451E72857510C00E0B563 /* TextRibbon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451E62857510B00E0B563 /* TextRibbon.swift */; };
 		39148CFC28DD55B300011FF5 /* PathControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39148CFB28DD55B300011FF5 /* PathControl.swift */; };
 		39252A77285A849F00956C74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252A76285A849F00956C74 /* AppDelegate.swift */; };
 		39252A79285A85AF00956C74 /* SettingsInstallersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252A78285A85AF00956C74 /* SettingsInstallersView.swift */; };
@@ -181,7 +181,7 @@
 		390451DB28573F1000E0B563 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		390451E0285740E800E0B563 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 		390451E428574F0000E0B563 /* CatalogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogType.swift; sourceTree = "<group>"; };
-		390451E62857510B00E0B563 /* TextTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTag.swift; sourceTree = "<group>"; };
+		390451E62857510B00E0B563 /* TextRibbon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRibbon.swift; sourceTree = "<group>"; };
 		39148CFB28DD55B300011FF5 /* PathControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathControl.swift; sourceTree = "<group>"; };
 		39252A76285A849F00956C74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39252A78285A85AF00956C74 /* SettingsInstallersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInstallersView.swift; sourceTree = "<group>"; };
@@ -525,7 +525,7 @@
 				390451C92856F1D300E0B563 /* ScaledImage.swift */,
 				390451CB2856F23100E0B563 /* ScaledSystemImage.swift */,
 				39252A82285ACBF200956C74 /* TextFieldStepperView.swift */,
-				390451E62857510B00E0B563 /* TextTag.swift */,
+				390451E62857510B00E0B563 /* TextRibbon.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -854,7 +854,7 @@
 				390451AA2856E1D900E0B563 /* MistApp.swift in Sources */,
 				39252AA9285C4C9000956C74 /* RefreshRowView.swift in Sources */,
 				3935F47828643B1F00760AB0 /* UserNotificationCenterDelegate.swift in Sources */,
-				390451E72857510C00E0B563 /* TextTag.swift in Sources */,
+				390451E72857510C00E0B563 /* TextRibbon.swift in Sources */,
 				5795700B2A31B06F004C7051 /* ButtonStyle+Extension.swift in Sources */,
 				390451E1285740E800E0B563 /* Sequence+Extension.swift in Sources */,
 				398734D4286046B000B4C357 /* UInt32+Extension.swift in Sources */,
