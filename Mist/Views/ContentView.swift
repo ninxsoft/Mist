@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("downloadType")
+    private var downloadType: DownloadType = .firmware
     @AppStorage("includeBetas")
     private var includeBetas: Bool = false
     @AppStorage("showCompatible")
     private var showCompatible: Bool = false
     @Binding var refreshing: Bool
     @Binding var downloadInProgress: Bool
-    @State private var downloadType: DownloadType = .firmware
     @State private var firmwares: [Firmware] = []
     @State private var installers: [Installer] = []
     @State private var searchString: String = ""
