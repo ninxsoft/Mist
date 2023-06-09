@@ -406,7 +406,19 @@ class TaskManager: ObservableObject {
                 try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: installer.temporaryISOMountPointURL)
             },
             MistTask(type: .unmount, description: "temporary Disk Image") {
-                try await DiskImageUnmounter.unmount(installer.temporaryISOMountPointURL)
+                if FileManager.default.fileExists(atPath: installer.temporaryISOMountPointURL.path) {
+                    try await DiskImageUnmounter.unmount(installer.temporaryISOMountPointURL)
+                }
+
+                guard let major: Substring = installer.version.split(separator: ".").first else {
+                    return
+                }
+
+                let url: URL = URL(fileURLWithPath: "/Volumes/Install macOS \(major) beta")
+
+                if FileManager.default.fileExists(atPath: url.path) {
+                    try await DiskImageUnmounter.unmount(url)
+                }
             },
             MistTask(type: .convert, description: "temporary Disk Image to ISO") {
                 try await ISOConverter.convert(temporaryImageURL, destination: temporaryCDRURL)
