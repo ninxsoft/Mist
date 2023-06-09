@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.7](https://github.com/ninxsoft/Mist/releases/tag/v0.7) - 2023-06-09
+
+- Added preliminary support for **macOS Sonoma 14**
+- Updated the **app icon** and **accent color** to reflect macOS Sonoma (including dark appearance)
+- Updated the **Download** button look and feel
+- Moved the **Beta** tag to a ribbon that wraps around the macOS icon
+- Mist now scrolls to the active task automatically in the activity screen
+- Mist now remembers the last selected **Firmwares** / **Installers** tab when the app is relaunched
+- Added missing tooltip for the **Refresh** toolbar button
+- Updated the **Firmware** icon for the **Settings > Firmwares** pane - thanks Oliver Reardon ([isthisthingon](https://isthisthingon.tech))!
+- Fixed a bug where **Full Disk Access** was being checked even when downloading Firmwares - thanks Douglas Ward ([dczward](https://macadmins.slack.com/team/U19TV67S6)) and Pico Mitchell ([PicoMitchell](https://github.com/PicoMitchell))!
+- Fixed a bug where selecting an **ISO** for compatible Installers caused non-compatible Installers to display available export types incorrectly
+- Fixed a bug where Intel Macs would not determine compatible legacy operating systems (**10.7 - 10.12**) correctly - thanks Benjamin ([BenFRC5147](https://github.com/BenFRC5147))!
+
 ## [0.6](https://github.com/ninxsoft/Mist/releases/tag/v0.6) - 2023-06-06
 
 - Added support for the following legacy operating systems:
