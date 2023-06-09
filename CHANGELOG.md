@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.7.1](https://github.com/ninxsoft/Mist/releases/tag/v0.7.1) - 2023-06-09
+
+- Fixed a bug where the list of Firmwares / Installers would wrap incorrectly when **Show scroll bars** was set to **Always** in **Settings > Appearance** - thanks Kevin M. Cox ([kevinmcox](https://github.com/kevinmcox))!
+
 ## [0.7](https://github.com/ninxsoft/Mist/releases/tag/v0.7) - 2023-06-09
 
 - Added preliminary support for **macOS Sonoma 14**
