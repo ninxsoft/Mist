@@ -6,9 +6,9 @@
     <language>en</language>
     <link>https://github.com/ninxsoft/Mist</link>
     <item>
-      <title>Version 0.6</title>
+      <title>Version 0.7</title>
       <link>https://github.com/ninxsoft/Mist</link>
-      <sparkle:version>0.6</sparkle:version>
+      <sparkle:version>0.7</sparkle:version>
       <sparkle:fullReleaseNotesLink>https://github.com/ninxsoft/Mist/blob/main/CHANGELOG.md</sparkle:fullReleaseNotesLink>
       <description>
         <![CDATA[
@@ -26,63 +26,31 @@
             .styled li::before {
               content: "🆕 ";
             }
-            .styled li:nth-child(n + 5)::before {
+            .styled li:nth-child(n + 9)::before {
               content: "✅ ";
-            }
-            .styled li ul li:nth-child(n)::before {
-              content: "";
             }
           </style>
           <ul class="styled">
-            <li>
-              Added support for the following legacy operating systems:
-              <ul>
-                <li>macOS Sierra 10.12.6</li>
-                <li>OS X El Capitan 10.11.6</li>
-                <li>OS X Yosemite 10.10.5</li>
-                <li>OS X Mountain Lion 10.8.5</li>
-                <li>Mac OS X Lion 10.7.5</li>
-              </ul>
-            </li>
-            <li>
-              Added a <strong>Show in Finder upon completion</strong> checkbox to the download screen
-            </li>
-            <li>
-              Added a <strong>Full Disk Access</strong> verfication step prior to downloading a macOS Firmware / Installer
-            </li>
-            <li>
-              Added a warning when attempting to build an <strong>ISO</strong> for <strong>macOS Catalina 10.15 or older</strong> on Apple Silicon Macs
-            </li>
-            <li>
-              The Mist.app <strong>Login Item</strong> title now displays the app name and not the developer&#39;s name
-            </li>
-            <li>
-              Temporary volumes are now hidden, and no longer show in Finder when mounted during image creation
-            </li>
-            <li>
-              Mist now has more comprehensive error messages of failed tasks
-            </li>
-            <li>
-              Fixed a bug where warning messages would not cascade correctly
-            </li>
-            <li>
-              Fixed a bug where file and directory ownership was being checked incorrectly
-            </li>
-            <li>
-              Fixed a bug where icons would flicker during animation in the <strong>Settings &gt; Applications</strong> tab
-            </li>
-            <li>
-              Fixed a bug where the Mist window would not resize correctly
-            </li>
+            <li>Added preliminary support for <strong>macOS Sonoma 14</strong></li>
+            <li>Updated the <strong>app icon</strong> and <strong>accent color</strong> to reflect macOS Sonoma (including dark appearance)</li>
+            <li>Updated the <strong>Download</strong> button look and feel</li>
+            <li>Moved the <strong>Beta</strong> tag to a ribbon that wraps around the macOS icon</li>
+            <li>Mist now scrolls to the active task automatically in the activity screen</li>
+            <li>Mist now remembers the last selected <strong>Firmwares</strong> / <strong>Installers</strong> tab when the app is relaunched</li>
+            <li>Added missing tooltip for the <strong>Refresh</strong> toolbar button</li>
+            <li>Updated the <strong>Firmware</strong> icon for the <strong>Settings &gt; Firmwares</strong> pane</li>
+            <li>Fixed a bug where <strong>Full Disk Access</strong> was being checked even when downloading Firmwares</li>
+            <li>Fixed a bug where selecting an <strong>ISO</strong> for compatible Installers caused non-compatible Installers to display available export types incorrectly</li>
+            <li>Fixed a bug where Intel Macs would not determine compatible legacy operating systems (<strong>10.7 - 10.12</strong>) correctly</li>
           </ul>
         ]]>
       </description>
-      <pubDate>Thu, 08 Jun 2023 12:00:00 +0000</pubDate>
-      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.6/Mist.0.6.pkg"
+      <pubDate>Fri, 09 Jun 2023 12:00:00 +0000</pubDate>
+      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.7/Mist.0.7.pkg"
                  type="application/octet-stream"
                  sparkle:installationType="package"
-                 sparkle:edSignature="7kvCzhCis95VQ8xd5n3vmutMlDVH+Tdx4rkgb3VQBi20xHPEdIqntqLpRNqUcLTJeWxn8R2blPlETiprrSm0AA=="
-                 length="7505827"
+                 sparkle:edSignature="EEONBsUO6sG6j4i90VciCc/noq5D8VLz8kM3Vz9Qxsh5Tv8VUISrk3Hsbs2KaP5XKxA9yl4IrTcuKlWdJ3+gCw=="
+                 length="7110785"
       />
     </item>
   </channel>
