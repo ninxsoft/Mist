@@ -136,7 +136,7 @@ struct ListRow: View {
         }
 
         guard type == .installer,
-            FullDiskAccessVerifier.isAllowed() else {
+            FileManager.default.isReadableFile(atPath: .tccDatabasePath) else {
             alertType = .fullDiskAccess
             showAlert = true
             return

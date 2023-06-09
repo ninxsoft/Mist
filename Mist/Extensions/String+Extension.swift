@@ -24,6 +24,7 @@ extension String {
     static let packageIdentifierTemplate: String = "com.company.pkg.%NAME%.%VERSION%.%BUILD%"
     static let temporaryDirectory: String = "/private/tmp/\(appIdentifier)"
     static let cacheDirectory: String = "/Users/Shared/Mist/Cache"
+    static let tccDatabasePath: String = "/Library/Application Support/com.apple.TCC/TCC.db"
 
     func stringWithSubstitutions(name: String, version: String, build: String) -> String {
         self.replacingOccurrences(of: "%NAME%", with: name)

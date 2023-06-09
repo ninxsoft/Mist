@@ -130,8 +130,6 @@
 		39FF05F62859850F00A86670 /* SettingsFirmwaresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF05F52859850F00A86670 /* SettingsFirmwaresView.swift */; };
 		39FF05F82859851800A86670 /* SettingsApplicationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF05F72859851800A86670 /* SettingsApplicationsView.swift */; };
 		39FF05FA285985DD00A86670 /* SettingsAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF05F9285985DD00A86670 /* SettingsAboutView.swift */; };
-		573A235E2A285E8900EC9470 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 573A235D2A285E8900EC9470 /* SQLite */; };
-		573A23602A285EAE00EC9470 /* FullDiskAccessVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A235F2A285EAE00EC9470 /* FullDiskAccessVerifier.swift */; };
 		573A23622A28711C00EC9470 /* Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A23612A28711C00EC9470 /* Architecture.swift */; };
 		573A23642A28791F00EC9470 /* Scene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A23632A28791F00EC9470 /* Scene+Extension.swift */; };
 		5795700B2A31B06F004C7051 /* ButtonStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5795700A2A31B06F004C7051 /* ButtonStyle+Extension.swift */; };
@@ -276,7 +274,6 @@
 		39FF05F52859850F00A86670 /* SettingsFirmwaresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFirmwaresView.swift; sourceTree = "<group>"; };
 		39FF05F72859851800A86670 /* SettingsApplicationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationsView.swift; sourceTree = "<group>"; };
 		39FF05F9285985DD00A86670 /* SettingsAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAboutView.swift; sourceTree = "<group>"; };
-		573A235F2A285EAE00EC9470 /* FullDiskAccessVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiskAccessVerifier.swift; sourceTree = "<group>"; };
 		573A23612A28711C00EC9470 /* Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architecture.swift; sourceTree = "<group>"; };
 		573A23632A28791F00EC9470 /* Scene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+Extension.swift"; sourceTree = "<group>"; };
 		5795700A2A31B06F004C7051 /* ButtonStyle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ButtonStyle+Extension.swift"; sourceTree = "<group>"; };
@@ -288,7 +285,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				573A235E2A285E8900EC9470 /* SQLite in Frameworks */,
 				3935F4C5286B546A00760AB0 /* Sparkle in Frameworks */,
 				390451DF28573FAA00E0B563 /* Yams in Frameworks */,
 				39CF55AA286154A5006FB5D2 /* Blessed in Frameworks */,
@@ -388,7 +384,6 @@
 				39CA25E22941D8BB0030711E /* FileAttributesUpdater.swift */,
 				39CF56162861BE66006FB5D2 /* FileCopier.swift */,
 				398734C728601FFC00B4C357 /* FileMover.swift */,
-				573A235F2A285EAE00EC9470 /* FullDiskAccessVerifier.swift */,
 				39D68B882861369B00A7848C /* InstallerCreator.swift */,
 				39CF56302862A8C5006FB5D2 /* InstallMediaCreator.swift */,
 				39CF562E2862A797006FB5D2 /* ISOConverter.swift */,
@@ -577,7 +572,6 @@
 				39CF55A9286154A5006FB5D2 /* Blessed */,
 				39CF55B128615D30006FB5D2 /* SecureXPC */,
 				3935F4C4286B546A00760AB0 /* Sparkle */,
-				573A235D2A285E8900EC9470 /* SQLite */,
 			);
 			productName = Mist;
 			productReference = 390451A62856E1D900E0B563 /* Mist.app */;
@@ -657,7 +651,6 @@
 				39CF55A8286154A5006FB5D2 /* XCRemoteSwiftPackageReference "Blessed" */,
 				39CF55B028615D30006FB5D2 /* XCRemoteSwiftPackageReference "SecureXPC" */,
 				3935F4C3286B546A00760AB0 /* XCRemoteSwiftPackageReference "Sparkle" */,
-				573A235C2A285E8900EC9470 /* XCRemoteSwiftPackageReference "SQLite" */,
 			);
 			productRefGroup = 390451A72856E1D900E0B563 /* Products */;
 			projectDirPath = "";
@@ -824,7 +817,6 @@
 				39CA25E32941D8BB0030711E /* FileAttributesUpdater.swift in Sources */,
 				3935F4AB286B04BC00760AB0 /* HelperToolInfoPropertyList.swift in Sources */,
 				393F35BC28641181005B7165 /* RefreshState.swift in Sources */,
-				573A23602A285EAE00EC9470 /* FullDiskAccessVerifier.swift in Sources */,
 				390451CA2856F1D300E0B563 /* ScaledImage.swift in Sources */,
 				39252A95285BF83D00956C74 /* MistTask.swift in Sources */,
 				39CF56272861E10F006FB5D2 /* Codesigner.swift in Sources */,
@@ -1270,14 +1262,6 @@
 				minimumVersion = 0.8.0;
 			};
 		};
-		573A235C2A285E8900EC9470 /* XCRemoteSwiftPackageReference "SQLite" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.14.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1310,11 +1294,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 39CF55B028615D30006FB5D2 /* XCRemoteSwiftPackageReference "SecureXPC" */;
 			productName = SecureXPC;
-		};
-		573A235D2A285E8900EC9470 /* SQLite */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 573A235C2A285E8900EC9470 /* XCRemoteSwiftPackageReference "SQLite" */;
-			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
