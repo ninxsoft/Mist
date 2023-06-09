@@ -68,6 +68,7 @@ struct InstallerListRow: View {
                 name: installer.name.replacingOccurrences(of: " beta", with: ""),
                 version: installer.version,
                 build: installer.build,
+                beta: installer.beta,
                 destinationURL: openPanel.url,
                 taskManager: taskManager
             )

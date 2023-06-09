@@ -47,6 +47,7 @@ struct FirmwareListRow: View {
                 name: firmware.name,
                 version: firmware.version,
                 build: firmware.build,
+                beta: firmware.beta,
                 destinationURL: savePanel.url,
                 taskManager: taskManager
             )

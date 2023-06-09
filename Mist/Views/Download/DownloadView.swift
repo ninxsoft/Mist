@@ -23,6 +23,7 @@ struct DownloadView: View {
     var name: String
     var version: String
     var build: String
+    var beta: Bool
     var destinationURL: URL?
     @ObservedObject var taskManager: TaskManager
     @State private var value: Double = 0
@@ -44,7 +45,7 @@ struct DownloadView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            DownloadHeaderView(imageName: imageName, name: name, version: version, build: build)
+            DownloadHeaderView(imageName: imageName, name: name, version: version, build: build, beta: beta)
             Divider()
             List {
                 ForEach(taskManager.taskGroups, id: \.section) { taskGroup in
@@ -211,7 +212,7 @@ struct DownloadView_Previews: PreviewProvider {
     static let installer: Installer = .example
 
     static var previews: some View {
-        DownloadView(downloadType: .firmware, imageName: firmware.imageName, name: firmware.name, version: firmware.version, build: firmware.build, taskManager: .shared)
-        DownloadView(downloadType: .installer, imageName: installer.imageName, name: installer.name, version: installer.version, build: installer.build, taskManager: .shared)
+        DownloadView(downloadType: .firmware, imageName: firmware.imageName, name: firmware.name, version: firmware.version, build: firmware.build, beta: false, taskManager: .shared)
+        DownloadView(downloadType: .installer, imageName: installer.imageName, name: installer.name, version: installer.version, build: installer.build, beta: false, taskManager: .shared)
     }
 }

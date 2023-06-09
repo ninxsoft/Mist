@@ -12,13 +12,20 @@ struct DownloadHeaderView: View {
     var name: String
     var version: String
     var build: String
-    private let length: CGFloat = 32
+    var beta: Bool
+    private let length: CGFloat = 48
 
     var body: some View {
         HStack {
-            ScaledImage(name: imageName, length: length)
+            ZStack {
+                ScaledImage(name: imageName, length: length)
+                if beta {
+                    TextRibbon(title: "BETA", length: length * 0.9)
+                }
+            }
             Text("\(name) \(version) (\(build))")
                 .font(.title)
+                .multilineTextAlignment(.center)
         }
         .padding()
     }
@@ -29,7 +36,7 @@ struct DownloadHeaderView_Previews: PreviewProvider {
     static let installer: Installer = .example
 
     static var previews: some View {
-        DownloadHeaderView(imageName: firmware.imageName, name: firmware.name, version: firmware.version, build: firmware.build)
-        DownloadHeaderView(imageName: installer.imageName, name: installer.name, version: installer.version, build: installer.build)
+        DownloadHeaderView(imageName: firmware.imageName, name: firmware.name, version: firmware.version, build: firmware.build, beta: false)
+        DownloadHeaderView(imageName: installer.imageName, name: installer.name, version: installer.version, build: installer.build, beta: false)
     }
 }
