@@ -71,6 +71,11 @@ struct InstallerExportView: View {
 
         var exports: [InstallerExportType] = []
 
+        if !isoCompatible && !exportApplication && !exportDiskImage && exportISO && !exportPackage {
+            exportApplication = true
+            exportISO = false
+        }
+
         if exportApplication {
             exports.append(.application)
         }
