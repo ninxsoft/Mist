@@ -26,6 +26,7 @@ struct DownloadView: View {
     var beta: Bool
     var destinationURL: URL?
     @ObservedObject var taskManager: TaskManager
+    @State private var currentTaskId: String?
     @State private var value: Double = 0
     @State private var showAlert: Bool = false
     @State private var alertType: ProgressAlertType = .cancel
@@ -44,24 +45,33 @@ struct DownloadView: View {
     }
 
     var body: some View {
+        // swiftlint:disable:next closure_body_length
         VStack(spacing: 0) {
             DownloadHeaderView(imageName: imageName, name: name, version: version, build: build, beta: beta)
             Divider()
-            List {
-                ForEach(taskManager.taskGroups, id: \.section) { taskGroup in
-                    Section(header: DownloadSectionHeaderView(section: taskGroup.section)) {
-                        ForEach(taskGroup.tasks.indices, id: \.self) { index in
-                            VStack {
-                                DownloadRowView(state: taskGroup.tasks[index].state, description: taskGroup.tasks[index].currentDescription, degrees: degrees)
-                                if taskGroup.tasks[index].type == .download && taskGroup.tasks[index].state != .pending,
-                                    let size: UInt64 = taskGroup.tasks[index].downloadSize {
-                                    DownloadProgressView(state: taskGroup.tasks[index].state, value: value, size: size)
+            ScrollViewReader { proxy in
+                List {
+                    ForEach(taskManager.taskGroups, id: \.section) { taskGroup in
+                        Section(header: DownloadSectionHeaderView(section: taskGroup.section)) {
+                            ForEach(taskGroup.tasks.indices, id: \.self) { index in
+                                VStack {
+                                    DownloadRowView(state: taskGroup.tasks[index].state, description: taskGroup.tasks[index].currentDescription, degrees: degrees)
+                                    if taskGroup.tasks[index].type == .download && taskGroup.tasks[index].state != .pending,
+                                        let size: UInt64 = taskGroup.tasks[index].downloadSize {
+                                        DownloadProgressView(state: taskGroup.tasks[index].state, value: value, size: size)
+                                    }
+                                    if index < taskGroup.tasks.count - 1 {
+                                        Divider()
+                                    }
                                 }
-                                if index < taskGroup.tasks.count - 1 {
-                                    Divider()
-                                }
+                                .id("\(taskGroup.section.id).\(index)")
                             }
                         }
+                    }
+                }
+                .onChange(of: currentTaskId) { id in
+                    withAnimation(.easeOut(duration: 1.0)) {
+                        proxy.scrollTo(id, anchor: .center)
                     }
                 }
             }
@@ -111,6 +121,7 @@ struct DownloadView: View {
 
         for taskGroupIndex in taskManager.taskGroups.indices {
             for taskIndex in taskManager.taskGroups[taskGroupIndex].tasks.indices {
+                currentTaskId = "\(taskManager.taskGroups[taskGroupIndex].section.id).\(taskIndex)"
                 degrees = 0
                 taskManager.taskGroups[taskGroupIndex].tasks[taskIndex].state = .inProgress
                 timer = timer.upstream.autoconnect()
