@@ -135,11 +135,13 @@ struct ListRow: View {
             return
         }
 
-        guard type == .installer,
-            FileManager.default.isReadableFile(atPath: .tccDatabasePath) else {
-            alertType = .fullDiskAccess
-            showAlert = true
-            return
+        if type == .installer {
+
+            guard FileManager.default.isReadableFile(atPath: .tccDatabasePath) else {
+                alertType = .fullDiskAccess
+                showAlert = true
+                return
+            }
         }
 
         if cacheDownloads {
