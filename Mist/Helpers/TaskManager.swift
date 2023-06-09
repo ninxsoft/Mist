@@ -312,6 +312,19 @@ class TaskManager: ObservableObject {
             tasks += [
                 MistTask(type: .create, description: "macOS Installer in Disk Image") {
                     try await InstallerCreator.create(installer, mountPoint: mountPointURL, cacheDirectory: cacheDirectory)
+
+                    guard let major: Substring = installer.version.split(separator: ".").first else {
+                        return
+                    }
+
+                    let source: URL = mountPointURL.appendingPathComponent("Applications/Install macOS \(major) beta.app")
+                    let destination: URL = mountPointURL.appendingPathComponent("Applications/Install \(installer.name).app")
+
+                    guard FileManager.default.fileExists(atPath: source.path) else {
+                        return
+                    }
+
+                    try await FileMover.move(source, to: destination)
                 }
             ]
         }
