@@ -6,9 +6,9 @@
     <language>en</language>
     <link>https://github.com/ninxsoft/Mist</link>
     <item>
-      <title>Version 0.7</title>
+      <title>Version 0.7.1</title>
       <link>https://github.com/ninxsoft/Mist</link>
-      <sparkle:version>0.7</sparkle:version>
+      <sparkle:version>0.7.1</sparkle:version>
       <sparkle:fullReleaseNotesLink>https://github.com/ninxsoft/Mist/blob/main/CHANGELOG.md</sparkle:fullReleaseNotesLink>
       <description>
         <![CDATA[
@@ -23,14 +23,24 @@
               margin-top: 15px;
               margin-bottom: 15px;
             }
-            .styled li::before {
+            .styled_hotfix li::before {
+              content: "✅ ";
+            }
+            .styled_standard li::before {
               content: "🆕 ";
             }
-            .styled li:nth-child(n + 9)::before {
+            .styled_standard li:nth-child(n + 9)::before {
               content: "✅ ";
             }
           </style>
-          <ul class="styled">
+          <h3>Version 0.7.1</h3>
+          <ul class="styled styled_hotfix">
+            <li>
+              Fixed a bug where the list of Firmwares / Installers would wrap incorrectly when <strong>Show scroll bars</strong> was set to <strong>Always</strong> in <strong>Settings > Appearance</strong>
+            </li>
+          </ul>
+          <h3>Version 0.7</h3>
+          <ul class="styled styled_standard">
             <li>Added preliminary support for <strong>macOS Sonoma 14</strong></li>
             <li>Updated the <strong>app icon</strong> and <strong>accent color</strong> to reflect macOS Sonoma (including dark appearance)</li>
             <li>Updated the <strong>Download</strong> button look and feel</li>
@@ -46,10 +56,10 @@
         ]]>
       </description>
       <pubDate>Fri, 09 Jun 2023 12:00:00 +0000</pubDate>
-      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.7/Mist.0.7.pkg"
+      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.7.1/Mist.0.7.1.pkg"
                  type="application/octet-stream"
                  sparkle:installationType="package"
-                 sparkle:edSignature="EEONBsUO6sG6j4i90VciCc/noq5D8VLz8kM3Vz9Qxsh5Tv8VUISrk3Hsbs2KaP5XKxA9yl4IrTcuKlWdJ3+gCw=="
+                 sparkle:edSignature="TvTDiBi3CLrSxoPW4deIu+y0JkDYEO5qlGy5wyuRNXwA1rSTPibnbf+sNntVkACMeP7mjkfAkSIXam1Yl7kdCg=="
                  length="7110785"
       />
     </item>
