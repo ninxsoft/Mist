@@ -91,10 +91,39 @@ struct ListRow: View {
             }
             .help(helpText)
             .textSelection(.enabled)
-            Button("DOWNLOAD") {
-                compatible ? validate() : showCompatibilityWarning()
+            Group {
+                switch type {
+                case .firmware:
+                    Button {
+                        compatible ? validate() : showCompatibilityWarning()
+                    } label: {
+                        Image(systemName: "arrow.down.circle")
+                            .font(.body.bold())
+                    }
+                    .help("Download macOS Firmware")
+                    .buttonStyle(.capsule(.standard))
+                case .installer:
+                    HStack(spacing: 1) {
+                        Button {
+                            compatible ? validate() : showCompatibilityWarning()
+                        } label: {
+                            Image(systemName: "arrow.down.circle")
+                                .font(.body.bold())
+                        }
+                        .help("Download and export macOS Installer")
+                        .buttonStyle(.capsule(.leading))
+                        Button {
+                            print("Create bootable installer...")
+                        } label: {
+                            Image(systemName: "externaldrive")
+                                .font(.body.bold())
+                                .padding(.vertical, 1)
+                        }
+                        .help("Create bootable macOS Installer")
+                        .buttonStyle(.capsule(.trailing))
+                    }
+                }
             }
-            .buttonStyle(.download)
             .padding(.trailing, padding)
         }
         .alert(isPresented: $showAlert) {
