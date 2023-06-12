@@ -29,6 +29,14 @@ struct ListRow: View {
     private let length: CGFloat = 48
     private let spacing: CGFloat = 5
     private let padding: CGFloat = 3
+    private var helpText: String {
+        """
+        Version: \(version)
+        Build Number: \(build)
+        Release Date: \(date)
+        Download Size: \(size)
+        """
+    }
     private var compatibilityTitle: String {
         "macOS \(type.description) not compatible!"
     }
@@ -63,25 +71,26 @@ struct ListRow: View {
 
     var body: some View {
         HStack {
-            ZStack {
-                ScaledImage(name: image, length: length)
-                if beta {
-                    TextRibbon(title: "BETA", length: length * 0.9)
+            Group {
+                ZStack {
+                    ScaledImage(name: image, length: length)
+                    if beta {
+                        TextRibbon(title: "BETA", length: length * 0.9)
+                    }
                 }
-            }
-            HStack(spacing: spacing) {
-                Text(version)
-                    .font(.title2)
-                Text("(\(build))")
+                HStack(spacing: spacing) {
+                    Text(version)
+                        .font(.title2)
+                    Text("(\(build))")
+                        .foregroundColor(.secondary)
+                }
+                Spacer()
+                Text(date)
                     .foregroundColor(.secondary)
+                Text(size)
             }
+            .help(helpText)
             .textSelection(.enabled)
-            Spacer()
-            Text(date)
-                .foregroundColor(.secondary)
-                .textSelection(.enabled)
-            Text(size)
-                .textSelection(.enabled)
             Button("DOWNLOAD") {
                 compatible ? validate() : showCompatibilityWarning()
             }
