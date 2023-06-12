@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-extension ButtonStyle where Self == DownloadButtonStyle {
+extension ButtonStyle where Self == CapsuleButtonStyle {
 
-    static var download: Self {
-        .init()
+    static func capsule(_ type: CapsuleButtonStyleType) -> Self {
+        .init(type: type)
     }
 }

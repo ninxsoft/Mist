@@ -132,8 +132,11 @@
 		39FF05FA285985DD00A86670 /* SettingsAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF05F9285985DD00A86670 /* SettingsAboutView.swift */; };
 		573A23622A28711C00EC9470 /* Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A23612A28711C00EC9470 /* Architecture.swift */; };
 		573A23642A28791F00EC9470 /* Scene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A23632A28791F00EC9470 /* Scene+Extension.swift */; };
+		575812B72A372D7200425BAF /* CapsuleButtonStyleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812B62A372D7200425BAF /* CapsuleButtonStyleType.swift */; };
 		5795700B2A31B06F004C7051 /* ButtonStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5795700A2A31B06F004C7051 /* ButtonStyle+Extension.swift */; };
-		5795700D2A31B081004C7051 /* DownloadButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5795700C2A31B081004C7051 /* DownloadButtonStyle.swift */; };
+		5795700D2A31B081004C7051 /* CapsuleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5795700C2A31B081004C7051 /* CapsuleButtonStyle.swift */; };
+		57CF961A2A34B65C008D3B1C /* CapsuleLeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CF96192A34B65C008D3B1C /* CapsuleLeading.swift */; };
+		57CF961C2A34B9E0008D3B1C /* CapsuleTrailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CF961B2A34B9E0008D3B1C /* CapsuleTrailing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -276,8 +279,11 @@
 		39FF05F9285985DD00A86670 /* SettingsAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAboutView.swift; sourceTree = "<group>"; };
 		573A23612A28711C00EC9470 /* Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architecture.swift; sourceTree = "<group>"; };
 		573A23632A28791F00EC9470 /* Scene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+Extension.swift"; sourceTree = "<group>"; };
+		575812B62A372D7200425BAF /* CapsuleButtonStyleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButtonStyleType.swift; sourceTree = "<group>"; };
 		5795700A2A31B06F004C7051 /* ButtonStyle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ButtonStyle+Extension.swift"; sourceTree = "<group>"; };
-		5795700C2A31B081004C7051 /* DownloadButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadButtonStyle.swift; sourceTree = "<group>"; };
+		5795700C2A31B081004C7051 /* CapsuleButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsuleButtonStyle.swift; sourceTree = "<group>"; };
+		57CF96192A34B65C008D3B1C /* CapsuleLeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleLeading.swift; sourceTree = "<group>"; };
+		57CF961B2A34B9E0008D3B1C /* CapsuleTrailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleTrailing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -407,7 +413,6 @@
 				398734CB28603D5F00B4C357 /* Chunklist.swift */,
 				398734CD28603D7F00B4C357 /* Chunk.swift */,
 				395DCD15287FE36E00C411CE /* DownloadAlertType.swift */,
-				5795700C2A31B081004C7051 /* DownloadButtonStyle.swift */,
 				390451CD2856F42800E0B563 /* DownloadType.swift */,
 				390451D928573ADC00E0B563 /* ExportListType.swift */,
 				390451B82856E24200E0B563 /* Firmware.swift */,
@@ -511,6 +516,7 @@
 		39FF05F12859849200A86670 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				575812B82A37330200425BAF /* Capsule */,
 				39252AA2285C3CC400956C74 /* CodesigningPickerView.swift */,
 				39252AA4285C463A00956C74 /* DynamicTextView.swift */,
 				39252A86285ACE9C00956C74 /* FooterText.swift */,
@@ -546,6 +552,17 @@
 				39FF05F9285985DD00A86670 /* SettingsAboutView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		575812B82A37330200425BAF /* Capsule */ = {
+			isa = PBXGroup;
+			children = (
+				57CF96192A34B65C008D3B1C /* CapsuleLeading.swift */,
+				5795700C2A31B081004C7051 /* CapsuleButtonStyle.swift */,
+				575812B62A372D7200425BAF /* CapsuleButtonStyleType.swift */,
+				57CF961B2A34B9E0008D3B1C /* CapsuleTrailing.swift */,
+			);
+			path = Capsule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -762,7 +779,7 @@
 				398734CE28603D7F00B4C357 /* Chunk.swift in Sources */,
 				3935F4A2286ACD4D00760AB0 /* InstallerExportViewItem.swift in Sources */,
 				393F35C228641E1F005B7165 /* HeaderView.swift in Sources */,
-				5795700D2A31B081004C7051 /* DownloadButtonStyle.swift in Sources */,
+				5795700D2A31B081004C7051 /* CapsuleButtonStyle.swift in Sources */,
 				3935F4CD286C6A5D00760AB0 /* ProcessKiller.swift in Sources */,
 				390451BF2856E34700E0B563 /* String+Extension.swift in Sources */,
 				39CF56242861CA85006FB5D2 /* DiskImageUnmounter.swift in Sources */,
@@ -789,6 +806,7 @@
 				39252ABB285C7D3800956C74 /* SettingsInstallersCatalogsView.swift in Sources */,
 				393D8029286EB4D6008AA8E3 /* EmptyCollectionView.swift in Sources */,
 				3935F490286976D000760AB0 /* ProgressAlertType.swift in Sources */,
+				575812B72A372D7200425BAF /* CapsuleButtonStyleType.swift in Sources */,
 				39FF05F62859850F00A86670 /* SettingsFirmwaresView.swift in Sources */,
 				3935F4A6286AD3E100760AB0 /* DownloadHeaderView.swift in Sources */,
 				3935F480286551FB00760AB0 /* Double+Extension.swift in Sources */,
@@ -823,12 +841,14 @@
 				39148CFC28DD55B300011FF5 /* PathControl.swift in Sources */,
 				3935F4892866C68000760AB0 /* DownloadSectionHeaderView.swift in Sources */,
 				39252AB5285C706000956C74 /* URL+Extension.swift in Sources */,
+				57CF961C2A34B9E0008D3B1C /* CapsuleTrailing.swift in Sources */,
 				390451D828573A2500E0B563 /* ExportListView.swift in Sources */,
 				39FF05EE2859820900A86670 /* AppCommands.swift in Sources */,
 				39252AA3285C3CC400956C74 /* CodesigningPickerView.swift in Sources */,
 				39252AA5285C463A00956C74 /* DynamicTextView.swift in Sources */,
 				390451C22856E3F500E0B563 /* Hardware.swift in Sources */,
 				39CF56092861AE7F006FB5D2 /* HelperToolCommandRequest.swift in Sources */,
+				57CF961A2A34B65C008D3B1C /* CapsuleLeading.swift in Sources */,
 				390451C82856E94900E0B563 /* FirmwareListRow.swift in Sources */,
 				390451E528574F0000E0B563 /* CatalogType.swift in Sources */,
 				3935F4852866B64900760AB0 /* MistTaskSection.swift in Sources */,
