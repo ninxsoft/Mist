@@ -83,15 +83,17 @@ struct ListRowInstaller: View {
                 }
                 .help("Download and export macOS Installer")
                 .buttonStyle(.mistAction)
-                Button {
-                    pressButton(.volumeSelection)
-                } label: {
-                    Image(systemName: "externaldrive")
-                        .font(.body.bold())
-                        .padding(.vertical, 1)
+                if installer.bigSurOrNewer {
+                    Button {
+                        pressButton(.volumeSelection)
+                    } label: {
+                        Image(systemName: "externaldrive")
+                            .font(.body.bold())
+                            .padding(.vertical, 1)
+                    }
+                    .help("Create bootable macOS Installer")
+                    .buttonStyle(.mistAction)
                 }
-                .help("Create bootable macOS Installer")
-                .buttonStyle(.mistAction)
             }
             .clipShape(Capsule())
         }
