@@ -53,7 +53,8 @@ struct ListRowFirmware: View {
                     .font(.body.bold())
             }
             .help("Download macOS Firmware")
-            .buttonStyle(.capsule(.standard))
+            .buttonStyle(.mistAction)
+            .clipShape(Capsule())
             .padding(.trailing, padding)
         }
         .alert(isPresented: $showAlert) {

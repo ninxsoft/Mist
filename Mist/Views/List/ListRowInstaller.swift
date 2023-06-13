@@ -83,7 +83,7 @@ struct ListRowInstaller: View {
                         .font(.body.bold())
                 }
                 .help("Download and export macOS Installer")
-                .buttonStyle(.capsule(.leading))
+                .buttonStyle(.mistAction)
                 Button {
                     sheetType = .volumeSelection
                     if installer.compatible { Task { validate() } } else { showCompatibilityWarning() }
@@ -93,8 +93,9 @@ struct ListRowInstaller: View {
                         .padding(.vertical, 1)
                 }
                 .help("Create bootable macOS Installer")
-                .buttonStyle(.capsule(.trailing))
+                .buttonStyle(.mistAction)
             }
+            .clipShape(Capsule())
         }
         .alert(isPresented: $showAlert) {
             switch alertType {
