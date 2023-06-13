@@ -1,5 +1,5 @@
 //
-//  DownloadSectionHeaderView.swift
+//  ActivitySectionHeaderView.swift
 //  Mist
 //
 //  Created by Nindi Gill on 25/6/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DownloadSectionHeaderView: View {
+struct ActivitySectionHeaderView: View {
     var section: MistTaskSection
     private let length: CGFloat = 24
 
@@ -23,10 +23,10 @@ struct DownloadSectionHeaderView: View {
     }
 }
 
-struct DownloadSectionHeaderView_Previews: PreviewProvider {
+struct ActivitySectionHeaderView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(MistTaskSection.allCases) { section in
-            DownloadSectionHeaderView(section: section)
+            ActivitySectionHeaderView(section: section)
         }
     }
 }

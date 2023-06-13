@@ -1,5 +1,5 @@
 //
-//  DownloadRowView.swift
+//  ActivityRowView.swift
 //  Mist
 //
 //  Created by Nindi Gill on 28/6/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DownloadRowView: View {
+struct ActivityRowView: View {
     var state: MistTaskState
     var description: String
     var degrees: CGFloat
@@ -30,8 +30,8 @@ struct DownloadRowView: View {
     }
 }
 
-struct DownloadRowView_Previews: PreviewProvider {
+struct ActivityRowView_Previews: PreviewProvider {
     static var previews: some View {
-        DownloadRowView(state: .inProgress, description: "Downloading...", degrees: 360)
+        ActivityRowView(state: .inProgress, description: "Downloading...", degrees: 360)
     }
 }

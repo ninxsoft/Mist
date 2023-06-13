@@ -1,5 +1,5 @@
 //
-//  DownloadHeaderView.swift
+//  ActivityHeaderView.swift
 //  Mist
 //
 //  Created by Nindi Gill on 28/6/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DownloadHeaderView: View {
+struct ActivityHeaderView: View {
     var imageName: String
     var name: String
     var version: String
@@ -31,12 +31,12 @@ struct DownloadHeaderView: View {
     }
 }
 
-struct DownloadHeaderView_Previews: PreviewProvider {
+struct ActivityHeaderView_Previews: PreviewProvider {
     static let firmware: Firmware = .example
     static let installer: Installer = .example
 
     static var previews: some View {
-        DownloadHeaderView(imageName: firmware.imageName, name: firmware.name, version: firmware.version, build: firmware.build, beta: false)
-        DownloadHeaderView(imageName: installer.imageName, name: installer.name, version: installer.version, build: installer.build, beta: false)
+        ActivityHeaderView(imageName: firmware.imageName, name: firmware.name, version: firmware.version, build: firmware.build, beta: false)
+        ActivityHeaderView(imageName: installer.imageName, name: installer.name, version: installer.version, build: installer.build, beta: false)
     }
 }

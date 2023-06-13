@@ -775,6 +775,14 @@ struct Installer: Decodable, Hashable, Identifiable {
     var isoSize: Double {
         ceil(Double(size) / Double(UInt64.gigabyte)) + 1.5
     }
+    var tooltip: String {
+        """
+        Version: \(version)
+        Build Number: \(build)
+        Release Date: \(date)
+        Download Size: \(size.bytesString())
+        """
+    }
 }
 
 extension Installer: Equatable {
