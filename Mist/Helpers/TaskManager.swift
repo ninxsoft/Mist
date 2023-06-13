@@ -441,7 +441,7 @@ class TaskManager: ObservableObject {
                 try await DiskImageMounter.mount(temporaryImageURL, mountPoint: installer.temporaryISOMountPointURL)
             },
             MistTask(type: .create, description: "macOS Installer in temporary Disk Image") {
-                try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: installer.temporaryISOMountPointURL)
+                try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: installer.temporaryISOMountPointURL, sierraOrOlder: installer.sierraOrOlder)
             },
             MistTask(type: .unmount, description: "temporary Disk Image") {
                 if FileManager.default.fileExists(atPath: installer.temporaryISOMountPointURL.path) {
@@ -513,7 +513,7 @@ class TaskManager: ObservableObject {
         let mountPointURL: URL = URL(fileURLWithPath: volume.path)
         let tasks: [MistTask] = [
             MistTask(type: .create, description: "Bootable Installer") {
-                try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: mountPointURL)
+                try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: mountPointURL, sierraOrOlder: installer.sierraOrOlder)
             }
         ]
 
