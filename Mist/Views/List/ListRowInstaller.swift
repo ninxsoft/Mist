@@ -163,7 +163,7 @@ struct ListRowInstaller: View {
                     version: installer.version,
                     build: installer.build,
                     beta: installer.beta,
-                    destinationURL: URL(fileURLWithPath: "/Volumes/"),
+                    destinationURL: URL(fileURLWithPath: "/Volumes/Install \(installer.name)"),
                     taskManager: taskManager
                 )
             }
