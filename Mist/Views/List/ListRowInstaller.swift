@@ -76,8 +76,7 @@ struct ListRowInstaller: View {
             )
             HStack(spacing: 1) {
                 Button {
-                    sheetType = .download
-                    if installer.compatible { Task { validate() } } else { showCompatibilityWarning() }
+                    pressButton(.download)
                 } label: {
                     Image(systemName: "arrow.down.circle")
                         .font(.body.bold())
@@ -85,8 +84,7 @@ struct ListRowInstaller: View {
                 .help("Download and export macOS Installer")
                 .buttonStyle(.mistAction)
                 Button {
-                    sheetType = .volumeSelection
-                    if installer.compatible { Task { validate() } } else { showCompatibilityWarning() }
+                    pressButton(.volumeSelection)
                 } label: {
                     Image(systemName: "externaldrive")
                         .font(.body.bold())
@@ -169,6 +167,16 @@ struct ListRowInstaller: View {
                     taskManager: taskManager
                 )
             }
+        }
+    }
+
+    private func pressButton(_ type: InstallerSheetType) {
+        sheetType = type
+
+        if installer.compatible {
+            Task { validate() }
+        } else {
+            showCompatibilityWarning()
         }
     }
 
