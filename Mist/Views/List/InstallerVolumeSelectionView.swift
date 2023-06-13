@@ -64,7 +64,7 @@ struct InstallerVolumeSelectionView: View {
     private func getAvailableVolumes() -> [InstallerVolume] {
 
         var volumes: [InstallerVolume] = []
-        let keys: [URLResourceKey] = [.volumeNameKey, .volumeLocalizedFormatDescriptionKey, .volumeIsReadOnlyKey, .volumeIsRemovableKey, .volumeTotalCapacityKey]
+        let keys: [URLResourceKey] = [.volumeNameKey, .volumeLocalizedFormatDescriptionKey, .volumeIsReadOnlyKey, .volumeTotalCapacityKey]
 
         guard let urls: [URL] = FileManager.default.mountedVolumeURLs(includingResourceValuesForKeys: keys, options: [.skipHiddenVolumes]) else {
             return []
@@ -77,11 +77,9 @@ struct InstallerVolumeSelectionView: View {
                 guard let volumeName: String = resourceValues.volumeName,
                     let volumeLocalizedFormatDescription: String = resourceValues.volumeLocalizedFormatDescription,
                     let volumeIsReadOnly: Bool = resourceValues.volumeIsReadOnly,
-                    let volumeIsRemovable: Bool = resourceValues.volumeIsRemovable,
                     let volumeTotalCapacity: Int = resourceValues.volumeTotalCapacity,
                     volumeLocalizedFormatDescription == "Mac OS Extended (Journaled)",
-                    !volumeIsReadOnly,
-                    volumeIsRemovable else {
+                    !volumeIsReadOnly else {
                     continue
                 }
 
