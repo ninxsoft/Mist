@@ -751,6 +751,9 @@ struct Installer: Decodable, Hashable, Identifiable {
             "beta": beta
         ]
     }
+    var mavericksOrNewer: Bool {
+        bigSurOrNewer || version.range(of: "^10\\.(9|1[0-5])\\.", options: .regularExpression) != nil
+    }
     var sierraOrOlder: Bool {
         version.range(of: "^10\\.([7-9]|1[0-2])\\.", options: .regularExpression) != nil
     }

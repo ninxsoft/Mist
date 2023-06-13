@@ -78,17 +78,16 @@ struct ListRowInstaller: View {
                 Button {
                     pressButton(.download)
                 } label: {
-                    Image(systemName: "arrow.down.circle")
-                        .font(.body.bold())
+                    Image(systemName: "arrow.down.circle").font(.body.bold())
                 }
                 .help("Download and export macOS Installer")
                 .buttonStyle(.mistAction)
-                if installer.bigSurOrNewer {
+                if let architecture: Architecture = Hardware.architecture,
+                    (architecture == .appleSilicon && installer.bigSurOrNewer) || (architecture == .intel && installer.mavericksOrNewer) {
                     Button {
                         pressButton(.volumeSelection)
                     } label: {
-                        Image(systemName: "externaldrive")
-                            .font(.body.bold())
+                        Image(systemName: "externaldrive").font(.body.bold())
                             .padding(.vertical, 1)
                     }
                     .help("Create bootable macOS Installer")
