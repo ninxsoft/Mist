@@ -38,6 +38,9 @@ struct ActivityView: View {
     private var bootableInstaller: Bool {
         taskManager.taskGroups.map { $0.section }.contains(.bootableInstaller)
     }
+    private var venturaOrOlder: Bool {
+        !ProcessInfo().isOperatingSystemAtLeast(OperatingSystemVersion(majorVersion: 14, minorVersion: 0, patchVersion: 0))
+    }
     private var buttonText: String {
         switch taskManager.currentState {
         case .pending, .inProgress:
@@ -62,6 +65,9 @@ struct ActivityView: View {
                                     if taskGroup.tasks[index].type == .download && taskGroup.tasks[index].state != .pending,
                                         let size: UInt64 = taskGroup.tasks[index].downloadSize {
                                         ActivityProgressView(state: taskGroup.tasks[index].state, value: value, size: size)
+                                    }
+                                    if venturaOrOlder && index != taskGroup.tasks.count {
+                                        Divider()
                                     }
                                 }
                                 .id("\(taskGroup.section.id).\(index)")
