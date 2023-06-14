@@ -6,14 +6,14 @@
     <language>en</language>
     <link>https://github.com/ninxsoft/Mist</link>
     <item>
-      <title>Version 0.7.1</title>
+      <title>Version 0.8</title>
       <link>https://github.com/ninxsoft/Mist</link>
-      <sparkle:version>0.7.1</sparkle:version>
+      <sparkle:version>0.8</sparkle:version>
       <sparkle:fullReleaseNotesLink>https://github.com/ninxsoft/Mist/blob/main/CHANGELOG.md</sparkle:fullReleaseNotesLink>
       <description>
         <![CDATA[
           <style>
-            .styled {
+            .styled_parent {
               list-style: none;
               padding: 0;
             }
@@ -23,44 +23,38 @@
               margin-top: 15px;
               margin-bottom: 15px;
             }
-            .styled_hotfix li::before {
-              content: "✅ ";
-            }
-            .styled_standard li::before {
+            .styled_parent li::before {
               content: "🆕 ";
             }
-            .styled_standard li:nth-child(n + 9)::before {
+            .styled_parent li:nth-child(n + 2)::before {
               content: "✅ ";
             }
+            .styled_child li:nth-child(n + 1)::before {
+              content: "";
+            }
           </style>
-          <h3>Version 0.7.1</h3>
-          <ul class="styled styled_hotfix">
+          <ul class="styled styled_parent">
             <li>
-              Fixed a bug where the list of Firmwares / Installers would wrap incorrectly when <strong>Show scroll bars</strong> was set to <strong>Always</strong> in <strong>Settings > Appearance</strong>
+              Mist now supports the creation of <strong>Bootable Installers</strong>
+              <ul class="styled styled_child">
+                <li>If available, click on the new Bootable Installer button on the right-hand side of the <strong>Installers</strong> list rows</li>
+                <li>Select a <strong>Mac OS Extended (Journaled)</strong> volume to create a Bootable Installer</li>
+                <li>Available for <strong>macOS Big Sur 11</strong> and newer on <strong>Apple Silicon Macs</strong></li>
+                <li>Available for <strong>OS X Yosemite 10.10.5</strong> and newer on <strong>Intel-based Macs</strong></li>
+              </ul>
             </li>
-          </ul>
-          <h3>Version 0.7</h3>
-          <ul class="styled styled_standard">
-            <li>Added preliminary support for <strong>macOS Sonoma 14</strong></li>
-            <li>Updated the <strong>app icon</strong> and <strong>accent color</strong> to reflect macOS Sonoma (including dark appearance)</li>
-            <li>Updated the <strong>Download</strong> button look and feel</li>
-            <li>Moved the <strong>Beta</strong> tag to a ribbon that wraps around the macOS icon</li>
-            <li>Mist now scrolls to the active task automatically in the activity screen</li>
-            <li>Mist now remembers the last selected <strong>Firmwares</strong> / <strong>Installers</strong> tab when the app is relaunched</li>
-            <li>Added missing tooltip for the <strong>Refresh</strong> toolbar button</li>
-            <li>Updated the <strong>Firmware</strong> icon for the <strong>Settings &gt; Firmwares</strong> pane</li>
-            <li>Fixed a bug where <strong>Full Disk Access</strong> was being checked even when downloading Firmwares</li>
-            <li>Fixed a bug where selecting an <strong>ISO</strong> for compatible Installers caused non-compatible Installers to display available export types incorrectly</li>
-            <li>Fixed a bug where Intel Macs would not determine compatible legacy operating systems (<strong>10.7 - 10.12</strong>) correctly</li>
+            <li>Fixed a bug where Mist allowed exporting <strong>ISOs</strong> for <strong>OS X Mountain Lion 10.8.5</strong> and older on <strong>Intel-based Macs</strong> </li>
+            <li>Adding missing <strong>tooltips</strong> for Firmwares / Installers (hover to view)</li>
+            <li>Minor cosmetic fixes, including tweaks to button styles and accent colors</li>
           </ul>
         ]]>
       </description>
-      <pubDate>Fri, 09 Jun 2023 12:00:00 +0000</pubDate>
-      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.7.1/Mist.0.7.1.pkg"
+      <pubDate>Wed, 14 Jun 2023 12:00:00 +0000</pubDate>
+      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.8/Mist.0.8.pkg"
                  type="application/octet-stream"
                  sparkle:installationType="package"
-                 sparkle:edSignature="TvTDiBi3CLrSxoPW4deIu+y0JkDYEO5qlGy5wyuRNXwA1rSTPibnbf+sNntVkACMeP7mjkfAkSIXam1Yl7kdCg=="
-                 length="7110785"
+                 sparkle:edSignature="ud8msAzcxvpr1ZEDFF3GONp9RFA5cdncU4yS5To6T4HM3AcJpFJlsufTYCJIaCnNYkofMuE2KhxqQ80slFwADA=="
+                 length="7213353"
       />
     </item>
   </channel>
