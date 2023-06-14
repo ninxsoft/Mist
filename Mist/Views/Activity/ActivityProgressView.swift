@@ -1,5 +1,5 @@
 //
-//  DownloadProgressView.swift
+//  ActivityProgressView.swift
 //  Mist
 //
 //  Created by Nindi Gill on 28/6/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DownloadProgressView: View {
+struct ActivityProgressView: View {
     var state: MistTaskState
     var value: CGFloat
     var size: UInt64
@@ -36,9 +36,9 @@ struct DownloadProgressView: View {
     }
 }
 
-struct DownloadProgressView_Previews: PreviewProvider {
+struct ActivityProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        DownloadProgressView(state: .inProgress, value: 0.5, size: Firmware.example.size)
-        DownloadProgressView(state: .inProgress, value: 0.5, size: Installer.example.size)
+        ActivityProgressView(state: .inProgress, value: 0.5, size: Firmware.example.size)
+        ActivityProgressView(state: .inProgress, value: 0.5, size: Installer.example.size)
     }
 }

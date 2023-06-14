@@ -226,6 +226,44 @@ class TaskManager: ObservableObject {
         return taskGroups
     }
 
+    // swiftlint:disable:next function_parameter_count
+    static func taskGroups(
+        for installer: Installer,
+        cacheDownloads: Bool,
+        cacheDirectory: String,
+        retries: Int,
+        delay retryDelay: Int,
+        volume: InstallerVolume
+    ) throws -> [(section: MistTaskSection, tasks: [MistTask])] {
+        let cacheDirectoryURL: URL = URL(fileURLWithPath: cacheDirectory).appendingPathComponent(installer.id)
+        let temporaryDirectoryURL: URL = URL(fileURLWithPath: .temporaryDirectory)
+        let taskGroups: [(section: MistTaskSection, tasks: [MistTask])] = [
+            (
+                section: .download,
+                tasks: try downloadTasks(for: installer, cacheDirectory: cacheDirectoryURL, retries: retries, delay: retryDelay)
+            ),
+            (
+                section: .setup,
+                tasks: installTasks(for: installer, temporaryDirectory: temporaryDirectoryURL, mountPoint: installer.temporaryDiskImageMountPointURL, cacheDirectory: cacheDirectory)
+            ),
+            (
+                section: .bootableInstaller,
+                tasks: bootableInstallerTasks(for: installer, volume: volume)
+            ),
+            (
+                section: .cleanup,
+                tasks: cleanupTasks(
+                    mountPoint: installer.temporaryDiskImageMountPointURL,
+                    temporaryDirectory: temporaryDirectoryURL,
+                    cacheDownloads: cacheDownloads,
+                    cacheDirectory: cacheDirectoryURL
+                )
+            )
+        ]
+
+        return taskGroups
+    }
+
     private static func downloadTasks(for installer: Installer, cacheDirectory cacheDirectoryURL: URL, retries: Int, delay retryDelay: Int) throws -> [MistTask] {
 
         var tasks: [MistTask] = []
@@ -403,7 +441,7 @@ class TaskManager: ObservableObject {
                 try await DiskImageMounter.mount(temporaryImageURL, mountPoint: installer.temporaryISOMountPointURL)
             },
             MistTask(type: .create, description: "macOS Installer in temporary Disk Image") {
-                try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: installer.temporaryISOMountPointURL)
+                try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: installer.temporaryISOMountPointURL, sierraOrOlder: installer.sierraOrOlder)
             },
             MistTask(type: .unmount, description: "temporary Disk Image") {
                 if FileManager.default.fileExists(atPath: installer.temporaryISOMountPointURL.path) {
@@ -466,6 +504,18 @@ class TaskManager: ObservableObject {
                 }
             ]
         }
+
+        return tasks
+    }
+
+    private static func bootableInstallerTasks(for installer: Installer, volume: InstallerVolume) -> [MistTask] {
+        let createInstallMediaURL: URL = installer.temporaryInstallerURL.appendingPathComponent("/Contents/Resources/createinstallmedia")
+        let mountPointURL: URL = URL(fileURLWithPath: volume.path)
+        let tasks: [MistTask] = [
+            MistTask(type: .create, description: "Bootable Installer") {
+                try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: mountPointURL, sierraOrOlder: installer.sierraOrOlder)
+            }
+        ]
 
         return tasks
     }

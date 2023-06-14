@@ -14,18 +14,18 @@ struct MistApp: App {
     var appDelegate: AppDelegate
     @StateObject var sparkleUpdater: SparkleUpdater = SparkleUpdater()
     @State private var refreshing: Bool = false
-    @State private var downloadInProgress: Bool = false
+    @State private var tasksInProgress: Bool = false
 
     var body: some Scene {
         WindowGroup {
-            ContentView(refreshing: $refreshing, downloadInProgress: $downloadInProgress)
+            ContentView(refreshing: $refreshing, tasksInProgress: $tasksInProgress)
                 .onReceive(NotificationCenter.default.publisher(for: NSApplication.willUpdateNotification)) { _ in
                     hideZoomButton()
                 }
         }
         .fixedWindow()
         .commands {
-            AppCommands(sparkleUpdater: sparkleUpdater, refreshing: $refreshing, downloadInProgress: $downloadInProgress)
+            AppCommands(sparkleUpdater: sparkleUpdater, refreshing: $refreshing, tasksInProgress: $tasksInProgress)
         }
         Settings {
             SettingsView(sparkleUpdater: sparkleUpdater)

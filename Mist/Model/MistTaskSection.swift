@@ -12,6 +12,7 @@ enum MistTaskSection: String, CaseIterable, Identifiable {
     case diskImage = "Disk Image"
     case iso = "ISO"
     case package = "Package"
+    case bootableInstaller = "Bootable Installer"
     case cleanup = "Cleanup"
 
     var id: String {

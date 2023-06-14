@@ -15,7 +15,7 @@ struct ContentView: View {
     @AppStorage("showCompatible")
     private var showCompatible: Bool = false
     @Binding var refreshing: Bool
-    @Binding var downloadInProgress: Bool
+    @Binding var tasksInProgress: Bool
     @State private var firmwares: [Firmware] = []
     @State private var installers: [Installer] = []
     @State private var searchString: String = ""
@@ -45,7 +45,6 @@ struct ContentView: View {
 
         return filteredFirmwares
     }
-
     private var filteredInstallers: [Installer] {
         var filteredInstallers: [Installer] = installers
 
@@ -85,12 +84,12 @@ struct ContentView: View {
                             switch downloadType {
                             case .firmware:
                                 ForEach(filteredFirmwares(for: releaseName)) { firmware in
-                                    FirmwareListRow(firmware: firmware, savePanel: $savePanel, downloadInProgress: $downloadInProgress, taskManager: taskManager)
+                                    ListRowFirmware(firmware: firmware, savePanel: $savePanel, tasksInProgress: $tasksInProgress, taskManager: taskManager)
                                         .tag(firmware)
                                 }
                             case .installer:
                                 ForEach(filteredInstallers(for: releaseName)) { installer in
-                                    InstallerListRow(installer: installer, openPanel: $openPanel, downloadInProgress: $downloadInProgress, taskManager: taskManager)
+                                    ListRowInstaller(installer: installer, openPanel: $openPanel, tasksInProgress: $tasksInProgress, taskManager: taskManager)
                                         .tag(installer)
                                 }
                             }
@@ -165,6 +164,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(refreshing: .constant(false), downloadInProgress: .constant(false))
+        ContentView(refreshing: .constant(false), tasksInProgress: .constant(false))
     }
 }

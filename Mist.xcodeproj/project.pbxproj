@@ -14,7 +14,7 @@
 		390451BF2856E34700E0B563 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451BE2856E34700E0B563 /* String+Extension.swift */; };
 		390451C22856E3F500E0B563 /* Hardware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451C12856E3F500E0B563 /* Hardware.swift */; };
 		390451C62856E80C00E0B563 /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451C52856E80C00E0B563 /* RefreshView.swift */; };
-		390451C82856E94900E0B563 /* FirmwareListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451C72856E94900E0B563 /* FirmwareListRow.swift */; };
+		390451C82856E94900E0B563 /* ListRowFirmware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451C72856E94900E0B563 /* ListRowFirmware.swift */; };
 		390451CA2856F1D300E0B563 /* ScaledImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451C92856F1D300E0B563 /* ScaledImage.swift */; };
 		390451CC2856F23100E0B563 /* ScaledSystemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451CB2856F23100E0B563 /* ScaledSystemImage.swift */; };
 		390451CE2856F42800E0B563 /* DownloadType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390451CD2856F42800E0B563 /* DownloadType.swift */; };
@@ -53,7 +53,7 @@
 		39252AB7285C718C00956C74 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252AB6285C718C00956C74 /* FileManager+Extension.swift */; };
 		39252AB9285C7BC700956C74 /* SettingsInstallersCacheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252AB8285C7BC700956C74 /* SettingsInstallersCacheView.swift */; };
 		39252ABB285C7D3800956C74 /* SettingsInstallersCatalogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252ABA285C7D3800956C74 /* SettingsInstallersCatalogsView.swift */; };
-		39252ABD285C8FFC00956C74 /* InstallerListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252ABC285C8FFC00956C74 /* InstallerListRow.swift */; };
+		39252ABD285C8FFC00956C74 /* ListRowInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252ABC285C8FFC00956C74 /* ListRowInstaller.swift */; };
 		39252AC3285CA5FE00956C74 /* InstallerExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252AC2285CA5FE00956C74 /* InstallerExportView.swift */; };
 		3935F47428643AB800760AB0 /* UNNotificationCategory+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F47328643AB800760AB0 /* UNNotificationCategory+Extension.swift */; };
 		3935F47628643AF000760AB0 /* UNNotificationAction+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F47528643AF000760AB0 /* UNNotificationAction+Extension.swift */; };
@@ -62,22 +62,21 @@
 		3935F47E2864813B00760AB0 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F47D2864813B00760AB0 /* DownloadManager.swift */; };
 		3935F480286551FB00760AB0 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F47F286551FB00760AB0 /* Double+Extension.swift */; };
 		3935F4852866B64900760AB0 /* MistTaskSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4842866B64900760AB0 /* MistTaskSection.swift */; };
-		3935F4892866C68000760AB0 /* DownloadSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4882866C68000760AB0 /* DownloadSectionHeaderView.swift */; };
+		3935F4892866C68000760AB0 /* ActivitySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4882866C68000760AB0 /* ActivitySectionHeaderView.swift */; };
 		3935F48E2869278200760AB0 /* InstallerExportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F48D2869278100760AB0 /* InstallerExportType.swift */; };
 		3935F490286976D000760AB0 /* ProgressAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F48F286976D000760AB0 /* ProgressAlertType.swift */; };
 		3935F49D286ABE4D00760AB0 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F49C286ABE4D00760AB0 /* FooterView.swift */; };
-		3935F49F286AC32C00760AB0 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F49E286AC32C00760AB0 /* ListRow.swift */; };
 		3935F4A2286ACD4D00760AB0 /* InstallerExportViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4A1286ACD4D00760AB0 /* InstallerExportViewItem.swift */; };
-		3935F4A4286AD21000760AB0 /* DownloadProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4A3286AD21000760AB0 /* DownloadProgressView.swift */; };
-		3935F4A6286AD3E100760AB0 /* DownloadHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4A5286AD3E100760AB0 /* DownloadHeaderView.swift */; };
-		3935F4A8286AD5D000760AB0 /* DownloadRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4A7286AD5D000760AB0 /* DownloadRowView.swift */; };
+		3935F4A4286AD21000760AB0 /* ActivityProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4A3286AD21000760AB0 /* ActivityProgressView.swift */; };
+		3935F4A6286AD3E100760AB0 /* ActivityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4A5286AD3E100760AB0 /* ActivityHeaderView.swift */; };
+		3935F4A8286AD5D000760AB0 /* ActivityRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4A7286AD5D000760AB0 /* ActivityRowView.swift */; };
 		3935F4AB286B04BC00760AB0 /* HelperToolInfoPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4A9286B04BC00760AB0 /* HelperToolInfoPropertyList.swift */; };
 		3935F4AC286B04BC00760AB0 /* HelperToolLaunchdPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4AA286B04BC00760AB0 /* HelperToolLaunchdPropertyList.swift */; };
 		3935F4AD286B04BF00760AB0 /* HelperToolInfoPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4A9286B04BC00760AB0 /* HelperToolInfoPropertyList.swift */; };
 		3935F4AE286B04BF00760AB0 /* HelperToolLaunchdPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4AA286B04BC00760AB0 /* HelperToolLaunchdPropertyList.swift */; };
 		3935F4C5286B546A00760AB0 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 3935F4C4286B546A00760AB0 /* Sparkle */; };
 		3935F4C7286B54E200760AB0 /* SparkleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4C6286B54E200760AB0 /* SparkleUpdater.swift */; };
-		3935F4CB286C1EC500760AB0 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4CA286C1EC500760AB0 /* DownloadView.swift */; };
+		3935F4CB286C1EC500760AB0 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4CA286C1EC500760AB0 /* ActivityView.swift */; };
 		3935F4CD286C6A5D00760AB0 /* ProcessKiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F4CC286C6A5D00760AB0 /* ProcessKiller.swift */; };
 		393D8029286EB4D6008AA8E3 /* EmptyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D8028286EB4D6008AA8E3 /* EmptyCollectionView.swift */; };
 		393F35B928640DF6005B7165 /* ShellExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252A9E285C140D00956C74 /* ShellExecutor.swift */; };
@@ -85,7 +84,7 @@
 		393F35BC28641181005B7165 /* RefreshState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F35BB28641181005B7165 /* RefreshState.swift */; };
 		393F35BE2864197F005B7165 /* PrivilegedHelperTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F35BD2864197F005B7165 /* PrivilegedHelperTool.swift */; };
 		393F35C228641E1F005B7165 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F35C128641E1F005B7165 /* HeaderView.swift */; };
-		395DCD16287FE36E00C411CE /* DownloadAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395DCD15287FE36E00C411CE /* DownloadAlertType.swift */; };
+		395DCD16287FE36E00C411CE /* InstallerAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395DCD15287FE36E00C411CE /* InstallerAlertType.swift */; };
 		398734C428600E6E00B4C357 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734C328600E6E00B4C357 /* TaskManager.swift */; };
 		398734C6286011C300B4C357 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734C5286011C300B4C357 /* Validator.swift */; };
 		398734C828601FFC00B4C357 /* FileMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734C728601FFC00B4C357 /* FileMover.swift */; };
@@ -132,11 +131,15 @@
 		39FF05FA285985DD00A86670 /* SettingsAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF05F9285985DD00A86670 /* SettingsAboutView.swift */; };
 		573A23622A28711C00EC9470 /* Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A23612A28711C00EC9470 /* Architecture.swift */; };
 		573A23642A28791F00EC9470 /* Scene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A23632A28791F00EC9470 /* Scene+Extension.swift */; };
-		575812B72A372D7200425BAF /* CapsuleButtonStyleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812B62A372D7200425BAF /* CapsuleButtonStyleType.swift */; };
+		575812BA2A373A4F00425BAF /* FirmwareAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812B92A373A4F00425BAF /* FirmwareAlertType.swift */; };
+		575812BC2A37406300425BAF /* ListRowDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812BB2A37406300425BAF /* ListRowDetail.swift */; };
+		575812BE2A3743E300425BAF /* InstallerSheetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812BD2A3743E300425BAF /* InstallerSheetType.swift */; };
+		575812C02A37493F00425BAF /* InstallerVolumeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812BF2A37493F00425BAF /* InstallerVolumeSelectionView.swift */; };
+		575812C22A380B5E00425BAF /* InstallerVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812C12A380B5E00425BAF /* InstallerVolume.swift */; };
+		575812C42A3821A900425BAF /* InstallerVolumeSelectionInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812C32A3821A900425BAF /* InstallerVolumeSelectionInformationView.swift */; };
+		575812C62A38296A00425BAF /* InstallerVolumeSelectionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812C52A38296A00425BAF /* InstallerVolumeSelectionPickerView.swift */; };
 		5795700B2A31B06F004C7051 /* ButtonStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5795700A2A31B06F004C7051 /* ButtonStyle+Extension.swift */; };
-		5795700D2A31B081004C7051 /* CapsuleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5795700C2A31B081004C7051 /* CapsuleButtonStyle.swift */; };
-		57CF961A2A34B65C008D3B1C /* CapsuleLeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CF96192A34B65C008D3B1C /* CapsuleLeading.swift */; };
-		57CF961C2A34B9E0008D3B1C /* CapsuleTrailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CF961B2A34B9E0008D3B1C /* CapsuleTrailing.swift */; };
+		5795700D2A31B081004C7051 /* MistActionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5795700C2A31B081004C7051 /* MistActionButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -170,7 +173,7 @@
 		390451BE2856E34700E0B563 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		390451C12856E3F500E0B563 /* Hardware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hardware.swift; sourceTree = "<group>"; };
 		390451C52856E80C00E0B563 /* RefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshView.swift; sourceTree = "<group>"; };
-		390451C72856E94900E0B563 /* FirmwareListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareListRow.swift; sourceTree = "<group>"; };
+		390451C72856E94900E0B563 /* ListRowFirmware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowFirmware.swift; sourceTree = "<group>"; };
 		390451C92856F1D300E0B563 /* ScaledImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledImage.swift; sourceTree = "<group>"; };
 		390451CB2856F23100E0B563 /* ScaledSystemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledSystemImage.swift; sourceTree = "<group>"; };
 		390451CD2856F42800E0B563 /* DownloadType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadType.swift; sourceTree = "<group>"; };
@@ -208,7 +211,7 @@
 		39252AB6285C718C00956C74 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		39252AB8285C7BC700956C74 /* SettingsInstallersCacheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInstallersCacheView.swift; sourceTree = "<group>"; };
 		39252ABA285C7D3800956C74 /* SettingsInstallersCatalogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInstallersCatalogsView.swift; sourceTree = "<group>"; };
-		39252ABC285C8FFC00956C74 /* InstallerListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerListRow.swift; sourceTree = "<group>"; };
+		39252ABC285C8FFC00956C74 /* ListRowInstaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowInstaller.swift; sourceTree = "<group>"; };
 		39252AC2285CA5FE00956C74 /* InstallerExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerExportView.swift; sourceTree = "<group>"; };
 		3935F47328643AB800760AB0 /* UNNotificationCategory+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotificationCategory+Extension.swift"; sourceTree = "<group>"; };
 		3935F47528643AF000760AB0 /* UNNotificationAction+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotificationAction+Extension.swift"; sourceTree = "<group>"; };
@@ -217,26 +220,25 @@
 		3935F47D2864813B00760AB0 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		3935F47F286551FB00760AB0 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		3935F4842866B64900760AB0 /* MistTaskSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistTaskSection.swift; sourceTree = "<group>"; };
-		3935F4882866C68000760AB0 /* DownloadSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSectionHeaderView.swift; sourceTree = "<group>"; };
+		3935F4882866C68000760AB0 /* ActivitySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySectionHeaderView.swift; sourceTree = "<group>"; };
 		3935F48D2869278100760AB0 /* InstallerExportType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallerExportType.swift; sourceTree = "<group>"; };
 		3935F48F286976D000760AB0 /* ProgressAlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressAlertType.swift; sourceTree = "<group>"; };
 		3935F49C286ABE4D00760AB0 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
-		3935F49E286AC32C00760AB0 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		3935F4A1286ACD4D00760AB0 /* InstallerExportViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerExportViewItem.swift; sourceTree = "<group>"; };
-		3935F4A3286AD21000760AB0 /* DownloadProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressView.swift; sourceTree = "<group>"; };
-		3935F4A5286AD3E100760AB0 /* DownloadHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadHeaderView.swift; sourceTree = "<group>"; };
-		3935F4A7286AD5D000760AB0 /* DownloadRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadRowView.swift; sourceTree = "<group>"; };
+		3935F4A3286AD21000760AB0 /* ActivityProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityProgressView.swift; sourceTree = "<group>"; };
+		3935F4A5286AD3E100760AB0 /* ActivityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeaderView.swift; sourceTree = "<group>"; };
+		3935F4A7286AD5D000760AB0 /* ActivityRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRowView.swift; sourceTree = "<group>"; };
 		3935F4A9286B04BC00760AB0 /* HelperToolInfoPropertyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperToolInfoPropertyList.swift; sourceTree = "<group>"; };
 		3935F4AA286B04BC00760AB0 /* HelperToolLaunchdPropertyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperToolLaunchdPropertyList.swift; sourceTree = "<group>"; };
 		3935F4AF286B195E00760AB0 /* launchd.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = launchd.plist; sourceTree = "<group>"; };
 		3935F4C6286B54E200760AB0 /* SparkleUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUpdater.swift; sourceTree = "<group>"; };
-		3935F4CA286C1EC500760AB0 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
+		3935F4CA286C1EC500760AB0 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		3935F4CC286C6A5D00760AB0 /* ProcessKiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessKiller.swift; sourceTree = "<group>"; };
 		393D8028286EB4D6008AA8E3 /* EmptyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionView.swift; sourceTree = "<group>"; };
 		393F35BB28641181005B7165 /* RefreshState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshState.swift; sourceTree = "<group>"; };
 		393F35BD2864197F005B7165 /* PrivilegedHelperTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivilegedHelperTool.swift; sourceTree = "<group>"; };
 		393F35C128641E1F005B7165 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		395DCD15287FE36E00C411CE /* DownloadAlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAlertType.swift; sourceTree = "<group>"; };
+		395DCD15287FE36E00C411CE /* InstallerAlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerAlertType.swift; sourceTree = "<group>"; };
 		398734C328600E6E00B4C357 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		398734C5286011C300B4C357 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		398734C728601FFC00B4C357 /* FileMover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMover.swift; sourceTree = "<group>"; };
@@ -279,11 +281,15 @@
 		39FF05F9285985DD00A86670 /* SettingsAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAboutView.swift; sourceTree = "<group>"; };
 		573A23612A28711C00EC9470 /* Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architecture.swift; sourceTree = "<group>"; };
 		573A23632A28791F00EC9470 /* Scene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+Extension.swift"; sourceTree = "<group>"; };
-		575812B62A372D7200425BAF /* CapsuleButtonStyleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButtonStyleType.swift; sourceTree = "<group>"; };
+		575812B92A373A4F00425BAF /* FirmwareAlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareAlertType.swift; sourceTree = "<group>"; };
+		575812BB2A37406300425BAF /* ListRowDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowDetail.swift; sourceTree = "<group>"; };
+		575812BD2A3743E300425BAF /* InstallerSheetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerSheetType.swift; sourceTree = "<group>"; };
+		575812BF2A37493F00425BAF /* InstallerVolumeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerVolumeSelectionView.swift; sourceTree = "<group>"; };
+		575812C12A380B5E00425BAF /* InstallerVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerVolume.swift; sourceTree = "<group>"; };
+		575812C32A3821A900425BAF /* InstallerVolumeSelectionInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerVolumeSelectionInformationView.swift; sourceTree = "<group>"; };
+		575812C52A38296A00425BAF /* InstallerVolumeSelectionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerVolumeSelectionPickerView.swift; sourceTree = "<group>"; };
 		5795700A2A31B06F004C7051 /* ButtonStyle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ButtonStyle+Extension.swift"; sourceTree = "<group>"; };
-		5795700C2A31B081004C7051 /* CapsuleButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsuleButtonStyle.swift; sourceTree = "<group>"; };
-		57CF96192A34B65C008D3B1C /* CapsuleLeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleLeading.swift; sourceTree = "<group>"; };
-		57CF961B2A34B9E0008D3B1C /* CapsuleTrailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleTrailing.swift; sourceTree = "<group>"; };
+		5795700C2A31B081004C7051 /* MistActionButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MistActionButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -412,13 +418,16 @@
 				39CB5E3E2941486D00CFDBB8 /* CatalogSeedType.swift */,
 				398734CB28603D5F00B4C357 /* Chunklist.swift */,
 				398734CD28603D7F00B4C357 /* Chunk.swift */,
-				395DCD15287FE36E00C411CE /* DownloadAlertType.swift */,
 				390451CD2856F42800E0B563 /* DownloadType.swift */,
 				390451D928573ADC00E0B563 /* ExportListType.swift */,
 				390451B82856E24200E0B563 /* Firmware.swift */,
+				575812B92A373A4F00425BAF /* FirmwareAlertType.swift */,
 				390451C12856E3F500E0B563 /* Hardware.swift */,
 				390451CF2856F63700E0B563 /* Installer.swift */,
+				395DCD15287FE36E00C411CE /* InstallerAlertType.swift */,
+				575812BD2A3743E300425BAF /* InstallerSheetType.swift */,
 				3935F48D2869278100760AB0 /* InstallerExportType.swift */,
+				575812C12A380B5E00425BAF /* InstallerVolume.swift */,
 				39252A9A285C029600956C74 /* MistError.swift */,
 				39252A94285BF83D00956C74 /* MistTask.swift */,
 				3935F4842866B64900760AB0 /* MistTaskSection.swift */,
@@ -440,7 +449,7 @@
 				3935F49C286ABE4D00760AB0 /* FooterView.swift */,
 				390451D728573A2500E0B563 /* ExportListView.swift */,
 				3935F4A0286ACCE100760AB0 /* List */,
-				393F35BF28641D86005B7165 /* Download */,
+				393F35BF28641D86005B7165 /* Activity */,
 				393F35C028641D8F005B7165 /* Refresh */,
 				39FF05F2285984F800A86670 /* Settings */,
 				39FF05F12859849200A86670 /* Components */,
@@ -451,25 +460,28 @@
 		3935F4A0286ACCE100760AB0 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				390451C72856E94900E0B563 /* FirmwareListRow.swift */,
-				39252ABC285C8FFC00956C74 /* InstallerListRow.swift */,
-				3935F49E286AC32C00760AB0 /* ListRow.swift */,
+				390451C72856E94900E0B563 /* ListRowFirmware.swift */,
+				39252ABC285C8FFC00956C74 /* ListRowInstaller.swift */,
+				575812BB2A37406300425BAF /* ListRowDetail.swift */,
 				39252AC2285CA5FE00956C74 /* InstallerExportView.swift */,
 				3935F4A1286ACD4D00760AB0 /* InstallerExportViewItem.swift */,
+				575812BF2A37493F00425BAF /* InstallerVolumeSelectionView.swift */,
+				575812C52A38296A00425BAF /* InstallerVolumeSelectionPickerView.swift */,
+				575812C32A3821A900425BAF /* InstallerVolumeSelectionInformationView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
 		};
-		393F35BF28641D86005B7165 /* Download */ = {
+		393F35BF28641D86005B7165 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
-				3935F4CA286C1EC500760AB0 /* DownloadView.swift */,
-				3935F4A5286AD3E100760AB0 /* DownloadHeaderView.swift */,
-				3935F4882866C68000760AB0 /* DownloadSectionHeaderView.swift */,
-				3935F4A7286AD5D000760AB0 /* DownloadRowView.swift */,
-				3935F4A3286AD21000760AB0 /* DownloadProgressView.swift */,
+				3935F4CA286C1EC500760AB0 /* ActivityView.swift */,
+				3935F4A5286AD3E100760AB0 /* ActivityHeaderView.swift */,
+				3935F4882866C68000760AB0 /* ActivitySectionHeaderView.swift */,
+				3935F4A7286AD5D000760AB0 /* ActivityRowView.swift */,
+				3935F4A3286AD21000760AB0 /* ActivityProgressView.swift */,
 			);
-			path = Download;
+			path = Activity;
 			sourceTree = "<group>";
 		};
 		393F35C028641D8F005B7165 /* Refresh */ = {
@@ -516,10 +528,10 @@
 		39FF05F12859849200A86670 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				575812B82A37330200425BAF /* Capsule */,
 				39252AA2285C3CC400956C74 /* CodesigningPickerView.swift */,
 				39252AA4285C463A00956C74 /* DynamicTextView.swift */,
 				39252A86285ACE9C00956C74 /* FooterText.swift */,
+				5795700C2A31B081004C7051 /* MistActionButtonStyle.swift */,
 				39252AA0285C2A1600956C74 /* PaddedDivider.swift */,
 				39148CFB28DD55B300011FF5 /* PathControl.swift */,
 				39252A84285ACDC800956C74 /* ResetToDefaultButton.swift */,
@@ -552,17 +564,6 @@
 				39FF05F9285985DD00A86670 /* SettingsAboutView.swift */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		575812B82A37330200425BAF /* Capsule */ = {
-			isa = PBXGroup;
-			children = (
-				57CF96192A34B65C008D3B1C /* CapsuleLeading.swift */,
-				5795700C2A31B081004C7051 /* CapsuleButtonStyle.swift */,
-				575812B62A372D7200425BAF /* CapsuleButtonStyleType.swift */,
-				57CF961B2A34B9E0008D3B1C /* CapsuleTrailing.swift */,
-			);
-			path = Capsule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -765,6 +766,7 @@
 			files = (
 				39FF05F02859848500A86670 /* SettingsView.swift in Sources */,
 				39CF562A2861E1CB006FB5D2 /* DirectoryRemover.swift in Sources */,
+				575812C62A38296A00425BAF /* InstallerVolumeSelectionPickerView.swift in Sources */,
 				398734C828601FFC00B4C357 /* FileMover.swift in Sources */,
 				39CF55AF2861582F006FB5D2 /* AuthorizationError+Extension.swift in Sources */,
 				39CF56172861BE66006FB5D2 /* FileCopier.swift in Sources */,
@@ -774,12 +776,13 @@
 				39CF56212861C992006FB5D2 /* DiskImageMounter.swift in Sources */,
 				398734CC28603D5F00B4C357 /* Chunklist.swift in Sources */,
 				39252A83285ACBF200956C74 /* TextFieldStepperView.swift in Sources */,
-				3935F4A8286AD5D000760AB0 /* DownloadRowView.swift in Sources */,
+				3935F4A8286AD5D000760AB0 /* ActivityRowView.swift in Sources */,
+				575812C22A380B5E00425BAF /* InstallerVolume.swift in Sources */,
 				39CF56332862B7A2006FB5D2 /* PackageCreator.swift in Sources */,
 				398734CE28603D7F00B4C357 /* Chunk.swift in Sources */,
 				3935F4A2286ACD4D00760AB0 /* InstallerExportViewItem.swift in Sources */,
 				393F35C228641E1F005B7165 /* HeaderView.swift in Sources */,
-				5795700D2A31B081004C7051 /* CapsuleButtonStyle.swift in Sources */,
+				5795700D2A31B081004C7051 /* MistActionButtonStyle.swift in Sources */,
 				3935F4CD286C6A5D00760AB0 /* ProcessKiller.swift in Sources */,
 				390451BF2856E34700E0B563 /* String+Extension.swift in Sources */,
 				39CF56242861CA85006FB5D2 /* DiskImageUnmounter.swift in Sources */,
@@ -788,29 +791,28 @@
 				398734D228603DE700B4C357 /* Array+Extension.swift in Sources */,
 				39FF05F82859851800A86670 /* SettingsApplicationsView.swift in Sources */,
 				39CF561D2861C3F5006FB5D2 /* DiskImageCreator.swift in Sources */,
+				575812BA2A373A4F00425BAF /* FirmwareAlertType.swift in Sources */,
 				39CF55AD28615530006FB5D2 /* SettingsGeneralHelperView.swift in Sources */,
 				39252A7B285AC50400956C74 /* SettingsDiskImagesView.swift in Sources */,
 				39252A79285A85AF00956C74 /* SettingsInstallersView.swift in Sources */,
 				39252A9F285C140D00956C74 /* ShellExecutor.swift in Sources */,
 				39CF561A2861C2D1006FB5D2 /* DirectoryCreator.swift in Sources */,
 				39252A77285A849F00956C74 /* AppDelegate.swift in Sources */,
-				3935F49F286AC32C00760AB0 /* ListRow.swift in Sources */,
 				3935F47C2864434B00760AB0 /* SettingsGeneralNotificationsView.swift in Sources */,
 				3935F4C7286B54E200760AB0 /* SparkleUpdater.swift in Sources */,
 				393F35BE2864197F005B7165 /* PrivilegedHelperTool.swift in Sources */,
 				573A23622A28711C00EC9470 /* Architecture.swift in Sources */,
 				390451B92856E24200E0B563 /* Firmware.swift in Sources */,
 				390451CE2856F42800E0B563 /* DownloadType.swift in Sources */,
-				3935F4CB286C1EC500760AB0 /* DownloadView.swift in Sources */,
+				3935F4CB286C1EC500760AB0 /* ActivityView.swift in Sources */,
 				398734C6286011C300B4C357 /* Validator.swift in Sources */,
 				39252ABB285C7D3800956C74 /* SettingsInstallersCatalogsView.swift in Sources */,
 				393D8029286EB4D6008AA8E3 /* EmptyCollectionView.swift in Sources */,
 				3935F490286976D000760AB0 /* ProgressAlertType.swift in Sources */,
-				575812B72A372D7200425BAF /* CapsuleButtonStyleType.swift in Sources */,
 				39FF05F62859850F00A86670 /* SettingsFirmwaresView.swift in Sources */,
-				3935F4A6286AD3E100760AB0 /* DownloadHeaderView.swift in Sources */,
+				3935F4A6286AD3E100760AB0 /* ActivityHeaderView.swift in Sources */,
 				3935F480286551FB00760AB0 /* Double+Extension.swift in Sources */,
-				39252ABD285C8FFC00956C74 /* InstallerListRow.swift in Sources */,
+				39252ABD285C8FFC00956C74 /* ListRowInstaller.swift in Sources */,
 				3935F49D286ABE4D00760AB0 /* FooterView.swift in Sources */,
 				390451CC2856F23100E0B563 /* ScaledSystemImage.swift in Sources */,
 				390451DA28573ADC00E0B563 /* ExportListType.swift in Sources */,
@@ -833,27 +835,28 @@
 				3935F47628643AF000760AB0 /* UNNotificationAction+Extension.swift in Sources */,
 				39252AB3285C5D7700956C74 /* SettingsGeneralUpdatesView.swift in Sources */,
 				39CA25E32941D8BB0030711E /* FileAttributesUpdater.swift in Sources */,
+				575812C42A3821A900425BAF /* InstallerVolumeSelectionInformationView.swift in Sources */,
 				3935F4AB286B04BC00760AB0 /* HelperToolInfoPropertyList.swift in Sources */,
+				575812BE2A3743E300425BAF /* InstallerSheetType.swift in Sources */,
 				393F35BC28641181005B7165 /* RefreshState.swift in Sources */,
 				390451CA2856F1D300E0B563 /* ScaledImage.swift in Sources */,
 				39252A95285BF83D00956C74 /* MistTask.swift in Sources */,
 				39CF56272861E10F006FB5D2 /* Codesigner.swift in Sources */,
 				39148CFC28DD55B300011FF5 /* PathControl.swift in Sources */,
-				3935F4892866C68000760AB0 /* DownloadSectionHeaderView.swift in Sources */,
+				3935F4892866C68000760AB0 /* ActivitySectionHeaderView.swift in Sources */,
 				39252AB5285C706000956C74 /* URL+Extension.swift in Sources */,
-				57CF961C2A34B9E0008D3B1C /* CapsuleTrailing.swift in Sources */,
 				390451D828573A2500E0B563 /* ExportListView.swift in Sources */,
 				39FF05EE2859820900A86670 /* AppCommands.swift in Sources */,
 				39252AA3285C3CC400956C74 /* CodesigningPickerView.swift in Sources */,
 				39252AA5285C463A00956C74 /* DynamicTextView.swift in Sources */,
+				575812C02A37493F00425BAF /* InstallerVolumeSelectionView.swift in Sources */,
 				390451C22856E3F500E0B563 /* Hardware.swift in Sources */,
 				39CF56092861AE7F006FB5D2 /* HelperToolCommandRequest.swift in Sources */,
-				57CF961A2A34B65C008D3B1C /* CapsuleLeading.swift in Sources */,
-				390451C82856E94900E0B563 /* FirmwareListRow.swift in Sources */,
+				390451C82856E94900E0B563 /* ListRowFirmware.swift in Sources */,
 				390451E528574F0000E0B563 /* CatalogType.swift in Sources */,
 				3935F4852866B64900760AB0 /* MistTaskSection.swift in Sources */,
 				390451AC2856E1D900E0B563 /* ContentView.swift in Sources */,
-				3935F4A4286AD21000760AB0 /* DownloadProgressView.swift in Sources */,
+				3935F4A4286AD21000760AB0 /* ActivityProgressView.swift in Sources */,
 				39252A89285AD0AB00956C74 /* SettingsHeaderView.swift in Sources */,
 				39252A85285ACDC800956C74 /* ResetToDefaultButton.swift in Sources */,
 				39CF560F2861B857006FB5D2 /* XPCRoute+Extension.swift in Sources */,
@@ -862,6 +865,7 @@
 				39CF562F2862A797006FB5D2 /* ISOConverter.swift in Sources */,
 				39FF05FA285985DD00A86670 /* SettingsAboutView.swift in Sources */,
 				3935F4AC286B04BC00760AB0 /* HelperToolLaunchdPropertyList.swift in Sources */,
+				575812BC2A37406300425BAF /* ListRowDetail.swift in Sources */,
 				39FF05F42859850500A86670 /* SettingsGeneralView.swift in Sources */,
 				390451AA2856E1D900E0B563 /* MistApp.swift in Sources */,
 				39252AA9285C4C9000956C74 /* RefreshRowView.swift in Sources */,
@@ -871,7 +875,7 @@
 				390451E1285740E800E0B563 /* Sequence+Extension.swift in Sources */,
 				398734D4286046B000B4C357 /* UInt32+Extension.swift in Sources */,
 				390451D42856F74B00E0B563 /* Package.swift in Sources */,
-				395DCD16287FE36E00C411CE /* DownloadAlertType.swift in Sources */,
+				395DCD16287FE36E00C411CE /* InstallerAlertType.swift in Sources */,
 				39CF560028619147006FB5D2 /* HelperToolCommandType.swift in Sources */,
 				39252A87285ACE9C00956C74 /* FooterText.swift in Sources */,
 				573A23642A28791F00EC9470 /* Scene+Extension.swift in Sources */,

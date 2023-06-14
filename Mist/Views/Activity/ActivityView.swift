@@ -1,5 +1,5 @@
 //
-//  DownloadView.swift
+//  ActivityView.swift
 //  Mist
 //
 //  Created by Nindi Gill on 29/6/2022.
@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-struct DownloadView: View {
+struct ActivityView: View {
     // swiftlint:disable:next weak_delegate
     @NSApplicationDelegateAdaptor(AppDelegate.self)
     var appDelegate: AppDelegate
@@ -35,6 +35,12 @@ struct DownloadView: View {
     @State private var timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     private let width: CGFloat = 420
     private let height: CGFloat = 640
+    private var bootableInstaller: Bool {
+        taskManager.taskGroups.map { $0.section }.contains(.bootableInstaller)
+    }
+    private var venturaOrOlder: Bool {
+        !ProcessInfo().isOperatingSystemAtLeast(OperatingSystemVersion(majorVersion: 14, minorVersion: 0, patchVersion: 0))
+    }
     private var buttonText: String {
         switch taskManager.currentState {
         case .pending, .inProgress:
@@ -47,20 +53,20 @@ struct DownloadView: View {
     var body: some View {
         // swiftlint:disable:next closure_body_length
         VStack(spacing: 0) {
-            DownloadHeaderView(imageName: imageName, name: name, version: version, build: build, beta: beta)
+            ActivityHeaderView(imageName: imageName, name: name, version: version, build: build, beta: beta)
             Divider()
             ScrollViewReader { proxy in
                 List {
                     ForEach(taskManager.taskGroups, id: \.section) { taskGroup in
-                        Section(header: DownloadSectionHeaderView(section: taskGroup.section)) {
+                        Section(header: ActivitySectionHeaderView(section: taskGroup.section)) {
                             ForEach(taskGroup.tasks.indices, id: \.self) { index in
                                 VStack {
-                                    DownloadRowView(state: taskGroup.tasks[index].state, description: taskGroup.tasks[index].currentDescription, degrees: degrees)
+                                    ActivityRowView(state: taskGroup.tasks[index].state, description: taskGroup.tasks[index].currentDescription, degrees: degrees)
                                     if taskGroup.tasks[index].type == .download && taskGroup.tasks[index].state != .pending,
                                         let size: UInt64 = taskGroup.tasks[index].downloadSize {
-                                        DownloadProgressView(state: taskGroup.tasks[index].state, value: value, size: size)
+                                        ActivityProgressView(state: taskGroup.tasks[index].state, value: value, size: size)
                                     }
-                                    if index < taskGroup.tasks.count - 1 {
+                                    if venturaOrOlder && index != taskGroup.tasks.count {
                                         Divider()
                                     }
                                 }
@@ -70,7 +76,7 @@ struct DownloadView: View {
                     }
                 }
                 .onChange(of: currentTaskId) { id in
-                    withAnimation(.easeOut(duration: 1.0)) {
+                    withAnimation(.easeOut(duration: 1)) {
                         proxy.scrollTo(id, anchor: .center)
                     }
                 }
@@ -157,6 +163,7 @@ struct DownloadView: View {
         }
 
         if showInFinder {
+
             guard let url: URL = destinationURL else {
                 return
             }
@@ -192,7 +199,14 @@ struct DownloadView: View {
     }
 
     private func sendNotification(for type: DownloadType, name: String, version: String, build: String, success: Bool) {
-        let title: String = " \(type.description) download\(success ? "ed" : " failed")"
+        let title: String
+
+        if bootableInstaller {
+            title = "Bootable Installer \(success ? "created" : "failed")"
+        } else {
+            title = "\(type.description) \(success ? "downloaded" : "failed")"
+        }
+
         let body: String = "\(name) \(version) (\(build))"
         appDelegate.sendUpdateNotification(title: title, body: body, success: success, url: destinationURL)
     }
@@ -218,12 +232,12 @@ struct DownloadView: View {
     }
 }
 
-struct DownloadView_Previews: PreviewProvider {
+struct ActivityView_Previews: PreviewProvider {
     static let firmware: Firmware = .example
     static let installer: Installer = .example
 
     static var previews: some View {
-        DownloadView(downloadType: .firmware, imageName: firmware.imageName, name: firmware.name, version: firmware.version, build: firmware.build, beta: false, taskManager: .shared)
-        DownloadView(downloadType: .installer, imageName: installer.imageName, name: installer.name, version: installer.version, build: installer.build, beta: false, taskManager: .shared)
+        ActivityView(downloadType: .firmware, imageName: firmware.imageName, name: firmware.name, version: firmware.version, build: firmware.build, beta: false, taskManager: .shared)
+        ActivityView(downloadType: .installer, imageName: installer.imageName, name: installer.name, version: installer.version, build: installer.build, beta: false, taskManager: .shared)
     }
 }

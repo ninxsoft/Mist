@@ -751,6 +751,9 @@ struct Installer: Decodable, Hashable, Identifiable {
             "beta": beta
         ]
     }
+    var mavericksOrNewer: Bool {
+        bigSurOrNewer || version.range(of: "^10\\.(9|1[0-5])\\.", options: .regularExpression) != nil
+    }
     var sierraOrOlder: Bool {
         version.range(of: "^10\\.([7-9]|1[0-2])\\.", options: .regularExpression) != nil
     }
@@ -774,6 +777,14 @@ struct Installer: Decodable, Hashable, Identifiable {
     }
     var isoSize: Double {
         ceil(Double(size) / Double(UInt64.gigabyte)) + 1.5
+    }
+    var tooltip: String {
+        """
+        Version: \(version)
+        Build Number: \(build)
+        Release Date: \(date)
+        Download Size: \(size.bytesString())
+        """
     }
 }
 

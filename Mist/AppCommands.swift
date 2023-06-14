@@ -13,7 +13,7 @@ struct AppCommands: Commands {
     var openURL: OpenURLAction
     @ObservedObject var sparkleUpdater: SparkleUpdater
     @Binding var refreshing: Bool
-    @Binding var downloadInProgress: Bool
+    @Binding var tasksInProgress: Bool
 
     @CommandsBuilder var body: some Commands {
         CommandGroup(after: .appInfo) {
@@ -27,13 +27,13 @@ struct AppCommands: Commands {
                 refresh()
             }
             .keyboardShortcut("r")
-            .disabled(refreshing || downloadInProgress)
+            .disabled(refreshing || tasksInProgress)
         }
         CommandGroup(replacing: .systemServices) {
             Button("Install Privileged Helper Tool...") {
                 install()
             }
-            .disabled(downloadInProgress)
+            .disabled(tasksInProgress)
         }
         CommandGroup(replacing: .help) {
             Button("Mist Help") {

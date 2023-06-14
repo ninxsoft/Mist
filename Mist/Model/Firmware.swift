@@ -97,6 +97,14 @@ struct Firmware: Decodable, Hashable, Identifiable {
             "beta": beta
         ]
     }
+    var tooltip: String {
+        """
+        Version: \(version)
+        Build Number: \(build)
+        Release Date: \(formattedDate)
+        Download Size: \(size.bytesString())
+        """
+    }
 
     /// Perform a lookup and retrieve a list of supported Firmware builds for this Mac.
     ///

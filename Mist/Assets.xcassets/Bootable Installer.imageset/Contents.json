@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Bootable Installer.png",
+      "idiom" : "mac"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

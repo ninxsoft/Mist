@@ -14,12 +14,19 @@ struct InstallMediaCreator {
     /// Create the macOS Install Media at the specified mount point.
     ///
     /// - Parameters:
-    ///   - url:        The URL of the `createinstallmedia` binary to execute.
-    ///   - mountPoint: The URL of the mount point (target volume).
+    ///   - url:           The URL of the `createinstallmedia` binary to execute.
+    ///   - mountPoint:    The URL of the mount point (target volume).
+    ///   - sierraOrOlder: `true` if the installer is macOS Sierra or older, otherwise `false`.
     ///
     /// - Throws: An `Error` if the command failed to execute.
-    static func create(_ url: URL, mountPoint: URL) async throws {
-        let arguments: [String] = [url.path, "--volume", mountPoint.path, "--nointeraction"]
+    static func create(_ url: URL, mountPoint: URL, sierraOrOlder: Bool) async throws {
+        var arguments: [String] = [url.path, "--volume", mountPoint.path, "--nointeraction"]
+
+        if sierraOrOlder {
+            let applicationPath: String = url.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().path
+            arguments += ["--applicationpath", applicationPath]
+        }
+
         let client: XPCClient = XPCClient.forMachService(named: .helperIdentifier)
         let request: HelperToolCommandRequest = HelperToolCommandRequest(type: .createinstallmedia, arguments: arguments, environment: [:])
         let response: HelperToolCommandResponse = try await client.sendMessage(request, to: XPCRoute.commandRoute)

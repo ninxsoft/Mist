@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-extension ButtonStyle where Self == CapsuleButtonStyle {
+extension ButtonStyle where Self == MistActionButtonStyle {
 
-    static func capsule(_ type: CapsuleButtonStyleType) -> Self {
-        .init(type: type)
+    static var mistAction: Self {
+        .init()
     }
 }
