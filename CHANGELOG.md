@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.8](https://github.com/ninxsoft/Mist/releases/tag/v0.8) - 2023-06-14
+
+- Mist now supports the creation of **Bootable Installers**
+  - If available, click on the new Bootable Installer button on the right-hand side of the **Installers** list rows
+  - Select a **Mac OS Extended (Journaled)** volume to create a Bootable Installer
+  - Available for **macOS Big Sur 11** and newer on **Apple Silicon Macs**
+  - Available for **OS X Yosemite 10.10.5** and newer on **Intel-based Macs**
+  - Thanks 5T33Z0 ([5T33Z0](https://github.com/5T33Z0))!
+- Fixed a bug where Mist allowed exporting **ISOs** for **OS X Mountain Lion 10.8.5** and older on **Intel-based Macs**
+- Adding missing **tooltips** for Firmwares / Installers (hover to view)
+- Minor cosmetic fixes, including tweaks to button styles and accent colors
+
 ## [0.7.1](https://github.com/ninxsoft/Mist/releases/tag/v0.7.1) - 2023-06-09
 
 - Fixed a bug where the list of Firmwares / Installers would wrap incorrectly when **Show scroll bars** was set to **Always** in **Settings > Appearance** - thanks Kevin M. Cox ([kevinmcox](https://github.com/kevinmcox))!
