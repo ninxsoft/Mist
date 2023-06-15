@@ -83,9 +83,12 @@ struct InstallerExportView: View {
 
         var exports: [InstallerExportType] = []
 
-        if !isoCompatible && !exportApplication && !exportDiskImage && exportISO && !exportPackage {
-            exportApplication = true
+        if !isoCompatible && exportISO {
             exportISO = false
+        }
+
+        if !exportApplication && !exportDiskImage && !exportISO && !exportPackage {
+            exportApplication = true
         }
 
         if exportApplication {
