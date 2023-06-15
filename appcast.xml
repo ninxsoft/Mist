@@ -6,14 +6,18 @@
     <language>en</language>
     <link>https://github.com/ninxsoft/Mist</link>
     <item>
-      <title>Version 0.8</title>
+      <title>Version 0.8.1</title>
       <link>https://github.com/ninxsoft/Mist</link>
-      <sparkle:version>0.8</sparkle:version>
+      <sparkle:version>0.8.1</sparkle:version>
       <sparkle:fullReleaseNotesLink>https://github.com/ninxsoft/Mist/blob/main/CHANGELOG.md</sparkle:fullReleaseNotesLink>
       <description>
         <![CDATA[
           <style>
-            .styled_parent {
+            .styled_0_8_1 {
+              list-style: none;
+              padding: 0;
+            }
+            .styled_0_8 {
               list-style: none;
               padding: 0;
             }
@@ -23,17 +27,28 @@
               margin-top: 15px;
               margin-bottom: 15px;
             }
-            .styled_parent li::before {
+            .styled_0_8_1 li::before {
+              content: "✅ ";
+            }
+            .styled_0_8 li::before {
               content: "🆕 ";
             }
-            .styled_parent li:nth-child(n + 2)::before {
+            .styled_0_8 li:nth-child(n + 2)::before {
               content: "✅ ";
             }
             .styled_child li:nth-child(n + 1)::before {
               content: "";
             }
           </style>
-          <ul class="styled styled_parent">
+          <h3>Version 0.8.1</h3>
+          <hr />
+          <ul class="styled styled_0_8_1">
+            <li>Fixed a bug where <strong>macOS Sierra 10.12.6</strong>, <strong>OS X El Capitan 10.11.6</strong> and <strong>OS X Yosemite 10.10.5</strong> would fail to download</li>
+            <li>Fixed another bug where Mist allowed exporting <strong>ISOs</strong> when it should not</li>
+          </ul>
+          <h3>Version 0.8</h3>
+          <hr />
+          <ul class="styled styled_0_8">
             <li>
               Mist now supports the creation of <strong>Bootable Installers</strong>
               <ul class="styled styled_child">
@@ -49,12 +64,12 @@
           </ul>
         ]]>
       </description>
-      <pubDate>Wed, 14 Jun 2023 12:00:00 +0000</pubDate>
-      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.8/Mist.0.8.pkg"
+      <pubDate>Thu, 15 Jun 2023 12:00:00 +0000</pubDate>
+      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.8.1/Mist.0.8.1.pkg"
                  type="application/octet-stream"
                  sparkle:installationType="package"
-                 sparkle:edSignature="ud8msAzcxvpr1ZEDFF3GONp9RFA5cdncU4yS5To6T4HM3AcJpFJlsufTYCJIaCnNYkofMuE2KhxqQ80slFwADA=="
-                 length="7213353"
+                 sparkle:edSignature="QiGdPV2KIOVjoDFM0VXQOkPM0Lt3DdoE4X4H68gp7mJfDLC1XcsYfCuQ3kQ9oaPcP5Gf2HSe8HjUm5Ew6IpEBQ=="
+                 length="7213347"
       />
     </item>
   </channel>
