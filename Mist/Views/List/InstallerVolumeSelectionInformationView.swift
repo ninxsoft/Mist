@@ -17,7 +17,7 @@ struct InstallerVolumeSelectionInformationView: View {
                     .symbolRenderingMode(.palette)
                     .foregroundStyle(Color.white, Color.blue)
                     .font(.title)
-                Text("Only removable volumes formatted as **Mac OS Extended (Journaled)** are available for selection. Use **Disk Utility** to format volumes as required.")
+                Text("Only volumes formatted as **Mac OS Extended (Journaled)** are available for selection. Use **Disk Utility** to format volumes as required.")
             }
             HStack(alignment: .top) {
                 Image(systemName: "exclamationmark.triangle.fill")
