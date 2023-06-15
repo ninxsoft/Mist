@@ -150,7 +150,7 @@ struct Installer: Decodable, Hashable, Identifiable {
                 distributionSize: 0,
                 packages: [
                     Package(
-                        url: "http://updates-http.cdn-apple.com/2019/cert/061-39476-20191023-48f365f4-0015-4c41-9f44-39d3d2aca067/InstallOS.dmg",
+                        url: "https://updates.cdn-apple.com/2019/cert/061-39476-20191023-48f365f4-0015-4c41-9f44-39d3d2aca067/InstallOS.dmg",
                         size: 5_007_882_126,
                         integrityDataURL: nil,
                         integrityDataSize: nil
@@ -243,7 +243,7 @@ struct Installer: Decodable, Hashable, Identifiable {
                 distributionSize: 0,
                 packages: [
                     Package(
-                        url: "http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg",
+                        url: "https://updates.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg",
                         size: 6_204_629_298,
                         integrityDataURL: nil,
                         integrityDataSize: nil
@@ -351,7 +351,7 @@ struct Installer: Decodable, Hashable, Identifiable {
                 distributionSize: 0,
                 packages: [
                     Package(
-                        url: "http://updates-http.cdn-apple.com/2019/cert/061-41343-20191023-02465f92-3ab5-4c92-bfe2-b725447a070d/InstallMacOSX.dmg",
+                        url: "https://updates.cdn-apple.com/2019/cert/061-41343-20191023-02465f92-3ab5-4c92-bfe2-b725447a070d/InstallMacOSX.dmg",
                         size: 5_718_074_248,
                         integrityDataURL: nil,
                         integrityDataSize: nil
