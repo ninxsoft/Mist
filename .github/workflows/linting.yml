@@ -6,6 +6,7 @@ on:
   pull_request:
     paths: ["**.swift"]
     branches: [main]
+  workflow_dispatch:
 jobs:
   linting:
     name: Linting
