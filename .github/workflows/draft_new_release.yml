@@ -75,7 +75,7 @@ jobs:
                    --identifier "$PACKAGE_IDENTIFIER" \
                    --version "${{ env.APP_VERSION }}" \
                    --min-os-version "12.0" \
-                   --scripts "Scripts"
+                   --scripts "Scripts" \
                    --sign "$APPLE_DEVELOPER_ID_INSTALLER_SIGNING_IDENTITY" \
                    "$PACKAGE_FILENAME"
       - name: Notarize Package
