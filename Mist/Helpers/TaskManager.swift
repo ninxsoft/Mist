@@ -430,6 +430,7 @@ class TaskManager: ObservableObject {
 
         let temporaryImageURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).dmg")
         let createInstallMediaURL: URL = installer.temporaryInstallerURL.appendingPathComponent("/Contents/Resources/createinstallmedia")
+        let temporaryResizedImageURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).resized.dmg")
         let temporaryCDRURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).cdr")
         let isoURL: URL = destinationURL.appendingPathComponent(filename.stringWithSubstitutions(name: installer.name, version: installer.version, build: installer.build))
 
@@ -442,6 +443,9 @@ class TaskManager: ObservableObject {
             },
             MistTask(type: .create, description: "macOS Installer in temporary Disk Image") {
                 try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: installer.temporaryISOMountPointURL, sierraOrOlder: installer.sierraOrOlder)
+            },
+            MistTask(type: .create, description: "resized Disk Image") {
+                try await DiskImageCreator.create(temporaryResizedImageURL, from: installer.temporaryISOMountPointURL)
             },
             MistTask(type: .unmount, description: "temporary Disk Image") {
                 if FileManager.default.fileExists(atPath: installer.temporaryISOMountPointURL.path) {
@@ -458,8 +462,11 @@ class TaskManager: ObservableObject {
                     try await DiskImageUnmounter.unmount(url)
                 }
             },
-            MistTask(type: .convert, description: "temporary Disk Image to ISO") {
-                try await ISOConverter.convert(temporaryImageURL, destination: temporaryCDRURL)
+            MistTask(type: .remove, description: "temporary Disk Image") {
+                try FileManager.default.removeItem(at: temporaryImageURL)
+            },
+            MistTask(type: .convert, description: "resized Disk Image to ISO") {
+                try await ISOConverter.convert(temporaryResizedImageURL, destination: temporaryCDRURL)
             },
             MistTask(type: .save, description: "ISO to destination") {
                 try await FileMover.move(temporaryImageURL, to: isoURL)
