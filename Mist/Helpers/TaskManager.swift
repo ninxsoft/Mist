@@ -469,7 +469,7 @@ class TaskManager: ObservableObject {
                 try await ISOConverter.convert(temporaryResizedImageURL, destination: temporaryCDRURL)
             },
             MistTask(type: .save, description: "ISO to destination") {
-                try await FileMover.move(temporaryImageURL, to: isoURL)
+                try await FileMover.move(temporaryCDRURL, to: isoURL)
             }
         ]
     }
