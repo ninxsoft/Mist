@@ -24,7 +24,9 @@ struct DiskImageCreator {
             "-fs", "JHFS+",
             "-layout", "SPUD",
             "-size", "\(size)g",
-            "-volname", url.lastPathComponent.replacingOccurrences(of: ".dmg", with: ""),
+            "-volname", url
+                .lastPathComponent.replacingOccurrences(of: ".resized", with: "")
+                .replacingOccurrences(of: ".dmg", with: ""),
             url.path
         ]
         try await create(url, with: arguments)
@@ -43,7 +45,9 @@ struct DiskImageCreator {
             "hdiutil", "create",
             "-fs", "HFS+",
             "-srcFolder", source.path,
-            "-volname", url.lastPathComponent.replacingOccurrences(of: ".dmg", with: ""),
+            "-volname", url
+                .lastPathComponent.replacingOccurrences(of: ".resized", with: "")
+                .replacingOccurrences(of: ".dmg", with: ""),
             url.path
         ]
         try await create(url, with: arguments)
