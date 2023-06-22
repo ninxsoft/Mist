@@ -54,7 +54,7 @@ jobs:
           echo "DISK_IMAGE_FILENAME=$DISK_IMAGE_FILENAME" >> "$GITHUB_ENV"
           mkdir -p "$DISK_IMAGE_TEMP"
           ditto "Export/Mist.app" "$DISK_IMAGE_TEMP/Applications/Mist.app"
-          hdiutil create -fs "HFS+" -srcFolder "$DISK_IMAGE_TEMP" -volname "Mist"
+          hdiutil create -fs "HFS+" -srcFolder "$DISK_IMAGE_TEMP" -volname "Mist" "$DISK_IMAGE_FILENAME"
       - name: Notarize Disk Image
         run: |
           xcrun notarytool submit "${{ env.DISK_IMAGE_FILENAME }}" --apple-id "$APPLE_DEVELOPER_APPLE_ID" --password "$APPLE_DEVELOPER_APPLE_ID_PASSWORD" --team-id "$APPLE_DEVELOPER_TEAM_ID" --wait
