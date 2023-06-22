@@ -45,7 +45,7 @@ jobs:
           xcrun notarytool submit "Export/Mist.zip" --apple-id "$APPLE_DEVELOPER_APPLE_ID" --password "$APPLE_DEVELOPER_APPLE_ID_PASSWORD" --team-id "$APPLE_DEVELOPER_TEAM_ID" --wait
           xcrun stapler staple "Export/Mist.app"
       - name: Determine Exported App Version
-        run: echo "APP_VERSION=$(defaults read "Export/Mist.app/Contents/Info.plist" CFBundleShortVersionString)" >> "$GITHUB_ENV"
+        run: echo "APP_VERSION=$(defaults read "$GITHUB_WORKSPACE/Export/Mist.app/Contents/Info.plist" CFBundleShortVersionString)" >> "$GITHUB_ENV"
       - name: Create Disk Image
         run: |
           DISK_IMAGE_IDENTIFIER="com.ninxsoft.dmg.mist"
