@@ -780,6 +780,7 @@ struct Installer: Decodable, Hashable, Identifiable {
     }
     var tooltip: String {
         """
+        Release: \(name)
         Version: \(version)
         Build Number: \(build)
         Release Date: \(date)
