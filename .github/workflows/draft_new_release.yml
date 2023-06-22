@@ -80,12 +80,12 @@ jobs:
       - name: Draft New Release
         uses: softprops/action-gh-release@v1
         with:
-          name: "${{ env.APP_VERSION }}"
-          tag_name: "v${{ env.APP_VERSION }}"
+          name: ${{ env.APP_VERSION }}
+          tag_name: v${{ env.APP_VERSION }}
           draft: true
           files: |
-            "${{ env.DISK_IMAGE_FILENAME }}"
-            "${{ env.PACKAGE_FILENAME }}"
+            ${{ env.DISK_IMAGE_FILENAME }}
+            ${{ env.PACKAGE_FILENAME }}
       - name: Remove Apple Developer Keychain
         if: ${{ always() }}
         run: security delete-keychain $RUNNER_TEMP/apple-developer.keychain-db
