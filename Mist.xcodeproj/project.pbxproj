@@ -138,6 +138,8 @@
 		575812C22A380B5E00425BAF /* InstallerVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812C12A380B5E00425BAF /* InstallerVolume.swift */; };
 		575812C42A3821A900425BAF /* InstallerVolumeSelectionInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812C32A3821A900425BAF /* InstallerVolumeSelectionInformationView.swift */; };
 		575812C62A38296A00425BAF /* InstallerVolumeSelectionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812C52A38296A00425BAF /* InstallerVolumeSelectionPickerView.swift */; };
+		577267AC2A4568CD00434B2C /* SettingsInstallerCacheAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577267AB2A4568CD00434B2C /* SettingsInstallerCacheAlertType.swift */; };
+		577267AE2A45734700434B2C /* SettingsInstallersCacheTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577267AD2A45734700434B2C /* SettingsInstallersCacheTableView.swift */; };
 		5795700B2A31B06F004C7051 /* ButtonStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5795700A2A31B06F004C7051 /* ButtonStyle+Extension.swift */; };
 		5795700D2A31B081004C7051 /* MistActionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5795700C2A31B081004C7051 /* MistActionButtonStyle.swift */; };
 /* End PBXBuildFile section */
@@ -288,6 +290,8 @@
 		575812C12A380B5E00425BAF /* InstallerVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerVolume.swift; sourceTree = "<group>"; };
 		575812C32A3821A900425BAF /* InstallerVolumeSelectionInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerVolumeSelectionInformationView.swift; sourceTree = "<group>"; };
 		575812C52A38296A00425BAF /* InstallerVolumeSelectionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerVolumeSelectionPickerView.swift; sourceTree = "<group>"; };
+		577267AB2A4568CD00434B2C /* SettingsInstallerCacheAlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInstallerCacheAlertType.swift; sourceTree = "<group>"; };
+		577267AD2A45734700434B2C /* SettingsInstallersCacheTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInstallersCacheTableView.swift; sourceTree = "<group>"; };
 		5795700A2A31B06F004C7051 /* ButtonStyle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ButtonStyle+Extension.swift"; sourceTree = "<group>"; };
 		5795700C2A31B081004C7051 /* MistActionButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MistActionButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -436,6 +440,7 @@
 				390451D32856F74B00E0B563 /* Package.swift */,
 				3935F48F286976D000760AB0 /* ProgressAlertType.swift */,
 				393F35BB28641181005B7165 /* RefreshState.swift */,
+				577267AB2A4568CD00434B2C /* SettingsInstallerCacheAlertType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -556,6 +561,7 @@
 				39FF05F52859850F00A86670 /* SettingsFirmwaresView.swift */,
 				39252A78285A85AF00956C74 /* SettingsInstallersView.swift */,
 				39252AB8285C7BC700956C74 /* SettingsInstallersCacheView.swift */,
+				577267AD2A45734700434B2C /* SettingsInstallersCacheTableView.swift */,
 				39252ABA285C7D3800956C74 /* SettingsInstallersCatalogsView.swift */,
 				39FF05F72859851800A86670 /* SettingsApplicationsView.swift */,
 				39252A7A285AC50400956C74 /* SettingsDiskImagesView.swift */,
@@ -766,6 +772,7 @@
 			files = (
 				39FF05F02859848500A86670 /* SettingsView.swift in Sources */,
 				39CF562A2861E1CB006FB5D2 /* DirectoryRemover.swift in Sources */,
+				577267AE2A45734700434B2C /* SettingsInstallersCacheTableView.swift in Sources */,
 				575812C62A38296A00425BAF /* InstallerVolumeSelectionPickerView.swift in Sources */,
 				398734C828601FFC00B4C357 /* FileMover.swift in Sources */,
 				39CF55AF2861582F006FB5D2 /* AuthorizationError+Extension.swift in Sources */,
@@ -790,6 +797,7 @@
 				39252AC3285CA5FE00956C74 /* InstallerExportView.swift in Sources */,
 				398734D228603DE700B4C357 /* Array+Extension.swift in Sources */,
 				39FF05F82859851800A86670 /* SettingsApplicationsView.swift in Sources */,
+				577267AC2A4568CD00434B2C /* SettingsInstallerCacheAlertType.swift in Sources */,
 				39CF561D2861C3F5006FB5D2 /* DiskImageCreator.swift in Sources */,
 				575812BA2A373A4F00425BAF /* FirmwareAlertType.swift in Sources */,
 				39CF55AD28615530006FB5D2 /* SettingsGeneralHelperView.swift in Sources */,
