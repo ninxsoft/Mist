@@ -10,6 +10,7 @@ import SwiftUI
 struct TextRibbon: View {
     var title: String
     var length: CGFloat
+    private let degrees: CGFloat = -45.001
 
     var body: some View {
         Text(title)
@@ -17,6 +18,7 @@ struct TextRibbon: View {
             .frame(width: length)
             .background(Color.accentColor)
             .mask(Circle().frame(width: length, height: length))
+            .rotationEffect(.degrees(degrees))
     }
 }
 
