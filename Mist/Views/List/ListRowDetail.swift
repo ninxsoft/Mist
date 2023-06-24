@@ -24,6 +24,7 @@ struct ListRowDetail: View {
                 ScaledImage(name: imageName, length: length)
                 if beta {
                     TextRibbon(title: "BETA", length: length * 0.9)
+                        .textSelection(.disabled)
                 }
             }
             HStack(spacing: spacing) {
