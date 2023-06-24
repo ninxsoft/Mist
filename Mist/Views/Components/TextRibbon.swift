@@ -11,7 +11,7 @@ struct TextRibbon: View {
     var title: String
     var length: CGFloat
     private let degrees: CGFloat = -45.001
-    // app crashes when value is 45 ¯\_(ツ)_/¯
+    // app crashes when value is exactly -45 ¯\_(ツ)_/¯
 
     var body: some View {
         Text(title)
