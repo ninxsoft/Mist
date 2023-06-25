@@ -11,6 +11,7 @@ enum RefreshState: String, CaseIterable, Identifiable {
     case pending = "Pending"
     case inProgress = "In Progress"
     case complete = "Complete"
+    case warning = "Warning"
     case error = "Error"
 
     var id: String {
@@ -25,6 +26,8 @@ enum RefreshState: String, CaseIterable, Identifiable {
             return "gear.circle.fill"
         case .complete:
             return "checkmark.circle.fill"
+        case .warning:
+            return "exclamationmark.triangle.fill"
         case .error:
             return "x.circle.fill"
         }
@@ -38,6 +41,8 @@ enum RefreshState: String, CaseIterable, Identifiable {
             return .blue
         case .complete:
             return .green
+        case .warning:
+            return .yellow
         case .error:
             return .red
         }
