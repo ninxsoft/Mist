@@ -9,9 +9,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.8.1</string>
+	<string>0.9</string>
 	<key>CFBundleVersion</key>
-	<string>0.8.1</string>
+	<string>0.9</string>
 	<key>SMAuthorizedClients</key>
 	<array>
 		<string>anchor apple generic and identifier "com.ninxsoft.mist" and info[CFBundleVersion] &gt;= "0.1" and certificate leaf[subject.OU] = "7K3HVCLV7Z"</string>

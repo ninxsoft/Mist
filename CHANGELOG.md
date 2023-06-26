@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.9](https://github.com/ninxsoft/Mist/releases/tag/v0.9) - 2023-06-26
+
+- Added the ability to remove individual macOS Installer cached downloads
+  - Managed via the app **Settings > Installers** pane
+  - Thanks [dracinn](https://github.com/dracinn)!
+- Added a shiny new macOS Sonoma application installer icon!
+- Updated Firmware / Installer tooltips to include release names
+- Improved the error messaging when refreshing Firmwares fails due to pending server-side updates
+- Bootable Disk Image (ISO) sizes are now calculated dynamically, with minimal free space
+  - Thanks [devZer0](https://github.com/devZer0) and [carlashley](https://github.com/carlashley)!
+- Fixed a bug where scrolling / clicking on the **Beta** ribbon on top of images caused Mist to crash
+  - Thanks [PicoMitchell](https://github.com/PicoMitchell), [5T33Z0](https://github.com/5T33Z0) and [matxpa](https://github.com/matxpa)!
+
 ## [0.8.1](https://github.com/ninxsoft/Mist/releases/tag/v0.8.1) - 2023-06-15
 
 - Fixed a bug where **macOS Sierra 10.12.6**, **OS X El Capitan 10.11.6** and **OS X Yosemite 10.10.5** would fail to download
