@@ -16,7 +16,9 @@ struct RefreshView: View {
     @State private var firmwaresState: RefreshState = .pending
     @State private var installersState: RefreshState = .pending
     private let width: CGFloat = 200
-    private let height: CGFloat = 200
+    private var height: CGFloat {
+        firmwaresState == .warning ? 230 : 200
+    }
     private var buttonText: String {
         [.pending, .inProgress].contains(firmwaresState) || [.pending, .inProgress].contains(installersState) ? "Cancel" : "Close"
     }
@@ -30,6 +32,10 @@ struct RefreshView: View {
             Spacer()
             VStack {
                 RefreshRowView(image: "memorychip", title: "Firmwares...", state: $firmwaresState)
+                if firmwaresState == .warning {
+                    Text("The Firmwares API is being updated, please try again shortly.")
+                        .font(.caption)
+                }
                 RefreshRowView(image: "desktopcomputer.and.arrow.down", title: "Installers...", state: $installersState)
             }
             .padding(.horizontal)
@@ -61,7 +67,15 @@ struct RefreshView: View {
         } catch {
             successful = false
             try? await Task.sleep(nanoseconds: nanoseconds)
-            firmwaresState = .error
+
+            if let error = error as? MistError,
+                error == .missingDevicesKey {
+                withAnimation {
+                    firmwaresState = .warning
+                }
+            } else {
+                firmwaresState = .error
+            }
         }
 
         installersState = .inProgress
@@ -93,9 +107,12 @@ struct RefreshView: View {
         let string: String = try String(contentsOf: firmwaresURL, encoding: .utf8)
 
         guard let data: Data = string.data(using: .utf8),
-            let dictionary: [String: Any] = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
-            let devices: [String: Any] = dictionary["devices"] as? [String: Any] else {
+            let dictionary: [String: Any] = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
             throw MistError.invalidData
+        }
+
+        guard let devices: [String: Any] = dictionary["devices"] as? [String: Any] else {
+            throw MistError.missingDevicesKey
         }
 
         let supportedBuilds: [String] = try Firmware.supportedBuilds()

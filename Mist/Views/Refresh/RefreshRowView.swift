@@ -25,7 +25,7 @@ struct RefreshRowView: View {
             Text(title)
             Spacer()
             ScaledSystemImage(systemName: state.systemName, length: trailingImageLength, renderingMode: .palette)
-                .foregroundStyle(.white, state.color)
+                .foregroundStyle((state == .warning ? .black : .white), state.color)
                 .rotationEffect(.degrees(degrees))
                 .animation(animation, value: degrees)
         }
