@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AssociatedBundleIdentifiers</key>
+	<array>
+		<string>com.ninxsoft.mist</string>
+	</array>
+	<key>Label</key>
+	<string>com.ninxsoft.mist.helper</string>
+	<key>MachServices</key>
+	<dict>
+		<key>com.ninxsoft.mist.helper</key>
+		<true/>
+	</dict>
+	<key>Program</key>
+	<string>/Library/PrivilegedHelperTools/com.ninxsoft.mist.helper</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Library/PrivilegedHelperTools/com.ninxsoft.mist.helper</string>
+	</array>
+</dict>
+</plist>
