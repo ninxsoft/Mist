@@ -91,6 +91,7 @@ struct ActivityView: View {
             }
             .padding()
         }
+        .interactiveDismissDisabled()
         .frame(width: width, height: height)
         .onAppear {
             Task {
