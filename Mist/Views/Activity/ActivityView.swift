@@ -88,9 +88,11 @@ struct ActivityView: View {
                 Button(buttonText) {
                     stop()
                 }
+                .keyboardShortcut(.escape, modifiers: [])
             }
             .padding()
         }
+        .interactiveDismissDisabled()
         .frame(width: width, height: height)
         .onAppear {
             Task {
