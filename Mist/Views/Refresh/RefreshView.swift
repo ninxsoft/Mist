@@ -46,6 +46,7 @@ struct RefreshView: View {
             }
             .padding(.vertical)
         }
+        .interactiveDismissDisabled()
         .frame(width: width, height: height)
         .onAppear {
             Task {
