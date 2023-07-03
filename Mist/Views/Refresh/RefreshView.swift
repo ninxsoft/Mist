@@ -126,6 +126,12 @@ struct RefreshView: View {
             }
 
             for var firmwareDictionary in firmwaresArray {
+
+                if let url: String = firmwareDictionary["url"] as? String,
+                    url.contains("http://updates-http.cdn-apple.com") {
+                    firmwareDictionary["url"] = url.replacingOccurrences(of: "http://updates-http.cdn-apple.com", with: "https://updates.cdn-apple.com")
+                }
+
                 firmwareDictionary["compatible"] = supportedBuilds.contains(firmwareDictionary["buildid"] as? String ?? "")
                 let firmwareData: Data = try JSONSerialization.data(withJSONObject: firmwareDictionary, options: .prettyPrinted)
                 let firmware: Firmware = try JSONDecoder().decode(Firmware.self, from: firmwareData)
