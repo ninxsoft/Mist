@@ -1267,7 +1267,7 @@
 			repositoryURL = "https://github.com/jpsim/Yams";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.5;
+				minimumVersion = 5.0.6;
 			};
 		};
 		3935F4C3286B546A00760AB0 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
