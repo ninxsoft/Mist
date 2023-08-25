@@ -6,9 +6,9 @@
     <language>en</language>
     <link>https://github.com/ninxsoft/Mist</link>
     <item>
-      <title>Version 0.9</title>
+      <title>Version 0.9.1</title>
       <link>https://github.com/ninxsoft/Mist</link>
-      <sparkle:version>0.9</sparkle:version>
+      <sparkle:version>0.9.1</sparkle:version>
       <sparkle:fullReleaseNotesLink>https://github.com/ninxsoft/Mist/blob/main/CHANGELOG.md</sparkle:fullReleaseNotesLink>
       <description>
         <![CDATA[
@@ -24,36 +24,24 @@
               margin-bottom: 15px;
             }
             .styled li::before {
-              content: "🆕 ";
-            }
-            .styled li:nth-child(n + 3)::before {
               content: "✅ ";
-            }
-            .styled_child li::before {
-              content: "";
             }
           </style>
           <ul class="styled">
-            <li>
-              Added the ability to remove individual macOS Installer cached downloads
-              <ul class="styled_child">
-                <li>Managed via the app <strong>Settings &gt; Installers</strong> pane</li>
-              </ul>
-            </li>
-            <li>Added a shiny new macOS Sonoma application installer icon!</li>
-            <li>Updated Firmware / Installer tooltips to include release names</li>
-            <li>Improved the error messaging when refreshing Firmwares fails due to pending server-side updates</li>
-            <li>Bootable Disk Image (ISO) sizes are now calculated dynamically, with minimal free space</li>
-            <li>Fixed a bug where scrolling / clicking on the <strong>Beta</strong> ribbon on top of images caused Mist to crash</li>
+            <li>Fixed insecure HTTP URLs for certain Firmware files</li>
+            <li>Fixed a bug where downloads were not being cancelled when the Escape key was being pressed</li>
+            <li>Rolled back the Bootable Disk Image (ISO) shrinking logic that was preventing the ISOs from booting correctly</li>
+            <li>Improved the error message output when installing the Privileged Helper Tool failed</li>
+            <li>Bumped <a href="https://github.com/jpsim/Yams">Yams</a> version to <em>5.0.6</em></li>
           </ul>
         ]]>
       </description>
-      <pubDate>Mon, 26 Jun 2023 12:00:00 +0000</pubDate>
-      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.9/Mist.0.9.pkg"
+      <pubDate>Fri, 25 Aug 2023 12:00:00 +0000</pubDate>
+      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.9.1/Mist.0.9.1.pkg"
                  type="application/octet-stream"
                  sparkle:installationType="package"
-                 sparkle:edSignature="WU64sIpSAcZqO+T/rSlZg9hP7KeG9Z55A1kpVfwxpL9/HH7yK1XlThJd2z1HP+x2a9+SiZIaEk81Co6Desx1Cw=="
-                 length="7416142"
+                 sparkle:edSignature="mGkTl5Lf9hTCnBMUY+ZrhgxqBpY8qpycArou61MDewnwwHrfbfkf4GOzhq3vZC6m36cwwrKSAZYXZHsHb8DhDg=="
+                 length="7416684"
       />
     </item>
   </channel>
