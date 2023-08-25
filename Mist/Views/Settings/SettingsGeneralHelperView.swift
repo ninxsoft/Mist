@@ -28,6 +28,14 @@ struct SettingsGeneralHelperView: View {
         let version: BundleVersion = installed.version
         return "Installed (\(version.major).\(version.minor).\(version.patch))"
     }
+    private var errorMessage: String {
+
+        if let error: BlessError = error as? BlessError {
+            return error.description
+        }
+
+        return error?.localizedDescription ?? ""
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -55,7 +63,7 @@ struct SettingsGeneralHelperView: View {
         .alert(isPresented: $showAlert) {
             Alert(
                 title: Text("An error has occured!"),
-                message: Text(error?.localizedDescription ?? ""),
+                message: Text(errorMessage),
                 dismissButton: .default(Text("OK"))
             )
         }
