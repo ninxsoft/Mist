@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.9.1](https://github.com/ninxsoft/Mist/releases/tag/v0.9.1) - 2023-08-25
+
+- Fixed insecure HTTP URLs for certain Firmware files - thanks [F1248](https://github.com/F1248)!
+- Fixed a bug where downloads were not being cancelled when the Escape key was being pressed - thanks [F1248](https://github.com/F1248)!
+- Rolled back the Bootable Disk Image (ISO) shrinking logic that was preventing the ISOs from booting correctly - thanks [mviron](https://github.com/mviron), [tulgeywood](https://github.com/tulgeywood) and [mibosshard](https://github.com/mibosshard)!
+- Improved the error message output when installing the Privileged Helper Tool failed - thanks [DevLiuSir](https://github.com/DevLiuSir) and [bhagatparwinder](https://github.com/bhagatparwinder)!
+- Bumped [Yams](https://github.com/jpsim/Yams) version to **5.0.6**
+
 ## [0.9](https://github.com/ninxsoft/Mist/releases/tag/v0.9) - 2023-06-26
 
 - Added the ability to remove individual macOS Installer cached downloads
