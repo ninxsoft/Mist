@@ -32,7 +32,7 @@
             <li>Fixed a bug where downloads were not being cancelled when the Escape key was being pressed</li>
             <li>Rolled back the Bootable Disk Image (ISO) shrinking logic that was preventing the ISOs from booting correctly</li>
             <li>Improved the error message output when installing the Privileged Helper Tool failed</li>
-            <li>Bumped <a href="https://github.com/jpsim/Yams">Yams</a> version to <em>5.0.6</em></li>
+            <li>Bumped <a href="https://github.com/jpsim/Yams">Yams</a> version to <b>5.0.6</b></li>
           </ul>
         ]]>
       </description>
