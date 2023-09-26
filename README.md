@@ -30,7 +30,7 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
       - For use with virtualization software (ie. Parallels Desktop, UTM, VMware Fusion, VirtualBox)
     - Generate a macOS Installer Package (.pkg)
       - Supports packages on **macOS Big Sur and newer** with a massive 12GB+ payload!
-    - Optionally codesign Disk Images and macOS Installer Packages
+    - Optionally code sign Disk Images and macOS Installer Packages
     - Cache downloads to speed up build operations
     - Select custom Software Update Catalogs, allowing you to list and download macOS Installers from the following:
       - **Standard:** The default catalog that ships with macOS
