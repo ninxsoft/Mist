@@ -1,3 +1,4 @@
+<!-- markdownlint-disable-next-line no-inline-html first-line-heading -->
 <img align="left" width="128" height="128" src="README%20Resources/App%20Icon.png">
 
 # MIST - macOS Installer Super Tool
@@ -8,9 +9,13 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
 
 ![Example Screenshot](README%20Resources/Example.png)
 
+<!-- markdownlint-disable no-trailing-punctuation -->
+
 ## :information_source: Check out [mist-cli](https://github.com/ninxsoft/mist-cli) for the companion command-line tool!
 
 ## ![Slack](README%20Resources/Slack.png) Check out [#mist](https://macadmins.slack.com/archives/CF0CFM5B7) on the [Mac Admins Slack](https://macadmins.slack.com) to discuss all things Mist!
+
+<!-- markdownlint-enable no-trailing-punctuation -->
 
 ## Features
 
