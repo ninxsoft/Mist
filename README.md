@@ -58,7 +58,7 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
 ## Download
 
 - Grab the latest version of **Mist** from the [releases page](https://github.com/ninxsoft/Mist/releases).
-- Alternatively, install via [Homebrew](https://brew.sh) by running `brew install mist`
+- Alternatively, install via [Homebrew](https://brew.sh) by running `brew install --cask mist`
 
 ## Credits / Thank You
 
