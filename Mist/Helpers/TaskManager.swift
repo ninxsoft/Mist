@@ -532,6 +532,13 @@ class TaskManager: ObservableObject {
         let mountPointURL: URL = URL(fileURLWithPath: volume.path)
         let tasks: [MistTask] = [
             MistTask(type: .create, description: "Bootable Installer") {
+
+                // Workaround to make macOS Sierra 10.12 createinstallmedia work
+                if installer.version.hasPrefix("10.12") {
+                    let infoPlistURL: URL = installer.temporaryInstallerURL.appendingPathComponent("/Contents/Info.plist")
+                    try PropertyListUpdater.update(infoPlistURL, key: "CFBundleShortVersionString", value: "12.6.03")
+                }
+
                 try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: mountPointURL, sierraOrOlder: installer.sierraOrOlder)
             }
         ]
