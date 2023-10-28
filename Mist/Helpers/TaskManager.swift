@@ -476,7 +476,7 @@ class TaskManager: ObservableObject {
         } else {
             let installESDURL: URL = installer.temporaryInstallerURL.appendingPathComponent("/Contents/SharedSupport/InstallESD.dmg")
             return  [
-                MistTask(type: .convert, description: "Install Disk Image to ISO") {
+                MistTask(type: .convert, description: "Installer Disk Image to ISO") {
                     try await ISOConverter.convert(installESDURL, destination: temporaryCDRURL)
                 },
                 MistTask(type: .save, description: "ISO to destination") {
