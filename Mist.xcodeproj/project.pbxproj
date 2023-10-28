@@ -131,6 +131,7 @@
 		39FF05FA285985DD00A86670 /* SettingsAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF05F9285985DD00A86670 /* SettingsAboutView.swift */; };
 		573A23622A28711C00EC9470 /* Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A23612A28711C00EC9470 /* Architecture.swift */; };
 		573A23642A28791F00EC9470 /* Scene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A23632A28791F00EC9470 /* Scene+Extension.swift */; };
+		574199D22AED15420086493F /* PropertyListUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574199D12AED15420086493F /* PropertyListUpdater.swift */; };
 		575812BA2A373A4F00425BAF /* FirmwareAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812B92A373A4F00425BAF /* FirmwareAlertType.swift */; };
 		575812BC2A37406300425BAF /* ListRowDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812BB2A37406300425BAF /* ListRowDetail.swift */; };
 		575812BE2A3743E300425BAF /* InstallerSheetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575812BD2A3743E300425BAF /* InstallerSheetType.swift */; };
@@ -283,6 +284,7 @@
 		39FF05F9285985DD00A86670 /* SettingsAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAboutView.swift; sourceTree = "<group>"; };
 		573A23612A28711C00EC9470 /* Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architecture.swift; sourceTree = "<group>"; };
 		573A23632A28791F00EC9470 /* Scene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+Extension.swift"; sourceTree = "<group>"; };
+		574199D12AED15420086493F /* PropertyListUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListUpdater.swift; sourceTree = "<group>"; };
 		575812B92A373A4F00425BAF /* FirmwareAlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareAlertType.swift; sourceTree = "<group>"; };
 		575812BB2A37406300425BAF /* ListRowDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowDetail.swift; sourceTree = "<group>"; };
 		575812BD2A3743E300425BAF /* InstallerSheetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerSheetType.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				39CF56322862B7A2006FB5D2 /* PackageCreator.swift */,
 				393F35BD2864197F005B7165 /* PrivilegedHelperTool.swift */,
 				3935F4CC286C6A5D00760AB0 /* ProcessKiller.swift */,
+				574199D12AED15420086493F /* PropertyListUpdater.swift */,
 				3935F4C6286B54E200760AB0 /* SparkleUpdater.swift */,
 				398734C328600E6E00B4C357 /* TaskManager.swift */,
 				398734C5286011C300B4C357 /* Validator.swift */,
@@ -842,6 +845,7 @@
 				390451D02856F63700E0B563 /* Installer.swift in Sources */,
 				3935F47628643AF000760AB0 /* UNNotificationAction+Extension.swift in Sources */,
 				39252AB3285C5D7700956C74 /* SettingsGeneralUpdatesView.swift in Sources */,
+				574199D22AED15420086493F /* PropertyListUpdater.swift in Sources */,
 				39CA25E32941D8BB0030711E /* FileAttributesUpdater.swift in Sources */,
 				575812C42A3821A900425BAF /* InstallerVolumeSelectionInformationView.swift in Sources */,
 				3935F4AB286B04BC00760AB0 /* HelperToolInfoPropertyList.swift in Sources */,
