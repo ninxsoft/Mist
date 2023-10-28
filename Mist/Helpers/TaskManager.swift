@@ -433,45 +433,57 @@ class TaskManager: ObservableObject {
         let temporaryCDRURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).cdr")
         let isoURL: URL = destinationURL.appendingPathComponent(filename.stringWithSubstitutions(name: installer.name, version: installer.version, build: installer.build))
 
-        return [
-            MistTask(type: .create, description: "temporary Disk Image") {
-                try await DiskImageCreator.create(temporaryImageURL, size: installer.isoSize)
-            },
-            MistTask(type: .mount, description: "temporary Disk Image") {
-                try await DiskImageMounter.mount(temporaryImageURL, mountPoint: installer.temporaryISOMountPointURL)
-            },
-            MistTask(type: .create, description: "macOS Installer in temporary Disk Image") {
+        if installer.mavericksOrNewer {
+            return [
+                MistTask(type: .create, description: "temporary Disk Image") {
+                    try await DiskImageCreator.create(temporaryImageURL, size: installer.isoSize)
+                },
+                MistTask(type: .mount, description: "temporary Disk Image") {
+                    try await DiskImageMounter.mount(temporaryImageURL, mountPoint: installer.temporaryISOMountPointURL)
+                },
+                MistTask(type: .create, description: "macOS Installer in temporary Disk Image") {
 
-                // Workaround to make macOS Sierra 10.12 createinstallmedia work 
-                if installer.version.hasPrefix("10.12") {
-                    let infoPlistURL: URL = installer.temporaryInstallerURL.appendingPathComponent("/Contents/Info.plist")
-                    try PropertyListUpdater.update(infoPlistURL, key: "CFBundleShortVersionString", value: "12.6.03")
+                    // Workaround to make macOS Sierra 10.12 createinstallmedia work
+                    if installer.version.hasPrefix("10.12") {
+                        let infoPlistURL: URL = installer.temporaryInstallerURL.appendingPathComponent("/Contents/Info.plist")
+                        try PropertyListUpdater.update(infoPlistURL, key: "CFBundleShortVersionString", value: "12.6.03")
+                    }
+
+                    try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: installer.temporaryISOMountPointURL, sierraOrOlder: installer.sierraOrOlder)
+                },
+                MistTask(type: .unmount, description: "temporary Disk Image") {
+                    if FileManager.default.fileExists(atPath: installer.temporaryISOMountPointURL.path) {
+                        try await DiskImageUnmounter.unmount(installer.temporaryISOMountPointURL)
+                    }
+
+                    guard let major: Substring = installer.version.split(separator: ".").first else {
+                        return
+                    }
+
+                    let url: URL = URL(fileURLWithPath: "/Volumes/Install macOS \(major) beta")
+
+                    if FileManager.default.fileExists(atPath: url.path) {
+                        try await DiskImageUnmounter.unmount(url)
+                    }
+                },
+                MistTask(type: .convert, description: "temporary Disk Image to ISO") {
+                    try await ISOConverter.convert(temporaryImageURL, destination: temporaryCDRURL)
+                },
+                MistTask(type: .save, description: "ISO to destination") {
+                    try await FileMover.move(temporaryCDRURL, to: isoURL)
                 }
-
-                try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: installer.temporaryISOMountPointURL, sierraOrOlder: installer.sierraOrOlder)
-            },
-            MistTask(type: .unmount, description: "temporary Disk Image") {
-                if FileManager.default.fileExists(atPath: installer.temporaryISOMountPointURL.path) {
-                    try await DiskImageUnmounter.unmount(installer.temporaryISOMountPointURL)
+            ]
+        } else {
+            let installESDURL: URL = installer.temporaryInstallerURL.appendingPathComponent("/Contents/SharedSupport/InstallESD.dmg")
+            return  [
+                MistTask(type: .convert, description: "Installer Disk Image to ISO") {
+                    try await ISOConverter.convert(installESDURL, destination: temporaryCDRURL)
+                },
+                MistTask(type: .save, description: "ISO to destination") {
+                    try await FileMover.move(temporaryCDRURL, to: isoURL)
                 }
-
-                guard let major: Substring = installer.version.split(separator: ".").first else {
-                    return
-                }
-
-                let url: URL = URL(fileURLWithPath: "/Volumes/Install macOS \(major) beta")
-
-                if FileManager.default.fileExists(atPath: url.path) {
-                    try await DiskImageUnmounter.unmount(url)
-                }
-            },
-            MistTask(type: .convert, description: "temporary Disk Image to ISO") {
-                try await ISOConverter.convert(temporaryImageURL, destination: temporaryCDRURL)
-            },
-            MistTask(type: .save, description: "ISO to destination") {
-                try await FileMover.move(temporaryCDRURL, to: isoURL)
-            }
-        ]
+            ]
+        }
     }
 
     // swiftlint:disable:next function_parameter_count
