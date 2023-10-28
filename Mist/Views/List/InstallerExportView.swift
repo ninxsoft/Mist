@@ -23,20 +23,10 @@ struct InstallerExportView: View {
             return false
         }
 
-        return (architecture == .intel && installer.mavericksOrNewer) || (architecture == .appleSilicon && installer.bigSurOrNewer)
+        return architecture == .appleSilicon && installer.bigSurOrNewer
     }
     private var compatibilityMessage: String {
-
-        guard let architecture: Architecture = Hardware.architecture else {
-            return ""
-        }
-
-        switch architecture {
-        case .appleSilicon:
-            return "**Note:** ISOs are unavailable for building **macOS Catalina 10.15 and older** on [Apple Silicon Macs](https://support.apple.com/en-us/HT211814)."
-        case .intel:
-            return "**Note:** ISOs are unavailable for building **OS X Mountain Lion 10.8 and older** on Intel-based Macs."
-        }
+        "**Note:** ISOs are unavailable for building **macOS Catalina 10.15 and older** on [Apple Silicon Macs](https://support.apple.com/en-us/HT211814)."
     }
 
     var body: some View {
