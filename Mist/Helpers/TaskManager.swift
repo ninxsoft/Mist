@@ -441,6 +441,13 @@ class TaskManager: ObservableObject {
                 try await DiskImageMounter.mount(temporaryImageURL, mountPoint: installer.temporaryISOMountPointURL)
             },
             MistTask(type: .create, description: "macOS Installer in temporary Disk Image") {
+
+                // Workaround to make macOS Sierra 10.12 createinstallmedia work 
+                if installer.version.hasPrefix("10.12") {
+                    let infoPlistURL: URL = installer.temporaryInstallerURL.appendingPathComponent("/Contents/Info.plist")
+                    try PropertyListUpdater.update(infoPlistURL, key: "CFBundleShortVersionString", value: "12.6.03")
+                }
+
                 try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: installer.temporaryISOMountPointURL, sierraOrOlder: installer.sierraOrOlder)
             },
             MistTask(type: .unmount, description: "temporary Disk Image") {
