@@ -13,7 +13,7 @@ struct SettingsISOsView: View {
     private let imageName: String = "ISO"
     private let title: String = "ISOs"
     // swiftlint:disable:next line_length
-    private let description: String = "ISOs are Bootable macOS Installer Disk Images that can be restored on external USB drives, or used with virtualization software (ie. [Parallels Desktop](https://www.parallels.com/au/products/desktop/), [UTM](https://mac.getutm.app), [VMware Fusion](https://www.vmware.com/au/products/fusion.html), [VirtualBox](https://www.virtualbox.org)).\n\n**Note:** ISOs are unavailable for building **macOS Catalina 10.15 and older** on [Apple Silicon Macs](https://support.apple.com/en-us/HT211814)."
+    private let description: String = "ISOs are Bootable macOS Installer Disk Images that can be restored on external USB drives, or used with virtualization software (ie. [Parallels Desktop](https://www.parallels.com/au/products/desktop/), [UTM](https://mac.getutm.app), [VMware Fusion](https://www.vmware.com/au/products/fusion.html), [VirtualBox](https://www.virtualbox.org))."
 
     var body: some View {
         VStack(alignment: .leading) {

@@ -18,16 +18,6 @@ struct InstallerExportView: View {
     private var exportPackage: Bool = false
     var installer: Installer
     @Binding var exports: [InstallerExportType]
-    private var isoCompatible: Bool {
-        guard let architecture: Architecture = Hardware.architecture else {
-            return false
-        }
-
-        return architecture == .intel || (architecture == .appleSilicon && installer.bigSurOrNewer)
-    }
-    private var compatibilityMessage: String {
-        "**Note:** ISOs are unavailable for building **macOS Catalina 10.15 and older** on [Apple Silicon Macs](https://support.apple.com/en-us/HT211814)."
-    }
 
     var body: some View {
         VStack {
@@ -40,15 +30,10 @@ struct InstallerExportView: View {
                 InstallerExportViewItem(exportType: .diskImage, selected: $exportDiskImage)
                     .disabled(exports.count == 1 && exportDiskImage)
                 InstallerExportViewItem(exportType: .iso, selected: $exportISO)
-                    .disabled(isoCompatible ? exports.count == 1 && exportISO : true)
-                    .opacity(isoCompatible ? 1 : 0.5)
+                    .disabled(exports.count == 1 && exportISO)
                 InstallerExportViewItem(exportType: .package, selected: $exportPackage)
                     .disabled(exports.count == 1 && exportPackage)
                 Spacer()
-            }
-            if !isoCompatible {
-                Text(.init(compatibilityMessage))
-                    .padding(.top)
             }
         }
         .padding()
@@ -72,10 +57,6 @@ struct InstallerExportView: View {
     private func updateExports() {
 
         var exports: [InstallerExportType] = []
-
-        if !isoCompatible && exportISO {
-            exportISO = false
-        }
 
         if !exportApplication && !exportDiskImage && !exportISO && !exportPackage {
             exportApplication = true

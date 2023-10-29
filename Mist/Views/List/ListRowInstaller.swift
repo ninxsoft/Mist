@@ -91,8 +91,7 @@ struct ListRowInstaller: View {
                 }
                 .help("Download and export macOS Installer")
                 .buttonStyle(.mistAction)
-                if let architecture: Architecture = Hardware.architecture,
-                    (architecture == .appleSilicon && installer.bigSurOrNewer) || (architecture == .intel && installer.mavericksOrNewer) {
+                if installer.mavericksOrNewer {
                     Button {
                         pressButton(.volumeSelection)
                     } label: {

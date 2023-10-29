@@ -25,4 +25,19 @@ struct Codesigner {
             throw MistError.invalidTerminationStatus(status: response.terminationStatus, output: response.standardOutput, error: response.standardError)
         }
     }
+
+    /// Ad-hoc sign all files within a directory (or app bundle).
+    ///
+    /// - Parameters:
+    ///   - url: The URL of the directory to ad-hoc sign.
+    ///
+    /// - Throws: A `MistError` if the command failed to execute.
+    static func adhocSign(_ url: URL) async throws {
+        let arguments: [String] = ["find", url.path, "-type", "f", "-exec", "codesign", "--sign", "-", "--force", "{}", ";"]
+        let response: HelperToolCommandResponse = try ShellExecutor.shared.execute(arguments)
+
+        guard response.terminationStatus == 0 else {
+            throw MistError.invalidTerminationStatus(status: response.terminationStatus, output: response.standardOutput, error: response.standardError)
+        }
+    }
 }
