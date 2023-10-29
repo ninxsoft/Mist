@@ -10,7 +10,7 @@ import Foundation
 /// Helper struct to update a Property List key-pair value.
 struct PropertyListUpdater {
 
-    /// Edit a key-pair value in a Property List.
+    /// Update a key-pair value in a Property List.
     ///
     /// - Parameters:
     ///   - url:   The URL of the property list to be updated.
