@@ -23,6 +23,7 @@ struct ListRowFirmware: View {
     @State private var showAlert: Bool = false
     @State private var showSavePanel: Bool = false
     @State private var downloading: Bool = false
+    @State private var error: Error?
     private let length: CGFloat = 48
     private let spacing: CGFloat = 5
     private let padding: CGFloat = 3
@@ -33,6 +34,14 @@ struct ListRowFirmware: View {
         }
 
         return "This macOS Firmware download cannot be used to restore macOS on this \(architecture.description) Mac.\n\nAre you sure you want to continue?"
+    }
+    private var errorMessage: String {
+
+        if let error: BlessError = error as? BlessError {
+            return error.description
+        }
+
+        return error?.localizedDescription ?? ""
     }
 
     var body: some View {
@@ -68,9 +77,15 @@ struct ListRowFirmware: View {
             case .helperTool:
                 return Alert(
                     title: Text("Privileged Helper Tool not installed!"),
-                    message: Text("The Mist Privileged Helper Tool is required to perform Administrator tasks when downloading macOS Firmwares"),
-                    primaryButton: .default(Text("Install...")) { installPrivilegedHelperTool() },
+                    message: Text("The Mist Privileged Helper Tool is required to perform Administrator tasks when downloading macOS Firmwares."),
+                    primaryButton: .default(Text("Install...")) { Task { installPrivilegedHelperTool() } },
                     secondaryButton: .default(Text("Cancel"))
+                )
+            case .error:
+                return Alert(
+                    title: Text("An error has occured!"),
+                    message: Text(errorMessage),
+                    dismissButton: .default(Text("OK"))
                 )
             }
         }
@@ -132,7 +147,13 @@ struct ListRowFirmware: View {
     }
 
     private func installPrivilegedHelperTool() {
-        try? PrivilegedHelperManager.shared.authorizeAndBless()
+        do {
+            try PrivilegedHelperManager.shared.authorizeAndBless()
+        } catch {
+            self.error = error
+            alertType = .error
+            showAlert = true
+        }
     }
 }
 

@@ -48,6 +48,7 @@ struct ListRowInstaller: View {
     @State private var showOpenPanel: Bool = false
     @State private var exports: [InstallerExportType] = []
     @State private var volume: InstallerVolume?
+    @State private var error: Error?
     private let length: CGFloat = 48
     private let spacing: CGFloat = 5
     private let padding: CGFloat = 3
@@ -61,6 +62,14 @@ struct ListRowInstaller: View {
     }
     private var cacheDirectoryMessage: String {
         "The cache directory has incorrect ownership and/or permissions, which will cause issues caching macOS Installers.\n\nRepair the cache directory ownership and/or permissions and try again."
+    }
+    private var errorMessage: String {
+
+        if let error: BlessError = error as? BlessError {
+            return error.description
+        }
+
+        return error?.localizedDescription ?? ""
     }
 
     var body: some View {
@@ -97,36 +106,7 @@ struct ListRowInstaller: View {
             .clipShape(Capsule())
         }
         .alert(isPresented: $showAlert) {
-            switch alertType {
-            case .compatibility:
-                return Alert(
-                    title: Text("macOS Installer not compatible!"),
-                    message: Text(compatibilityMessage),
-                    primaryButton: .default(Text("Cancel")),
-                    secondaryButton: .default(Text("Continue")) { Task { validate() } }
-                )
-            case .helperTool:
-                return Alert(
-                    title: Text("Privileged Helper Tool not installed!"),
-                    message: Text("The Mist Privileged Helper Tool is required to perform Administrator tasks when creating macOS Installers."),
-                    primaryButton: .default(Text("Install...")) { installPrivilegedHelperTool() },
-                    secondaryButton: .default(Text("Cancel"))
-                )
-            case .fullDiskAccess:
-                return Alert(
-                    title: Text("Full Disk Access required!"),
-                    message: Text("Mist requires Full Disk Access to perform Administrator tasks when creating macOS Installers."),
-                    primaryButton: .default(Text("Allow...")) { openFullDiskAccessPreferences() },
-                    secondaryButton: .default(Text("Cancel"))
-                )
-            case .cacheDirectory:
-                return Alert(
-                    title: Text("Cache directory settings incorrect!"),
-                    message: Text(cacheDirectoryMessage),
-                    primaryButton: .default(Text("Repair...")) { Task { try await repairCacheDirectoryOwnershipAndPermissions() } },
-                    secondaryButton: .default(Text("Cancel"))
-                )
-            }
+            alert(for: alertType)
         }
         .onChange(of: showOpenPanel) { boolean in
 
@@ -309,7 +289,13 @@ struct ListRowInstaller: View {
     }
 
     private func installPrivilegedHelperTool() {
-        try? PrivilegedHelperManager.shared.authorizeAndBless()
+        do {
+            try PrivilegedHelperManager.shared.authorizeAndBless()
+        } catch {
+            self.error = error
+            alertType = .error
+            showAlert = true
+        }
     }
 
     private func openFullDiskAccessPreferences() {
@@ -325,6 +311,45 @@ struct ListRowInstaller: View {
         let url: URL = URL(fileURLWithPath: cacheDirectory)
         let ownerAccountName: String = NSUserName()
         try await FileAttributesUpdater.update(url: url, ownerAccountName: ownerAccountName)
+    }
+
+    private func alert(for alertType: InstallerAlertType) -> Alert {
+        switch alertType {
+        case .compatibility:
+            return Alert(
+                title: Text("macOS Installer not compatible!"),
+                message: Text(compatibilityMessage),
+                primaryButton: .default(Text("Cancel")),
+                secondaryButton: .default(Text("Continue")) { Task { validate() } }
+            )
+        case .helperTool:
+            return Alert(
+                title: Text("Privileged Helper Tool not installed!"),
+                message: Text("The Mist Privileged Helper Tool is required to perform Administrator tasks when creating macOS Installers."),
+                primaryButton: .default(Text("Install...")) { Task { installPrivilegedHelperTool() } },
+                secondaryButton: .default(Text("Cancel"))
+            )
+        case .fullDiskAccess:
+            return Alert(
+                title: Text("Full Disk Access required!"),
+                message: Text("Mist requires Full Disk Access to perform Administrator tasks when creating macOS Installers."),
+                primaryButton: .default(Text("Allow...")) { openFullDiskAccessPreferences() },
+                secondaryButton: .default(Text("Cancel"))
+            )
+        case .cacheDirectory:
+            return Alert(
+                title: Text("Cache directory settings incorrect!"),
+                message: Text(cacheDirectoryMessage),
+                primaryButton: .default(Text("Repair...")) { Task { try await repairCacheDirectoryOwnershipAndPermissions() } },
+                secondaryButton: .default(Text("Cancel"))
+            )
+        case .error:
+            return Alert(
+                title: Text("An error has occured!"),
+                message: Text(errorMessage),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
 }
 

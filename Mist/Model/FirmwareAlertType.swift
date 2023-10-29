@@ -10,4 +10,5 @@ import SwiftUI
 enum FirmwareAlertType: String {
     case compatibility = "Compatiblity"
     case helperTool = "Helper Tool"
+    case error = "Error"
 }
