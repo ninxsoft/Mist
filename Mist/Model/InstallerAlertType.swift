@@ -10,4 +10,5 @@ enum InstallerAlertType: String {
     case helperTool = "Helper Tool"
     case fullDiskAccess = "Full Disk Access"
     case cacheDirectory = "Cache Directory"
+    case error = "Error"
 }

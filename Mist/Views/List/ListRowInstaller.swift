@@ -48,6 +48,7 @@ struct ListRowInstaller: View {
     @State private var showOpenPanel: Bool = false
     @State private var exports: [InstallerExportType] = []
     @State private var volume: InstallerVolume?
+    @State private var error: Error?
     private let length: CGFloat = 48
     private let spacing: CGFloat = 5
     private let padding: CGFloat = 3
@@ -61,6 +62,14 @@ struct ListRowInstaller: View {
     }
     private var cacheDirectoryMessage: String {
         "The cache directory has incorrect ownership and/or permissions, which will cause issues caching macOS Installers.\n\nRepair the cache directory ownership and/or permissions and try again."
+    }
+    private var errorMessage: String {
+
+        if let error: BlessError = error as? BlessError {
+            return error.description
+        }
+
+        return error?.localizedDescription ?? ""
     }
 
     var body: some View {
@@ -109,7 +118,7 @@ struct ListRowInstaller: View {
                 return Alert(
                     title: Text("Privileged Helper Tool not installed!"),
                     message: Text("The Mist Privileged Helper Tool is required to perform Administrator tasks when creating macOS Installers."),
-                    primaryButton: .default(Text("Install...")) { installPrivilegedHelperTool() },
+                    primaryButton: .default(Text("Install...")) { Task { installPrivilegedHelperTool() } },
                     secondaryButton: .default(Text("Cancel"))
                 )
             case .fullDiskAccess:
@@ -125,6 +134,12 @@ struct ListRowInstaller: View {
                     message: Text(cacheDirectoryMessage),
                     primaryButton: .default(Text("Repair...")) { Task { try await repairCacheDirectoryOwnershipAndPermissions() } },
                     secondaryButton: .default(Text("Cancel"))
+                )
+            case .error:
+                return Alert(
+                    title: Text("An error has occured!"),
+                    message: Text(errorMessage),
+                    dismissButton: .default(Text("OK"))
                 )
             }
         }
@@ -309,7 +324,13 @@ struct ListRowInstaller: View {
     }
 
     private func installPrivilegedHelperTool() {
-        try? PrivilegedHelperManager.shared.authorizeAndBless()
+        do {
+            try PrivilegedHelperManager.shared.authorizeAndBless()
+        } catch {
+            self.error = error
+            alertType = .error
+            showAlert = true
+        }
     }
 
     private func openFullDiskAccessPreferences() {
