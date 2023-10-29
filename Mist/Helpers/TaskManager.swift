@@ -429,7 +429,7 @@ class TaskManager: ObservableObject {
     private static func isoTasks(for installer: Installer, filename: String, destination destinationURL: URL, temporaryDirectory temporaryDirectoryURL: URL) -> [MistTask] {
 
         let temporaryImageURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).dmg")
-        let createInstallMediaURL: URL = installer.temporaryInstallerURL.appendingPathComponent("/Contents/Resources/createinstallmedia")
+        let createInstallMediaURL: URL = installer.temporaryInstallerURL.appendingPathComponent("Contents/Resources/createinstallmedia")
         let temporaryCDRURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).cdr")
         let isoURL: URL = destinationURL.appendingPathComponent(filename.stringWithSubstitutions(name: installer.name, version: installer.version, build: installer.build))
 
@@ -445,7 +445,7 @@ class TaskManager: ObservableObject {
 
                     // Workaround to make macOS Sierra 10.12 createinstallmedia work
                     if installer.version.hasPrefix("10.12") {
-                        let infoPlistURL: URL = installer.temporaryInstallerURL.appendingPathComponent("/Contents/Info.plist")
+                        let infoPlistURL: URL = installer.temporaryInstallerURL.appendingPathComponent("Contents/Info.plist")
                         try PropertyListUpdater.update(infoPlistURL, key: "CFBundleShortVersionString", value: "12.6.03")
                     }
 
@@ -474,7 +474,7 @@ class TaskManager: ObservableObject {
                 }
             ]
         } else {
-            let installESDURL: URL = installer.temporaryInstallerURL.appendingPathComponent("/Contents/SharedSupport/InstallESD.dmg")
+            let installESDURL: URL = installer.temporaryInstallerURL.appendingPathComponent("Contents/SharedSupport/InstallESD.dmg")
             return  [
                 MistTask(type: .convert, description: "Installer Disk Image to ISO") {
                     try await ISOConverter.convert(installESDURL, destination: temporaryCDRURL)
@@ -528,14 +528,14 @@ class TaskManager: ObservableObject {
     }
 
     private static func bootableInstallerTasks(for installer: Installer, volume: InstallerVolume) -> [MistTask] {
-        let createInstallMediaURL: URL = installer.temporaryInstallerURL.appendingPathComponent("/Contents/Resources/createinstallmedia")
+        let createInstallMediaURL: URL = installer.temporaryInstallerURL.appendingPathComponent("Contents/Resources/createinstallmedia")
         let mountPointURL: URL = URL(fileURLWithPath: volume.path)
         let tasks: [MistTask] = [
             MistTask(type: .create, description: "Bootable Installer") {
 
                 // Workaround to make macOS Sierra 10.12 createinstallmedia work
                 if installer.version.hasPrefix("10.12") {
-                    let infoPlistURL: URL = installer.temporaryInstallerURL.appendingPathComponent("/Contents/Info.plist")
+                    let infoPlistURL: URL = installer.temporaryInstallerURL.appendingPathComponent("Contents/Info.plist")
                     try PropertyListUpdater.update(infoPlistURL, key: "CFBundleShortVersionString", value: "12.6.03")
                 }
 
