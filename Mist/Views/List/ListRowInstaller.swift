@@ -73,6 +73,7 @@ struct ListRowInstaller: View {
     }
 
     var body: some View {
+        // swiftlint:disable:next closure_body_length
         HStack {
             ListRowDetail(
                 imageName: installer.imageName,
