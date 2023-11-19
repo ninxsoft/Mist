@@ -12,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // swiftlint:disable:next weak_delegate
     private let userNotificationCenterDelegate: UserNotificationCenterDelegate = .init()
 
-    func applicationDidFinishLaunching(_ notification: Notification) {
+    func applicationDidFinishLaunching(_: Notification) {
         UNUserNotificationCenter.current().delegate = userNotificationCenterDelegate
         let show: UNNotificationAction = .init(identifier: UNNotificationAction.Identifier.show, title: "Show", options: .foreground)
         let success: UNNotificationCategory = .init(identifier: UNNotificationCategory.Identifier.success, actions: [show], intentIdentifiers: [], options: [])
@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSWindow.allowsAutomaticWindowTabbing = false
     }
 
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+    func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool {
         true
     }
 
