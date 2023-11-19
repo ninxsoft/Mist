@@ -16,7 +16,6 @@ struct MistTask: Identifiable {
     let operation: @Sendable () async throws -> Void
 
     var currentDescription: String {
-
         var prefix: String = type.rawValue
         var suffix: String = description
 
@@ -46,14 +45,12 @@ struct MistTask: Identifiable {
 }
 
 extension MistTask: Equatable {
-
     static func == (lhs: MistTask, rhs: MistTask) -> Bool {
         lhs.id == rhs.id
     }
 }
 
 extension MistTask: Hashable {
-
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }

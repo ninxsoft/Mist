@@ -9,7 +9,6 @@ import Foundation
 
 /// Helper class used to execute shell commands.
 class ShellExecutor: NSObject {
-
     static var shared: ShellExecutor = ShellExecutor()
     private var process: Process = Process()
 
@@ -60,7 +59,6 @@ class ShellExecutor: NSObject {
     }
 
     func terminate() {
-
         guard process.isRunning else {
             return
         }

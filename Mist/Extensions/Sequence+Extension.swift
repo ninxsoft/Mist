@@ -9,7 +9,6 @@ import Foundation
 import Yams
 
 extension Sequence where Iterator.Element == [String: Any] {
-
     func firmwaresCSVString() -> String {
         "Signed,Name,Version,Build,Size,Date,Compatible\n" + self.map { $0.firmwareCSVString() }.joined()
     }

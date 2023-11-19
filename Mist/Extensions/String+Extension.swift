@@ -8,7 +8,6 @@
 import Foundation
 
 extension String {
-
     static let appName: String = "mist"
     static let appIdentifier: String = "com.ninxsoft.\(appName)"
     static let helperIdentifier: String = "\(appIdentifier).helper"

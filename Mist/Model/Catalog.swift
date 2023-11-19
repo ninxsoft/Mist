@@ -8,7 +8,6 @@
 import Foundation
 
 struct Catalog: Identifiable, Decodable, Equatable {
-
     enum CodingKeys: String, CodingKey {
         // swiftlint:disable:next redundant_string_enum_value
         case type = "type"

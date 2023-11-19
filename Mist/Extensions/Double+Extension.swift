@@ -8,7 +8,6 @@
 import Foundation
 
 extension Double {
-
     /// kilobytes constant
     static let kilobyte: Double = 1_000
     /// megabytes constant
@@ -17,7 +16,6 @@ extension Double {
     static let gigabyte: Double = .megabyte * 1_000
 
     func bytesString() -> String {
-
         if self < .kilobyte {
             return "\(Int(self)) bytes"
         } else if self < .megabyte {

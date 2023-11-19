@@ -61,7 +61,6 @@ struct SettingsPackagesView: View {
     }
 
     private func updateCodesigningIdentities() {
-
         var codesigningIdentities: [String] = []
 
         let query: [String: Any] = [

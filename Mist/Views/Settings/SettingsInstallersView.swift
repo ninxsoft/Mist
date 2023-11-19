@@ -42,7 +42,6 @@ struct SettingsInstallersView: View {
     }
 
     private func getCatalogs() -> [Catalog] {
-
         guard let array: [[String: Any]] = UserDefaults.standard.array(forKey: "catalogs") as? [[String: Any]] else {
             return defaultCatalogs
         }

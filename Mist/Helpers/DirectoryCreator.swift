@@ -9,7 +9,6 @@ import Foundation
 
 /// Helper struct to create directories.
 struct DirectoryCreator {
-
     /// Create a directory at the provided URL.
     ///
     /// - Parameters:

@@ -51,7 +51,6 @@ struct AppCommands: Commands {
     }
 
     private func help() {
-
         guard let url: URL = URL(string: .repositoryURL) else {
             return
         }

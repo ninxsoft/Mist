@@ -33,9 +33,7 @@ struct MistApp: App {
     }
 
     func hideZoomButton() {
-
         for window in NSApplication.shared.windows {
-
             guard let button: NSButton = window.standardWindowButton(NSWindow.ButtonType.zoomButton) else {
                 continue
             }

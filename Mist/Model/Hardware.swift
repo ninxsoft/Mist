@@ -9,7 +9,6 @@ import Foundation
 
 /// Hardware Struct used to retrieve Hardware information.
 struct Hardware {
-
     /// Hardware Architecture (Apple Silicon or Intel).
     static var architecture: Architecture? {
         #if arch(arm64)
@@ -27,7 +26,6 @@ struct Hardware {
     }
     /// Hardware Device ID (Apple Silicon or Intel T2).
     static var deviceID: String? {
-
         switch architecture {
         case .appleSilicon:
             return registryProperty(for: "compatible")?.components(separatedBy: "\0").first?.uppercased()
@@ -49,7 +47,6 @@ struct Hardware {
     ///
     /// - Returns: The entity property for the provided key.
     private static func registryProperty(for key: String) -> String? {
-
         let entry: io_service_t = IOServiceGetMatchingService(kIOMainPortDefault, IOServiceMatching("IOPlatformExpertDevice"))
 
         defer {

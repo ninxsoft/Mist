@@ -9,9 +9,7 @@ import CryptoKit
 import Foundation
 
 extension URL {
-
     func fileSize() throws -> UInt64 {
-
         let urlResourceKeys: Set<URLResourceKey> = [
             .isRegularFileKey,
             .fileAllocatedSizeKey,
@@ -29,7 +27,6 @@ extension URL {
     }
 
     func shasum() -> String? {
-
         let length: Int = 1_024 * 1_024 * 50 // 50 MB
 
         do {

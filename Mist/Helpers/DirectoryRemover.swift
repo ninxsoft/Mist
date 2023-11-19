@@ -10,7 +10,6 @@ import SecureXPC
 
 /// Helper struct to remove directories
 struct DirectoryRemover {
-
     /// Remove directory at the provided URL.
     ///
     /// - Parameters:
@@ -18,7 +17,6 @@ struct DirectoryRemover {
     ///
     /// - Throws: An `Error` if the command failed to execute.
     static func remove(_ url: URL) async throws {
-
         guard FileManager.default.fileExists(atPath: url.path) else {
             return
         }

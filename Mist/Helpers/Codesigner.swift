@@ -9,7 +9,6 @@ import Foundation
 
 /// Helper struct to codesign a file (ie. Disk Image).
 struct Codesigner {
-
     /// Sign a file with the provided signing identity.
     ///
     /// - Parameters:

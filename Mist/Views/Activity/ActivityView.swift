@@ -126,7 +126,6 @@ struct ActivityView: View {
     }
 
     private func performTasks() async {
-
         for taskGroupIndex in taskManager.taskGroups.indices {
             for taskIndex in taskManager.taskGroups[taskGroupIndex].tasks.indices {
                 currentTaskId = "\(taskManager.taskGroups[taskGroupIndex].section.id).\(taskIndex)"
@@ -165,7 +164,6 @@ struct ActivityView: View {
         }
 
         if showInFinder {
-
             guard let url: URL = destinationURL else {
                 return
             }
@@ -175,7 +173,6 @@ struct ActivityView: View {
     }
 
     private func checkForUserCancellation(_ failure: Error) -> Bool {
-
         if failure as? CancellationError != nil {
             return true
         }
@@ -214,7 +211,6 @@ struct ActivityView: View {
     }
 
     private func stop() {
-
         switch taskManager.currentState {
         case .pending, .inProgress:
             alertType = .cancel

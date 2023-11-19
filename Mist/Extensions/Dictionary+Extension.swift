@@ -6,9 +6,7 @@
 //
 
 extension Dictionary where Key == String {
-
     func firmwareCSVString() -> String {
-
         guard let signed: Bool = self["signed"] as? Bool,
             let name: String = self["name"] as? String,
             let version: String = self["version"] as? String,
@@ -24,7 +22,6 @@ extension Dictionary where Key == String {
     }
 
     func installerCSVString() -> String {
-
         guard let identifier: String = self["identifier"] as? String,
             let name: String = self["name"] as? String,
             let version: String = self["version"] as? String,

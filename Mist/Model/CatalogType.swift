@@ -38,7 +38,6 @@ enum CatalogType: String, CaseIterable, Comparable, Decodable {
 
     // swiftlint:disable:next cyclomatic_complexity
     func url(for seedType: CatalogSeedType) -> String {
-
         switch self {
         case .sonoma:
             switch seedType {

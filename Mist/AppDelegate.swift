@@ -9,7 +9,6 @@ import AppKit
 import UserNotifications
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-
     // swiftlint:disable:next weak_delegate
     private let userNotificationCenterDelegate: UserNotificationCenterDelegate = UserNotificationCenterDelegate()
 
@@ -28,7 +27,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func sendUpdateNotification(title: String, body: String, success: Bool, url: URL?) {
-
         let notificationCenter: UNUserNotificationCenter = .current()
         notificationCenter.getNotificationSettings { settings in
 

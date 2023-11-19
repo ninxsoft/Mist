@@ -6,7 +6,6 @@
 //
 
 extension Array where Element == UInt8 {
-
     func uInt8(at offset: Int) -> UInt8 {
         self[offset]
     }

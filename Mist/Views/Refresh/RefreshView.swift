@@ -98,7 +98,6 @@ struct RefreshView: View {
     }
 
     private func retrieveFirmwares() throws -> [Firmware] {
-
         var firmwares: [Firmware] = []
 
         guard let firmwaresURL: URL = URL(string: Firmware.firmwaresURL) else {
@@ -119,7 +118,6 @@ struct RefreshView: View {
         let supportedBuilds: [String] = try Firmware.supportedBuilds()
 
         for (identifier, device) in devices {
-
             guard identifier.contains("Mac"),
                 let device: [String: Any] = device as? [String: Any],
                 let firmwaresArray: [[String: Any]] = device["firmwares"] as? [[String: Any]] else {
@@ -127,7 +125,6 @@ struct RefreshView: View {
             }
 
             for var firmwareDictionary in firmwaresArray {
-
                 if let url: String = firmwareDictionary["url"] as? String,
                     url.contains("http://updates-http.cdn-apple.com") {
                     firmwareDictionary["url"] = url.replacingOccurrences(of: "http://updates-http.cdn-apple.com", with: "https://updates.cdn-apple.com")
@@ -156,7 +153,6 @@ struct RefreshView: View {
         let catalogURLs: [String] = getCatalogURLs()
 
         for catalogURL in catalogURLs {
-
             guard let url: URL = URL(string: catalogURL) else {
                 continue
             }
@@ -196,7 +192,6 @@ struct RefreshView: View {
     }
 
     private func getCatalogURLs() -> [String] {
-
         var catalogURLs: [String] = []
         var catalogs: [Catalog] = []
         let defaultCatalogs: [Catalog] = CatalogType.allCases.map { Catalog(type: $0, standard: true, customerSeed: false, developerSeed: false, publicSeed: false) }
@@ -239,13 +234,11 @@ struct RefreshView: View {
     }
 
     private func getInstallers(from dictionary: [String: Any]) -> [Installer] {
-
         var installers: [Installer] = []
         let dateFormatter: DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
         for (key, value) in dictionary {
-
             guard var value: [String: Any] = value as? [String: Any],
                 let date: Date = value["PostDate"] as? Date,
                 let extendedMetaInfo: [String: Any] = value["ExtendedMetaInfo"] as? [String: Any],
@@ -296,7 +289,6 @@ struct RefreshView: View {
     }
 
     private func nameFromDistribution(_ string: String) -> String? {
-
         guard string.contains("suDisabledGroupID") else {
             return nil
         }
@@ -307,7 +299,6 @@ struct RefreshView: View {
     }
 
     private func versionFromDistribution(_ string: String) -> String? {
-
         guard string.contains("<key>VERSION</key>") else {
             return nil
         }
@@ -317,7 +308,6 @@ struct RefreshView: View {
     }
 
     private func buildFromDistribution(_ string: String) -> String? {
-
         guard string.contains("<key>BUILD</key>") else {
             return nil
         }
@@ -327,7 +317,6 @@ struct RefreshView: View {
     }
 
     private func boardIDsFromDistribution(_ string: String) -> [String] {
-
         guard string.contains("supportedBoardIDs") || string.contains("boardIds") else {
             return []
         }
@@ -341,7 +330,6 @@ struct RefreshView: View {
     }
 
     private func deviceIDsFromDistribution(_ string: String) -> [String] {
-
         guard string.contains("supportedDeviceIDs") else {
             return []
         }
@@ -356,7 +344,6 @@ struct RefreshView: View {
     }
 
     private func unsupportedModelIdentifiersFromDistribution(_ string: String) -> [String] {
-
         guard string.contains("nonSupportedModels") else {
             return []
         }

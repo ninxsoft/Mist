@@ -9,7 +9,6 @@ import Foundation
 
 /// Struct used to store all elements of the Chunklist.
 struct Chunklist {
-
     /// Chunklist Magic Header constant
     static let magicHeader: UInt32 = 0x4C4B4E43
     /// Chunklist Header Size constant
@@ -56,7 +55,6 @@ struct Chunklist {
     ///
     /// - Throws: A `MistError` if the Chunklist validation fails
     init(from url: URL, size: Int) throws {
-
         let data: Data = try Data(contentsOf: url)
 
         guard data.count == size else {
@@ -121,7 +119,6 @@ struct Chunklist {
     ///
     /// - Returns: An array of Chunk structs.
     private static func chunks(_ array: [UInt8], totalChunks: Int) -> [Chunk] {
-
         var chunks: [Chunk] = []
 
         for offset in 0..<totalChunks {

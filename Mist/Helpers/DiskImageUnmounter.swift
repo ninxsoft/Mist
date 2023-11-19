@@ -9,7 +9,6 @@ import Foundation
 
 /// Helper struct to unmount Disk Images.
 struct DiskImageUnmounter {
-
     /// Unmount a Disk Image at the provided mount point.
     ///
     /// - Parameters:

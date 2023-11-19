@@ -70,7 +70,6 @@ struct InstallerExportView: View {
     }
 
     private func updateExports() {
-
         var exports: [InstallerExportType] = []
 
         if !isoCompatible && exportISO {

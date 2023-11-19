@@ -33,14 +33,12 @@ struct TextFieldStepperView: View {
     }
 
     private func increment() {
-
         if value < maximum {
             value += 1
         }
     }
 
     private func decrement() {
-
         if value > minimum {
             value -= 1
         }

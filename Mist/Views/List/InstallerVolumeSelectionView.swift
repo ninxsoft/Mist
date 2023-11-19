@@ -62,7 +62,6 @@ struct InstallerVolumeSelectionView: View {
     }
 
     private func getAvailableVolumes() -> [InstallerVolume] {
-
         var volumes: [InstallerVolume] = []
         let keys: [URLResourceKey] = [.volumeNameKey, .volumeLocalizedFormatDescriptionKey, .volumeIsReadOnlyKey, .volumeTotalCapacityKey]
 

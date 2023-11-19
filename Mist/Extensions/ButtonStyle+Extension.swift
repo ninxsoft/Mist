@@ -8,7 +8,6 @@
 import SwiftUI
 
 extension ButtonStyle where Self == MistActionButtonStyle {
-
     static var mistAction: Self {
         .init()
     }

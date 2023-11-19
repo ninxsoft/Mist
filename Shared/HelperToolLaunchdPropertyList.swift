@@ -9,7 +9,6 @@ import EmbeddedPropertyList
 import Foundation
 
 struct HelperToolLaunchdPropertyList: Decodable, Equatable {
-
     private enum CodingKeys: String, CodingKey {
         case machServices = "MachServices"
         case label = "Label"

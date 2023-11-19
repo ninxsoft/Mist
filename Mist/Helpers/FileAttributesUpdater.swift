@@ -10,7 +10,6 @@ import SecureXPC
 
 /// Helper struct to update file / directory attributes
 struct FileAttributesUpdater {
-
     /// Update file / directory attributes at the provided URL.
     ///
     /// - Parameters:
@@ -19,7 +18,6 @@ struct FileAttributesUpdater {
     ///
     /// - Throws: An `Error` if the command failed to execute.
     static func update(url: URL, ownerAccountName: String) async throws {
-
         guard FileManager.default.fileExists(atPath: url.path) else {
             return
         }

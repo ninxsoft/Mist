@@ -10,7 +10,6 @@ import SecureXPC
 
 /// Helper Struct used to create macOS Installers.
 struct InstallerCreator {
-
     /// Creates a recently downloaded macOS Installer.
     ///
     /// - Parameters:
@@ -20,11 +19,9 @@ struct InstallerCreator {
     ///
     /// - Throws: A `MistError` if the downloaded macOS Installer fails to generate.
     static func create(_ installer: Installer, mountPoint: URL, cacheDirectory: String) async throws {
-
         let packageURL: URL
 
         if installer.sierraOrOlder {
-
             guard let package: Package = installer.packages.first else {
                 throw MistError.invalidData
             }

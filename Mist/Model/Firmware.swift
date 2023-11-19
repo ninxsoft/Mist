@@ -8,7 +8,6 @@
 import Foundation
 
 struct Firmware: Decodable, Hashable, Identifiable {
-
     enum CodingKeys: String, CodingKey {
         case version = "version"
         case build = "buildid"
@@ -49,7 +48,6 @@ struct Firmware: Decodable, Hashable, Identifiable {
         "\(String.appIdentifier).\(version)-\(build)"
     }
     var name: String {
-
         var name: String = ""
 
         if version.range(of: "^14", options: .regularExpression) != nil {
@@ -113,7 +111,6 @@ struct Firmware: Decodable, Hashable, Identifiable {
     ///
     /// - Returns: An array of Firmware build strings.
     static func supportedBuilds() throws -> [String] {
-
         guard let architecture: Architecture = Hardware.architecture,
             architecture == .appleSilicon,
             let modelIdentifier: String = Hardware.modelIdentifier,
@@ -134,7 +131,6 @@ struct Firmware: Decodable, Hashable, Identifiable {
 }
 
 extension Firmware: Equatable {
-
     static func == (lhs: Firmware, rhs: Firmware) -> Bool {
         lhs.version == rhs.version && lhs.build == rhs.build
     }

@@ -33,7 +33,6 @@ struct FooterView: View {
     }
 
     private func export() {
-
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date: String = dateFormatter.string(from: Date())
 

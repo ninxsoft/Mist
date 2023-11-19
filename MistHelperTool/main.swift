@@ -10,7 +10,6 @@ import SecureXPC
 
 /// Helper Tool struct to run a command sent from the main application.
 struct HelperToolCommandRunner {
-
     /// Run the requested command and return the status and output.
     ///
     /// - Parameters:
@@ -20,7 +19,6 @@ struct HelperToolCommandRunner {
     ///
     /// - Returns: A `HelperToolCommandResponse` struct containing the termination status, standard output and standard error.
     static func run(_ request: HelperToolCommandRequest) throws -> HelperToolCommandResponse {
-
         switch request.type {
         case .remove:
 

@@ -8,7 +8,6 @@
 import UserNotifications
 
 extension UNNotificationCategory {
-
     struct Identifier {
         /// Success Identifier
         static let success: String = "Success"

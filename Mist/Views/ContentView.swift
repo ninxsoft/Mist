@@ -124,14 +124,12 @@ struct ContentView: View {
     }
 
     private func releaseNames(for type: DownloadType) -> [String] {
-
         var releaseNames: [String] = []
 
         switch type {
         case .firmware:
 
             for firmware in filteredFirmwares {
-
                 let releaseName: String = firmware.name.replacingOccurrences(of: " beta", with: "")
 
                 if !releaseNames.contains(releaseName) {
@@ -141,7 +139,6 @@ struct ContentView: View {
         case .installer:
 
             for installer in filteredInstallers {
-
                 let releaseName: String = installer.name.replacingOccurrences(of: " beta", with: "")
 
                 if !releaseNames.contains(releaseName) {

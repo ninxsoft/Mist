@@ -9,7 +9,6 @@ import Foundation
 
 /// Helper struct to move files.
 struct FileMover {
-
     /// Move a file from one location to another.
     ///
     /// - Parameters:

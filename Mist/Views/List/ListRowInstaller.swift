@@ -53,7 +53,6 @@ struct ListRowInstaller: View {
     private let spacing: CGFloat = 5
     private let padding: CGFloat = 3
     private var compatibilityMessage: String {
-
         guard let architecture: Architecture = Hardware.architecture else {
             return "Invalid architecture!"
         }
@@ -64,7 +63,6 @@ struct ListRowInstaller: View {
         "The cache directory has incorrect ownership and/or permissions, which will cause issues caching macOS Installers.\n\nRepair the cache directory ownership and/or permissions and try again."
     }
     private var errorMessage: String {
-
         if let error: BlessError = error as? BlessError {
             return error.description
         }
@@ -203,7 +201,6 @@ struct ListRowInstaller: View {
     }
 
     private func createBootableInstaller() {
-
         guard let volume: InstallerVolume = volume else {
             return
         }
@@ -230,7 +227,6 @@ struct ListRowInstaller: View {
     }
 
     private func validate() {
-
         guard PrivilegedHelperTool.isInstalled() else {
             alertType = .helperTool
             showAlert = true
@@ -244,7 +240,6 @@ struct ListRowInstaller: View {
         }
 
         if cacheDownloads {
-
             do {
                 var isDirectory: ObjCBool = false
 
@@ -299,7 +294,6 @@ struct ListRowInstaller: View {
     }
 
     private func openFullDiskAccessPreferences() {
-
         guard let url: URL = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles") else {
             return
         }

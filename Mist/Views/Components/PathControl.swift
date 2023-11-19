@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PathControl: NSViewRepresentable {
-
     @Binding var path: String
 
     func makeNSView(context: Context) -> NSPathControl {

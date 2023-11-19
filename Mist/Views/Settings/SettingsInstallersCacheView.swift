@@ -106,7 +106,6 @@ struct SettingsInstallersCacheView: View {
     }
 
     private func retrieveCache() {
-
         let url: URL = URL(fileURLWithPath: cacheDirectory)
         var isDirectory: ObjCBool = false
 
@@ -143,7 +142,6 @@ struct SettingsInstallersCacheView: View {
     }
 
     private func installer(for url: URL) -> Installer? {
-
         let id: String = url.lastPathComponent
 
         do {
@@ -194,7 +192,6 @@ struct SettingsInstallersCacheView: View {
     }
 
     private func versionFromDistribution(_ string: String) -> String? {
-
         guard string.contains("<key>VERSION</key>") else {
             return nil
         }
@@ -204,7 +201,6 @@ struct SettingsInstallersCacheView: View {
     }
 
     private func buildFromDistribution(_ string: String) -> String? {
-
         guard string.contains("<key>BUILD</key>") else {
             return nil
         }
@@ -214,7 +210,6 @@ struct SettingsInstallersCacheView: View {
     }
 
     private func showInFinder() {
-
         guard let id: String = selectedInstallerId else {
             return
         }
@@ -224,7 +219,6 @@ struct SettingsInstallersCacheView: View {
     }
 
     private func emptyCache(for id: String?) async {
-
         guard let id: String = id else {
             return
         }

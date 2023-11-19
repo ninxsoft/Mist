@@ -49,7 +49,6 @@ struct SettingsAboutView: View {
     }
 
     private func visitHomepage() {
-
         guard let url: URL = URL(string: .repositoryURL) else {
             return
         }

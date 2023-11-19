@@ -10,7 +10,6 @@ import Foundation
 // swiftlint:disable file_length
 // swiftlint:disable:next type_body_length
 struct Installer: Decodable, Hashable, Identifiable {
-
     enum CodingKeys: String, CodingKey {
         case id = "Identifier"
         case version = "Version"
@@ -654,7 +653,6 @@ struct Installer: Decodable, Hashable, Identifiable {
     let deviceIDs: [String]
     let unsupportedModelIdentifiers: [String]
     var name: String {
-
         var name: String = ""
 
         if version.range(of: "^14", options: .regularExpression) != nil {
@@ -710,7 +708,6 @@ struct Installer: Decodable, Hashable, Identifiable {
         // Model Identifier (Apple Silicon or Intel)
         // macOS Catalina 10.15 or older
         if version.range(of: "^10\\.", options: .regularExpression) != nil {
-
             if let architecture: Architecture = Hardware.architecture,
                 architecture == .appleSilicon {
                 return false
@@ -790,7 +787,6 @@ struct Installer: Decodable, Hashable, Identifiable {
 }
 
 extension Installer: Equatable {
-
     static func == (lhs: Installer, rhs: Installer) -> Bool {
         lhs.version == rhs.version && lhs.build == rhs.build
     }

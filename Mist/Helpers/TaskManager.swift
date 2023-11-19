@@ -11,13 +11,11 @@ import System
 // swiftlint:disable file_length
 // swiftlint:disable:next type_body_length
 class TaskManager: ObservableObject {
-
     static let shared: TaskManager = TaskManager()
     @Published var taskGroups: [(section: MistTaskSection, tasks: [MistTask])]
     var task: Task<Any, Error> = Task { }
 
     var currentState: MistTaskState {
-
         let states: Set<MistTaskState> = Set(taskGroups.flatMap { $0.tasks }.map { $0.state })
 
         if states.contains(.inProgress) {
@@ -40,7 +38,6 @@ class TaskManager: ObservableObject {
     }
 
     static func taskGroups(for firmware: Firmware, destination destinationURL: URL?, retries: Int, delay retryDelay: Int) throws -> [(section: MistTaskSection, tasks: [MistTask])] {
-
         let temporaryDirectoryURL: URL = URL(fileURLWithPath: .temporaryDirectory)
 
         guard let destinationURL: URL = destinationURL else {
@@ -265,7 +262,6 @@ class TaskManager: ObservableObject {
     }
 
     private static func downloadTasks(for installer: Installer, cacheDirectory cacheDirectoryURL: URL, retries: Int, delay retryDelay: Int) throws -> [MistTask] {
-
         var tasks: [MistTask] = []
 
         if !FileManager.default.fileExists(atPath: cacheDirectoryURL.path) {
@@ -295,7 +291,6 @@ class TaskManager: ObservableObject {
         }
 
         for package in installer.allDownloads {
-
             guard let packageURL: URL = URL(string: package.url) else {
                 throw MistError.invalidURL(package.url)
             }
@@ -316,7 +311,6 @@ class TaskManager: ObservableObject {
     }
 
     private static func installTasks(for installer: Installer, temporaryDirectory temporaryDirectoryURL: URL, mountPoint mountPointURL: URL, cacheDirectory: String) -> [MistTask] {
-
         let imageURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id) Temp.dmg")
         var tasks: [MistTask] = [
             MistTask(type: .configure, description: "temporary directory") {
@@ -371,7 +365,6 @@ class TaskManager: ObservableObject {
     }
 
     private static func applicationTasks(for installer: Installer, filename: String, destination destinationURL: URL) -> [MistTask] {
-
         let applicationURL: URL = destinationURL.appendingPathComponent(filename.stringWithSubstitutions(name: installer.name, version: installer.version, build: installer.build))
 
         return [
@@ -390,7 +383,6 @@ class TaskManager: ObservableObject {
         destination destinationURL: URL,
         temporaryDirectory temporaryDirectoryURL: URL
     ) -> [MistTask] {
-
         let imageDirectoryURL: URL = temporaryDirectoryURL.appendingPathComponent(installer.id)
         let applicationURL: URL = imageDirectoryURL.appendingPathComponent(installer.temporaryInstallerURL.lastPathComponent)
         let temporaryImageURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).dmg")
@@ -427,7 +419,6 @@ class TaskManager: ObservableObject {
     }
 
     private static func isoTasks(for installer: Installer, filename: String, destination destinationURL: URL, temporaryDirectory temporaryDirectoryURL: URL) -> [MistTask] {
-
         let temporaryImageURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).dmg")
         let createInstallMediaURL: URL = installer.temporaryInstallerURL.appendingPathComponent("Contents/Resources/createinstallmedia")
         let temporaryCDRURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).cdr")
@@ -442,7 +433,6 @@ class TaskManager: ObservableObject {
                     try await DiskImageMounter.mount(temporaryImageURL, mountPoint: installer.temporaryISOMountPointURL)
                 },
                 MistTask(type: .create, description: "macOS Installer in temporary Disk Image") {
-
                     // Workaround to make macOS Sierra 10.12 createinstallmedia work
                     if installer.version.hasPrefix("10.12") {
                         let infoPlistURL: URL = installer.temporaryInstallerURL.appendingPathComponent("Contents/Info.plist")
@@ -497,7 +487,6 @@ class TaskManager: ObservableObject {
         temporaryDirectory temporaryDirectoryURL: URL,
         cacheDirectory cacheDirectoryURL: URL
     ) -> [MistTask] {
-
         let packageURL: URL = destinationURL.appendingPathComponent(filename.stringWithSubstitutions(name: installer.name, version: installer.version, build: installer.build))
         var tasks: [MistTask] = []
 
@@ -532,7 +521,6 @@ class TaskManager: ObservableObject {
         let mountPointURL: URL = URL(fileURLWithPath: volume.path)
         let tasks: [MistTask] = [
             MistTask(type: .create, description: "Bootable Installer") {
-
                 // Workaround to make macOS Sierra 10.12 createinstallmedia work
                 if installer.version.hasPrefix("10.12") {
                     let infoPlistURL: URL = installer.temporaryInstallerURL.appendingPathComponent("Contents/Info.plist")
@@ -547,7 +535,6 @@ class TaskManager: ObservableObject {
     }
 
     private static func cleanupTasks(mountPoint mountPointURL: URL, temporaryDirectory temporaryDirectoryURL: URL, cacheDownloads: Bool, cacheDirectory cacheDirectoryURL: URL) -> [MistTask] {
-
         var tasks: [MistTask] = [
             MistTask(type: .unmount, description: "Disk Image") {
                 try await DiskImageUnmounter.unmount(mountPointURL)

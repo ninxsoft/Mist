@@ -19,7 +19,6 @@ struct SettingsGeneralHelperView: View {
     @State private var error: Error?
     private let length: CGFloat = 16
     private var status: String {
-
         guard installed,
             let installed: HelperToolInfoPropertyList = installedInfoPropertyList else {
             return "Not Installed"
@@ -29,7 +28,6 @@ struct SettingsGeneralHelperView: View {
         return "Installed (\(version.major).\(version.minor).\(version.patch))"
     }
     private var errorMessage: String {
-
         if let error: BlessError = error as? BlessError {
             return error.description
         }
@@ -70,7 +68,6 @@ struct SettingsGeneralHelperView: View {
     }
 
     private func install() {
-
         processing = true
 
         do {

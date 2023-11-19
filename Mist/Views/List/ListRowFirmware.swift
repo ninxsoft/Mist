@@ -28,7 +28,6 @@ struct ListRowFirmware: View {
     private let spacing: CGFloat = 5
     private let padding: CGFloat = 3
     private var compatibilityMessage: String {
-
         guard let architecture: Architecture = Hardware.architecture else {
             return "Invalid architecture!"
         }
@@ -36,7 +35,6 @@ struct ListRowFirmware: View {
         return "This macOS Firmware download cannot be used to restore macOS on this \(architecture.description) Mac.\n\nAre you sure you want to continue?"
     }
     private var errorMessage: String {
-
         if let error: BlessError = error as? BlessError {
             return error.description
         }
@@ -136,7 +134,6 @@ struct ListRowFirmware: View {
     }
 
     private func validate() {
-
         guard PrivilegedHelperTool.isInstalled() else {
             alertType = .helperTool
             showAlert = true
@@ -158,7 +155,6 @@ struct ListRowFirmware: View {
 }
 
 struct ListRowFirmware_Previews: PreviewProvider {
-
     static var previews: some View {
         ListRowFirmware(firmware: .example, savePanel: .constant(NSSavePanel()), tasksInProgress: .constant(false), taskManager: .shared)
     }

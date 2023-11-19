@@ -8,9 +8,7 @@
 import Foundation
 
 extension FileManager {
-
     func sizeOfDirectory(at url: URL) throws -> UInt64 {
-
         var enumeratorError: Error?
 
         let urlResourceKeys: Set<URLResourceKey> = [
@@ -29,7 +27,6 @@ extension FileManager {
         var size: UInt64 = 0
 
         for item in enumerator {
-
             if enumeratorError != nil {
                 break
             }
