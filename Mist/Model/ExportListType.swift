@@ -8,13 +8,9 @@
 import UniformTypeIdentifiers
 
 enum ExportListType: String, CaseIterable, Identifiable {
-    // swiftlint:disable:next redundant_string_enum_value
     case csv
-    // swiftlint:disable:next redundant_string_enum_value
     case json
-    // swiftlint:disable:next redundant_string_enum_value
     case plist
-    // swiftlint:disable:next redundant_string_enum_value
     case yaml
 
     var id: String {
