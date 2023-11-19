@@ -71,7 +71,7 @@ struct Chunklist {
         totalChunks = array.uInt64(at: 0x0C)
         chunksOffset = array.uInt64(at: 0x14)
         signatureOffset = array.uInt64(at: 0x1C)
-        chunks = Chunklist.chunks(Array(array[Int(chunksOffset)..<Int(signatureOffset)]), totalChunks: Int(totalChunks))
+        chunks = Chunklist.chunks(Array(array[Int(chunksOffset) ..< Int(signatureOffset)]), totalChunks: Int(totalChunks))
         signature = Array(array[Int(signatureOffset)...])
 
         guard magicHeader == Chunklist.magicHeader else {
@@ -121,9 +121,9 @@ struct Chunklist {
     private static func chunks(_ array: [UInt8], totalChunks: Int) -> [Chunk] {
         var chunks: [Chunk] = []
 
-        for offset in 0..<totalChunks {
+        for offset in 0 ..< totalChunks {
             let size: UInt32 = array.uInt32(at: offset * 0x24)
-            let hash: [UInt8] = Array(array[offset * 0x24 + 0x04...(offset * 0x24 + 0x04) + 0x1F])
+            let hash: [UInt8] = Array(array[offset * 0x24 + 0x04 ... (offset * 0x24 + 0x04) + 0x1F])
             let chunk: Chunk = .init(size: size, hash: hash)
             chunks.append(chunk)
         }

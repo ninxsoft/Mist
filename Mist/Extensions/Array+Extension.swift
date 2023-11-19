@@ -11,13 +11,13 @@ extension Array<UInt8> {
     }
 
     func uInt32(at offset: Int) -> UInt32 {
-        self[offset...offset + 0x03].reversed().reduce(0) {
+        self[offset ... offset + 0x03].reversed().reduce(0) {
             $0 << 0x08 + UInt32($1)
         }
     }
 
     func uInt64(at offset: Int) -> UInt64 {
-        self[offset...offset + 0x07].reversed().reduce(0) {
+        self[offset ... offset + 0x07].reversed().reduce(0) {
             $0 << 0x08 + UInt64($1)
         }
     }
