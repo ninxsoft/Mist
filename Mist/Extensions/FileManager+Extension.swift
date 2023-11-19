@@ -17,7 +17,7 @@ extension FileManager {
             .totalFileAllocatedSizeKey
         ]
 
-        guard let enumerator: FileManager.DirectoryEnumerator = self.enumerator(at: url, includingPropertiesForKeys: Array(urlResourceKeys), options: [], errorHandler: { _, error -> Bool in
+        guard let enumerator: FileManager.DirectoryEnumerator = enumerator(at: url, includingPropertiesForKeys: Array(urlResourceKeys), options: [], errorHandler: { _, error -> Bool in
             enumeratorError = error
             return false
         }) else {

@@ -16,7 +16,7 @@ extension URL {
             .totalFileAllocatedSizeKey
         ]
 
-        let resourceValues: URLResourceValues = try self.resourceValues(forKeys: urlResourceKeys)
+        let resourceValues: URLResourceValues = try resourceValues(forKeys: urlResourceKeys)
 
         guard let isRegularFile: Bool = resourceValues.isRegularFile,
             isRegularFile else {

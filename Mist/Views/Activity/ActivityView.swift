@@ -148,7 +148,7 @@ struct ActivityView: View {
                     }
 
                     taskManager.taskGroups[taskGroupIndex].tasks[taskIndex].state = .error
-                    self.error = failure as? MistError ?? MistError.generalError(failure.localizedDescription)
+                    error = failure as? MistError ?? MistError.generalError(failure.localizedDescription)
                     alertType = .error
                     showAlert = true
 

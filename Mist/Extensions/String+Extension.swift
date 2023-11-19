@@ -26,7 +26,7 @@ extension String {
     static let tccDatabasePath: String = "/Library/Application Support/com.apple.TCC/TCC.db"
 
     func stringWithSubstitutions(name: String, version: String, build: String) -> String {
-        self.replacingOccurrences(of: "%NAME%", with: name)
+        replacingOccurrences(of: "%NAME%", with: name)
             .replacingOccurrences(of: "%VERSION%", with: version)
             .replacingOccurrences(of: "%BUILD%", with: build)
             .replacingOccurrences(of: "//", with: "/")
