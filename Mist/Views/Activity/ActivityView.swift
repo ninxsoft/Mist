@@ -143,7 +143,7 @@ struct ActivityView: View {
                 switch result {
                 case .success:
                     taskManager.taskGroups[taskGroupIndex].tasks[taskIndex].state = .complete
-                case .failure(let failure):
+                case let .failure(failure):
                     if checkForUserCancellation(failure) {
                         return
                     }
@@ -187,7 +187,7 @@ struct ActivityView: View {
         switch error {
         case .userCancelled:
             return true
-        case .invalidTerminationStatus(let status, _, _):
+        case let .invalidTerminationStatus(status, _, _):
 
             // SIGTERM triggered via Privileged Helper Tool due to user cancellation
             guard status == 15 else {
