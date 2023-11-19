@@ -10,15 +10,15 @@ import Foundation
 struct Catalog: Identifiable, Decodable, Equatable {
     enum CodingKeys: String, CodingKey {
         // swiftlint:disable:next redundant_string_enum_value
-        case type = "type"
+        case type
         // swiftlint:disable:next redundant_string_enum_value
-        case standard = "standard"
+        case standard
         // swiftlint:disable:next redundant_string_enum_value
-        case customerSeed = "customerSeed"
+        case customerSeed
         // swiftlint:disable:next redundant_string_enum_value
-        case developerSeed = "developerSeed"
+        case developerSeed
         // swiftlint:disable:next redundant_string_enum_value
-        case publicSeed = "publicSeed"
+        case publicSeed
     }
 
     static var example: Catalog {

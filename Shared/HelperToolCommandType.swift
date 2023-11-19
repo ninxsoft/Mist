@@ -7,13 +7,13 @@
 
 enum HelperToolCommandType: String, Codable {
     // swiftlint:disable:next redundant_string_enum_value
-    case remove = "remove"
+    case remove
     // swiftlint:disable:next redundant_string_enum_value
-    case fileAttributes = "fileAttributes"
+    case fileAttributes
     // swiftlint:disable:next redundant_string_enum_value
-    case installer = "installer"
+    case installer
     // swiftlint:disable:next redundant_string_enum_value
-    case createinstallmedia = "createinstallmedia"
+    case createinstallmedia
     // swiftlint:disable:next redundant_string_enum_value
-    case kill = "kill"
+    case kill
 }

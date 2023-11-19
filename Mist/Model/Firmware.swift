@@ -9,14 +9,14 @@ import Foundation
 
 struct Firmware: Decodable, Hashable, Identifiable {
     enum CodingKeys: String, CodingKey {
-        case version = "version"
+        case version
         case build = "buildid"
         case shasum = "sha1sum"
-        case size = "size"
-        case url = "url"
+        case size
+        case url
         case date = "releasedate"
-        case signed = "signed"
-        case compatible = "compatible"
+        case signed
+        case compatible
     }
 
     static var example: Firmware {
