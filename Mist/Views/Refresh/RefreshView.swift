@@ -256,7 +256,7 @@ struct RefreshView: View {
                 guard let name: String = nameFromDistribution(string),
                     let version: String = versionFromDistribution(string),
                     let build: String = buildFromDistribution(string),
-                    !name.isEmpty && !version.isEmpty && !build.isEmpty else {
+                    !name.isEmpty, !version.isEmpty, !build.isEmpty else {
                     continue
                 }
 

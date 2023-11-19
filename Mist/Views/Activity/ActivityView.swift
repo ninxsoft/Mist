@@ -64,11 +64,11 @@ struct ActivityView: View {
                             ForEach(taskGroup.tasks.indices, id: \.self) { index in
                                 VStack {
                                     ActivityRowView(state: taskGroup.tasks[index].state, description: taskGroup.tasks[index].currentDescription, degrees: degrees)
-                                    if taskGroup.tasks[index].type == .download && taskGroup.tasks[index].state != .pending,
+                                    if taskGroup.tasks[index].type == .download, taskGroup.tasks[index].state != .pending,
                                         let size: UInt64 = taskGroup.tasks[index].downloadSize {
                                         ActivityProgressView(state: taskGroup.tasks[index].state, value: value, size: size)
                                     }
-                                    if venturaOrOlder && index != taskGroup.tasks.count {
+                                    if venturaOrOlder, index != taskGroup.tasks.count {
                                         Divider()
                                     }
                                 }

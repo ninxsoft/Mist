@@ -402,7 +402,7 @@ class TaskManager: ObservableObject {
             }
         ]
 
-        if diskImageSign && !diskImageSigningIdentity.isEmpty && diskImageSigningIdentity != "-" {
+        if diskImageSign, !diskImageSigningIdentity.isEmpty, diskImageSigningIdentity != "-" {
             tasks += [
                 MistTask(type: .codesign, description: "Disk Image") {
                     try await Codesigner.sign(temporaryImageURL, identity: diskImageSigningIdentity)
