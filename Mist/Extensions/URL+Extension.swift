@@ -47,7 +47,7 @@ extension URL {
                 }
 
                 return !data.isEmpty
-            }) { }
+            }) {}
 
             let data: Data = .init(shasum.finalize())
             return data.map { String(format: "%02hhx", $0) }.joined()

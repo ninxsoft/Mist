@@ -44,6 +44,6 @@ struct InstallerVolumeSelectionPickerView: View {
 
 struct InstallerVolumeSelectionPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        InstallerVolumeSelectionPickerView(selectedVolume: .constant(.placeholder), volumes: []) { }
+        InstallerVolumeSelectionPickerView(selectedVolume: .constant(.placeholder), volumes: []) {}
     }
 }

@@ -22,6 +22,6 @@ struct ResetToDefaultButton: View {
 
 struct ResetToDefaultButton_Previews: PreviewProvider {
     static var previews: some View {
-        ResetToDefaultButton { }
+        ResetToDefaultButton {}
     }
 }

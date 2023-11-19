@@ -79,7 +79,7 @@ struct SettingsInstallersCacheView: View {
                 Alert(
                     title: Text("An error has occured!"),
                     message: Text("There was an error removing the cached Installer directory. Show in Finder to remove manually."),
-                    primaryButton: .default(Text("OK")) { },
+                    primaryButton: .default(Text("OK")) {},
                     secondaryButton: .default(Text("Show in Finder")) { showInFinder() }
                 )
             }

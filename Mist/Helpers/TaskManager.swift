@@ -13,7 +13,7 @@ import System
 class TaskManager: ObservableObject {
     static let shared: TaskManager = .init()
     @Published var taskGroups: [(section: MistTaskSection, tasks: [MistTask])]
-    var task: Task<Any, Error> = Task { }
+    var task: Task<Any, Error> = Task {}
 
     var currentState: MistTaskState {
         let states: Set<MistTaskState> = Set(taskGroups.flatMap { $0.tasks }.map { $0.state })
