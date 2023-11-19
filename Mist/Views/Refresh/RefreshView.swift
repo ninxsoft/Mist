@@ -172,7 +172,7 @@ struct RefreshView: View {
                     continue
                 }
 
-                installers.append(contentsOf: getInstallers(from: productsDictionary).filter { !installers.map { $0.id }.contains($0.id) })
+                installers.append(contentsOf: getInstallers(from: productsDictionary).filter { !installers.map(\.id).contains($0.id) })
             } catch {
                 continue
             }
@@ -200,7 +200,7 @@ struct RefreshView: View {
         if let array: [[String: Any]] = UserDefaults.standard.array(forKey: "catalogs") as? [[String: Any]] {
             do {
                 catalogs = try JSONDecoder().decode([Catalog].self, from: JSONSerialization.data(withJSONObject: array))
-                let catalogTypes: [CatalogType] = catalogs.map { $0.type }
+                let catalogTypes: [CatalogType] = catalogs.map(\.type)
 
                 for catalogType in CatalogType.allCases where !catalogTypes.contains(catalogType) {
                     let catalog: Catalog = .init(type: catalogType, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)

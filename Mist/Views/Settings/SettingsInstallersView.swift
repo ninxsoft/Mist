@@ -48,7 +48,7 @@ struct SettingsInstallersView: View {
 
         do {
             var catalogs: [Catalog] = try JSONDecoder().decode([Catalog].self, from: JSONSerialization.data(withJSONObject: array))
-            let catalogTypes: [CatalogType] = catalogs.map { $0.type }
+            let catalogTypes: [CatalogType] = catalogs.map(\.type)
 
             for catalogType in CatalogType.allCases where !catalogTypes.contains(catalogType) {
                 let catalog: Catalog = .init(type: catalogType, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)

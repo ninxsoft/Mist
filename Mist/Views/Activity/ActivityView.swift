@@ -36,7 +36,7 @@ struct ActivityView: View {
     private let width: CGFloat = 420
     private let height: CGFloat = 640
     private var bootableInstaller: Bool {
-        taskManager.taskGroups.map { $0.section }.contains(.bootableInstaller)
+        taskManager.taskGroups.map(\.section).contains(.bootableInstaller)
     }
 
     private var venturaOrOlder: Bool {

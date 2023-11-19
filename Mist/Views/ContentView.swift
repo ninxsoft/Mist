@@ -40,7 +40,7 @@ struct ContentView: View {
         }
 
         if showCompatible {
-            filteredFirmwares = filteredFirmwares.filter { $0.compatible }
+            filteredFirmwares = filteredFirmwares.filter(\.compatible)
         }
 
         return filteredFirmwares
@@ -64,7 +64,7 @@ struct ContentView: View {
         }
 
         if showCompatible {
-            filteredInstallers = filteredInstallers.filter { $0.compatible }
+            filteredInstallers = filteredInstallers.filter(\.compatible)
         }
 
         return filteredInstallers

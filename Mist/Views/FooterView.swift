@@ -56,9 +56,9 @@ struct FooterView: View {
 
         switch downloadType {
         case .firmware:
-            dictionaries = firmwares.map { $0.dictionary }
+            dictionaries = firmwares.map(\.dictionary)
         case .installer:
-            dictionaries = installers.map { $0.dictionary }
+            dictionaries = installers.map(\.dictionary)
         }
 
         do {

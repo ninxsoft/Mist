@@ -16,7 +16,7 @@ class TaskManager: ObservableObject {
     var task: Task<Any, Error> = Task {}
 
     var currentState: MistTaskState {
-        let states: Set<MistTaskState> = Set(taskGroups.flatMap { $0.tasks }.map { $0.state })
+        let states: Set<MistTaskState> = Set(taskGroups.flatMap(\.tasks).map(\.state))
 
         if states.contains(.inProgress) {
             return .inProgress

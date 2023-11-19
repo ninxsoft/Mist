@@ -750,7 +750,7 @@ struct Installer: Decodable, Hashable, Identifiable {
             "date": date,
             "compatible": compatible,
             "distribution": distributionURL,
-            "packages": packages.map { $0.dictionary },
+            "packages": packages.map(\.dictionary),
             "beta": beta
         ]
     }
@@ -780,7 +780,7 @@ struct Installer: Decodable, Hashable, Identifiable {
     }
 
     var size: UInt64 {
-        UInt64(packages.map { $0.size }.reduce(0, +))
+        UInt64(packages.map(\.size).reduce(0, +))
     }
 
     var diskImageSize: Double {
