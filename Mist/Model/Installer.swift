@@ -688,6 +688,7 @@ struct Installer: Decodable, Hashable, Identifiable {
         name = beta ? "\(name) beta" : name
         return name
     }
+
     var compatible: Bool {
         // Board ID (Intel)
         if let boardID: String = Hardware.boardID,
@@ -722,18 +723,23 @@ struct Installer: Decodable, Hashable, Identifiable {
 
         return true
     }
+
     var allDownloads: [Package] {
         (sierraOrOlder ? [] : [Package(url: distributionURL, size: distributionSize, integrityDataURL: nil, integrityDataSize: nil)]) + packages.sorted { $0.filename < $1.filename }
     }
+
     var temporaryDiskImageMountPointURL: URL {
         URL(fileURLWithPath: "/Volumes/\(id)")
     }
+
     var temporaryInstallerURL: URL {
         temporaryDiskImageMountPointURL.appendingPathComponent("Applications/Install \(name).app")
     }
+
     var temporaryISOMountPointURL: URL {
         URL(fileURLWithPath: "/Volumes/Install \(name)")
     }
+
     var dictionary: [String: Any] {
         [
             "identifier": id,
@@ -748,33 +754,43 @@ struct Installer: Decodable, Hashable, Identifiable {
             "beta": beta
         ]
     }
+
     var mavericksOrNewer: Bool {
         bigSurOrNewer || version.range(of: "^10\\.(9|1[0-5])\\.", options: .regularExpression) != nil
     }
+
     var sierraOrOlder: Bool {
         version.range(of: "^10\\.([7-9]|1[0-2])\\.", options: .regularExpression) != nil
     }
+
     var catalinaOrNewer: Bool {
         bigSurOrNewer || version.range(of: "^10\\.15\\.", options: .regularExpression) != nil
     }
+
     var bigSurOrNewer: Bool {
         version.range(of: "^1[1-9]\\.", options: .regularExpression) != nil
     }
+
     var beta: Bool {
         build.range(of: "[a-z]$", options: .regularExpression) != nil
     }
+
     var imageName: String {
         name.replacingOccurrences(of: " beta", with: "")
     }
+
     var size: UInt64 {
         UInt64(packages.map { $0.size }.reduce(0, +))
     }
+
     var diskImageSize: Double {
         ceil(Double(size) / Double(UInt64.gigabyte)) + 1.5
     }
+
     var isoSize: Double {
         ceil(Double(size) / Double(UInt64.gigabyte)) + 1.5
     }
+
     var tooltip: String {
         """
         Release: \(name)

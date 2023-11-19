@@ -47,6 +47,7 @@ struct Firmware: Decodable, Hashable, Identifiable {
     var id: String {
         "\(String.appIdentifier).\(version)-\(build)"
     }
+
     var name: String {
         var name: String = ""
 
@@ -65,6 +66,7 @@ struct Firmware: Decodable, Hashable, Identifiable {
         name = beta ? "\(name) beta" : name
         return name
     }
+
     let version: String
     let build: String
     let shasum: String
@@ -76,12 +78,15 @@ struct Firmware: Decodable, Hashable, Identifiable {
     var formattedDate: String {
         String(date.prefix(10))
     }
+
     var beta: Bool {
         build.range(of: "[a-z]$", options: .regularExpression) != nil
     }
+
     var imageName: String {
         name.replacingOccurrences(of: " beta", with: "")
     }
+
     var dictionary: [String: Any] {
         [
             "name": name,
@@ -95,6 +100,7 @@ struct Firmware: Decodable, Hashable, Identifiable {
             "beta": beta
         ]
     }
+
     var tooltip: String {
         """
         Release: \(name)

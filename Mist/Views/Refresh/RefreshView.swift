@@ -19,6 +19,7 @@ struct RefreshView: View {
     private var height: CGFloat {
         firmwaresState == .warning ? 230 : 200
     }
+
     private var buttonText: String {
         [.pending, .inProgress].contains(firmwaresState) || [.pending, .inProgress].contains(installersState) ? "Cancel" : "Close"
     }

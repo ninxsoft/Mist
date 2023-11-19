@@ -38,9 +38,11 @@ struct ActivityView: View {
     private var bootableInstaller: Bool {
         taskManager.taskGroups.map { $0.section }.contains(.bootableInstaller)
     }
+
     private var venturaOrOlder: Bool {
         !ProcessInfo().isOperatingSystemAtLeast(OperatingSystemVersion(majorVersion: 14, minorVersion: 0, patchVersion: 0))
     }
+
     private var buttonText: String {
         switch taskManager.currentState {
         case .pending, .inProgress:

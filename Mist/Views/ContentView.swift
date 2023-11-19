@@ -45,6 +45,7 @@ struct ContentView: View {
 
         return filteredFirmwares
     }
+
     private var filteredInstallers: [Installer] {
         var filteredInstallers: [Installer] = installers
 
@@ -68,6 +69,7 @@ struct ContentView: View {
 
         return filteredInstallers
     }
+
     private let width: CGFloat = 480
     private let height: CGFloat = 720
 

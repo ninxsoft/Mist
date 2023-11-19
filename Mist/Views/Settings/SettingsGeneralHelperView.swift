@@ -27,6 +27,7 @@ struct SettingsGeneralHelperView: View {
         let version: BundleVersion = installed.version
         return "Installed (\(version.major).\(version.minor).\(version.patch))"
     }
+
     private var errorMessage: String {
         if let error: BlessError = error as? BlessError {
             return error.description

@@ -34,6 +34,7 @@ struct ListRowFirmware: View {
 
         return "This macOS Firmware download cannot be used to restore macOS on this \(architecture.description) Mac.\n\nAre you sure you want to continue?"
     }
+
     private var errorMessage: String {
         if let error: BlessError = error as? BlessError {
             return error.description

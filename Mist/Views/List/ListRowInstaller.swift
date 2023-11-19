@@ -59,9 +59,11 @@ struct ListRowInstaller: View {
 
         return "This macOS Installer download cannot be used to restore macOS on this \(architecture.description) Mac.\n\nAre you sure you want to continue?"
     }
+
     private var cacheDirectoryMessage: String {
         "The cache directory has incorrect ownership and/or permissions, which will cause issues caching macOS Installers.\n\nRepair the cache directory ownership and/or permissions and try again."
     }
+
     private var errorMessage: String {
         if let error: BlessError = error as? BlessError {
             return error.description

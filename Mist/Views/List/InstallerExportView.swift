@@ -25,6 +25,7 @@ struct InstallerExportView: View {
 
         return architecture == .intel || (architecture == .appleSilicon && installer.bigSurOrNewer)
     }
+
     private var compatibilityMessage: String {
         "**Note:** ISOs are unavailable for building **macOS Catalina 10.15 and older** on [Apple Silicon Macs](https://support.apple.com/en-us/HT211814)."
     }

@@ -24,6 +24,7 @@ struct Hardware {
     static var boardID: String? {
         architecture == .intel ? registryProperty(for: "board-id") : nil
     }
+
     /// Hardware Device ID (Apple Silicon or Intel T2).
     static var deviceID: String? {
         switch architecture {
@@ -35,6 +36,7 @@ struct Hardware {
             return nil
         }
     }
+
     /// Hardware Model Identifier (Apple Silicon or Intel).
     static var modelIdentifier: String? {
         registryProperty(for: "model")
