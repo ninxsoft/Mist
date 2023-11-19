@@ -29,9 +29,9 @@ struct ContentView: View {
             let string: String = searchString.lowercased()
             filteredFirmwares = filteredFirmwares.filter {
                 $0.name.lowercased().contains(string) ||
-                $0.version.lowercased().contains(string) ||
-                $0.build.lowercased().contains(string) ||
-                $0.formattedDate.lowercased().contains(string)
+                    $0.version.lowercased().contains(string) ||
+                    $0.build.lowercased().contains(string) ||
+                    $0.formattedDate.lowercased().contains(string)
             }
         }
 
@@ -53,9 +53,9 @@ struct ContentView: View {
             let string: String = searchString.lowercased()
             filteredInstallers = filteredInstallers.filter {
                 $0.name.lowercased().contains(string) ||
-                $0.version.lowercased().contains(string) ||
-                $0.build.lowercased().contains(string) ||
-                $0.date.lowercased().contains(string)
+                    $0.version.lowercased().contains(string) ||
+                    $0.build.lowercased().contains(string) ||
+                    $0.date.lowercased().contains(string)
             }
         }
 

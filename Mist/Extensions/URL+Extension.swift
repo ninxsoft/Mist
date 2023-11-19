@@ -41,15 +41,15 @@ extension URL {
 
             while
                 try autoreleasepool(invoking: {
-                try Task.checkCancellation()
-                let data: Data = fileHandle.readData(ofLength: length)
+                    try Task.checkCancellation()
+                    let data: Data = fileHandle.readData(ofLength: length)
 
-                if !data.isEmpty {
-                    shasum.update(data: data)
-                }
+                    if !data.isEmpty {
+                        shasum.update(data: data)
+                    }
 
-                return !data.isEmpty
-            }) {}
+                    return !data.isEmpty
+                }) {}
 
             let data: Data = .init(shasum.finalize())
             return data.map { String(format: "%02hhx", $0) }.joined()

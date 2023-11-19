@@ -19,9 +19,9 @@ extension FileManager {
 
         guard
             let enumerator: FileManager.DirectoryEnumerator = enumerator(at: url, includingPropertiesForKeys: Array(urlResourceKeys), options: [], errorHandler: { _, error -> Bool in
-            enumeratorError = error
-            return false
-        }) else {
+                enumeratorError = error
+                return false
+            }) else {
             return 0
         }
 

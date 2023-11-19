@@ -147,8 +147,8 @@ struct RefreshView: View {
 
         firmwares.sort {
             $0.version == $1.version ?
-            ($0.build.count == $1.build.count ? $0.build > $1.build : $0.build.count > $1.build.count) :
-            $0.version > $1.version
+                ($0.build.count == $1.build.count ? $0.build > $1.build : $0.build.count > $1.build.count) :
+                $0.version > $1.version
         }
         return firmwares
     }
@@ -186,8 +186,8 @@ struct RefreshView: View {
         installers.append(contentsOf: Installer.legacyInstallers)
         installers.sort {
             $0.version == $1.version ?
-            ($0.build.count == $1.build.count ? $0.build > $1.build : $0.build.count > $1.build.count) :
-            $0.version.compare($1.version, options: .numeric) == .orderedDescending
+                ($0.build.count == $1.build.count ? $0.build > $1.build : $0.build.count > $1.build.count) :
+                $0.version.compare($1.version, options: .numeric) == .orderedDescending
         }
 
         guard !installers.isEmpty else {

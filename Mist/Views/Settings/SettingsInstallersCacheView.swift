@@ -134,8 +134,8 @@ struct SettingsInstallersCacheView: View {
 
             self.installers = installers.sorted {
                 $0.version == $1.version ?
-                ($0.build.count == $1.build.count ? $0.build > $1.build : $0.build.count > $1.build.count) :
-                $0.version.compare($1.version, options: .numeric) == .orderedDescending
+                    ($0.build.count == $1.build.count ? $0.build > $1.build : $0.build.count > $1.build.count) :
+                    $0.version.compare($1.version, options: .numeric) == .orderedDescending
             }
             selectedInstallerId = nil
         } catch {
