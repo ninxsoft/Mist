@@ -152,10 +152,10 @@ class TaskManager: ObservableObject {
             throw MistError.invalidDestinationURL
         }
 
-        taskGroups += [
+        try taskGroups += [
             (
                 section: .download,
-                tasks: try downloadTasks(for: installer, cacheDirectory: cacheDirectoryURL, retries: retries, delay: retryDelay)
+                tasks: downloadTasks(for: installer, cacheDirectory: cacheDirectoryURL, retries: retries, delay: retryDelay)
             )
         ]
 
@@ -234,10 +234,10 @@ class TaskManager: ObservableObject {
     ) throws -> [(section: MistTaskSection, tasks: [MistTask])] {
         let cacheDirectoryURL: URL = .init(fileURLWithPath: cacheDirectory).appendingPathComponent(installer.id)
         let temporaryDirectoryURL: URL = .init(fileURLWithPath: .temporaryDirectory)
-        let taskGroups: [(section: MistTaskSection, tasks: [MistTask])] = [
+        let taskGroups: [(section: MistTaskSection, tasks: [MistTask])] = try [
             (
                 section: .download,
-                tasks: try downloadTasks(for: installer, cacheDirectory: cacheDirectoryURL, retries: retries, delay: retryDelay)
+                tasks: downloadTasks(for: installer, cacheDirectory: cacheDirectoryURL, retries: retries, delay: retryDelay)
             ),
             (
                 section: .setup,
