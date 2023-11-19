@@ -1,5 +1,5 @@
 //
-//  Int64+Extension.swift
+//  UInt64+Extension.swift
 //  Mist
 //
 //  Created by Nindi Gill on 13/6/2022.
