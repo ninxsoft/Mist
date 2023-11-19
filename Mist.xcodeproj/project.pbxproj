@@ -586,6 +586,7 @@
 				390451A32856E1D900E0B563 /* Frameworks */,
 				390451A42856E1D900E0B563 /* Resources */,
 				390451BB2856E2AA00E0B563 /* Run SwiftLint */,
+				57C1C85D2B09FD4B006DB77B /* Run SwiftFormat */,
 				390451BC2856E2C600E0B563 /* Run DrString */,
 				39AD68E1286149CE0021CCA8 /* CopyFiles */,
 			);
@@ -765,6 +766,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = "/usr/bin/env bash";
 			shellScript = "#!/usr/bin/env bash\n\nset -e\n\nsource=\"${SRCROOT}/MistHelperTool/main.swift\"\nplist=\"${SRCROOT}/MistHelperTool/Info.plist\"\nproject=\"${SRCROOT}/Mist.xcodeproj\"\nplistBuddy=\"/usr/libexec/PlistBuddy\"\n\n# update build hash\nhash=\"$(shasum --algorithm 256 \"$source\" | awk '{ print $1 }')\"\n\"$plistBuddy\" -c \"Set :BuildHash $hash\" \"$plist\"\n\n# update version\nversion=\"$(xcodebuild -showBuildSettings -project \"$project\" -scheme Mist | grep \"MARKETING_VERSION\" | awk '{ print $NF }')\"\nbuild=\"$(xcodebuild -showBuildSettings -project \"$project\" -scheme Mist | grep \"CURRENT_PROJECT_VERSION\" | awk '{ print $NF }')\"\n\"$plistBuddy\" -c \"Set :CFBundleShortVersionString $version\" \"$plist\"\n\"$plistBuddy\" -c \"Set :CFBundleVersion $build\" \"$plist\"\n\nexit 0\n";
+		};
+		57C1C85D2B09FD4B006DB77B /* Run SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftFormat";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/env bash";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftformat > /dev/null ; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n\nexit 0\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
