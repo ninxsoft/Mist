@@ -273,7 +273,8 @@ class TaskManager: ObservableObject {
         } else {
             let attributes: [FileAttributeKey: Any] = try FileManager.default.attributesOfItem(atPath: cacheDirectoryURL.path)
 
-            guard let posixPermissions: NSNumber = attributes[.posixPermissions] as? NSNumber,
+            guard
+                let posixPermissions: NSNumber = attributes[.posixPermissions] as? NSNumber,
                 let ownerAccountName: String = attributes[.ownerAccountName] as? String,
                 let groupOwnerAccountName: String = attributes[.groupOwnerAccountName] as? String else {
                 throw MistError.missingFileAttributes
@@ -324,7 +325,8 @@ class TaskManager: ObservableObject {
             }
         ]
 
-        if installer.sierraOrOlder,
+        if
+            installer.sierraOrOlder,
             let package: Package = installer.packages.first {
             let legacyDiskImageURL: URL = .init(fileURLWithPath: "\(cacheDirectory)/\(installer.id)/\(package.filename)")
             let legacyDiskImageMountPointURL: URL = .init(fileURLWithPath: "/Volumes/Install \(installer.name)")

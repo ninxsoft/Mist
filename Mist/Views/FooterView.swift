@@ -47,7 +47,8 @@ struct FooterView: View {
 
         let response: NSApplication.ModalResponse = savePanel.runModal()
 
-        guard response == .OK,
+        guard
+            response == .OK,
             let url: URL = savePanel.url else {
             return
         }

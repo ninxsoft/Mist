@@ -97,7 +97,8 @@ struct SettingsInstallersCacheView: View {
 
         let response: NSApplication.ModalResponse = openPanel.runModal()
 
-        guard response == .OK,
+        guard
+            response == .OK,
             let url: URL = openPanel.url else {
             return
         }
@@ -121,7 +122,8 @@ struct SettingsInstallersCacheView: View {
             for id in ids {
                 let url: URL = url.appendingPathComponent(id)
 
-                guard FileManager.default.fileExists(atPath: url.path, isDirectory: &isDirectory),
+                guard
+                    FileManager.default.fileExists(atPath: url.path, isDirectory: &isDirectory),
                     isDirectory.boolValue,
                     let installer: Installer = installer(for: url) else {
                     continue
@@ -151,7 +153,8 @@ struct SettingsInstallersCacheView: View {
                 let distributionURL: URL = url.appendingPathComponent("\(id).English.dist")
                 let string: String = try String(contentsOf: distributionURL)
 
-                if let version: String = versionFromDistribution(string),
+                if
+                    let version: String = versionFromDistribution(string),
                     let build: String = buildFromDistribution(string) {
                     let size: UInt64 = try FileManager.default.sizeOfDirectory(at: url)
                     return Installer(

@@ -41,7 +41,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             content.sound = .default
             content.categoryIdentifier = success ? UNNotificationCategory.Identifier.success : UNNotificationCategory.Identifier.failure
 
-            if success,
+            if
+                success,
                 let url: URL = url {
                 content.userInfo = ["URL": url.path]
             }

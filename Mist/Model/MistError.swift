@@ -46,12 +46,14 @@ enum MistError: Error, Equatable {
         case .invalidTerminationStatus(let status, let output, let error):
             var string: String = "Invalid Termination Status: \(status)"
 
-            if let output: String = output,
+            if
+                let output: String = output,
                 !output.isEmpty {
                 string += "\n\n\(output)"
             }
 
-            if let error: String = error,
+            if
+                let error: String = error,
                 !error.isEmpty {
                 string += "\n\n\(error)"
             }

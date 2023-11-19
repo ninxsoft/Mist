@@ -57,14 +57,16 @@ enum Hardware {
 
         var properties: Unmanaged<CFMutableDictionary>?
 
-        guard IORegistryEntryCreateCFProperties(entry, &properties, kCFAllocatorDefault, 0) == KERN_SUCCESS,
+        guard
+            IORegistryEntryCreateCFProperties(entry, &properties, kCFAllocatorDefault, 0) == KERN_SUCCESS,
             let properties: Unmanaged<CFMutableDictionary> = properties else {
             return nil
         }
 
         let nsDictionary: NSDictionary = properties.takeRetainedValue() as NSDictionary
 
-        guard let dictionary: [String: Any] = nsDictionary as? [String: Any],
+        guard
+            let dictionary: [String: Any] = nsDictionary as? [String: Any],
             dictionary.keys.contains(key),
             let data: Data = IORegistryEntryCreateCFProperty(entry, key as CFString, kCFAllocatorDefault, 0).takeRetainedValue() as? Data,
             let string: String = String(data: data, encoding: .utf8) else {

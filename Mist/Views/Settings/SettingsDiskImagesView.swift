@@ -57,7 +57,8 @@ struct SettingsDiskImagesView: View {
         var items: CFTypeRef?
         let status: OSStatus = SecItemCopyMatching(query as CFDictionary, &items)
 
-        guard status == noErr,
+        guard
+            status == noErr,
             let identities: [SecIdentity] = items as? [SecIdentity] else {
             self.codesigningIdentities = []
             return
@@ -67,7 +68,8 @@ struct SettingsDiskImagesView: View {
             var certificate: SecCertificate?
             let status: OSStatus = SecIdentityCopyCertificate(identity, &certificate)
 
-            guard status == noErr,
+            guard
+                status == noErr,
                 let certificate: SecCertificate = certificate,
                 let subject: String = SecCertificateCopySubjectSummary(certificate) as? String,
                 subject.hasPrefix("Developer ID Application") else {

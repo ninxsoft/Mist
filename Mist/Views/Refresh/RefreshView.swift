@@ -70,7 +70,8 @@ struct RefreshView: View {
             successful = false
             try? await Task.sleep(nanoseconds: nanoseconds)
 
-            if let error = error as? MistError,
+            if
+                let error = error as? MistError,
                 error == .missingDevicesKey {
                 withAnimation {
                     firmwaresState = .warning
@@ -107,7 +108,8 @@ struct RefreshView: View {
 
         let string: String = try String(contentsOf: firmwaresURL, encoding: .utf8)
 
-        guard let data: Data = string.data(using: .utf8),
+        guard
+            let data: Data = string.data(using: .utf8),
             let dictionary: [String: Any] = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
             throw MistError.invalidData
         }
@@ -119,14 +121,16 @@ struct RefreshView: View {
         let supportedBuilds: [String] = try Firmware.supportedBuilds()
 
         for (identifier, device) in devices {
-            guard identifier.contains("Mac"),
+            guard
+                identifier.contains("Mac"),
                 let device: [String: Any] = device as? [String: Any],
                 let firmwaresArray: [[String: Any]] = device["firmwares"] as? [[String: Any]] else {
                 continue
             }
 
             for var firmwareDictionary in firmwaresArray {
-                if let url: String = firmwareDictionary["url"] as? String,
+                if
+                    let url: String = firmwareDictionary["url"] as? String,
                     url.contains("http://updates-http.cdn-apple.com") {
                     firmwareDictionary["url"] = url.replacingOccurrences(of: "http://updates-http.cdn-apple.com", with: "https://updates.cdn-apple.com")
                 }
@@ -167,7 +171,8 @@ struct RefreshView: View {
 
                 var format: PropertyListSerialization.PropertyListFormat = .xml
 
-                guard let catalog: [String: Any] = try PropertyListSerialization.propertyList(from: data, options: [.mutableContainers], format: &format) as? [String: Any],
+                guard
+                    let catalog: [String: Any] = try PropertyListSerialization.propertyList(from: data, options: [.mutableContainers], format: &format) as? [String: Any],
                     let productsDictionary: [String: Any] = catalog["Products"] as? [String: Any] else {
                     continue
                 }
@@ -240,7 +245,8 @@ struct RefreshView: View {
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
         for (key, value) in dictionary {
-            guard var value: [String: Any] = value as? [String: Any],
+            guard
+                var value: [String: Any] = value as? [String: Any],
                 let date: Date = value["PostDate"] as? Date,
                 let extendedMetaInfo: [String: Any] = value["ExtendedMetaInfo"] as? [String: Any],
                 extendedMetaInfo["InstallAssistantPackageIdentifiers"] as? [String: Any] != nil,
@@ -253,7 +259,8 @@ struct RefreshView: View {
             do {
                 let string: String = try String(contentsOf: url, encoding: .utf8)
 
-                guard let name: String = nameFromDistribution(string),
+                guard
+                    let name: String = nameFromDistribution(string),
                     let version: String = versionFromDistribution(string),
                     let build: String = buildFromDistribution(string),
                     !name.isEmpty, !version.isEmpty, !build.isEmpty else {

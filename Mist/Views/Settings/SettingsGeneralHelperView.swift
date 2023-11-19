@@ -19,7 +19,8 @@ struct SettingsGeneralHelperView: View {
     @State private var error: Error?
     private let length: CGFloat = 16
     private var status: String {
-        guard installed,
+        guard
+            installed,
             let installed: HelperToolInfoPropertyList = installedInfoPropertyList else {
             return "Not Installed"
         }
@@ -80,7 +81,8 @@ struct SettingsGeneralHelperView: View {
             processing = false
             self.error = error
 
-            if let error: AuthorizationError = error as? AuthorizationError,
+            if
+                let error: AuthorizationError = error as? AuthorizationError,
                 error == .canceled {
                 return
             }

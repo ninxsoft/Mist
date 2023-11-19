@@ -38,7 +38,8 @@ enum HelperToolCommandRunner {
             }
         case .fileAttributes:
 
-            guard let path: String = request.arguments.first,
+            guard
+                let path: String = request.arguments.first,
                 let ownerAccountName: String = request.arguments.last else {
                 return HelperToolCommandResponse(terminationStatus: 1, standardOutput: nil, standardError: "Invalid attributes: \(request.arguments)")
             }

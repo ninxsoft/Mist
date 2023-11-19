@@ -91,7 +91,8 @@ struct ListRowInstaller: View {
                 }
                 .help("Download and export macOS Installer")
                 .buttonStyle(.mistAction)
-                if let architecture: Architecture = Hardware.architecture,
+                if
+                    let architecture: Architecture = Hardware.architecture,
                     (architecture == .appleSilicon && installer.bigSurOrNewer) || (architecture == .intel && installer.mavericksOrNewer) {
                     Button {
                         pressButton(.volumeSelection)
@@ -259,7 +260,8 @@ struct ListRowInstaller: View {
 
                 let filePermissions: FilePermissions = .init(rawValue: CModeT(posixPermissions.int16Value))
 
-                guard filePermissions == [.ownerReadWriteExecute, .groupReadExecute, .otherReadExecute],
+                guard
+                    filePermissions == [.ownerReadWriteExecute, .groupReadExecute, .otherReadExecute],
                     let ownerAccountName: String = attributes[.ownerAccountName] as? String,
                     ownerAccountName == NSUserName(),
                     let groupOwnerAccountName: String = attributes[.groupOwnerAccountName] as? String,

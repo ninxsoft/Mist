@@ -49,7 +49,8 @@ enum Validator {
             throw MistError.invalidFileSize(invalid: fileSize, valid: UInt64(package.size))
         }
 
-        guard let string: String = package.integrityDataURL,
+        guard
+            let string: String = package.integrityDataURL,
             let url: URL = URL(string: string),
             let size: Int = package.integrityDataSize else {
             return

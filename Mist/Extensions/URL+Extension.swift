@@ -18,7 +18,8 @@ extension URL {
 
         let resourceValues: URLResourceValues = try resourceValues(forKeys: urlResourceKeys)
 
-        guard let isRegularFile: Bool = resourceValues.isRegularFile,
+        guard
+            let isRegularFile: Bool = resourceValues.isRegularFile,
             isRegularFile else {
             return 0
         }
@@ -38,7 +39,8 @@ extension URL {
 
             var shasum: Insecure.SHA1 = .init()
 
-            while try autoreleasepool(invoking: {
+            while
+                try autoreleasepool(invoking: {
                 try Task.checkCancellation()
                 let data: Data = fileHandle.readData(ofLength: length)
 

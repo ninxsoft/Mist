@@ -73,7 +73,8 @@ struct InstallerVolumeSelectionView: View {
             do {
                 let resourceValues: URLResourceValues = try url.resourceValues(forKeys: Set(keys))
 
-                guard let volumeName: String = resourceValues.volumeName,
+                guard
+                    let volumeName: String = resourceValues.volumeName,
                     let volumeLocalizedFormatDescription: String = resourceValues.volumeLocalizedFormatDescription,
                     let volumeIsReadOnly: Bool = resourceValues.volumeIsReadOnly,
                     let volumeTotalCapacity: Int = resourceValues.volumeTotalCapacity,
