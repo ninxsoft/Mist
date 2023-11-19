@@ -91,7 +91,7 @@
 		398734CC28603D5F00B4C357 /* Chunklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734CB28603D5F00B4C357 /* Chunklist.swift */; };
 		398734CE28603D7F00B4C357 /* Chunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734CD28603D7F00B4C357 /* Chunk.swift */; };
 		398734D028603D9E00B4C357 /* UInt8+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734CF28603D9E00B4C357 /* UInt8+Extension.swift */; };
-		398734D228603DE700B4C357 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734D128603DE700B4C357 /* Array+Extension.swift */; };
+		398734D228603DE700B4C357 /* [UInt8]+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734D128603DE700B4C357 /* [UInt8]+Extension.swift */; };
 		398734D4286046B000B4C357 /* UInt32+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734D3286046B000B4C357 /* UInt32+Extension.swift */; };
 		39CA25E32941D8BB0030711E /* FileAttributesUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CA25E22941D8BB0030711E /* FileAttributesUpdater.swift */; };
 		39CB5E3D293F5C2E00CFDBB8 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */; };
@@ -248,7 +248,7 @@
 		398734CB28603D5F00B4C357 /* Chunklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chunklist.swift; sourceTree = "<group>"; };
 		398734CD28603D7F00B4C357 /* Chunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chunk.swift; sourceTree = "<group>"; };
 		398734CF28603D9E00B4C357 /* UInt8+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt8+Extension.swift"; sourceTree = "<group>"; };
-		398734D128603DE700B4C357 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		398734D128603DE700B4C357 /* [UInt8]+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[UInt8]+Extension.swift"; sourceTree = "<group>"; };
 		398734D3286046B000B4C357 /* UInt32+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt32+Extension.swift"; sourceTree = "<group>"; };
 		39CA25E22941D8BB0030711E /* FileAttributesUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAttributesUpdater.swift; sourceTree = "<group>"; };
 		39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
@@ -370,7 +370,7 @@
 		390451BD2856E32A00E0B563 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				398734D128603DE700B4C357 /* Array+Extension.swift */,
+				398734D128603DE700B4C357 /* [UInt8]+Extension.swift */,
 				39CF55AE2861582F006FB5D2 /* AuthorizationError+Extension.swift */,
 				5795700A2A31B06F004C7051 /* ButtonStyle+Extension.swift */,
 				390451DB28573F1000E0B563 /* Dictionary+Extension.swift */,
@@ -818,7 +818,7 @@
 				39CF56242861CA85006FB5D2 /* DiskImageUnmounter.swift in Sources */,
 				39252A9B285C029600956C74 /* MistError.swift in Sources */,
 				39252AC3285CA5FE00956C74 /* InstallerExportView.swift in Sources */,
-				398734D228603DE700B4C357 /* Array+Extension.swift in Sources */,
+				398734D228603DE700B4C357 /* [UInt8]+Extension.swift in Sources */,
 				39FF05F82859851800A86670 /* SettingsApplicationsView.swift in Sources */,
 				577267AC2A4568CD00434B2C /* SettingsInstallerCacheAlertType.swift in Sources */,
 				39CF561D2861C3F5006FB5D2 /* DiskImageCreator.swift in Sources */,
