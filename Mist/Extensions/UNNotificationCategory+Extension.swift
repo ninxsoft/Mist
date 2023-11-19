@@ -8,7 +8,7 @@
 import UserNotifications
 
 extension UNNotificationCategory {
-    struct Identifier {
+    enum Identifier {
         /// Success Identifier
         static let success: String = "Success"
         /// Failure Identifier

@@ -9,7 +9,7 @@ import Foundation
 import SecureXPC
 
 /// Helper struct to remove directories
-struct DirectoryRemover {
+enum DirectoryRemover {
     /// Remove directory at the provided URL.
     ///
     /// - Parameters:

@@ -8,7 +8,7 @@
 import Foundation
 
 /// Helper struct to create disk images.
-struct DiskImageCreator {
+enum DiskImageCreator {
     /// Create an empty Disk Image of fixed size.
     ///
     /// - Parameters:

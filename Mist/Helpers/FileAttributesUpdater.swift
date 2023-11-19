@@ -9,7 +9,7 @@ import Foundation
 import SecureXPC
 
 /// Helper struct to update file / directory attributes
-struct FileAttributesUpdater {
+enum FileAttributesUpdater {
     /// Update file / directory attributes at the provided URL.
     ///
     /// - Parameters:

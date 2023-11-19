@@ -8,7 +8,7 @@
 import Foundation
 
 /// Helper struct to perform lookups on the Privilged Helper Tool executable.
-struct PrivilegedHelperTool {
+enum PrivilegedHelperTool {
     /// The URL of the Privileged Helper Tool within the Mist app bundle.
     static let availableURL: URL = URL(fileURLWithPath: "\(Bundle.main.bundlePath)/Contents/Library/LaunchServices/\(String.helperIdentifier)")
     /// The URL of the Privileged Helper Tool within /Library/PrivilegedHelperTools.

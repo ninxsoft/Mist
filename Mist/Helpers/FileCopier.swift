@@ -8,7 +8,7 @@
 import Foundation
 
 /// Helper struct to copy files.
-struct FileCopier {
+enum FileCopier {
     /// Copy a file from one location to another.
     ///
     /// - Parameters:

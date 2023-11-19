@@ -8,7 +8,7 @@
 import SecureXPC
 
 /// Helper struct to kill the child process of the Privileted Helper Tool.
-struct ProcessKiller {
+enum ProcessKiller {
     /// Attempts to kill the child process of the Privileged Helper Tool.
     ///
     /// - Throws: A `MistError` if the process fails to be killed.

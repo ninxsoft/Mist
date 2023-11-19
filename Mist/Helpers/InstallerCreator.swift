@@ -9,7 +9,7 @@ import Foundation
 import SecureXPC
 
 /// Helper Struct used to create macOS Installers.
-struct InstallerCreator {
+enum InstallerCreator {
     /// Creates a recently downloaded macOS Installer.
     ///
     /// - Parameters:

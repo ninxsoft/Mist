@@ -8,7 +8,7 @@
 import UserNotifications
 
 extension UNNotificationAction {
-    struct Identifier {
+    enum Identifier {
         /// Show Identifier
         static let show: String = "Show"
     }

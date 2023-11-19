@@ -8,7 +8,7 @@
 import Foundation
 
 /// Helper struct to mount Disk Images.
-struct DiskImageMounter {
+enum DiskImageMounter {
     /// Mount a Disk Image at the provided mount point.
     ///
     /// - Parameters:

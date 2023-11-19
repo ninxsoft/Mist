@@ -8,7 +8,7 @@
 import Foundation
 
 /// Helper struct to create macOS Installer Packages.
-struct PackageCreator {
+enum PackageCreator {
     /// Create a macOS Installer Package based off the passed in `Installer` struct.
     ///
     /// - Parameters:

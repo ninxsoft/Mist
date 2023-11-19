@@ -9,7 +9,7 @@ import CryptoKit
 import Foundation
 
 /// Helper struct used to validate Firmware and Installer checksums.
-struct Validator {
+enum Validator {
     /// Validates a Firmware's checksum.
     ///
     /// - Parameters:

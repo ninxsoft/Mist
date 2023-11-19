@@ -8,7 +8,7 @@
 import Foundation
 
 /// Helper struct to update a Property List key-pair value.
-struct PropertyListUpdater {
+enum PropertyListUpdater {
     /// Update a key-pair value in a Property List.
     ///
     /// - Parameters:

@@ -9,7 +9,7 @@ import Foundation
 import SecureXPC
 
 /// Helper struct to execute the `createinstallmedia` command found in macOS Install app bundles.
-struct InstallMediaCreator {
+enum InstallMediaCreator {
     /// Create the macOS Install Media at the specified mount point.
     ///
     /// - Parameters:

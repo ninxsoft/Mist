@@ -8,7 +8,7 @@
 import Foundation
 
 /// Helper struct to convert Disk Images to ISOs.
-struct ISOConverter {
+enum ISOConverter {
     /// Convert a Disk Image to an ISO.
     ///
     /// - Parameters:

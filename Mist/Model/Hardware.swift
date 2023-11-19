@@ -8,7 +8,7 @@
 import Foundation
 
 /// Hardware Struct used to retrieve Hardware information.
-struct Hardware {
+enum Hardware {
     /// Hardware Architecture (Apple Silicon or Intel).
     static var architecture: Architecture? {
         #if arch(arm64)

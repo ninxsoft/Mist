@@ -9,7 +9,7 @@ import Foundation
 import SecureXPC
 
 /// Helper Tool struct to run a command sent from the main application.
-struct HelperToolCommandRunner {
+enum HelperToolCommandRunner {
     /// Run the requested command and return the status and output.
     ///
     /// - Parameters:
