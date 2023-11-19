@@ -10,9 +10,11 @@ import SwiftUI
 extension Scene {
     func fixedWindow() -> some Scene {
         if #available(macOS 13.0, *) {
-            self.windowResizability(.contentSize)
+            // swiftformat:disable:next redundantReturn
+            return self.windowResizability(.contentSize)
         } else {
-            self
+            // swiftformat:disable:next redundantReturn
+            return self
         }
     }
 }
