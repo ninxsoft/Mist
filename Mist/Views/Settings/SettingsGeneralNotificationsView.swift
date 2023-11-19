@@ -55,7 +55,7 @@ struct SettingsGeneralNotificationsView: View {
     }
 
     private func request() {
-        let userNotificationCenter: UNUserNotificationCenter = UNUserNotificationCenter.current()
+        let userNotificationCenter: UNUserNotificationCenter = .current()
         let options: UNAuthorizationOptions = [.alert, .badge, .sound]
 
         userNotificationCenter.requestAuthorization(options: options) { success, _ in

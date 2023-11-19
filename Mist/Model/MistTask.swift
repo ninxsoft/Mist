@@ -8,7 +8,7 @@
 import Foundation
 
 struct MistTask: Identifiable {
-    let id: UUID = UUID()
+    let id: UUID = .init()
     let type: MistTaskType
     var state: MistTaskState = .pending
     let description: String

@@ -51,7 +51,7 @@ struct SettingsInstallersView: View {
             let catalogTypes: [CatalogType] = catalogs.map { $0.type }
 
             for catalogType in CatalogType.allCases where !catalogTypes.contains(catalogType) {
-                let catalog: Catalog = Catalog(type: catalogType, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)
+                let catalog: Catalog = .init(type: catalogType, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)
                 catalogs.append(catalog)
             }
 

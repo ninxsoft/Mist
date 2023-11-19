@@ -82,7 +82,7 @@ struct InstallerVolumeSelectionView: View {
                     continue
                 }
 
-                let volume: InstallerVolume = InstallerVolume(id: UUID().uuidString, name: volumeName, path: url.path, capacity: UInt64(volumeTotalCapacity))
+                let volume: InstallerVolume = .init(id: UUID().uuidString, name: volumeName, path: url.path, capacity: UInt64(volumeTotalCapacity))
                 volumes.append(volume)
             } catch {
                 continue
@@ -93,7 +93,7 @@ struct InstallerVolumeSelectionView: View {
     }
 
     private func openDiskUtility() {
-        let url: URL = URL(fileURLWithPath: "/System/Applications/Utilities/Disk Utility.app")
+        let url: URL = .init(fileURLWithPath: "/System/Applications/Utilities/Disk Utility.app")
         NSWorkspace.shared.open(url)
     }
 }

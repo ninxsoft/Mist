@@ -61,7 +61,7 @@ struct Chunklist {
             throw MistError.chunklistValidationError("Invalid file size: '\(data.count)', should be '\(size)'")
         }
 
-        let array: [UInt8] = [UInt8](data)
+        let array: [UInt8] = .init(data)
         magicHeader = array.uInt32(at: 0x00)
         headerSize = array.uInt32(at: 0x04)
         fileVersion = array.uInt8(at: 0x08)
@@ -124,7 +124,7 @@ struct Chunklist {
         for offset in 0..<totalChunks {
             let size: UInt32 = array.uInt32(at: offset * 0x24)
             let hash: [UInt8] = Array(array[offset * 0x24 + 0x04...(offset * 0x24 + 0x04) + 0x1F])
-            let chunk: Chunk = Chunk(size: size, hash: hash)
+            let chunk: Chunk = .init(size: size, hash: hash)
             chunks.append(chunk)
         }
 

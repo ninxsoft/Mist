@@ -11,7 +11,7 @@ struct SettingsInstallersCacheView: View {
     @Binding var cacheDownloads: Bool
     @Binding var cacheDirectory: String
     @State private var cacheSize: UInt64 = 0
-    @State private var openPanel: NSOpenPanel = NSOpenPanel()
+    @State private var openPanel: NSOpenPanel = .init()
     @State private var installers: [Installer] = []
     @State private var selectedInstallerId: String?
     @State private var showAlert: Bool = false
@@ -106,7 +106,7 @@ struct SettingsInstallersCacheView: View {
     }
 
     private func retrieveCache() {
-        let url: URL = URL(fileURLWithPath: cacheDirectory)
+        let url: URL = .init(fileURLWithPath: cacheDirectory)
         var isDirectory: ObjCBool = false
 
         do {
@@ -214,7 +214,7 @@ struct SettingsInstallersCacheView: View {
             return
         }
 
-        let url: URL = URL(fileURLWithPath: "\(cacheDirectory)/\(id)")
+        let url: URL = .init(fileURLWithPath: "\(cacheDirectory)/\(id)")
         NSWorkspace.shared.open(url)
     }
 
@@ -223,7 +223,7 @@ struct SettingsInstallersCacheView: View {
             return
         }
 
-        let url: URL = URL(fileURLWithPath: "\(cacheDirectory)/\(id)")
+        let url: URL = .init(fileURLWithPath: "\(cacheDirectory)/\(id)")
 
         do {
             try await DirectoryRemover.remove(url)

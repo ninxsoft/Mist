@@ -23,8 +23,8 @@ enum FileAttributesUpdater {
         }
 
         let arguments: [String] = [url.path, ownerAccountName]
-        let client: XPCClient = XPCClient.forMachService(named: .helperIdentifier)
-        let request: HelperToolCommandRequest = HelperToolCommandRequest(type: .fileAttributes, arguments: arguments, environment: [:])
+        let client: XPCClient = .forMachService(named: .helperIdentifier)
+        let request: HelperToolCommandRequest = .init(type: .fileAttributes, arguments: arguments, environment: [:])
         let response: HelperToolCommandResponse = try await client.sendMessage(request, to: XPCRoute.commandRoute)
 
         guard response.terminationStatus == 0 else {

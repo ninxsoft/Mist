@@ -15,7 +15,7 @@ class UserNotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate
             return
         }
 
-        let url: URL = URL(fileURLWithPath: string)
+        let url: URL = .init(fileURLWithPath: string)
         NSWorkspace.shared.selectFile(url.path, inFileViewerRootedAtPath: "")
     }
 }

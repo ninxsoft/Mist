@@ -20,7 +20,7 @@ struct Catalog: Identifiable, Decodable, Equatable {
         Catalog(type: .ventura, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)
     }
 
-    var id: UUID = UUID()
+    var id: UUID = .init()
     var type: CatalogType
     var standard: Bool
     var customerSeed: Bool

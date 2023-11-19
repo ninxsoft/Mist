@@ -13,9 +13,9 @@ struct FooterView: View {
     var downloadType: DownloadType
     @Binding var firmwares: [Firmware]
     @Binding var installers: [Installer]
-    @State private var savePanel: NSSavePanel = NSSavePanel()
+    @State private var savePanel: NSSavePanel = .init()
     @State private var exportListType: ExportListType = .json
-    private let dateFormatter: DateFormatter = DateFormatter()
+    private let dateFormatter: DateFormatter = .init()
 
     var body: some View {
         HStack {

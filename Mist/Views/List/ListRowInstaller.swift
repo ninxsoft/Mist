@@ -257,7 +257,7 @@ struct ListRowInstaller: View {
                     return
                 }
 
-                let filePermissions: FilePermissions = FilePermissions(rawValue: CModeT(posixPermissions.int16Value))
+                let filePermissions: FilePermissions = .init(rawValue: CModeT(posixPermissions.int16Value))
 
                 guard filePermissions == [.ownerReadWriteExecute, .groupReadExecute, .otherReadExecute],
                     let ownerAccountName: String = attributes[.ownerAccountName] as? String,
@@ -304,7 +304,7 @@ struct ListRowInstaller: View {
     }
 
     private func repairCacheDirectoryOwnershipAndPermissions() async throws {
-        let url: URL = URL(fileURLWithPath: cacheDirectory)
+        let url: URL = .init(fileURLWithPath: cacheDirectory)
         let ownerAccountName: String = NSUserName()
         try await FileAttributesUpdater.update(url: url, ownerAccountName: ownerAccountName)
     }

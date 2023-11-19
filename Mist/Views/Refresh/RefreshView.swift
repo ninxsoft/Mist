@@ -203,7 +203,7 @@ struct RefreshView: View {
                 let catalogTypes: [CatalogType] = catalogs.map { $0.type }
 
                 for catalogType in CatalogType.allCases where !catalogTypes.contains(catalogType) {
-                    let catalog: Catalog = Catalog(type: catalogType, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)
+                    let catalog: Catalog = .init(type: catalogType, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)
                     catalogs.append(catalog)
                 }
             } catch {
@@ -236,7 +236,7 @@ struct RefreshView: View {
 
     private func getInstallers(from dictionary: [String: Any]) -> [Installer] {
         var installers: [Installer] = []
-        let dateFormatter: DateFormatter = DateFormatter()
+        let dateFormatter: DateFormatter = .init()
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
         for (key, value) in dictionary {

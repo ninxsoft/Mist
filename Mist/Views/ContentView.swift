@@ -19,9 +19,9 @@ struct ContentView: View {
     @State private var firmwares: [Firmware] = []
     @State private var installers: [Installer] = []
     @State private var searchString: String = ""
-    @State private var openPanel: NSOpenPanel = NSOpenPanel()
-    @State private var savePanel: NSSavePanel = NSSavePanel()
-    @StateObject private var taskManager: TaskManager = TaskManager.shared
+    @State private var openPanel: NSOpenPanel = .init()
+    @State private var savePanel: NSSavePanel = .init()
+    @StateObject private var taskManager: TaskManager = .shared
     private var filteredFirmwares: [Firmware] {
         var filteredFirmwares: [Firmware] = firmwares
 
