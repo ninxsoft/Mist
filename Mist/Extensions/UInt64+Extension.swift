@@ -17,13 +17,13 @@ extension UInt64 {
 
     func bytesString() -> String {
         if self < .kilobyte {
-            return "\(self) bytes"
+            "\(self) bytes"
         } else if self < .megabyte {
-            return String(format: "%5.2f KB", Double(self) / Double(.kilobyte))
+            String(format: "%5.2f KB", Double(self) / Double(.kilobyte))
         } else if self < .gigabyte {
-            return String(format: "%5.2f MB", Double(self) / Double(.megabyte))
+            String(format: "%5.2f MB", Double(self) / Double(.megabyte))
         } else {
-            return String(format: "%5.2f GB", Double(self) / Double(.gigabyte))
+            String(format: "%5.2f GB", Double(self) / Double(.gigabyte))
         }
     }
 

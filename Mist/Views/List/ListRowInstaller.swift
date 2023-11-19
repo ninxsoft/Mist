@@ -312,35 +312,35 @@ struct ListRowInstaller: View {
     private func alert(for alertType: InstallerAlertType) -> Alert {
         switch alertType {
         case .compatibility:
-            return Alert(
+            Alert(
                 title: Text("macOS Installer not compatible!"),
                 message: Text(compatibilityMessage),
                 primaryButton: .default(Text("Cancel")),
                 secondaryButton: .default(Text("Continue")) { Task { validate() } }
             )
         case .helperTool:
-            return Alert(
+            Alert(
                 title: Text("Privileged Helper Tool not installed!"),
                 message: Text("The Mist Privileged Helper Tool is required to perform Administrator tasks when creating macOS Installers."),
                 primaryButton: .default(Text("Install...")) { Task { installPrivilegedHelperTool() } },
                 secondaryButton: .default(Text("Cancel"))
             )
         case .fullDiskAccess:
-            return Alert(
+            Alert(
                 title: Text("Full Disk Access required!"),
                 message: Text("Mist requires Full Disk Access to perform Administrator tasks when creating macOS Installers."),
                 primaryButton: .default(Text("Allow...")) { openFullDiskAccessPreferences() },
                 secondaryButton: .default(Text("Cancel"))
             )
         case .cacheDirectory:
-            return Alert(
+            Alert(
                 title: Text("Cache directory settings incorrect!"),
                 message: Text(cacheDirectoryMessage),
                 primaryButton: .default(Text("Repair...")) { Task { try await repairCacheDirectoryOwnershipAndPermissions() } },
                 secondaryButton: .default(Text("Cancel"))
             )
         case .error:
-            return Alert(
+            Alert(
                 title: Text("An error has occured!"),
                 message: Text(errorMessage),
                 dismissButton: .default(Text("OK"))

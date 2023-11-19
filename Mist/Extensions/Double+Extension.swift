@@ -17,13 +17,13 @@ extension Double {
 
     func bytesString() -> String {
         if self < .kilobyte {
-            return "\(Int(self)) bytes"
+            "\(Int(self)) bytes"
         } else if self < .megabyte {
-            return String(format: "%5.2f KB", self / .kilobyte)
+            String(format: "%5.2f KB", self / .kilobyte)
         } else if self < .gigabyte {
-            return String(format: "%5.2f MB", self / .megabyte)
+            String(format: "%5.2f MB", self / .megabyte)
         } else {
-            return String(format: "%5.2f GB", self / .gigabyte)
+            String(format: "%5.2f GB", self / .gigabyte)
         }
     }
 }

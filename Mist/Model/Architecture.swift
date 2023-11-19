@@ -18,9 +18,9 @@ enum Architecture: String {
     var description: String {
         switch self {
         case .appleSilicon:
-            return "Apple Silicon"
+            "Apple Silicon"
         case .intel:
-            return "Intel-based"
+            "Intel-based"
         }
     }
 }

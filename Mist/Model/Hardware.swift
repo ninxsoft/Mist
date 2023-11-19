@@ -29,11 +29,11 @@ enum Hardware {
     static var deviceID: String? {
         switch architecture {
         case .appleSilicon:
-            return registryProperty(for: "compatible")?.components(separatedBy: "\0").first?.uppercased()
+            registryProperty(for: "compatible")?.components(separatedBy: "\0").first?.uppercased()
         case .intel:
-            return registryProperty(for: "bridge-model")?.uppercased()
+            registryProperty(for: "bridge-model")?.uppercased()
         default:
-            return nil
+            nil
         }
     }
 

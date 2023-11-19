@@ -46,9 +46,9 @@ struct ActivityView: View {
     private var buttonText: String {
         switch taskManager.currentState {
         case .pending, .inProgress:
-            return "Cancel"
+            "Cancel"
         case .complete, .error:
-            return "Close"
+            "Close"
         }
     }
 
@@ -111,14 +111,14 @@ struct ActivityView: View {
         .alert(isPresented: $showAlert) {
             switch alertType {
             case .cancel:
-                return Alert(
+                Alert(
                     title: Text("Are you sure you want to cancel?"),
                     message: Text("This process cannot be resumed once it has been cancelled."),
                     primaryButton: .default(Text("Resume")),
                     secondaryButton: .destructive(Text("Cancel"), action: { cancel() })
                 )
             case .error:
-                return Alert(
+                Alert(
                     title: Text("An error has occurred!"),
                     message: Text(error?.description ?? ""),
                     dismissButton: .default(Text("OK"))

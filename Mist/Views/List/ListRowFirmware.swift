@@ -67,21 +67,21 @@ struct ListRowFirmware: View {
         .alert(isPresented: $showAlert) {
             switch alertType {
             case .compatibility:
-                return Alert(
+                Alert(
                     title: Text("macOS Firmware not compatible!"),
                     message: Text(compatibilityMessage),
                     primaryButton: .default(Text("Cancel")),
                     secondaryButton: .default(Text("Continue")) { Task { validate() } }
                 )
             case .helperTool:
-                return Alert(
+                Alert(
                     title: Text("Privileged Helper Tool not installed!"),
                     message: Text("The Mist Privileged Helper Tool is required to perform Administrator tasks when downloading macOS Firmwares."),
                     primaryButton: .default(Text("Install...")) { Task { installPrivilegedHelperTool() } },
                     secondaryButton: .default(Text("Cancel"))
                 )
             case .error:
-                return Alert(
+                Alert(
                     title: Text("An error has occured!"),
                     message: Text(errorMessage),
                     dismissButton: .default(Text("OK"))

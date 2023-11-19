@@ -10,9 +10,9 @@ import SwiftUI
 extension Scene {
     func fixedWindow() -> some Scene {
         if #available(macOS 13.0, *) {
-            return self.windowResizability(.contentSize)
+            self.windowResizability(.contentSize)
         } else {
-            return self
+            self
         }
     }
 }

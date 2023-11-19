@@ -64,7 +64,7 @@ struct SettingsInstallersCacheView: View {
         .alert(isPresented: $showAlert) {
             switch alertType {
             case .confirmation:
-                return Alert(
+                Alert(
                     title: Text("Remove Cached Installer?"),
                     message: Text(removalMessage),
                     primaryButton: .cancel(),
@@ -76,7 +76,7 @@ struct SettingsInstallersCacheView: View {
                     }
                 )
             case .error:
-                return Alert(
+                Alert(
                     title: Text("An error has occured!"),
                     message: Text("There was an error removing the cached Installer directory. Show in Finder to remove manually."),
                     primaryButton: .default(Text("OK")) { },
