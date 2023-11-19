@@ -200,12 +200,10 @@ struct ActivityView: View {
     }
 
     private func sendNotification(for type: DownloadType, name: String, version: String, build: String, success: Bool) {
-        let title: String
-
-        if bootableInstaller {
-            title = "Bootable Installer \(success ? "created" : "failed")"
+        let title: String = if bootableInstaller {
+            "Bootable Installer \(success ? "created" : "failed")"
         } else {
-            title = "\(type.description) \(success ? "downloaded" : "failed")"
+            "\(type.description) \(success ? "downloaded" : "failed")"
         }
 
         let body: String = "\(name) \(version) (\(build))"

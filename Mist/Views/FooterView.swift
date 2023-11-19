@@ -52,13 +52,11 @@ struct FooterView: View {
             return
         }
 
-        var dictionaries: [[String: Any]]
-
-        switch downloadType {
+        var dictionaries: [[String: Any]] = switch downloadType {
         case .firmware:
-            dictionaries = firmwares.map(\.dictionary)
+            firmwares.map(\.dictionary)
         case .installer:
-            dictionaries = installers.map(\.dictionary)
+            installers.map(\.dictionary)
         }
 
         do {
