@@ -75,7 +75,7 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
 
 ## License
 
-> Copyright © 2023 Nindi Gill
+> Copyright © 2024 Nindi Gill
 >
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal
