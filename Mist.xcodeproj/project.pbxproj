@@ -93,6 +93,7 @@
 		398734D028603D9E00B4C357 /* UInt8+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734CF28603D9E00B4C357 /* UInt8+Extension.swift */; };
 		398734D228603DE700B4C357 /* [UInt8]+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734D128603DE700B4C357 /* [UInt8]+Extension.swift */; };
 		398734D4286046B000B4C357 /* UInt32+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734D3286046B000B4C357 /* UInt32+Extension.swift */; };
+		398BE6B52B62450500FE0C29 /* FloatingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398BE6B42B62450500FE0C29 /* FloatingAlert.swift */; };
 		39CA25E32941D8BB0030711E /* FileAttributesUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CA25E22941D8BB0030711E /* FileAttributesUpdater.swift */; };
 		39CB5E3D293F5C2E00CFDBB8 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */; };
 		39CB5E3F2941486D00CFDBB8 /* CatalogSeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB5E3E2941486D00CFDBB8 /* CatalogSeedType.swift */; };
@@ -250,6 +251,7 @@
 		398734CF28603D9E00B4C357 /* UInt8+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt8+Extension.swift"; sourceTree = "<group>"; };
 		398734D128603DE700B4C357 /* [UInt8]+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[UInt8]+Extension.swift"; sourceTree = "<group>"; };
 		398734D3286046B000B4C357 /* UInt32+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt32+Extension.swift"; sourceTree = "<group>"; };
+		398BE6B42B62450500FE0C29 /* FloatingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingAlert.swift; sourceTree = "<group>"; };
 		39CA25E22941D8BB0030711E /* FileAttributesUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAttributesUpdater.swift; sourceTree = "<group>"; };
 		39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		39CB5E3E2941486D00CFDBB8 /* CatalogSeedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSeedType.swift; sourceTree = "<group>"; };
@@ -538,6 +540,7 @@
 			children = (
 				39252AA2285C3CC400956C74 /* CodesigningPickerView.swift */,
 				39252AA4285C463A00956C74 /* DynamicTextView.swift */,
+				398BE6B42B62450500FE0C29 /* FloatingAlert.swift */,
 				39252A86285ACE9C00956C74 /* FooterText.swift */,
 				5795700C2A31B081004C7051 /* MistActionButtonStyle.swift */,
 				39252AA0285C2A1600956C74 /* PaddedDivider.swift */,
@@ -843,6 +846,7 @@
 				39FF05F62859850F00A86670 /* SettingsFirmwaresView.swift in Sources */,
 				3935F4A6286AD3E100760AB0 /* ActivityHeaderView.swift in Sources */,
 				3935F480286551FB00760AB0 /* Double+Extension.swift in Sources */,
+				398BE6B52B62450500FE0C29 /* FloatingAlert.swift in Sources */,
 				39252ABD285C8FFC00956C74 /* ListRowInstaller.swift in Sources */,
 				3935F49D286ABE4D00760AB0 /* FooterView.swift in Sources */,
 				390451CC2856F23100E0B563 /* ScaledSystemImage.swift in Sources */,

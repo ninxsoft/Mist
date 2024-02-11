@@ -21,6 +21,7 @@ struct ContentView: View {
     @State private var searchString: String = ""
     @State private var openPanel: NSOpenPanel = .init()
     @State private var savePanel: NSSavePanel = .init()
+    @State private var copiedToClipboard: Bool = false
     @StateObject private var taskManager: TaskManager = .shared
     private var filteredFirmwares: [Firmware] {
         var filteredFirmwares: [Firmware] = firmwares
@@ -74,28 +75,34 @@ struct ContentView: View {
     private let height: CGFloat = 720
 
     var body: some View {
+        // swiftlint:disable:next closure_body_length
         VStack(spacing: 0) {
             HeaderView(downloadType: $downloadType)
             Divider()
             if downloadType == .firmware && filteredFirmwares.isEmpty || downloadType == .installer && filteredInstallers.isEmpty {
                 EmptyCollectionView("No macOS \(downloadType.description)s found!\n\nಥ_ಥ")
             } else {
-                List {
-                    ForEach(releaseNames(for: downloadType), id: \.self) { releaseName in
-                        Section(header: Text(releaseName)) {
-                            switch downloadType {
-                            case .firmware:
-                                ForEach(filteredFirmwares(for: releaseName)) { firmware in
-                                    ListRowFirmware(firmware: firmware, savePanel: $savePanel, tasksInProgress: $tasksInProgress, taskManager: taskManager)
-                                        .tag(firmware)
-                                }
-                            case .installer:
-                                ForEach(filteredInstallers(for: releaseName)) { installer in
-                                    ListRowInstaller(installer: installer, openPanel: $openPanel, tasksInProgress: $tasksInProgress, taskManager: taskManager)
-                                        .tag(installer)
+                ZStack {
+                    List {
+                        ForEach(releaseNames(for: downloadType), id: \.self) { releaseName in
+                            Section(header: Text(releaseName)) {
+                                switch downloadType {
+                                case .firmware:
+                                    ForEach(filteredFirmwares(for: releaseName)) { firmware in
+                                        ListRowFirmware(firmware: firmware, savePanel: $savePanel, copiedToClipboard: $copiedToClipboard, tasksInProgress: $tasksInProgress, taskManager: taskManager)
+                                            .tag(firmware)
+                                    }
+                                case .installer:
+                                    ForEach(filteredInstallers(for: releaseName)) { installer in
+                                        ListRowInstaller(installer: installer, openPanel: $openPanel, tasksInProgress: $tasksInProgress, taskManager: taskManager)
+                                            .tag(installer)
+                                    }
                                 }
                             }
                         }
+                    }
+                    if copiedToClipboard {
+                        FloatingAlert(image: "list.bullet.clipboard.fill", message: "Copied to Clipboard")
                     }
                 }
             }
@@ -118,6 +125,18 @@ struct ContentView: View {
         }
         .onAppear {
             refresh()
+        }
+        .onChange(of: copiedToClipboard) { copied in
+
+            guard copied else {
+                return
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                withAnimation {
+                    copiedToClipboard = false
+                }
+            }
         }
     }
 
