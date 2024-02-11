@@ -35,6 +35,8 @@ jobs:
           security import "$APPLE_DEVELOPER_ID_INSTALLER_CERTIFICATE_PATH" -P "$APPLE_DEVELOPER_ID_INSTALLER_CERTIFICATE_PASSWORD" -A -t cert -f pkcs12 -k "$RUNNER_TEMP/$KEYCHAIN_FILE"
           security import "$APPLE_DEVELOPER_CERTIFICATE_AUTHORITY_PATH" -P "$APPLE_DEVELOPER_CERTIFICATE_PASSWORD" -A -t cert -f pkcs7 -k "$RUNNER_TEMP/$KEYCHAIN_FILE"
           security list-keychain -d user -s "$RUNNER_TEMP/$KEYCHAIN_FILE"
+      - name: Select Xcode version
+        run: sudo xcode-select --switch "/Applications/Xcode_15.2.app"
       - name: Archive Mist
         run: xcodebuild -scheme Mist clean archive -configuration release -archivePath Mist -quiet
       - name: Export Mist
