@@ -17,6 +17,7 @@ struct ListRowFirmware: View {
     private var retryDelay: Int = 30
     var firmware: Firmware
     @Binding var savePanel: NSSavePanel
+    @Binding var copiedToClipboard: Bool
     @Binding var tasksInProgress: Bool
     @ObservedObject var taskManager: TaskManager
     @State private var alertType: FirmwareAlertType = .compatibility
@@ -54,14 +55,23 @@ struct ListRowFirmware: View {
                 size: firmware.size.bytesString(),
                 tooltip: firmware.tooltip
             )
-            Button {
-                firmware.compatible ? validate() : showCompatibilityWarning()
-            } label: {
-                Image(systemName: "arrow.down.circle")
-                    .font(.body.bold())
+            HStack(spacing: 1) {
+                Button {
+                    firmware.compatible ? validate() : showCompatibilityWarning()
+                } label: {
+                    Image(systemName: "arrow.down.circle")
+                        .padding(.vertical, 1.5)
+                }
+                .help("Download macOS Firmware")
+                .buttonStyle(.mistAction)
+                Button {
+                    copyToClipboard()
+                } label: {
+                    Image(systemName: "list.bullet.clipboard")
+                }
+                .help("Copy macOS Firmware URL to Clipboard")
+                .buttonStyle(.mistAction)
             }
-            .help("Download macOS Firmware")
-            .buttonStyle(.mistAction)
             .clipShape(Capsule())
         }
         .alert(isPresented: $showAlert) {
@@ -105,6 +115,14 @@ struct ListRowFirmware: View {
                 destinationURL: savePanel.url,
                 taskManager: taskManager
             )
+        }
+    }
+
+    private func copyToClipboard() {
+        NSPasteboard.general.declareTypes([.string], owner: nil)
+        NSPasteboard.general.setString(firmware.url, forType: .string)
+        withAnimation(.easeIn) {
+            copiedToClipboard = true
         }
     }
 
@@ -157,6 +175,6 @@ struct ListRowFirmware: View {
 
 struct ListRowFirmware_Previews: PreviewProvider {
     static var previews: some View {
-        ListRowFirmware(firmware: .example, savePanel: .constant(NSSavePanel()), tasksInProgress: .constant(false), taskManager: .shared)
+        ListRowFirmware(firmware: .example, savePanel: .constant(NSSavePanel()), copiedToClipboard: .constant(false), tasksInProgress: .constant(false), taskManager: .shared)
     }
 }
