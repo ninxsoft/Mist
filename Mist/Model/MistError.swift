@@ -28,7 +28,7 @@ enum MistError: Error, Equatable {
     var description: String {
         switch self {
         case let .generalError(string):
-            return "Error: \(string)"
+            return string
         case let .chunklistValidationError(string):
             return "Chunklist validation failed: \(string)"
         case let .fileSizeAttributesError(url):

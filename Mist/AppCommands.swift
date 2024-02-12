@@ -35,6 +35,12 @@ struct AppCommands: Commands {
             }
             .disabled(tasksInProgress)
         }
+        CommandGroup(after: .windowList) {
+            Button("Show Mist Log") {
+                showLog()
+            }
+            .keyboardShortcut("l")
+        }
         CommandGroup(replacing: .help) {
             Button("Mist Help") {
                 help()
@@ -48,6 +54,14 @@ struct AppCommands: Commands {
 
     private func install() {
         try? PrivilegedHelperManager.shared.authorizeAndBless()
+    }
+
+    private func showLog() {
+        guard let url = URL(string: .logURL) else {
+            return
+        }
+
+        openURL(url)
     }
 
     private func help() {

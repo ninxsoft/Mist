@@ -23,21 +23,30 @@ struct MistTask: Identifiable {
         case .pending:
             break
         case .inProgress:
-            prefix = "\(prefix.last == "e" ? String(prefix.dropLast(1)) : prefix)ing"
+            switch type {
+            case .configure, .move, .create, .remove:
+                prefix = "\(prefix.dropLast(1))ing"
+            default:
+                prefix = "\(prefix)ing"
+            }
             suffix = "\(suffix)..."
         case .complete:
             switch type {
-            case .download, .codesign, .mount, .unmount, .convert, .compress:
-                prefix = "\(prefix)ed"
-            case .verify:
-                prefix = "Verified"
-            case .configure, .save, .create, .remove:
+            case .configure, .move, .create, .remove:
                 prefix = "\(prefix)d"
-            case .split:
-                break
+            case .download, .codesign, .mount, .unmount, .convert:
+                prefix = "\(prefix)ed"
+            case .verify, .copy:
+                prefix = "\(prefix.dropLast(1))ied"
             }
         case .error:
-            prefix = "Error \(prefix.last == "e" ? String(prefix.dropLast(1)).lowercased() : prefix)ing"
+            switch type {
+            case .configure, .move, .create, .remove:
+                prefix = "Error \(prefix.dropLast(1).lowercased())ing"
+            default:
+                prefix = "Error \(prefix.lowercased())ing"
+            }
+            suffix = "\(suffix)..."
         }
 
         return "\(prefix) \(suffix)"

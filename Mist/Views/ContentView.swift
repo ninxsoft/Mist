@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.openURL)
+    var openURL: OpenURLAction
     @AppStorage("downloadType")
     private var downloadType: DownloadType = .firmware
     @AppStorage("includeBetas")
@@ -118,6 +120,13 @@ struct ContentView: View {
                     .foregroundColor(.accentColor)
             }
             .help("Refresh")
+            Button {
+                showLog()
+            } label: {
+                Label("Show Log", systemImage: "text.and.command.macwindow")
+                    .foregroundColor(.accentColor)
+            }
+            .help("Show Mist Log")
         }
         .searchable(text: $searchString)
         .sheet(isPresented: $refreshing) {
@@ -142,6 +151,14 @@ struct ContentView: View {
 
     private func refresh() {
         refreshing = true
+    }
+
+    private func showLog() {
+        guard let url = URL(string: .logURL) else {
+            return
+        }
+
+        openURL(url)
     }
 
     private func releaseNames(for type: DownloadType) -> [String] {
