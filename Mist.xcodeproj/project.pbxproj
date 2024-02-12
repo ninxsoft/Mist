@@ -93,6 +93,10 @@
 		398734D028603D9E00B4C357 /* UInt8+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734CF28603D9E00B4C357 /* UInt8+Extension.swift */; };
 		398734D228603DE700B4C357 /* [UInt8]+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734D128603DE700B4C357 /* [UInt8]+Extension.swift */; };
 		398734D4286046B000B4C357 /* UInt32+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398734D3286046B000B4C357 /* UInt32+Extension.swift */; };
+		398A131D2B78AA3700F96F7E /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A131C2B78AA3700F96F7E /* LogManager.swift */; };
+		398A131F2B78AF0B00F96F7E /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A131E2B78AF0B00F96F7E /* LogLevel.swift */; };
+		398A13222B78BA6D00F96F7E /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A13212B78BA6D00F96F7E /* LogView.swift */; };
+		398A13472B78F22A00F96F7E /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A13462B78F22A00F96F7E /* LogEntry.swift */; };
 		398BE6B52B62450500FE0C29 /* FloatingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398BE6B42B62450500FE0C29 /* FloatingAlert.swift */; };
 		39CA25E32941D8BB0030711E /* FileAttributesUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CA25E22941D8BB0030711E /* FileAttributesUpdater.swift */; };
 		39CB5E3D293F5C2E00CFDBB8 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */; };
@@ -251,6 +255,10 @@
 		398734CF28603D9E00B4C357 /* UInt8+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt8+Extension.swift"; sourceTree = "<group>"; };
 		398734D128603DE700B4C357 /* [UInt8]+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[UInt8]+Extension.swift"; sourceTree = "<group>"; };
 		398734D3286046B000B4C357 /* UInt32+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt32+Extension.swift"; sourceTree = "<group>"; };
+		398A131C2B78AA3700F96F7E /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogManager.swift; path = Mist/Helpers/LogManager.swift; sourceTree = SOURCE_ROOT; };
+		398A131E2B78AF0B00F96F7E /* LogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
+		398A13212B78BA6D00F96F7E /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		398A13462B78F22A00F96F7E /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
 		398BE6B42B62450500FE0C29 /* FloatingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingAlert.swift; sourceTree = "<group>"; };
 		39CA25E22941D8BB0030711E /* FileAttributesUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAttributesUpdater.swift; sourceTree = "<group>"; };
 		39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
@@ -411,6 +419,7 @@
 				393F35BD2864197F005B7165 /* PrivilegedHelperTool.swift */,
 				3935F4CC286C6A5D00760AB0 /* ProcessKiller.swift */,
 				574199D12AED15420086493F /* PropertyListUpdater.swift */,
+				398A131C2B78AA3700F96F7E /* LogManager.swift */,
 				3935F4C6286B54E200760AB0 /* SparkleUpdater.swift */,
 				398734C328600E6E00B4C357 /* TaskManager.swift */,
 				398734C5286011C300B4C357 /* Validator.swift */,
@@ -425,6 +434,8 @@
 				39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */,
 				390451E428574F0000E0B563 /* CatalogType.swift */,
 				39CB5E3E2941486D00CFDBB8 /* CatalogSeedType.swift */,
+				398A131E2B78AF0B00F96F7E /* LogLevel.swift */,
+				398A13462B78F22A00F96F7E /* LogEntry.swift */,
 				398734CB28603D5F00B4C357 /* Chunklist.swift */,
 				398734CD28603D7F00B4C357 /* Chunk.swift */,
 				390451CD2856F42800E0B563 /* DownloadType.swift */,
@@ -458,6 +469,7 @@
 				393F35C128641E1F005B7165 /* HeaderView.swift */,
 				3935F49C286ABE4D00760AB0 /* FooterView.swift */,
 				390451D728573A2500E0B563 /* ExportListView.swift */,
+				398A13212B78BA6D00F96F7E /* LogView.swift */,
 				3935F4A0286ACCE100760AB0 /* List */,
 				393F35BF28641D86005B7165 /* Activity */,
 				393F35C028641D8F005B7165 /* Refresh */,
@@ -805,6 +817,7 @@
 				39CF56172861BE66006FB5D2 /* FileCopier.swift in Sources */,
 				39252AB9285C7BC700956C74 /* SettingsInstallersCacheView.swift in Sources */,
 				390451C62856E80C00E0B563 /* RefreshView.swift in Sources */,
+				398A131D2B78AA3700F96F7E /* LogManager.swift in Sources */,
 				39252A97285BF8BC00956C74 /* MistTaskType.swift in Sources */,
 				39CF56212861C992006FB5D2 /* DiskImageMounter.swift in Sources */,
 				398734CC28603D5F00B4C357 /* Chunklist.swift in Sources */,
@@ -832,8 +845,10 @@
 				39252A9F285C140D00956C74 /* ShellExecutor.swift in Sources */,
 				39CF561A2861C2D1006FB5D2 /* DirectoryCreator.swift in Sources */,
 				39252A77285A849F00956C74 /* AppDelegate.swift in Sources */,
+				398A13472B78F22A00F96F7E /* LogEntry.swift in Sources */,
 				3935F47C2864434B00760AB0 /* SettingsGeneralNotificationsView.swift in Sources */,
 				3935F4C7286B54E200760AB0 /* SparkleUpdater.swift in Sources */,
+				398A13222B78BA6D00F96F7E /* LogView.swift in Sources */,
 				393F35BE2864197F005B7165 /* PrivilegedHelperTool.swift in Sources */,
 				573A23622A28711C00EC9470 /* Architecture.swift in Sources */,
 				390451B92856E24200E0B563 /* Firmware.swift in Sources */,
@@ -854,6 +869,7 @@
 				3935F47428643AB800760AB0 /* UNNotificationCategory+Extension.swift in Sources */,
 				398734D028603D9E00B4C357 /* UInt8+Extension.swift in Sources */,
 				39252AB7285C718C00956C74 /* FileManager+Extension.swift in Sources */,
+				398A131F2B78AF0B00F96F7E /* LogLevel.swift in Sources */,
 				398734C428600E6E00B4C357 /* TaskManager.swift in Sources */,
 				390451D62856F7FE00E0B563 /* UInt64+Extension.swift in Sources */,
 				3935F47E2864813B00760AB0 /* DownloadManager.swift in Sources */,

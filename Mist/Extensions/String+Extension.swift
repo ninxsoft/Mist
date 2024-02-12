@@ -24,6 +24,7 @@ extension String {
     static let temporaryDirectory: String = "/private/tmp/\(appIdentifier)"
     static let cacheDirectory: String = "/Users/Shared/Mist/Cache"
     static let tccDatabasePath: String = "/Library/Application Support/com.apple.TCC/TCC.db"
+    static let logURL: String = "\(appName)://log"
 
     func stringWithSubstitutions(name: String, version: String, build: String) -> String {
         replacingOccurrences(of: "%NAME%", with: name)
