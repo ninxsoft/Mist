@@ -11,7 +11,7 @@
     - `log stream --predicate 'subsystem=="com.ninxsoft.mist"'`
   - Thanks [Chilternburt](https://github.com/Chilternburt)!
 - Firmware URLs can now be copied to the system clipboard - thanks [BigMacAdmin](https://github.com/BigMacAdmin)!
-- Added ISO support for OS X Lion and OS X Mountain Lion - thanks [madsmtm](https://github.com/madsmtm)!
+- Added ISO support for OS X Lion 10.7 and OS X Mountain Lion 10.8 - thanks [madsmtm](https://github.com/madsmtm)!
 - You can now select your favourite Mist app icon via the app **Settings > General** pane - thanks [stumcd](https://github.com/stumcd)!
 - Fixed an issue that prevented macOS Sierra 10.12 ISOs from building correctly - thanks [Asnowz](https://github.com/Asnowz), [BenFRC5147](https://github.com/BenFRC5147) and [Archetrix](https://github.com/Archetrix)!
 - Improved error messaging for when the Privileged Helper Tool fails to install - thanks [DevLiuSir](https://github.com/DevLiuSir), [bhagatparwinder](https://github.com/bhagatparwinder) and [JuanCab](https://github.com/JuanCab)!
