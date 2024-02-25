@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.10.0](https://github.com/ninxsoft/Mist/releases/tag/v0.10.0) - 2024-02-26
+## [0.10](https://github.com/ninxsoft/Mist/releases/tag/v0.10) - 2024-02-26
 
 - Mist now ships logs to the [unified logging system](https://developer.apple.com/documentation/os/logging)!
   - You can view the **Mist Log** window via the:
