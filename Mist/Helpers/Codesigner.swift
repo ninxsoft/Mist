@@ -25,14 +25,14 @@ enum Codesigner {
         }
     }
 
-    /// Ad-hoc sign all files within a directory (or app bundle).
+    /// Ad-hoc signs the file at the provided URL.
     ///
     /// - Parameters:
-    ///   - url: The URL of the directory to ad-hoc sign.
+    ///   - url: The URL of the file to ad-hoc sign.
     ///
     /// - Throws: A `MistError` if the command failed to execute.
     static func adhocSign(_ url: URL) async throws {
-        let arguments: [String] = ["find", url.path, "-type", "f", "-exec", "codesign", "--sign", "-", "--force", "{}", ";"]
+        let arguments: [String] = ["codesign", "--sign", "-", "--force", url.path]
         let response: HelperToolCommandResponse = try ShellExecutor.shared.execute(arguments)
 
         guard response.terminationStatus == 0 else {

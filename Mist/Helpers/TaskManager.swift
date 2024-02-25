@@ -467,7 +467,7 @@ class TaskManager: ObservableObject {
                     if
                         let architecture: Architecture = Hardware.architecture,
                         architecture == .appleSilicon, !installer.bigSurOrNewer {
-                        try await Codesigner.adhocSign(installer.temporaryInstallerURL)
+                        try await Codesigner.adhocSign(createInstallMediaURL)
                     }
 
                     // Workaround to make macOS Sierra 10.12 createinstallmedia work
@@ -574,7 +574,7 @@ class TaskManager: ObservableObject {
                 if
                     let architecture: Architecture = Hardware.architecture,
                     architecture == .appleSilicon, !installer.bigSurOrNewer {
-                    try await Codesigner.adhocSign(installer.temporaryInstallerURL)
+                    try await Codesigner.adhocSign(createInstallMediaURL)
                 }
 
                 // Workaround to make macOS Sierra 10.12 createinstallmedia work
