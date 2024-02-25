@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.10.0](https://github.com/ninxsoft/Mist/releases/tag/v0.10.0) - 2024-02-26
+
+- Mist now ships logs to the [unified logging system](https://developer.apple.com/documentation/os/logging)!
+  - You can view the **Mist Log** window via the:
+    - **⌘ + L** keyboard shortcut
+    - **Mist > Window** app menu
+    - **Show Mist Log** toolbar button
+  - Logs can also be monitored in Terminal via:
+    - `log stream --predicate 'subsystem=="com.ninxsoft.mist"'`
+  - Thanks [Chilternburt](https://github.com/Chilternburt)!
+- Firmware URLs can now be copied to the system clipboard - thanks [BigMacAdmin](https://github.com/BigMacAdmin)!
+- Added ISO support for OS X Lion and OS X Mountain Lion - thanks [madsmtm](https://github.com/madsmtm)!
+- You can now select your favourite Mist app icon via the app **Settings > General** pane - thanks [stumcd](https://github.com/stumcd)!
+- Fixed an issue that prevented macOS Sierra 10.12 ISOs from building correctly - thanks [Asnowz](https://github.com/Asnowz), [BenFRC5147](https://github.com/BenFRC5147) and [Archetrix](https://github.com/Archetrix)!
+- Improved error messaging for when the Privileged Helper Tool fails to install - thanks [DevLiuSir](https://github.com/DevLiuSir), [bhagatparwinder](https://github.com/bhagatparwinder) and [JuanCab](https://github.com/JuanCab)!
+- Bumped [Sparkle](https://github.com/sparkle-project/Sparkle) version to **2.5.2**
+
 ## [0.9.1](https://github.com/ninxsoft/Mist/releases/tag/v0.9.1) - 2023-08-25
 
 - Fixed insecure HTTP URLs for certain Firmware files - thanks [F1248](https://github.com/F1248)!
