@@ -464,8 +464,9 @@ class TaskManager: ObservableObject {
                 },
                 MistTask(type: .create, description: "macOS Installer in temporary Disk Image") {
                     // Workaround to make OS X Yosemite 10.10 to macOS Catalina 10.15 createinstallmedia work on Apple Silicon
-                    if let architecture: Architecture = Hardware.architecture,
-                        architecture == .appleSilicon && !installer.bigSurOrNewer {
+                    if
+                        let architecture: Architecture = Hardware.architecture,
+                        architecture == .appleSilicon, !installer.bigSurOrNewer {
                         try await Codesigner.adhocSign(installer.temporaryInstallerURL)
                     }
 
@@ -570,8 +571,9 @@ class TaskManager: ObservableObject {
         let tasks: [MistTask] = [
             MistTask(type: .create, description: "Bootable Installer") {
                 // Workaround to make OS X Yosemite 10.10 to macOS Catalina 10.15 createinstallmedia work on Apple Silicon
-                if let architecture: Architecture = Hardware.architecture,
-                    architecture == .appleSilicon && !installer.bigSurOrNewer {
+                if
+                    let architecture: Architecture = Hardware.architecture,
+                    architecture == .appleSilicon, !installer.bigSurOrNewer {
                     try await Codesigner.adhocSign(installer.temporaryInstallerURL)
                 }
 
