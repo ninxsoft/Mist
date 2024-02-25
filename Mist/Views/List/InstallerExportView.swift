@@ -57,10 +57,6 @@ struct InstallerExportView: View {
     private func updateExports() {
         var exports: [InstallerExportType] = []
 
-        if !isoCompatible, exportISO {
-            exportISO = false
-        }
-
         if !exportApplication, !exportDiskImage, !exportISO, !exportPackage {
             exportApplication = true
         }
