@@ -23,7 +23,7 @@ jobs:
       - name: Run SwiftFormat
         run: swiftformat --lint .
       - name: Download DrString
-        run: curl --location --remote-name https://github.com/dduan/DrString/releases/latest/download/drstring-x86_64-apple-darwin.tar.gz
+        run: curl --location --remote-name https://github.com/dduan/DrString/releases/latest/download/drstring-universal-apple-darwin.tar.gz
       - name: Extract DrString
         run: |
           mkdir drstring-x86_64-apple-darwin
