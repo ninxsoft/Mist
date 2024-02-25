@@ -26,10 +26,10 @@ jobs:
         run: curl --location --remote-name https://github.com/dduan/DrString/releases/latest/download/drstring-universal-apple-darwin.tar.gz
       - name: Extract DrString
         run: |
-          mkdir drstring-x86_64-apple-darwin
-          tar --extract --file drstring-x86_64-apple-darwin.tar.gz --directory drstring-x86_64-apple-darwin
+          mkdir drstring-universal-apple-darwin
+          tar --extract --file drstring-universal-apple-darwin.tar.gz --directory drstring-universal-apple-darwin
       - name: Add DrString to $PATH
-        run: echo "$GITHUB_WORKSPACE/drstring-x86_64-apple-darwin" >> $GITHUB_PATH
+        run: echo "$GITHUB_WORKSPACE/drstring-universal-apple-darwin" >> $GITHUB_PATH
       - name: Print DrString version
         run: drstring --version
       - name: Run DrString
