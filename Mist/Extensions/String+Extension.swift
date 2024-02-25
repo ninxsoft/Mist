@@ -8,7 +8,6 @@
 import Foundation
 
 extension String {
-
     static let appName: String = "mist"
     static let appIdentifier: String = "com.ninxsoft.\(appName)"
     static let helperIdentifier: String = "\(appIdentifier).helper"
@@ -25,9 +24,10 @@ extension String {
     static let temporaryDirectory: String = "/private/tmp/\(appIdentifier)"
     static let cacheDirectory: String = "/Users/Shared/Mist/Cache"
     static let tccDatabasePath: String = "/Library/Application Support/com.apple.TCC/TCC.db"
+    static let logURL: String = "\(appName)://log"
 
     func stringWithSubstitutions(name: String, version: String, build: String) -> String {
-        self.replacingOccurrences(of: "%NAME%", with: name)
+        replacingOccurrences(of: "%NAME%", with: name)
             .replacingOccurrences(of: "%VERSION%", with: version)
             .replacingOccurrences(of: "%BUILD%", with: build)
             .replacingOccurrences(of: "//", with: "/")

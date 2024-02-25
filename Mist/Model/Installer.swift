@@ -10,7 +10,6 @@ import Foundation
 // swiftlint:disable file_length
 // swiftlint:disable:next type_body_length
 struct Installer: Decodable, Hashable, Identifiable {
-
     enum CodingKeys: String, CodingKey {
         case id = "Identifier"
         case version = "Version"
@@ -654,7 +653,6 @@ struct Installer: Decodable, Hashable, Identifiable {
     let deviceIDs: [String]
     let unsupportedModelIdentifiers: [String]
     var name: String {
-
         var name: String = ""
 
         if version.range(of: "^14", options: .regularExpression) != nil {
@@ -690,9 +688,11 @@ struct Installer: Decodable, Hashable, Identifiable {
         name = beta ? "\(name) beta" : name
         return name
     }
+
     var compatible: Bool {
         // Board ID (Intel)
-        if let boardID: String = Hardware.boardID,
+        if
+            let boardID: String = Hardware.boardID,
             !boardIDs.isEmpty,
             !boardIDs.contains(boardID) {
             return false
@@ -700,7 +700,8 @@ struct Installer: Decodable, Hashable, Identifiable {
 
         // Device ID (Apple Silicon or Intel T2)
         // macOS Big Sur 11 or newer
-        if version.range(of: "^1[1-9]\\.", options: .regularExpression) != nil,
+        if
+            version.range(of: "^1[1-9]\\.", options: .regularExpression) != nil,
             let deviceID: String = Hardware.deviceID,
             !deviceIDs.isEmpty,
             !deviceIDs.contains(deviceID) {
@@ -710,13 +711,14 @@ struct Installer: Decodable, Hashable, Identifiable {
         // Model Identifier (Apple Silicon or Intel)
         // macOS Catalina 10.15 or older
         if version.range(of: "^10\\.", options: .regularExpression) != nil {
-
-            if let architecture: Architecture = Hardware.architecture,
+            if
+                let architecture: Architecture = Hardware.architecture,
                 architecture == .appleSilicon {
                 return false
             }
 
-            if let modelIdentifier: String = Hardware.modelIdentifier,
+            if
+                let modelIdentifier: String = Hardware.modelIdentifier,
                 !unsupportedModelIdentifiers.isEmpty,
                 unsupportedModelIdentifiers.contains(modelIdentifier) {
                 return false
@@ -725,18 +727,23 @@ struct Installer: Decodable, Hashable, Identifiable {
 
         return true
     }
+
     var allDownloads: [Package] {
         (sierraOrOlder ? [] : [Package(url: distributionURL, size: distributionSize, integrityDataURL: nil, integrityDataSize: nil)]) + packages.sorted { $0.filename < $1.filename }
     }
+
     var temporaryDiskImageMountPointURL: URL {
         URL(fileURLWithPath: "/Volumes/\(id)")
     }
+
     var temporaryInstallerURL: URL {
         temporaryDiskImageMountPointURL.appendingPathComponent("Applications/Install \(name).app")
     }
+
     var temporaryISOMountPointURL: URL {
         URL(fileURLWithPath: "/Volumes/Install \(name)")
     }
+
     var dictionary: [String: Any] {
         [
             "identifier": id,
@@ -747,37 +754,47 @@ struct Installer: Decodable, Hashable, Identifiable {
             "date": date,
             "compatible": compatible,
             "distribution": distributionURL,
-            "packages": packages.map { $0.dictionary },
+            "packages": packages.map(\.dictionary),
             "beta": beta
         ]
     }
+
     var mavericksOrNewer: Bool {
         bigSurOrNewer || version.range(of: "^10\\.(9|1[0-5])\\.", options: .regularExpression) != nil
     }
+
     var sierraOrOlder: Bool {
         version.range(of: "^10\\.([7-9]|1[0-2])\\.", options: .regularExpression) != nil
     }
+
     var catalinaOrNewer: Bool {
         bigSurOrNewer || version.range(of: "^10\\.15\\.", options: .regularExpression) != nil
     }
+
     var bigSurOrNewer: Bool {
         version.range(of: "^1[1-9]\\.", options: .regularExpression) != nil
     }
+
     var beta: Bool {
         build.range(of: "[a-z]$", options: .regularExpression) != nil
     }
+
     var imageName: String {
         name.replacingOccurrences(of: " beta", with: "")
     }
+
     var size: UInt64 {
-        UInt64(packages.map { $0.size }.reduce(0, +))
+        UInt64(packages.map(\.size).reduce(0, +))
     }
+
     var diskImageSize: Double {
         ceil(Double(size) / Double(UInt64.gigabyte)) + 1.5
     }
+
     var isoSize: Double {
         ceil(Double(size) / Double(UInt64.gigabyte)) + 1.5
     }
+
     var tooltip: String {
         """
         Release: \(name)
@@ -790,7 +807,6 @@ struct Installer: Decodable, Hashable, Identifiable {
 }
 
 extension Installer: Equatable {
-
     static func == (lhs: Installer, rhs: Installer) -> Bool {
         lhs.version == rhs.version && lhs.build == rhs.build
     }

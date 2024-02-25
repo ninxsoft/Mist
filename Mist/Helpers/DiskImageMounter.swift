@@ -8,8 +8,7 @@
 import Foundation
 
 /// Helper struct to mount Disk Images.
-struct DiskImageMounter {
-
+enum DiskImageMounter {
     /// Mount a Disk Image at the provided mount point.
     ///
     /// - Parameters:
@@ -18,7 +17,6 @@ struct DiskImageMounter {
     ///
     /// - Throws: A `MistError` if the command failed to execute.
     static func mount(_ url: URL, mountPoint: URL) async throws {
-
         do {
             try await DiskImageUnmounter.unmount(mountPoint)
         } catch {

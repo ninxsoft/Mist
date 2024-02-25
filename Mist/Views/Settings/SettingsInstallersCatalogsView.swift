@@ -51,13 +51,13 @@ struct SettingsInstallersCatalogsView: View {
             get: {
                 switch catalogSeedType {
                 case .standard:
-                    return catalog.standard
+                    catalog.standard
                 case .customer:
-                    return catalog.customerSeed
+                    catalog.customerSeed
                 case .developer:
-                    return catalog.developerSeed
+                    catalog.developerSeed
                 case .public:
-                    return catalog.publicSeed
+                    catalog.publicSeed
                 }
             },
             set: {

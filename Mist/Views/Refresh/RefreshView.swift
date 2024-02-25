@@ -19,6 +19,7 @@ struct RefreshView: View {
     private var height: CGFloat {
         firmwaresState == .warning ? 230 : 200
     }
+
     private var buttonText: String {
         [.pending, .inProgress].contains(firmwaresState) || [.pending, .inProgress].contains(installersState) ? "Cancel" : "Close"
     }
@@ -69,7 +70,8 @@ struct RefreshView: View {
             successful = false
             try? await Task.sleep(nanoseconds: nanoseconds)
 
-            if let error = error as? MistError,
+            if
+                let error = error as? MistError,
                 error == .missingDevicesKey {
                 withAnimation {
                     firmwaresState = .warning
@@ -98,7 +100,6 @@ struct RefreshView: View {
     }
 
     private func retrieveFirmwares() throws -> [Firmware] {
-
         var firmwares: [Firmware] = []
 
         guard let firmwaresURL: URL = URL(string: Firmware.firmwaresURL) else {
@@ -107,7 +108,8 @@ struct RefreshView: View {
 
         let string: String = try String(contentsOf: firmwaresURL, encoding: .utf8)
 
-        guard let data: Data = string.data(using: .utf8),
+        guard
+            let data: Data = string.data(using: .utf8),
             let dictionary: [String: Any] = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
             throw MistError.invalidData
         }
@@ -119,16 +121,16 @@ struct RefreshView: View {
         let supportedBuilds: [String] = try Firmware.supportedBuilds()
 
         for (identifier, device) in devices {
-
-            guard identifier.contains("Mac"),
+            guard
+                identifier.contains("Mac"),
                 let device: [String: Any] = device as? [String: Any],
                 let firmwaresArray: [[String: Any]] = device["firmwares"] as? [[String: Any]] else {
                 continue
             }
 
             for var firmwareDictionary in firmwaresArray {
-
-                if let url: String = firmwareDictionary["url"] as? String,
+                if
+                    let url: String = firmwareDictionary["url"] as? String,
                     url.contains("http://updates-http.cdn-apple.com") {
                     firmwareDictionary["url"] = url.replacingOccurrences(of: "http://updates-http.cdn-apple.com", with: "https://updates.cdn-apple.com")
                 }
@@ -145,8 +147,8 @@ struct RefreshView: View {
 
         firmwares.sort {
             $0.version == $1.version ?
-            ($0.build.count == $1.build.count ? $0.build > $1.build : $0.build.count > $1.build.count) :
-            $0.version > $1.version
+                ($0.build.count == $1.build.count ? $0.build > $1.build : $0.build.count > $1.build.count) :
+                $0.version > $1.version
         }
         return firmwares
     }
@@ -156,7 +158,6 @@ struct RefreshView: View {
         let catalogURLs: [String] = getCatalogURLs()
 
         for catalogURL in catalogURLs {
-
             guard let url: URL = URL(string: catalogURL) else {
                 continue
             }
@@ -170,12 +171,13 @@ struct RefreshView: View {
 
                 var format: PropertyListSerialization.PropertyListFormat = .xml
 
-                guard let catalog: [String: Any] = try PropertyListSerialization.propertyList(from: data, options: [.mutableContainers], format: &format) as? [String: Any],
+                guard
+                    let catalog: [String: Any] = try PropertyListSerialization.propertyList(from: data, options: [.mutableContainers], format: &format) as? [String: Any],
                     let productsDictionary: [String: Any] = catalog["Products"] as? [String: Any] else {
                     continue
                 }
 
-                installers.append(contentsOf: getInstallers(from: productsDictionary).filter { !installers.map { $0.id }.contains($0.id) })
+                installers.append(contentsOf: getInstallers(from: productsDictionary).filter { !installers.map(\.id).contains($0.id) })
             } catch {
                 continue
             }
@@ -184,8 +186,8 @@ struct RefreshView: View {
         installers.append(contentsOf: Installer.legacyInstallers)
         installers.sort {
             $0.version == $1.version ?
-            ($0.build.count == $1.build.count ? $0.build > $1.build : $0.build.count > $1.build.count) :
-            $0.version.compare($1.version, options: .numeric) == .orderedDescending
+                ($0.build.count == $1.build.count ? $0.build > $1.build : $0.build.count > $1.build.count) :
+                $0.version.compare($1.version, options: .numeric) == .orderedDescending
         }
 
         guard !installers.isEmpty else {
@@ -196,7 +198,6 @@ struct RefreshView: View {
     }
 
     private func getCatalogURLs() -> [String] {
-
         var catalogURLs: [String] = []
         var catalogs: [Catalog] = []
         let defaultCatalogs: [Catalog] = CatalogType.allCases.map { Catalog(type: $0, standard: true, customerSeed: false, developerSeed: false, publicSeed: false) }
@@ -204,10 +205,10 @@ struct RefreshView: View {
         if let array: [[String: Any]] = UserDefaults.standard.array(forKey: "catalogs") as? [[String: Any]] {
             do {
                 catalogs = try JSONDecoder().decode([Catalog].self, from: JSONSerialization.data(withJSONObject: array))
-                let catalogTypes: [CatalogType] = catalogs.map { $0.type }
+                let catalogTypes: [CatalogType] = catalogs.map(\.type)
 
                 for catalogType in CatalogType.allCases where !catalogTypes.contains(catalogType) {
-                    let catalog: Catalog = Catalog(type: catalogType, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)
+                    let catalog: Catalog = .init(type: catalogType, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)
                     catalogs.append(catalog)
                 }
             } catch {
@@ -239,14 +240,13 @@ struct RefreshView: View {
     }
 
     private func getInstallers(from dictionary: [String: Any]) -> [Installer] {
-
         var installers: [Installer] = []
-        let dateFormatter: DateFormatter = DateFormatter()
+        let dateFormatter: DateFormatter = .init()
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
         for (key, value) in dictionary {
-
-            guard var value: [String: Any] = value as? [String: Any],
+            guard
+                var value: [String: Any] = value as? [String: Any],
                 let date: Date = value["PostDate"] as? Date,
                 let extendedMetaInfo: [String: Any] = value["ExtendedMetaInfo"] as? [String: Any],
                 extendedMetaInfo["InstallAssistantPackageIdentifiers"] as? [String: Any] != nil,
@@ -259,10 +259,11 @@ struct RefreshView: View {
             do {
                 let string: String = try String(contentsOf: url, encoding: .utf8)
 
-                guard let name: String = nameFromDistribution(string),
+                guard
+                    let name: String = nameFromDistribution(string),
                     let version: String = versionFromDistribution(string),
                     let build: String = buildFromDistribution(string),
-                    !name.isEmpty && !version.isEmpty && !build.isEmpty else {
+                    !name.isEmpty, !version.isEmpty, !build.isEmpty else {
                     continue
                 }
 
@@ -296,7 +297,6 @@ struct RefreshView: View {
     }
 
     private func nameFromDistribution(_ string: String) -> String? {
-
         guard string.contains("suDisabledGroupID") else {
             return nil
         }
@@ -307,7 +307,6 @@ struct RefreshView: View {
     }
 
     private func versionFromDistribution(_ string: String) -> String? {
-
         guard string.contains("<key>VERSION</key>") else {
             return nil
         }
@@ -317,7 +316,6 @@ struct RefreshView: View {
     }
 
     private func buildFromDistribution(_ string: String) -> String? {
-
         guard string.contains("<key>BUILD</key>") else {
             return nil
         }
@@ -327,7 +325,6 @@ struct RefreshView: View {
     }
 
     private func boardIDsFromDistribution(_ string: String) -> [String] {
-
         guard string.contains("supportedBoardIDs") || string.contains("boardIds") else {
             return []
         }
@@ -341,7 +338,6 @@ struct RefreshView: View {
     }
 
     private func deviceIDsFromDistribution(_ string: String) -> [String] {
-
         guard string.contains("supportedDeviceIDs") else {
             return []
         }
@@ -356,7 +352,6 @@ struct RefreshView: View {
     }
 
     private func unsupportedModelIdentifiersFromDistribution(_ string: String) -> [String] {
-
         guard string.contains("nonSupportedModels") else {
             return []
         }

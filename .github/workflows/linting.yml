@@ -18,6 +18,10 @@ jobs:
         run: swiftlint --version
       - name: Run SwiftLint
         run: swiftlint --strict
+      - name: Print SwiftFormat version
+        run: swiftformat --version
+      - name: Run SwiftFormat
+        run: swiftformat --lint .
       - name: Download DrString
         run: curl --location --remote-name https://github.com/dduan/DrString/releases/latest/download/drstring-x86_64-apple-darwin.tar.gz
       - name: Extract DrString

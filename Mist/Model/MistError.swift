@@ -27,11 +27,11 @@ enum MistError: Error, Equatable {
 
     var description: String {
         switch self {
-        case .generalError(let string):
-            return "Error: \(string)"
-        case .chunklistValidationError(let string):
+        case let .generalError(string):
+            return string
+        case let .chunklistValidationError(string):
             return "Chunklist validation failed: \(string)"
-        case .fileSizeAttributesError(let url):
+        case let .fileSizeAttributesError(url):
             return "Unble to retrieve file size from file '\(url.path)'"
         case .invalidData:
             return "Invalid data"
@@ -39,25 +39,27 @@ enum MistError: Error, Equatable {
             return "Invalid destination URL"
         case .invalidDownloadResumeData:
             return "Invalid download resume data"
-        case .invalidFileSize(let invalid, let valid):
+        case let .invalidFileSize(invalid, valid):
             return "Invalid File Size: '\(invalid)', should be: '\(valid)'"
-        case .invalidShasum(let invalid, let valid):
+        case let .invalidShasum(invalid, valid):
             return "Invalid Shasum: '\(invalid)', should be: '\(valid)'"
-        case .invalidTerminationStatus(let status, let output, let error):
+        case let .invalidTerminationStatus(status, output, error):
             var string: String = "Invalid Termination Status: \(status)"
 
-            if let output: String = output,
+            if
+                let output: String = output,
                 !output.isEmpty {
                 string += "\n\n\(output)"
             }
 
-            if let error: String = error,
+            if
+                let error: String = error,
                 !error.isEmpty {
                 string += "\n\n\(error)"
             }
 
             return string
-        case .invalidURL(let url):
+        case let .invalidURL(url):
             return "Invalid URL: '\(url)'"
         case .maximumRetriesReached:
             return "Maximum number of retries reached"

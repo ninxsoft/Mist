@@ -53,18 +53,18 @@ struct ListRowInstaller: View {
     private let spacing: CGFloat = 5
     private let padding: CGFloat = 3
     private var compatibilityMessage: String {
-
         guard let architecture: Architecture = Hardware.architecture else {
             return "Invalid architecture!"
         }
 
         return "This macOS Installer download cannot be used to restore macOS on this \(architecture.description) Mac.\n\nAre you sure you want to continue?"
     }
+
     private var cacheDirectoryMessage: String {
         "The cache directory has incorrect ownership and/or permissions, which will cause issues caching macOS Installers.\n\nRepair the cache directory ownership and/or permissions and try again."
     }
-    private var errorMessage: String {
 
+    private var errorMessage: String {
         if let error: BlessError = error as? BlessError {
             return error.description
         }
@@ -73,6 +73,7 @@ struct ListRowInstaller: View {
     }
 
     var body: some View {
+        // swiftlint:disable:next closure_body_length
         HStack {
             ListRowDetail(
                 imageName: installer.imageName,
@@ -87,7 +88,7 @@ struct ListRowInstaller: View {
                 Button {
                     pressButton(.download)
                 } label: {
-                    Image(systemName: "arrow.down.circle").font(.body.bold())
+                    Image(systemName: "arrow.down.circle")
                 }
                 .help("Download and export macOS Installer")
                 .buttonStyle(.mistAction)
@@ -95,7 +96,7 @@ struct ListRowInstaller: View {
                     Button {
                         pressButton(.volumeSelection)
                     } label: {
-                        Image(systemName: "externaldrive").font(.body.bold())
+                        Image(systemName: "externaldrive")
                             .padding(.vertical, 1)
                     }
                     .help("Create bootable macOS Installer")
@@ -202,7 +203,6 @@ struct ListRowInstaller: View {
     }
 
     private func createBootableInstaller() {
-
         guard let volume: InstallerVolume = volume else {
             return
         }
@@ -229,7 +229,6 @@ struct ListRowInstaller: View {
     }
 
     private func validate() {
-
         guard PrivilegedHelperTool.isInstalled() else {
             alertType = .helperTool
             showAlert = true
@@ -243,7 +242,6 @@ struct ListRowInstaller: View {
         }
 
         if cacheDownloads {
-
             do {
                 var isDirectory: ObjCBool = false
 
@@ -259,9 +257,10 @@ struct ListRowInstaller: View {
                     return
                 }
 
-                let filePermissions: FilePermissions = FilePermissions(rawValue: CModeT(posixPermissions.int16Value))
+                let filePermissions: FilePermissions = .init(rawValue: CModeT(posixPermissions.int16Value))
 
-                guard filePermissions == [.ownerReadWriteExecute, .groupReadExecute, .otherReadExecute],
+                guard
+                    filePermissions == [.ownerReadWriteExecute, .groupReadExecute, .otherReadExecute],
                     let ownerAccountName: String = attributes[.ownerAccountName] as? String,
                     ownerAccountName == NSUserName(),
                     let groupOwnerAccountName: String = attributes[.groupOwnerAccountName] as? String,
@@ -298,7 +297,6 @@ struct ListRowInstaller: View {
     }
 
     private func openFullDiskAccessPreferences() {
-
         guard let url: URL = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles") else {
             return
         }
@@ -307,7 +305,7 @@ struct ListRowInstaller: View {
     }
 
     private func repairCacheDirectoryOwnershipAndPermissions() async throws {
-        let url: URL = URL(fileURLWithPath: cacheDirectory)
+        let url: URL = .init(fileURLWithPath: cacheDirectory)
         let ownerAccountName: String = NSUserName()
         try await FileAttributesUpdater.update(url: url, ownerAccountName: ownerAccountName)
     }
@@ -315,35 +313,35 @@ struct ListRowInstaller: View {
     private func alert(for alertType: InstallerAlertType) -> Alert {
         switch alertType {
         case .compatibility:
-            return Alert(
+            Alert(
                 title: Text("macOS Installer not compatible!"),
                 message: Text(compatibilityMessage),
                 primaryButton: .default(Text("Cancel")),
                 secondaryButton: .default(Text("Continue")) { Task { validate() } }
             )
         case .helperTool:
-            return Alert(
+            Alert(
                 title: Text("Privileged Helper Tool not installed!"),
                 message: Text("The Mist Privileged Helper Tool is required to perform Administrator tasks when creating macOS Installers."),
                 primaryButton: .default(Text("Install...")) { Task { installPrivilegedHelperTool() } },
                 secondaryButton: .default(Text("Cancel"))
             )
         case .fullDiskAccess:
-            return Alert(
+            Alert(
                 title: Text("Full Disk Access required!"),
                 message: Text("Mist requires Full Disk Access to perform Administrator tasks when creating macOS Installers."),
                 primaryButton: .default(Text("Allow...")) { openFullDiskAccessPreferences() },
                 secondaryButton: .default(Text("Cancel"))
             )
         case .cacheDirectory:
-            return Alert(
+            Alert(
                 title: Text("Cache directory settings incorrect!"),
                 message: Text(cacheDirectoryMessage),
                 primaryButton: .default(Text("Repair...")) { Task { try await repairCacheDirectoryOwnershipAndPermissions() } },
                 secondaryButton: .default(Text("Cancel"))
             )
         case .error:
-            return Alert(
+            Alert(
                 title: Text("An error has occured!"),
                 message: Text(errorMessage),
                 dismissButton: .default(Text("OK"))

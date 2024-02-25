@@ -17,6 +17,7 @@ struct ListRowFirmware: View {
     private var retryDelay: Int = 30
     var firmware: Firmware
     @Binding var savePanel: NSSavePanel
+    @Binding var copiedToClipboard: Bool
     @Binding var tasksInProgress: Bool
     @ObservedObject var taskManager: TaskManager
     @State private var alertType: FirmwareAlertType = .compatibility
@@ -28,15 +29,14 @@ struct ListRowFirmware: View {
     private let spacing: CGFloat = 5
     private let padding: CGFloat = 3
     private var compatibilityMessage: String {
-
         guard let architecture: Architecture = Hardware.architecture else {
             return "Invalid architecture!"
         }
 
         return "This macOS Firmware download cannot be used to restore macOS on this \(architecture.description) Mac.\n\nAre you sure you want to continue?"
     }
-    private var errorMessage: String {
 
+    private var errorMessage: String {
         if let error: BlessError = error as? BlessError {
             return error.description
         }
@@ -55,34 +55,43 @@ struct ListRowFirmware: View {
                 size: firmware.size.bytesString(),
                 tooltip: firmware.tooltip
             )
-            Button {
-                firmware.compatible ? validate() : showCompatibilityWarning()
-            } label: {
-                Image(systemName: "arrow.down.circle")
-                    .font(.body.bold())
+            HStack(spacing: 1) {
+                Button {
+                    firmware.compatible ? validate() : showCompatibilityWarning()
+                } label: {
+                    Image(systemName: "arrow.down.circle")
+                        .padding(.vertical, 1.5)
+                }
+                .help("Download macOS Firmware")
+                .buttonStyle(.mistAction)
+                Button {
+                    copyToClipboard()
+                } label: {
+                    Image(systemName: "list.bullet.clipboard")
+                }
+                .help("Copy macOS Firmware URL to Clipboard")
+                .buttonStyle(.mistAction)
             }
-            .help("Download macOS Firmware")
-            .buttonStyle(.mistAction)
             .clipShape(Capsule())
         }
         .alert(isPresented: $showAlert) {
             switch alertType {
             case .compatibility:
-                return Alert(
+                Alert(
                     title: Text("macOS Firmware not compatible!"),
                     message: Text(compatibilityMessage),
                     primaryButton: .default(Text("Cancel")),
                     secondaryButton: .default(Text("Continue")) { Task { validate() } }
                 )
             case .helperTool:
-                return Alert(
+                Alert(
                     title: Text("Privileged Helper Tool not installed!"),
                     message: Text("The Mist Privileged Helper Tool is required to perform Administrator tasks when downloading macOS Firmwares."),
                     primaryButton: .default(Text("Install...")) { Task { installPrivilegedHelperTool() } },
                     secondaryButton: .default(Text("Cancel"))
                 )
             case .error:
-                return Alert(
+                Alert(
                     title: Text("An error has occured!"),
                     message: Text(errorMessage),
                     dismissButton: .default(Text("OK"))
@@ -106,6 +115,14 @@ struct ListRowFirmware: View {
                 destinationURL: savePanel.url,
                 taskManager: taskManager
             )
+        }
+    }
+
+    private func copyToClipboard() {
+        NSPasteboard.general.declareTypes([.string], owner: nil)
+        NSPasteboard.general.setString(firmware.url, forType: .string)
+        withAnimation(.easeIn) {
+            copiedToClipboard = true
         }
     }
 
@@ -136,7 +153,6 @@ struct ListRowFirmware: View {
     }
 
     private func validate() {
-
         guard PrivilegedHelperTool.isInstalled() else {
             alertType = .helperTool
             showAlert = true
@@ -158,8 +174,7 @@ struct ListRowFirmware: View {
 }
 
 struct ListRowFirmware_Previews: PreviewProvider {
-
     static var previews: some View {
-        ListRowFirmware(firmware: .example, savePanel: .constant(NSSavePanel()), tasksInProgress: .constant(false), taskManager: .shared)
+        ListRowFirmware(firmware: .example, savePanel: .constant(NSSavePanel()), copiedToClipboard: .constant(false), tasksInProgress: .constant(false), taskManager: .shared)
     }
 }

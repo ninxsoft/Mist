@@ -13,9 +13,9 @@ struct FooterView: View {
     var downloadType: DownloadType
     @Binding var firmwares: [Firmware]
     @Binding var installers: [Installer]
-    @State private var savePanel: NSSavePanel = NSSavePanel()
+    @State private var savePanel: NSSavePanel = .init()
     @State private var exportListType: ExportListType = .json
-    private let dateFormatter: DateFormatter = DateFormatter()
+    private let dateFormatter: DateFormatter = .init()
 
     var body: some View {
         HStack {
@@ -33,7 +33,6 @@ struct FooterView: View {
     }
 
     private func export() {
-
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date: String = dateFormatter.string(from: Date())
 
@@ -48,18 +47,17 @@ struct FooterView: View {
 
         let response: NSApplication.ModalResponse = savePanel.runModal()
 
-        guard response == .OK,
+        guard
+            response == .OK,
             let url: URL = savePanel.url else {
             return
         }
 
-        var dictionaries: [[String: Any]]
-
-        switch downloadType {
+        let dictionaries: [[String: Any]] = switch downloadType {
         case .firmware:
-            dictionaries = firmwares.map { $0.dictionary }
+            firmwares.map(\.dictionary)
         case .installer:
-            dictionaries = installers.map { $0.dictionary }
+            installers.map(\.dictionary)
         }
 
         do {

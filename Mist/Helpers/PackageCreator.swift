@@ -8,8 +8,7 @@
 import Foundation
 
 /// Helper struct to create macOS Installer Packages.
-struct PackageCreator {
-
+enum PackageCreator {
     /// Create a macOS Installer Package based off the passed in `Installer` struct.
     ///
     /// - Parameters:
@@ -20,7 +19,6 @@ struct PackageCreator {
     ///
     /// - Throws: An `Error` if the command failed to execute.
     static func create(_ url: URL, from installer: Installer, identifier: String, identity: String? = nil) async throws {
-
         var arguments: [String] = [
             "pkgbuild",
             "--identifier", identifier,
@@ -45,7 +43,6 @@ struct PackageCreator {
     ///
     /// - Throws: An `MistError` if the command failed to execute.
     private static func create(_ url: URL, with arguments: [String]) async throws {
-
         try await DirectoryRemover.remove(url)
         let response: HelperToolCommandResponse = try ShellExecutor.shared.execute(arguments)
 

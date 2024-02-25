@@ -8,8 +8,7 @@
 import Foundation
 
 /// Helper struct to create disk images.
-struct DiskImageCreator {
-
+enum DiskImageCreator {
     /// Create an empty Disk Image of fixed size.
     ///
     /// - Parameters:
@@ -18,7 +17,6 @@ struct DiskImageCreator {
     ///
     /// - Throws: An `MistError` if the command failed to execute.
     static func create(_ url: URL, size: Double) async throws {
-
         let arguments: [String] = [
             "hdiutil", "create",
             "-fs", "JHFS+",
@@ -38,7 +36,6 @@ struct DiskImageCreator {
     ///
     /// - Throws: An `MistError` if the command failed to execute.
     static func create(_ url: URL, from source: URL) async throws {
-
         let arguments: [String] = [
             "hdiutil", "create",
             "-fs", "HFS+",
@@ -57,7 +54,6 @@ struct DiskImageCreator {
     ///
     /// - Throws: An `MistError` if the command failed to execute.
     private static func create(_ url: URL, with arguments: [String]) async throws {
-
         try await DirectoryRemover.remove(url)
         let response: HelperToolCommandResponse = try ShellExecutor.shared.execute(arguments)
 

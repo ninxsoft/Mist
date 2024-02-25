@@ -21,30 +21,30 @@ enum RefreshState: String, CaseIterable, Identifiable {
     var systemName: String {
         switch self {
         case .pending:
-            return "hourglass.circle.fill"
+            "hourglass.circle.fill"
         case .inProgress:
-            return "gear.circle.fill"
+            "gear.circle.fill"
         case .complete:
-            return "checkmark.circle.fill"
+            "checkmark.circle.fill"
         case .warning:
-            return "exclamationmark.triangle.fill"
+            "exclamationmark.triangle.fill"
         case .error:
-            return "x.circle.fill"
+            "x.circle.fill"
         }
     }
 
     var color: Color {
         switch self {
         case .pending:
-            return .orange
+            .orange
         case .inProgress:
-            return .blue
+            .blue
         case .complete:
-            return .green
+            .green
         case .warning:
-            return .yellow
+            .yellow
         case .error:
-            return .red
+            .red
         }
     }
 }

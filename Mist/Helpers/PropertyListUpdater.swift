@@ -8,8 +8,7 @@
 import Foundation
 
 /// Helper struct to update a Property List key-pair value.
-struct PropertyListUpdater {
-
+enum PropertyListUpdater {
     /// Update a key-pair value in a Property List.
     ///
     /// - Parameters:
@@ -19,7 +18,6 @@ struct PropertyListUpdater {
     ///
     /// - Throws: An `Error` if the command failed to execute.
     static func update(_ url: URL, key: String, value: AnyHashable) throws {
-
         let input: String = try String(contentsOf: url, encoding: .utf8)
 
         guard var data: Data = input.data(using: .utf8) else {

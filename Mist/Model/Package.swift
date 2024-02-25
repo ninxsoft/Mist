@@ -22,6 +22,7 @@ struct Package: Decodable, Hashable {
     var filename: String {
         url.components(separatedBy: "/").last ?? url
     }
+
     var dictionary: [String: Any] {
         [
             "url": url,

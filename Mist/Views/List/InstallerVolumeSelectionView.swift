@@ -62,7 +62,6 @@ struct InstallerVolumeSelectionView: View {
     }
 
     private func getAvailableVolumes() -> [InstallerVolume] {
-
         var volumes: [InstallerVolume] = []
         let keys: [URLResourceKey] = [.volumeNameKey, .volumeLocalizedFormatDescriptionKey, .volumeIsReadOnlyKey, .volumeTotalCapacityKey]
 
@@ -74,7 +73,8 @@ struct InstallerVolumeSelectionView: View {
             do {
                 let resourceValues: URLResourceValues = try url.resourceValues(forKeys: Set(keys))
 
-                guard let volumeName: String = resourceValues.volumeName,
+                guard
+                    let volumeName: String = resourceValues.volumeName,
                     let volumeLocalizedFormatDescription: String = resourceValues.volumeLocalizedFormatDescription,
                     let volumeIsReadOnly: Bool = resourceValues.volumeIsReadOnly,
                     let volumeTotalCapacity: Int = resourceValues.volumeTotalCapacity,
@@ -83,7 +83,7 @@ struct InstallerVolumeSelectionView: View {
                     continue
                 }
 
-                let volume: InstallerVolume = InstallerVolume(id: UUID().uuidString, name: volumeName, path: url.path, capacity: UInt64(volumeTotalCapacity))
+                let volume: InstallerVolume = .init(id: UUID().uuidString, name: volumeName, path: url.path, capacity: UInt64(volumeTotalCapacity))
                 volumes.append(volume)
             } catch {
                 continue
@@ -94,7 +94,7 @@ struct InstallerVolumeSelectionView: View {
     }
 
     private func openDiskUtility() {
-        let url: URL = URL(fileURLWithPath: "/System/Applications/Utilities/Disk Utility.app")
+        let url: URL = .init(fileURLWithPath: "/System/Applications/Utilities/Disk Utility.app")
         NSWorkspace.shared.open(url)
     }
 }

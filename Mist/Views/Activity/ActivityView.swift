@@ -36,17 +36,19 @@ struct ActivityView: View {
     private let width: CGFloat = 420
     private let height: CGFloat = 640
     private var bootableInstaller: Bool {
-        taskManager.taskGroups.map { $0.section }.contains(.bootableInstaller)
+        taskManager.taskGroups.map(\.section).contains(.bootableInstaller)
     }
+
     private var venturaOrOlder: Bool {
         !ProcessInfo().isOperatingSystemAtLeast(OperatingSystemVersion(majorVersion: 14, minorVersion: 0, patchVersion: 0))
     }
+
     private var buttonText: String {
         switch taskManager.currentState {
         case .pending, .inProgress:
-            return "Cancel"
+            "Cancel"
         case .complete, .error:
-            return "Close"
+            "Close"
         }
     }
 
@@ -62,11 +64,12 @@ struct ActivityView: View {
                             ForEach(taskGroup.tasks.indices, id: \.self) { index in
                                 VStack {
                                     ActivityRowView(state: taskGroup.tasks[index].state, description: taskGroup.tasks[index].currentDescription, degrees: degrees)
-                                    if taskGroup.tasks[index].type == .download && taskGroup.tasks[index].state != .pending,
+                                    if
+                                        taskGroup.tasks[index].type == .download, taskGroup.tasks[index].state != .pending,
                                         let size: UInt64 = taskGroup.tasks[index].downloadSize {
                                         ActivityProgressView(state: taskGroup.tasks[index].state, value: value, size: size)
                                     }
-                                    if venturaOrOlder && index != taskGroup.tasks.count {
+                                    if venturaOrOlder, index != taskGroup.tasks.count {
                                         Divider()
                                     }
                                 }
@@ -109,14 +112,14 @@ struct ActivityView: View {
         .alert(isPresented: $showAlert) {
             switch alertType {
             case .cancel:
-                return Alert(
+                Alert(
                     title: Text("Are you sure you want to cancel?"),
                     message: Text("This process cannot be resumed once it has been cancelled."),
                     primaryButton: .default(Text("Resume")),
                     secondaryButton: .destructive(Text("Cancel"), action: { cancel() })
                 )
             case .error:
-                return Alert(
+                Alert(
                     title: Text("An error has occurred!"),
                     message: Text(error?.description ?? ""),
                     dismissButton: .default(Text("OK"))
@@ -126,7 +129,6 @@ struct ActivityView: View {
     }
 
     private func performTasks() async {
-
         for taskGroupIndex in taskManager.taskGroups.indices {
             for taskIndex in taskManager.taskGroups[taskGroupIndex].tasks.indices {
                 currentTaskId = "\(taskManager.taskGroups[taskGroupIndex].section.id).\(taskIndex)"
@@ -141,13 +143,14 @@ struct ActivityView: View {
                 switch result {
                 case .success:
                     taskManager.taskGroups[taskGroupIndex].tasks[taskIndex].state = .complete
-                case .failure(let failure):
+                case let .failure(failure):
                     if checkForUserCancellation(failure) {
                         return
                     }
 
                     taskManager.taskGroups[taskGroupIndex].tasks[taskIndex].state = .error
-                    self.error = failure as? MistError ?? MistError.generalError(failure.localizedDescription)
+                    error = failure as? MistError ?? MistError.generalError(failure.localizedDescription)
+                    LogManager.shared.log(.error, message: error?.description ?? "Fatal Error")
                     alertType = .error
                     showAlert = true
 
@@ -165,7 +168,6 @@ struct ActivityView: View {
         }
 
         if showInFinder {
-
             guard let url: URL = destinationURL else {
                 return
             }
@@ -175,7 +177,6 @@ struct ActivityView: View {
     }
 
     private func checkForUserCancellation(_ failure: Error) -> Bool {
-
         if failure as? CancellationError != nil {
             return true
         }
@@ -187,7 +188,7 @@ struct ActivityView: View {
         switch error {
         case .userCancelled:
             return true
-        case .invalidTerminationStatus(let status, _, _):
+        case let .invalidTerminationStatus(status, _, _):
 
             // SIGTERM triggered via Privileged Helper Tool due to user cancellation
             guard status == 15 else {
@@ -201,12 +202,10 @@ struct ActivityView: View {
     }
 
     private func sendNotification(for type: DownloadType, name: String, version: String, build: String, success: Bool) {
-        let title: String
-
-        if bootableInstaller {
-            title = "Bootable Installer \(success ? "created" : "failed")"
+        let title: String = if bootableInstaller {
+            "Bootable Installer \(success ? "created" : "failed")"
         } else {
-            title = "\(type.description) \(success ? "downloaded" : "failed")"
+            "\(type.description) \(success ? "downloaded" : "failed")"
         }
 
         let body: String = "\(name) \(version) (\(build))"
@@ -214,7 +213,6 @@ struct ActivityView: View {
     }
 
     private func stop() {
-
         switch taskManager.currentState {
         case .pending, .inProgress:
             alertType = .cancel

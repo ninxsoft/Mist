@@ -13,9 +13,11 @@ struct SettingsAboutView: View {
     private var version: String {
         Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
     }
+
     private var build: String {
         Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
     }
+
     private let length: CGFloat = 128
     private let spacing: CGFloat = 3
 
@@ -49,7 +51,6 @@ struct SettingsAboutView: View {
     }
 
     private func visitHomepage() {
-
         guard let url: URL = URL(string: .repositoryURL) else {
             return
         }

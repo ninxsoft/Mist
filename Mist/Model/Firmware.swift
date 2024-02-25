@@ -8,16 +8,15 @@
 import Foundation
 
 struct Firmware: Decodable, Hashable, Identifiable {
-
     enum CodingKeys: String, CodingKey {
-        case version = "version"
+        case version
         case build = "buildid"
         case shasum = "sha1sum"
-        case size = "size"
-        case url = "url"
+        case size
+        case url
         case date = "releasedate"
-        case signed = "signed"
-        case compatible = "compatible"
+        case signed
+        case compatible
     }
 
     static var example: Firmware {
@@ -48,8 +47,8 @@ struct Firmware: Decodable, Hashable, Identifiable {
     var id: String {
         "\(String.appIdentifier).\(version)-\(build)"
     }
-    var name: String {
 
+    var name: String {
         var name: String = ""
 
         if version.range(of: "^14", options: .regularExpression) != nil {
@@ -67,6 +66,7 @@ struct Firmware: Decodable, Hashable, Identifiable {
         name = beta ? "\(name) beta" : name
         return name
     }
+
     let version: String
     let build: String
     let shasum: String
@@ -78,12 +78,15 @@ struct Firmware: Decodable, Hashable, Identifiable {
     var formattedDate: String {
         String(date.prefix(10))
     }
+
     var beta: Bool {
         build.range(of: "[a-z]$", options: .regularExpression) != nil
     }
+
     var imageName: String {
         name.replacingOccurrences(of: " beta", with: "")
     }
+
     var dictionary: [String: Any] {
         [
             "name": name,
@@ -97,6 +100,7 @@ struct Firmware: Decodable, Hashable, Identifiable {
             "beta": beta
         ]
     }
+
     var tooltip: String {
         """
         Release: \(name)
@@ -113,8 +117,8 @@ struct Firmware: Decodable, Hashable, Identifiable {
     ///
     /// - Returns: An array of Firmware build strings.
     static func supportedBuilds() throws -> [String] {
-
-        guard let architecture: Architecture = Hardware.architecture,
+        guard
+            let architecture: Architecture = Hardware.architecture,
             architecture == .appleSilicon,
             let modelIdentifier: String = Hardware.modelIdentifier,
             let url: URL = URL(string: Firmware.deviceURLTemplate.replacingOccurrences(of: "MODELIDENTIFIER", with: modelIdentifier)) else {
@@ -123,7 +127,8 @@ struct Firmware: Decodable, Hashable, Identifiable {
 
         let string: String = try String(contentsOf: url)
 
-        guard let data: Data = string.data(using: .utf8),
+        guard
+            let data: Data = string.data(using: .utf8),
             let dictionary: [String: Any] = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
             let array: [[String: Any]] = dictionary["firmwares"] as? [[String: Any]] else {
             return []
@@ -134,7 +139,6 @@ struct Firmware: Decodable, Hashable, Identifiable {
 }
 
 extension Firmware: Equatable {
-
     static func == (lhs: Firmware, rhs: Firmware) -> Bool {
         lhs.version == rhs.version && lhs.build == rhs.build
     }

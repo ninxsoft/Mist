@@ -9,8 +9,7 @@ import Foundation
 import SecureXPC
 
 /// Helper struct to execute the `createinstallmedia` command found in macOS Install app bundles.
-struct InstallMediaCreator {
-
+enum InstallMediaCreator {
     /// Create the macOS Install Media at the specified mount point.
     ///
     /// - Parameters:
@@ -27,8 +26,8 @@ struct InstallMediaCreator {
             arguments += ["--applicationpath", applicationPath]
         }
 
-        let client: XPCClient = XPCClient.forMachService(named: .helperIdentifier)
-        let request: HelperToolCommandRequest = HelperToolCommandRequest(type: .createinstallmedia, arguments: arguments, environment: [:])
+        let client: XPCClient = .forMachService(named: .helperIdentifier)
+        let request: HelperToolCommandRequest = .init(type: .createinstallmedia, arguments: arguments, environment: [:])
         let response: HelperToolCommandResponse = try await client.sendMessage(request, to: XPCRoute.commandRoute)
 
         guard response.terminationStatus == 0 else {

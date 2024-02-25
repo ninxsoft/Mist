@@ -8,14 +8,10 @@
 import UniformTypeIdentifiers
 
 enum ExportListType: String, CaseIterable, Identifiable {
-    // swiftlint:disable:next redundant_string_enum_value
-    case csv = "csv"
-    // swiftlint:disable:next redundant_string_enum_value
-    case json = "json"
-    // swiftlint:disable:next redundant_string_enum_value
-    case plist = "plist"
-    // swiftlint:disable:next redundant_string_enum_value
-    case yaml = "yaml"
+    case csv
+    case json
+    case plist
+    case yaml
 
     var id: String {
         rawValue
@@ -24,26 +20,26 @@ enum ExportListType: String, CaseIterable, Identifiable {
     var description: String {
         switch self {
         case .csv:
-            return "CSV (Comma Separated Values)"
+            "CSV (Comma Separated Values)"
         case .json:
-            return "JSON (JavaScript Object Notation)"
+            "JSON (JavaScript Object Notation)"
         case .plist:
-            return "Plist (Apple Property List)"
+            "Plist (Apple Property List)"
         case .yaml:
-            return "YAML (YAML Ain't Markup Language)"
+            "YAML (YAML Ain't Markup Language)"
         }
     }
 
     var contentType: UTType {
         switch self {
         case .csv:
-            return .commaSeparatedText
+            .commaSeparatedText
         case .json:
-            return .json
+            .json
         case .plist:
-            return .propertyList
+            .propertyList
         case .yaml:
-            return .yaml
+            .yaml
         }
     }
 }

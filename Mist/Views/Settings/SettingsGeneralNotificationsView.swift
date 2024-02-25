@@ -44,7 +44,6 @@ struct SettingsGeneralNotificationsView: View {
     }
 
     private func validateNotifications() {
-
         let notificationCenter: UNUserNotificationCenter = .current()
         notificationCenter.getNotificationSettings { settings in
 
@@ -56,8 +55,7 @@ struct SettingsGeneralNotificationsView: View {
     }
 
     private func request() {
-
-        let userNotificationCenter: UNUserNotificationCenter = UNUserNotificationCenter.current()
+        let userNotificationCenter: UNUserNotificationCenter = .current()
         let options: UNAuthorizationOptions = [.alert, .badge, .sound]
 
         userNotificationCenter.requestAuthorization(options: options) { success, _ in
@@ -71,7 +69,6 @@ struct SettingsGeneralNotificationsView: View {
     }
 
     private func openNotifications() {
-
         guard let url: URL = URL(string: "x-apple.systempreferences:com.apple.preference.notifications?Notifications") else {
             return
         }

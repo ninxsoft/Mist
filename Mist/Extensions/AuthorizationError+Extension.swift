@@ -8,7 +8,6 @@
 import Authorized
 
 extension AuthorizationError: Equatable {
-
     public static func == (lhs: AuthorizationError, rhs: AuthorizationError) -> Bool {
         lhs.localizedDescription == rhs.localizedDescription
     }

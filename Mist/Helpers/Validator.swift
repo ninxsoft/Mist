@@ -9,8 +9,7 @@ import CryptoKit
 import Foundation
 
 /// Helper struct used to validate Firmware and Installer checksums.
-struct Validator {
-
+enum Validator {
     /// Validates a Firmware's checksum.
     ///
     /// - Parameters:
@@ -19,7 +18,6 @@ struct Validator {
     ///
     /// - Throws: A `MistError` if the validation fails.
     static func validate(_ firmware: Firmware, at destination: URL) async throws {
-
         guard let shasum: String = destination.shasum() else {
             throw MistError.invalidData
         }
@@ -37,7 +35,6 @@ struct Validator {
     ///
     /// - Throws: A `MistError` if the validation fails.
     static func validate(_ package: Package, at destination: URL) async throws {
-
         guard !package.url.hasSuffix("English.dist") else {
             return
         }
@@ -52,7 +49,8 @@ struct Validator {
             throw MistError.invalidFileSize(invalid: fileSize, valid: UInt64(package.size))
         }
 
-        guard let string: String = package.integrityDataURL,
+        guard
+            let string: String = package.integrityDataURL,
             let url: URL = URL(string: string),
             let size: Int = package.integrityDataSize else {
             return

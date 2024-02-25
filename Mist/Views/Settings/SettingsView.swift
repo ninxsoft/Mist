@@ -14,21 +14,21 @@ struct SettingsView: View {
     var body: some View {
         TabView {
             SettingsGeneralView(sparkleUpdater: sparkleUpdater)
-            .tabItem { Label("General", systemImage: "gear") }
+                .tabItem { Label("General", systemImage: "gear") }
             SettingsFirmwaresView()
-            .tabItem { Label("Firmwares", systemImage: "memorychip") }
+                .tabItem { Label("Firmwares", systemImage: "memorychip") }
             SettingsInstallersView()
-            .tabItem { Label("Installers", systemImage: "desktopcomputer.and.arrow.down") }
+                .tabItem { Label("Installers", systemImage: "desktopcomputer.and.arrow.down") }
             SettingsApplicationsView()
-            .tabItem { Label("Applications", systemImage: "macwindow") }
+                .tabItem { Label("Applications", systemImage: "macwindow") }
             SettingsDiskImagesView()
-            .tabItem { Label("Disk Images", systemImage: "opticaldiscdrive") }
+                .tabItem { Label("Disk Images", systemImage: "opticaldiscdrive") }
             SettingsISOsView()
-            .tabItem { Label("ISOs", systemImage: "opticaldisc") }
+                .tabItem { Label("ISOs", systemImage: "opticaldisc") }
             SettingsPackagesView()
-            .tabItem { Label("Packages", systemImage: "shippingbox") }
+                .tabItem { Label("Packages", systemImage: "shippingbox") }
             SettingsAboutView()
-            .tabItem { Label("About", systemImage: "info.circle") }
+                .tabItem { Label("About", systemImage: "info.circle") }
         }
         .frame(width: width)
     }

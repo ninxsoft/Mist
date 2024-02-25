@@ -1,5 +1,5 @@
-<!-- markdownlint-disable-next-line no-inline-html first-line-heading -->
-<img align="left" width="128" height="128" src="README%20Resources/App%20Icon.png">
+<!-- markdownlint-disable-next-line first-line-heading no-inline-html  -->
+<img align="left" width="128" height="128" src="README%20Resources/App%20Icon.png" alt="App Icon">
 
 # MIST - macOS Installer Super Tool
 
@@ -16,6 +16,11 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
 ## ![Slack](README%20Resources/Slack.png) Check out [#mist](https://macadmins.slack.com/archives/CF0CFM5B7) on the [Mac Admins Slack](https://macadmins.slack.com) to discuss all things Mist!
 
 <!-- markdownlint-enable no-trailing-punctuation -->
+<!-- markdownlint-disable no-inline-html -->
+
+<a href="https://www.buymeacoffee.com/ninxsoft"><img width="214" height="60" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy me a coffee"></a>
+
+<!-- markdownlint-enable no-inline-html -->
 
 ## Features
 
@@ -52,7 +57,7 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
 
 ## Build Requirements
 
-- Swift **5.8** | Xcode **14.0**.
+- Swift **5.9** | Xcode **14.0**.
 - Runs on macOS Monterey **12.0** and later.
 
 ## Download
@@ -70,7 +75,7 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
 
 ## License
 
-> Copyright © 2023 Nindi Gill
+> Copyright © 2024 Nindi Gill
 >
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal

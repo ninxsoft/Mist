@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.openURL)
+    var openURL: OpenURLAction
     @AppStorage("downloadType")
     private var downloadType: DownloadType = .firmware
     @AppStorage("includeBetas")
@@ -19,9 +21,10 @@ struct ContentView: View {
     @State private var firmwares: [Firmware] = []
     @State private var installers: [Installer] = []
     @State private var searchString: String = ""
-    @State private var openPanel: NSOpenPanel = NSOpenPanel()
-    @State private var savePanel: NSSavePanel = NSSavePanel()
-    @StateObject private var taskManager: TaskManager = TaskManager.shared
+    @State private var openPanel: NSOpenPanel = .init()
+    @State private var savePanel: NSSavePanel = .init()
+    @State private var copiedToClipboard: Bool = false
+    @StateObject private var taskManager: TaskManager = .shared
     private var filteredFirmwares: [Firmware] {
         var filteredFirmwares: [Firmware] = firmwares
 
@@ -29,9 +32,9 @@ struct ContentView: View {
             let string: String = searchString.lowercased()
             filteredFirmwares = filteredFirmwares.filter {
                 $0.name.lowercased().contains(string) ||
-                $0.version.lowercased().contains(string) ||
-                $0.build.lowercased().contains(string) ||
-                $0.formattedDate.lowercased().contains(string)
+                    $0.version.lowercased().contains(string) ||
+                    $0.build.lowercased().contains(string) ||
+                    $0.formattedDate.lowercased().contains(string)
             }
         }
 
@@ -40,11 +43,12 @@ struct ContentView: View {
         }
 
         if showCompatible {
-            filteredFirmwares = filteredFirmwares.filter { $0.compatible }
+            filteredFirmwares = filteredFirmwares.filter(\.compatible)
         }
 
         return filteredFirmwares
     }
+
     private var filteredInstallers: [Installer] {
         var filteredInstallers: [Installer] = installers
 
@@ -52,9 +56,9 @@ struct ContentView: View {
             let string: String = searchString.lowercased()
             filteredInstallers = filteredInstallers.filter {
                 $0.name.lowercased().contains(string) ||
-                $0.version.lowercased().contains(string) ||
-                $0.build.lowercased().contains(string) ||
-                $0.date.lowercased().contains(string)
+                    $0.version.lowercased().contains(string) ||
+                    $0.build.lowercased().contains(string) ||
+                    $0.date.lowercased().contains(string)
             }
         }
 
@@ -63,37 +67,44 @@ struct ContentView: View {
         }
 
         if showCompatible {
-            filteredInstallers = filteredInstallers.filter { $0.compatible }
+            filteredInstallers = filteredInstallers.filter(\.compatible)
         }
 
         return filteredInstallers
     }
+
     private let width: CGFloat = 480
     private let height: CGFloat = 720
 
     var body: some View {
+        // swiftlint:disable:next closure_body_length
         VStack(spacing: 0) {
             HeaderView(downloadType: $downloadType)
             Divider()
             if downloadType == .firmware && filteredFirmwares.isEmpty || downloadType == .installer && filteredInstallers.isEmpty {
                 EmptyCollectionView("No macOS \(downloadType.description)s found!\n\nಥ_ಥ")
             } else {
-                List {
-                    ForEach(releaseNames(for: downloadType), id: \.self) { releaseName in
-                        Section(header: Text(releaseName)) {
-                            switch downloadType {
-                            case .firmware:
-                                ForEach(filteredFirmwares(for: releaseName)) { firmware in
-                                    ListRowFirmware(firmware: firmware, savePanel: $savePanel, tasksInProgress: $tasksInProgress, taskManager: taskManager)
-                                        .tag(firmware)
-                                }
-                            case .installer:
-                                ForEach(filteredInstallers(for: releaseName)) { installer in
-                                    ListRowInstaller(installer: installer, openPanel: $openPanel, tasksInProgress: $tasksInProgress, taskManager: taskManager)
-                                        .tag(installer)
+                ZStack {
+                    List {
+                        ForEach(releaseNames(for: downloadType), id: \.self) { releaseName in
+                            Section(header: Text(releaseName)) {
+                                switch downloadType {
+                                case .firmware:
+                                    ForEach(filteredFirmwares(for: releaseName)) { firmware in
+                                        ListRowFirmware(firmware: firmware, savePanel: $savePanel, copiedToClipboard: $copiedToClipboard, tasksInProgress: $tasksInProgress, taskManager: taskManager)
+                                            .tag(firmware)
+                                    }
+                                case .installer:
+                                    ForEach(filteredInstallers(for: releaseName)) { installer in
+                                        ListRowInstaller(installer: installer, openPanel: $openPanel, tasksInProgress: $tasksInProgress, taskManager: taskManager)
+                                            .tag(installer)
+                                    }
                                 }
                             }
                         }
+                    }
+                    if copiedToClipboard {
+                        FloatingAlert(image: "list.bullet.clipboard.fill", message: "Copied to Clipboard")
                     }
                 }
             }
@@ -109,6 +120,13 @@ struct ContentView: View {
                     .foregroundColor(.accentColor)
             }
             .help("Refresh")
+            Button {
+                showLog()
+            } label: {
+                Label("Show Log", systemImage: "text.and.command.macwindow")
+                    .foregroundColor(.accentColor)
+            }
+            .help("Show Mist Log")
         }
         .searchable(text: $searchString)
         .sheet(isPresented: $refreshing) {
@@ -117,21 +135,39 @@ struct ContentView: View {
         .onAppear {
             refresh()
         }
+        .onChange(of: copiedToClipboard) { copied in
+
+            guard copied else {
+                return
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                withAnimation {
+                    copiedToClipboard = false
+                }
+            }
+        }
     }
 
     private func refresh() {
         refreshing = true
     }
 
-    private func releaseNames(for type: DownloadType) -> [String] {
+    private func showLog() {
+        guard let url = URL(string: .logURL) else {
+            return
+        }
 
+        openURL(url)
+    }
+
+    private func releaseNames(for type: DownloadType) -> [String] {
         var releaseNames: [String] = []
 
         switch type {
         case .firmware:
 
             for firmware in filteredFirmwares {
-
                 let releaseName: String = firmware.name.replacingOccurrences(of: " beta", with: "")
 
                 if !releaseNames.contains(releaseName) {
@@ -141,7 +177,6 @@ struct ContentView: View {
         case .installer:
 
             for installer in filteredInstallers {
-
                 let releaseName: String = installer.name.replacingOccurrences(of: " beta", with: "")
 
                 if !releaseNames.contains(releaseName) {

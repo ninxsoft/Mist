@@ -9,15 +9,14 @@ import AppKit
 import UserNotifications
 
 class UserNotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate {
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
-
-        guard response.actionIdentifier == UNNotificationAction.Identifier.show,
+    func userNotificationCenter(_: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+        guard
+            response.actionIdentifier == UNNotificationAction.Identifier.show,
             let string: String = response.notification.request.content.userInfo["URL"] as? String else {
             return
         }
 
-        let url: URL = URL(fileURLWithPath: string)
+        let url: URL = .init(fileURLWithPath: string)
         NSWorkspace.shared.selectFile(url.path, inFileViewerRootedAtPath: "")
     }
 }

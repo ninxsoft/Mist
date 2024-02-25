@@ -9,7 +9,6 @@ import EmbeddedPropertyList
 import Foundation
 
 struct HelperToolInfoPropertyList: Decodable, Equatable {
-
     private enum CodingKeys: String, CodingKey {
         case buildHash = "BuildHash"
         case bundleIdentifier = "CFBundleIdentifier"

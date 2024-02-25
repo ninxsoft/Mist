@@ -9,18 +9,17 @@ import CryptoKit
 import Foundation
 
 extension URL {
-
     func fileSize() throws -> UInt64 {
-
         let urlResourceKeys: Set<URLResourceKey> = [
             .isRegularFileKey,
             .fileAllocatedSizeKey,
             .totalFileAllocatedSizeKey
         ]
 
-        let resourceValues: URLResourceValues = try self.resourceValues(forKeys: urlResourceKeys)
+        let resourceValues: URLResourceValues = try resourceValues(forKeys: urlResourceKeys)
 
-        guard let isRegularFile: Bool = resourceValues.isRegularFile,
+        guard
+            let isRegularFile: Bool = resourceValues.isRegularFile,
             isRegularFile else {
             return 0
         }
@@ -29,7 +28,6 @@ extension URL {
     }
 
     func shasum() -> String? {
-
         let length: Int = 1_024 * 1_024 * 50 // 50 MB
 
         do {
@@ -39,20 +37,21 @@ extension URL {
                 fileHandle.closeFile()
             }
 
-            var shasum: Insecure.SHA1 = Insecure.SHA1()
+            var shasum: Insecure.SHA1 = .init()
 
-            while try autoreleasepool(invoking: {
-                try Task.checkCancellation()
-                let data: Data = fileHandle.readData(ofLength: length)
+            while
+                try autoreleasepool(invoking: {
+                    try Task.checkCancellation()
+                    let data: Data = fileHandle.readData(ofLength: length)
 
-                if !data.isEmpty {
-                    shasum.update(data: data)
-                }
+                    if !data.isEmpty {
+                        shasum.update(data: data)
+                    }
 
-                return !data.isEmpty
-            }) { }
+                    return !data.isEmpty
+                }) {}
 
-            let data: Data = Data(shasum.finalize())
+            let data: Data = .init(shasum.finalize())
             return data.map { String(format: "%02hhx", $0) }.joined()
         } catch {
             print(error.localizedDescription)

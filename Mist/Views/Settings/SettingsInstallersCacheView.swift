@@ -11,7 +11,7 @@ struct SettingsInstallersCacheView: View {
     @Binding var cacheDownloads: Bool
     @Binding var cacheDirectory: String
     @State private var cacheSize: UInt64 = 0
-    @State private var openPanel: NSOpenPanel = NSOpenPanel()
+    @State private var openPanel: NSOpenPanel = .init()
     @State private var installers: [Installer] = []
     @State private var selectedInstallerId: String?
     @State private var showAlert: Bool = false
@@ -64,7 +64,7 @@ struct SettingsInstallersCacheView: View {
         .alert(isPresented: $showAlert) {
             switch alertType {
             case .confirmation:
-                return Alert(
+                Alert(
                     title: Text("Remove Cached Installer?"),
                     message: Text(removalMessage),
                     primaryButton: .cancel(),
@@ -76,10 +76,10 @@ struct SettingsInstallersCacheView: View {
                     }
                 )
             case .error:
-                return Alert(
+                Alert(
                     title: Text("An error has occured!"),
                     message: Text("There was an error removing the cached Installer directory. Show in Finder to remove manually."),
-                    primaryButton: .default(Text("OK")) { },
+                    primaryButton: .default(Text("OK")) {},
                     secondaryButton: .default(Text("Show in Finder")) { showInFinder() }
                 )
             }
@@ -97,7 +97,8 @@ struct SettingsInstallersCacheView: View {
 
         let response: NSApplication.ModalResponse = openPanel.runModal()
 
-        guard response == .OK,
+        guard
+            response == .OK,
             let url: URL = openPanel.url else {
             return
         }
@@ -106,8 +107,7 @@ struct SettingsInstallersCacheView: View {
     }
 
     private func retrieveCache() {
-
-        let url: URL = URL(fileURLWithPath: cacheDirectory)
+        let url: URL = .init(fileURLWithPath: cacheDirectory)
         var isDirectory: ObjCBool = false
 
         do {
@@ -122,7 +122,8 @@ struct SettingsInstallersCacheView: View {
             for id in ids {
                 let url: URL = url.appendingPathComponent(id)
 
-                guard FileManager.default.fileExists(atPath: url.path, isDirectory: &isDirectory),
+                guard
+                    FileManager.default.fileExists(atPath: url.path, isDirectory: &isDirectory),
                     isDirectory.boolValue,
                     let installer: Installer = installer(for: url) else {
                     continue
@@ -133,8 +134,8 @@ struct SettingsInstallersCacheView: View {
 
             self.installers = installers.sorted {
                 $0.version == $1.version ?
-                ($0.build.count == $1.build.count ? $0.build > $1.build : $0.build.count > $1.build.count) :
-                $0.version.compare($1.version, options: .numeric) == .orderedDescending
+                    ($0.build.count == $1.build.count ? $0.build > $1.build : $0.build.count > $1.build.count) :
+                    $0.version.compare($1.version, options: .numeric) == .orderedDescending
             }
             selectedInstallerId = nil
         } catch {
@@ -143,7 +144,6 @@ struct SettingsInstallersCacheView: View {
     }
 
     private func installer(for url: URL) -> Installer? {
-
         let id: String = url.lastPathComponent
 
         do {
@@ -153,7 +153,8 @@ struct SettingsInstallersCacheView: View {
                 let distributionURL: URL = url.appendingPathComponent("\(id).English.dist")
                 let string: String = try String(contentsOf: distributionURL)
 
-                if let version: String = versionFromDistribution(string),
+                if
+                    let version: String = versionFromDistribution(string),
                     let build: String = buildFromDistribution(string) {
                     let size: UInt64 = try FileManager.default.sizeOfDirectory(at: url)
                     return Installer(
@@ -194,7 +195,6 @@ struct SettingsInstallersCacheView: View {
     }
 
     private func versionFromDistribution(_ string: String) -> String? {
-
         guard string.contains("<key>VERSION</key>") else {
             return nil
         }
@@ -204,7 +204,6 @@ struct SettingsInstallersCacheView: View {
     }
 
     private func buildFromDistribution(_ string: String) -> String? {
-
         guard string.contains("<key>BUILD</key>") else {
             return nil
         }
@@ -214,22 +213,20 @@ struct SettingsInstallersCacheView: View {
     }
 
     private func showInFinder() {
-
         guard let id: String = selectedInstallerId else {
             return
         }
 
-        let url: URL = URL(fileURLWithPath: "\(cacheDirectory)/\(id)")
+        let url: URL = .init(fileURLWithPath: "\(cacheDirectory)/\(id)")
         NSWorkspace.shared.open(url)
     }
 
     private func emptyCache(for id: String?) async {
-
         guard let id: String = id else {
             return
         }
 
-        let url: URL = URL(fileURLWithPath: "\(cacheDirectory)/\(id)")
+        let url: URL = .init(fileURLWithPath: "\(cacheDirectory)/\(id)")
 
         do {
             try await DirectoryRemover.remove(url)

@@ -8,25 +8,19 @@
 import Foundation
 
 struct Catalog: Identifiable, Decodable, Equatable {
-
     enum CodingKeys: String, CodingKey {
-        // swiftlint:disable:next redundant_string_enum_value
-        case type = "type"
-        // swiftlint:disable:next redundant_string_enum_value
-        case standard = "standard"
-        // swiftlint:disable:next redundant_string_enum_value
-        case customerSeed = "customerSeed"
-        // swiftlint:disable:next redundant_string_enum_value
-        case developerSeed = "developerSeed"
-        // swiftlint:disable:next redundant_string_enum_value
-        case publicSeed = "publicSeed"
+        case type
+        case standard
+        case customerSeed
+        case developerSeed
+        case publicSeed
     }
 
     static var example: Catalog {
         Catalog(type: .ventura, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)
     }
 
-    var id: UUID = UUID()
+    var id: UUID = .init()
     var type: CatalogType
     var standard: Bool
     var customerSeed: Bool

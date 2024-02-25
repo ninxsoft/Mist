@@ -9,8 +9,7 @@ import Foundation
 import SecureXPC
 
 /// Helper Struct used to create macOS Installers.
-struct InstallerCreator {
-
+enum InstallerCreator {
     /// Creates a recently downloaded macOS Installer.
     ///
     /// - Parameters:
@@ -20,11 +19,9 @@ struct InstallerCreator {
     ///
     /// - Throws: A `MistError` if the downloaded macOS Installer fails to generate.
     static func create(_ installer: Installer, mountPoint: URL, cacheDirectory: String) async throws {
-
         let packageURL: URL
 
         if installer.sierraOrOlder {
-
             guard let package: Package = installer.packages.first else {
                 throw MistError.invalidData
             }
@@ -52,10 +49,10 @@ struct InstallerCreator {
         }
 
         let variables: [String: String] = ["CM_BUILD": "CM_BUILD"]
-        let client: XPCClient = XPCClient.forMachService(named: .helperIdentifier)
+        let client: XPCClient = .forMachService(named: .helperIdentifier)
 
         for arguments in argumentsArrays {
-            let request: HelperToolCommandRequest = HelperToolCommandRequest(type: .installer, arguments: arguments, environment: variables)
+            let request: HelperToolCommandRequest = .init(type: .installer, arguments: arguments, environment: variables)
             let response: HelperToolCommandResponse = try await client.sendMessage(request, to: XPCRoute.commandRoute)
 
             guard response.terminationStatus == 0 else {

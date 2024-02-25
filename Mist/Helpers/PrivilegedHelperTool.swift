@@ -8,18 +8,16 @@
 import Foundation
 
 /// Helper struct to perform lookups on the Privilged Helper Tool executable.
-struct PrivilegedHelperTool {
-
+enum PrivilegedHelperTool {
     /// The URL of the Privileged Helper Tool within the Mist app bundle.
-    static let availableURL: URL = URL(fileURLWithPath: "\(Bundle.main.bundlePath)/Contents/Library/LaunchServices/\(String.helperIdentifier)")
+    static let availableURL: URL = .init(fileURLWithPath: "\(Bundle.main.bundlePath)/Contents/Library/LaunchServices/\(String.helperIdentifier)")
     /// The URL of the Privileged Helper Tool within /Library/PrivilegedHelperTools.
-    static let installedURL: URL = URL(fileURLWithPath: .helperURL)
+    static let installedURL: URL = .init(fileURLWithPath: .helperURL)
 
     /// Determines if the Privileged Helper Tool is installed correctly.
     ///
     /// - Returns: `true` if the Privileged Helper Tool is installed, otherwise `false`.
     static func isInstalled() -> Bool {
-
         do {
             // launchctl service is loaded
             let arguments: [String] = ["launchctl", "print", "system/\(String.helperIdentifier)"]

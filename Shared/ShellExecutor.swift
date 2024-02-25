@@ -9,9 +9,8 @@ import Foundation
 
 /// Helper class used to execute shell commands.
 class ShellExecutor: NSObject {
-
-    static var shared: ShellExecutor = ShellExecutor()
-    private var process: Process = Process()
+    static var shared: ShellExecutor = .init()
+    private var process: Process = .init()
 
     /// Executes custom shell commands.
     ///
@@ -28,8 +27,8 @@ class ShellExecutor: NSObject {
         environment variables: [String: String] = [:],
         currentDirectoryPath: String? = nil
     ) throws -> HelperToolCommandResponse {
-        let outputPipe: Pipe = Pipe()
-        let errorPipe: Pipe = Pipe()
+        let outputPipe: Pipe = .init()
+        let errorPipe: Pipe = .init()
         process = Process()
         process.launchPath = "/usr/bin/env"
         process.arguments = arguments
@@ -60,7 +59,6 @@ class ShellExecutor: NSObject {
     }
 
     func terminate() {
-
         guard process.isRunning else {
             return
         }

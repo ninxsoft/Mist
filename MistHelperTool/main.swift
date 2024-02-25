@@ -9,8 +9,7 @@ import Foundation
 import SecureXPC
 
 /// Helper Tool struct to run a command sent from the main application.
-struct HelperToolCommandRunner {
-
+enum HelperToolCommandRunner {
     /// Run the requested command and return the status and output.
     ///
     /// - Parameters:
@@ -20,7 +19,6 @@ struct HelperToolCommandRunner {
     ///
     /// - Returns: A `HelperToolCommandResponse` struct containing the termination status, standard output and standard error.
     static func run(_ request: HelperToolCommandRequest) throws -> HelperToolCommandResponse {
-
         switch request.type {
         case .remove:
 
@@ -40,7 +38,8 @@ struct HelperToolCommandRunner {
             }
         case .fileAttributes:
 
-            guard let path: String = request.arguments.first,
+            guard
+                let path: String = request.arguments.first,
                 let ownerAccountName: String = request.arguments.last else {
                 return HelperToolCommandResponse(terminationStatus: 1, standardOutput: nil, standardError: "Invalid attributes: \(request.arguments)")
             }
@@ -82,4 +81,5 @@ server.setErrorHandler { error in
         NSLog("error: \(error)")
     }
 }
+
 server.startAndBlock()

@@ -22,13 +22,13 @@ enum InstallerExportType: String, CaseIterable, Identifiable {
     var systemName: String {
         switch self {
         case .application:
-            return "macwindow"
+            "macwindow"
         case .diskImage:
-            return "opticaldiscdrive"
+            "opticaldiscdrive"
         case .iso:
-            return "opticaldisc"
+            "opticaldisc"
         case .package:
-            return "shippingbox"
+            "shippingbox"
         }
     }
 }
