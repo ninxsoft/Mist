@@ -18,6 +18,8 @@ struct SettingsGeneralView: View {
     private var enableAutomaticChecks: Bool = true
     @AppStorage("SUScheduledCheckInterval")
     private var scheduledCheckInterval: Int = 86_400
+    @AppStorage("appIcon")
+    private var appIcon: AppIcon = .default
     @ObservedObject var sparkleUpdater: SparkleUpdater
     private let enableNotificationsDefault: Bool = false
     private let retriesDefault: Int = 10
@@ -43,6 +45,8 @@ struct SettingsGeneralView: View {
             PaddedDivider()
             SettingsGeneralUpdatesView(sparkleUpdater: sparkleUpdater, enable: $enableAutomaticChecks, interval: $scheduledCheckInterval, width: width)
             PaddedDivider()
+            SettingsGeneralAppIconView(appIcon: $appIcon)
+            PaddedDivider()
             ResetToDefaultButton {
                 reset()
             }
@@ -56,6 +60,7 @@ struct SettingsGeneralView: View {
         retryDelay = retryDelayDefault
         enableAutomaticChecks = enableAutomaticChecksDefault
         scheduledCheckInterval = scheduledCheckIntervalDefault
+        appIcon = .default
     }
 }
 

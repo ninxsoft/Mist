@@ -55,6 +55,8 @@
 		39252ABB285C7D3800956C74 /* SettingsInstallersCatalogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252ABA285C7D3800956C74 /* SettingsInstallersCatalogsView.swift */; };
 		39252ABD285C8FFC00956C74 /* ListRowInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252ABC285C8FFC00956C74 /* ListRowInstaller.swift */; };
 		39252AC3285CA5FE00956C74 /* InstallerExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252AC2285CA5FE00956C74 /* InstallerExportView.swift */; };
+		392B30082B8B1D5C00B34BA4 /* SettingsGeneralAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B30072B8B1D5C00B34BA4 /* SettingsGeneralAppIconView.swift */; };
+		392B300A2B8B1E3900B34BA4 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B30092B8B1E3900B34BA4 /* AppIcon.swift */; };
 		3935F47428643AB800760AB0 /* UNNotificationCategory+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F47328643AB800760AB0 /* UNNotificationCategory+Extension.swift */; };
 		3935F47628643AF000760AB0 /* UNNotificationAction+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F47528643AF000760AB0 /* UNNotificationAction+Extension.swift */; };
 		3935F47828643B1F00760AB0 /* UserNotificationCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935F47728643B1F00760AB0 /* UserNotificationCenterDelegate.swift */; };
@@ -221,6 +223,8 @@
 		39252ABA285C7D3800956C74 /* SettingsInstallersCatalogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInstallersCatalogsView.swift; sourceTree = "<group>"; };
 		39252ABC285C8FFC00956C74 /* ListRowInstaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowInstaller.swift; sourceTree = "<group>"; };
 		39252AC2285CA5FE00956C74 /* InstallerExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerExportView.swift; sourceTree = "<group>"; };
+		392B30072B8B1D5C00B34BA4 /* SettingsGeneralAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGeneralAppIconView.swift; sourceTree = "<group>"; };
+		392B30092B8B1E3900B34BA4 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		3935F47328643AB800760AB0 /* UNNotificationCategory+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotificationCategory+Extension.swift"; sourceTree = "<group>"; };
 		3935F47528643AF000760AB0 /* UNNotificationAction+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotificationAction+Extension.swift"; sourceTree = "<group>"; };
 		3935F47728643B1F00760AB0 /* UserNotificationCenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationCenterDelegate.swift; sourceTree = "<group>"; };
@@ -430,6 +434,7 @@
 		390451C32856E4A500E0B563 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				392B30092B8B1E3900B34BA4 /* AppIcon.swift */,
 				573A23612A28711C00EC9470 /* Architecture.swift */,
 				39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */,
 				390451E428574F0000E0B563 /* CatalogType.swift */,
@@ -575,6 +580,7 @@
 				3935F47B2864434B00760AB0 /* SettingsGeneralNotificationsView.swift */,
 				39252AB0285C5C1E00956C74 /* SettingsGeneralRetryView.swift */,
 				39252AB2285C5D7700956C74 /* SettingsGeneralUpdatesView.swift */,
+				392B30072B8B1D5C00B34BA4 /* SettingsGeneralAppIconView.swift */,
 				39252A88285AD0AB00956C74 /* SettingsHeaderView.swift */,
 				39FF05F52859850F00A86670 /* SettingsFirmwaresView.swift */,
 				39252A78285A85AF00956C74 /* SettingsInstallersView.swift */,
@@ -862,6 +868,7 @@
 				3935F4A6286AD3E100760AB0 /* ActivityHeaderView.swift in Sources */,
 				3935F480286551FB00760AB0 /* Double+Extension.swift in Sources */,
 				398BE6B52B62450500FE0C29 /* FloatingAlert.swift in Sources */,
+				392B30082B8B1D5C00B34BA4 /* SettingsGeneralAppIconView.swift in Sources */,
 				39252ABD285C8FFC00956C74 /* ListRowInstaller.swift in Sources */,
 				3935F49D286ABE4D00760AB0 /* FooterView.swift in Sources */,
 				390451CC2856F23100E0B563 /* ScaledSystemImage.swift in Sources */,
@@ -881,6 +888,7 @@
 				39D68B892861369B00A7848C /* InstallerCreator.swift in Sources */,
 				39CF56312862A8C5006FB5D2 /* InstallMediaCreator.swift in Sources */,
 				39252AB1285C5C1E00956C74 /* SettingsGeneralRetryView.swift in Sources */,
+				392B300A2B8B1E3900B34BA4 /* AppIcon.swift in Sources */,
 				390451DC28573F1000E0B563 /* Dictionary+Extension.swift in Sources */,
 				390451D02856F63700E0B563 /* Installer.swift in Sources */,
 				3935F47628643AF000760AB0 /* UNNotificationAction+Extension.swift in Sources */,
@@ -1088,8 +1096,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon - Sonoma";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
@@ -1122,8 +1131,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon - Sonoma";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
