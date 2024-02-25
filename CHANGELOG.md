@@ -110,7 +110,7 @@
   - Thanks [PicoMitchell](https://github.com/PicoMitchell)!
 - Window tabs are now disabled
   - Thanks [PicoMitchell](https://github.com/PicoMitchell)!
-- The **Close Window (⌘-W)** keyboard shortcut is now available once again
+- The **Close Window (⌘ + W)** keyboard shortcut is now available once again
   - Thanks [PicoMitchell](https://github.com/PicoMitchell)!
 - CSV exports are now working correctly again
   - Thanks [JoGlib](https://github.com/JoGilb)!
