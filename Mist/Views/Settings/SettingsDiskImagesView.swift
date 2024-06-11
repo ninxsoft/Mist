@@ -72,7 +72,8 @@ struct SettingsDiskImagesView: View {
                 status == noErr,
                 let certificate: SecCertificate = certificate,
                 let subject: String = SecCertificateCopySubjectSummary(certificate) as? String,
-                subject.hasPrefix("Developer ID Application") else {
+                subject.hasPrefix("Developer ID Application"),
+                !codesigningIdentities.contains(subject) else {
                 continue
             }
 

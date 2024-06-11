@@ -85,7 +85,8 @@ struct SettingsPackagesView: View {
                 status == noErr,
                 let certificate: SecCertificate = certificate,
                 let subject: String = SecCertificateCopySubjectSummary(certificate) as? String,
-                subject.hasPrefix("Developer ID Installer") else {
+                subject.hasPrefix("Developer ID Installer"),
+                !codesigningIdentities.contains(subject) else {
                 continue
             }
 
