@@ -116,6 +116,7 @@ struct ActivityView: View {
                     title: Text("Are you sure you want to cancel?"),
                     message: Text("This process cannot be resumed once it has been cancelled."),
                     primaryButton: .default(Text("Resume")),
+                    // swiftlint:disable:next trailing_closure
                     secondaryButton: .destructive(Text("Cancel"), action: { cancel() })
                 )
             case .error:

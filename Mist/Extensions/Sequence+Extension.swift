@@ -19,12 +19,12 @@ extension Sequence where Iterator.Element == [String: Any] {
 
     func jsonString() throws -> String {
         let data: Data = try JSONSerialization.data(withJSONObject: self, options: [.prettyPrinted, .sortedKeys])
-        return String(data: data, encoding: .utf8) ?? ""
+        return String(decoding: data, as: UTF8.self)
     }
 
     func propertyListString() throws -> String {
         let data: Data = try PropertyListSerialization.data(fromPropertyList: self, format: .xml, options: .bitWidth)
-        return String(data: data, encoding: .utf8) ?? ""
+        return String(decoding: data, as: UTF8.self)
     }
 
     func yamlString() throws -> String {

@@ -68,11 +68,11 @@ enum Hardware {
         guard
             let dictionary: [String: Any] = nsDictionary as? [String: Any],
             dictionary.keys.contains(key),
-            let data: Data = IORegistryEntryCreateCFProperty(entry, key as CFString, kCFAllocatorDefault, 0).takeRetainedValue() as? Data,
-            let string: String = String(data: data, encoding: .utf8) else {
+            let data: Data = IORegistryEntryCreateCFProperty(entry, key as CFString, kCFAllocatorDefault, 0).takeRetainedValue() as? Data else {
             return nil
         }
 
+        let string: String = .init(decoding: data, as: UTF8.self)
         return string.trimmingCharacters(in: CharacterSet(["\0"]))
     }
 }

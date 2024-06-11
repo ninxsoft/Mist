@@ -31,13 +31,8 @@ enum PropertyListUpdater {
         }
 
         propertyList[key] = value
-
         data = try PropertyListSerialization.data(fromPropertyList: propertyList, format: .xml, options: .bitWidth)
-
-        guard let output = String(data: data, encoding: .utf8) else {
-            throw MistError.invalidData
-        }
-
+        let output: String = .init(decoding: data, as: UTF8.self)
         try output.write(to: url, atomically: true, encoding: .utf8)
     }
 }

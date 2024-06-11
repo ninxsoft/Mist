@@ -106,11 +106,9 @@ struct RefreshView: View {
             throw MistError.invalidURL(Firmware.firmwaresURL)
         }
 
-        let string: String = try String(contentsOf: firmwaresURL, encoding: .utf8)
+        let (data, _): (Data, URLResponse) = try await URLSession.shared.data(from: firmwaresURL)
 
-        guard
-            let data: Data = string.data(using: .utf8),
-            let dictionary: [String: Any] = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+        guard let dictionary: [String: Any] = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
             throw MistError.invalidData
         }
 
@@ -163,12 +161,7 @@ struct RefreshView: View {
             }
 
             do {
-                let string: String = try String(contentsOf: url, encoding: .utf8)
-
-                guard let data: Data = string.data(using: .utf8) else {
-                    continue
-                }
-
+                let (data, _): (Data, URLResponse) = try await URLSession.shared.data(from: url)
                 var format: PropertyListSerialization.PropertyListFormat = .xml
 
                 guard
@@ -257,7 +250,8 @@ struct RefreshView: View {
             }
 
             do {
-                let string: String = try String(contentsOf: url, encoding: .utf8)
+                let (data, _): (Data, URLResponse) = try await URLSession.shared.data(from: url)
+                let string: String = .init(decoding: data, as: UTF8.self)
 
                 guard
                     let name: String = nameFromDistribution(string),

@@ -125,10 +125,9 @@ struct Firmware: Decodable, Hashable, Identifiable {
             return []
         }
 
-        let string: String = try String(contentsOf: url)
+        let (data, _): (Data, URLResponse) = try await URLSession.shared.data(from: url)
 
         guard
-            let data: Data = string.data(using: .utf8),
             let dictionary: [String: Any] = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
             let array: [[String: Any]] = dictionary["firmwares"] as? [[String: Any]] else {
             return []
