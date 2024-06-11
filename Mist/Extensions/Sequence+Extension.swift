@@ -10,11 +10,11 @@ import Yams
 
 extension Sequence where Iterator.Element == [String: Any] {
     func firmwaresCSVString() -> String {
-        "Signed,Name,Version,Build,Size,Date,Compatible\n" + map { $0.firmwareCSVString() }.joined()
+        "Name,Version,Build,Size,URL,Date,Compatible,Signed,Beta\n" + map { $0.firmwareCSVString() }.joined()
     }
 
     func installersCSVString() -> String {
-        "Identifier,Name,Version,Build,Size,Date,Compatible\n" + map { $0.installerCSVString() }.joined()
+        "Identifier,Name,Version,Build,Size,Date,Compatible,Beta\n" + map { $0.installerCSVString() }.joined()
     }
 
     func jsonString() throws -> String {
