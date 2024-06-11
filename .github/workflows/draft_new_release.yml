@@ -68,19 +68,11 @@ jobs:
           PACKAGE_FILENAME="Mist.${{ env.APP_VERSION }}.pkg"
           echo "PACKAGE_FILENAME=$PACKAGE_FILENAME" >> "$GITHUB_ENV"
           mkdir -p "$PACKAGE_TEMP/Applications"
-          mkdir -p "$PACKAGE_TEMP/Library/LaunchDaemons"
-          mkdir -p "$PACKAGE_TEMP/Library/PrivilegedHelperTools"
           ditto "Export/Mist.app" "$PACKAGE_TEMP/Applications/Mist.app"
-          cp "com.ninxsoft.mist.helper.plist" "$PACKAGE_TEMP/Library/LaunchDaemons/com.ninxsoft.mist.helper.plist"
-          cp "Export/Mist.app/Contents/Library/LaunchServices/com.ninxsoft.mist.helper" "$PACKAGE_TEMP/Library/PrivilegedHelperTools/com.ninxsoft.mist.helper"
-          chmod 644 "$PACKAGE_TEMP/Library/LaunchDaemons/com.ninxsoft.mist.helper.plist"
-          chmod 544 "$PACKAGE_TEMP/Library/PrivilegedHelperTools/com.ninxsoft.mist.helper"
-          rm "Scripts/uninstall.sh"
           pkgbuild --root "$PACKAGE_TEMP" \
                    --identifier "$PACKAGE_IDENTIFIER" \
                    --version "${{ env.APP_VERSION }}" \
                    --min-os-version "12.0" \
-                   --scripts "Scripts" \
                    --sign "$APPLE_DEVELOPER_ID_INSTALLER_SIGNING_IDENTITY" \
                    "$PACKAGE_FILENAME"
       - name: Notarize Package
