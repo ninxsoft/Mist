@@ -21,29 +21,10 @@ Process:
       pkgroot: "%RECIPE_CACHE_DIR%/payload"
       pkgdirs:
         "Applications": "0755"
-        "Library": "0755"
-        "Library/LaunchDaemons": "0755"
-        "Library/PrivilegedHelperTools": "0755"
   - Processor: Copier
     Arguments:
       source_path: "/Applications/Mist.app"
       destination_path: "%RECIPE_CACHE_DIR%/payload/Applications/Mist.app"
-  - Processor: Copier
-    Arguments:
-      source_path: "/Library/LaunchDaemons/com.ninxsoft.mist.helper.plist"
-      destination_path: "%RECIPE_CACHE_DIR%/payload/Library/LaunchDaemons/com.ninxsoft.mist.helper.plist"
-  - Processor: Copier
-    Arguments:
-      source_path: "/Applications/Mist.app/Contents/Library/LaunchServices/com.ninxsoft.mist.helper"
-      destination_path: "%RECIPE_CACHE_DIR%/payload/Library/PrivilegedHelperTools/com.ninxsoft.mist.helper"
-  - Processor: Copier
-    Arguments:
-      source_path: "%MIST_RECIPE_DIR%/Scripts"
-      destination_path: "%RECIPE_CACHE_DIR%/scripts"
-  - Processor: PathDeleter
-    Arguments:
-      path_list:
-        - "%RECIPE_CACHE_DIR%/scripts/uninstall.sh"
   - Processor: PkgCreator
     Arguments:
       pkg_request:
@@ -62,27 +43,6 @@ Process:
             user: root
             group: wheel
             mode: "0755"
-          - path: /Library
-            user: root
-            group: wheel
-            mode: "0755"
-          - path: /Library/LaunchDaemons
-            user: root
-            group: wheel
-            mode: "0755"
-          - path: /Library/LaunchDaemons/com.ninxsoft.mist.helper.plist
-            user: root
-            group: wheel
-            mode: "0644"
-          - path: /Library/PrivilegedHelperTools
-            user: root
-            group: wheel
-            mode: "0755"
-          - path: /Library/PrivilegedHelperTools/com.ninxsoft.mist.helper
-            user: root
-            group: wheel
-            mode: "0544"
-        scripts: "%RECIPE_CACHE_DIR%/scripts"
   - Processor: com.github.rtrouton.SharedProcessors/PkgSigner
     Arguments:
       pkg_path: "%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg"
@@ -94,5 +54,4 @@ Process:
   - Processor: PathDeleter
     Arguments:
       path_list:
-        - "%RECIPE_CACHE_DIR%/scripts"
         - "%RECIPE_CACHE_DIR%/%NAME%-%version%-unsigned.pkg"
