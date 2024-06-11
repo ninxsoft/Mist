@@ -51,7 +51,9 @@ struct Firmware: Decodable, Hashable, Identifiable {
     var name: String {
         var name: String = ""
 
-        if version.range(of: "^14", options: .regularExpression) != nil {
+        if version.range(of: "^15", options: .regularExpression) != nil {
+            name = "macOS Sequoia"
+        } else if version.range(of: "^14", options: .regularExpression) != nil {
             name = "macOS Sonoma"
         } else if version.range(of: "^13", options: .regularExpression) != nil {
             name = "macOS Ventura"

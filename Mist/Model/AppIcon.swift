@@ -11,8 +11,9 @@ enum AppIcon: String, CaseIterable, Identifiable {
     case monterey = "Monterey"
     case ventura = "Ventura"
     case sonoma = "Sonoma"
+    case sequoia = "Sequoia"
 
-    static let `default`: AppIcon = .sonoma
+    static let `default`: AppIcon = .sequoia
 
     var id: String {
         rawValue

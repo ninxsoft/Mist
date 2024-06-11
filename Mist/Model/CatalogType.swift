@@ -6,6 +6,7 @@
 //
 
 enum CatalogType: String, CaseIterable, Comparable, Decodable {
+    case sequoia = "macOS Sequoia"
     case sonoma = "macOS Sonoma"
     case ventura = "macOS Ventura"
     case monterey = "macOS Monterey"
@@ -21,14 +22,16 @@ enum CatalogType: String, CaseIterable, Comparable, Decodable {
 
     private var sortOrder: Int {
         switch self {
-        case .sonoma:
+        case .sequoia:
             0
-        case .ventura:
+        case .sonoma:
             1
-        case .monterey:
+        case .ventura:
             2
-        case .bigSur:
+        case .monterey:
             3
+        case .bigSur:
+            4
         }
     }
 
@@ -36,9 +39,21 @@ enum CatalogType: String, CaseIterable, Comparable, Decodable {
         lhs.sortOrder < rhs.sortOrder
     }
 
-    // swiftlint:disable:next cyclomatic_complexity
+    // swiftlint:disable:next cyclomatic_complexity function_body_length
     func url(for seedType: CatalogSeedType) -> String {
         switch self {
+        case .sequoia:
+            switch seedType {
+            case .standard:
+                "https://swscan.apple.com/content/catalogs/others/index-15-14-13-12-10.16-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog.gz"
+            case .customer:
+                // swiftlint:disable:next line_length
+                "https://swscan.apple.com/content/catalogs/others/index-15customerseed-15-14-13-12-10.16-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog.gz"
+            case .developer:
+                "https://swscan.apple.com/content/catalogs/others/index-15seed-15-14-13-12-10.16-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog.gz"
+            case .public:
+                "https://swscan.apple.com/content/catalogs/others/index-15beta-15-14-13-12-10.16-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog.gz"
+            }
         case .sonoma:
             switch seedType {
             case .standard:
