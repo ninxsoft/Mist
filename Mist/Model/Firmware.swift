@@ -116,7 +116,7 @@ struct Firmware: Decodable, Hashable, Identifiable {
     /// - Throws: An error if unable to retrieve a list of supported Firmware builds for this Mac.
     ///
     /// - Returns: An array of Firmware build strings.
-    static func supportedBuilds() throws -> [String] {
+    static func supportedBuilds() async throws -> [String] {
         guard
             let architecture: Architecture = Hardware.architecture,
             architecture == .appleSilicon,

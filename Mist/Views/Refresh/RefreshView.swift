@@ -63,7 +63,7 @@ struct RefreshView: View {
         firmwaresState = .inProgress
 
         do {
-            firmwares = try retrieveFirmwares()
+            firmwares = try await retrieveFirmwares()
             try? await Task.sleep(nanoseconds: nanoseconds)
             firmwaresState = .complete
         } catch {
@@ -84,7 +84,7 @@ struct RefreshView: View {
         installersState = .inProgress
 
         do {
-            installers = try retrieveInstallers()
+            installers = try await retrieveInstallers()
             try? await Task.sleep(nanoseconds: nanoseconds)
             installersState = .complete
         } catch {
@@ -99,7 +99,7 @@ struct RefreshView: View {
         }
     }
 
-    private func retrieveFirmwares() throws -> [Firmware] {
+    private func retrieveFirmwares() async throws -> [Firmware] {
         var firmwares: [Firmware] = []
 
         guard let firmwaresURL: URL = URL(string: Firmware.firmwaresURL) else {
@@ -116,7 +116,7 @@ struct RefreshView: View {
             throw MistError.missingDevicesKey
         }
 
-        let supportedBuilds: [String] = try Firmware.supportedBuilds()
+        let supportedBuilds: [String] = try await Firmware.supportedBuilds()
 
         for (identifier, device) in devices {
             guard
@@ -151,7 +151,7 @@ struct RefreshView: View {
         return firmwares
     }
 
-    private func retrieveInstallers() throws -> [Installer] {
+    private func retrieveInstallers() async throws -> [Installer] {
         var installers: [Installer] = []
         let catalogURLs: [String] = getCatalogURLs()
 
@@ -170,7 +170,7 @@ struct RefreshView: View {
                     continue
                 }
 
-                installers.append(contentsOf: getInstallers(from: productsDictionary).filter { !installers.map(\.id).contains($0.id) })
+                await installers.append(contentsOf: getInstallers(from: productsDictionary).filter { !installers.map(\.id).contains($0.id) })
             } catch {
                 continue
             }
@@ -232,7 +232,7 @@ struct RefreshView: View {
         return catalogURLs
     }
 
-    private func getInstallers(from dictionary: [String: Any]) -> [Installer] {
+    private func getInstallers(from dictionary: [String: Any]) async -> [Installer] {
         var installers: [Installer] = []
         let dateFormatter: DateFormatter = .init()
         dateFormatter.dateFormat = "yyyy-MM-dd"
