@@ -33,6 +33,7 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
   - For Apple Silicon Macs:
     - Download a Firmware Restore file (.ipsw)
     - Validates the SHA-1 checksum upon download
+    - Copy firmware URLs to clipboard
   - For Intel based Macs (Universal for macOS Big Sur and later):
     - Generate an Application Bundle (.app)
     - Generate a Disk Image (.dmg)
@@ -57,7 +58,7 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
 
 ## Build Requirements
 
-- Swift **5.10** | Xcode **14.0**.
+- Swift **5.10** | Xcode **15.0**.
 - Runs on macOS Monterey **12.0** and later.
 
 ## Download
