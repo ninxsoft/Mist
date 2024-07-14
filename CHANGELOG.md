@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.20](https://github.com/ninxsoft/Mist/releases/tag/v0.20) - 2024-07-14
+
+- Added preliminary support for **macOS Sequoia 15**
+- Fixed a bug that prevented Apple Developer Signing identities being retrieved from the keychain correctly
+- Fixed a bug that prevented CSV output being exported correctly - thanks [NorseGaud](https://github.com/NorseGaud)!
+- Bumped [Sparkle](https://github.com/sparkle-project/Sparkle) version to **2.6.4**
+- Bumped [Yams](https://github.com/jpsim/Yams) version to **5.1.3**
+
 ## [0.10](https://github.com/ninxsoft/Mist/releases/tag/v0.10) - 2024-02-26
 
 - Mist now ships logs to the [unified logging system](https://developer.apple.com/documentation/os/logging)!
