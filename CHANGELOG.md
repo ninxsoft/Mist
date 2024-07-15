@@ -3,7 +3,7 @@
 ## [0.20](https://github.com/ninxsoft/Mist/releases/tag/v0.20) - 2024-07-14
 
 - Added preliminary support for **macOS Sequoia 15**
-- Fixed a bug that prevented Apple Developer Signing identities being retrieved from the keychain correctly
+- Fixed a bug that prevented retrieving Apple Developer Signing identities from the keychain correctly
 - Fixed a bug that prevented CSV output being exported correctly - thanks [NorseGaud](https://github.com/NorseGaud)!
 - Bumped [Sparkle](https://github.com/sparkle-project/Sparkle) version to **2.6.4**
 - Bumped [Yams](https://github.com/jpsim/Yams) version to **5.1.3**
