@@ -26,7 +26,7 @@
             .styled-0-20 li::before {
               content: "🆕 ";
             }
-            .styled-0-20 li:nth-child(n + 1):before {
+            .styled-0-20 li:nth-child(n + 2):before {
               content: "✅ ";
             }
             .styled-0-10 li::before {
@@ -115,8 +115,8 @@
           <ul class="styled styled-0-20">
             <li>Added preliminary support for macOS Sequoia 15</li>
             <li>
-              Fixed a bug that prevented Apple Developer Signing identities being
-              retrieved from the keychain correctly
+              Fixed a bug that prevented retrieving Apple Developer Signing identities
+              from the keychain correctly
             </li>
             <li>Fixed a bug that prevented CSV output being exported correctly</li>
             <li>
