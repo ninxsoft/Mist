@@ -113,7 +113,7 @@
           </style>
           <h3>Version 0.20</h3>
           <ul class="styled styled-0-20">
-            <li>Added preliminary support for macOS Sequoia 15</li>
+            <li>Added preliminary support for <strong>macOS Sequoia 15</strong></li>
             <li>
               Fixed a bug that prevented retrieving Apple Developer Signing identities
               from the keychain correctly
