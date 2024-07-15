@@ -6,9 +6,9 @@
     <language>en</language>
     <link>https://github.com/ninxsoft/Mist</link>
     <item>
-      <title>Version 0.10.0</title>
+      <title>Version 0.20.0</title>
       <link>https://github.com/ninxsoft/Mist</link>
-      <sparkle:version>0.10.0</sparkle:version>
+      <sparkle:version>0.20.0</sparkle:version>
       <sparkle:fullReleaseNotesLink>https://github.com/ninxsoft/Mist/blob/main/CHANGELOG.md</sparkle:fullReleaseNotesLink>
       <description>
         <![CDATA[
@@ -22,6 +22,12 @@
               text-indent: -0.75rem;
               margin-top: 15px;
               margin-bottom: 15px;
+            }
+            .styled-0-20 li::before {
+              content: "🆕 ";
+            }
+            .styled-0-20 li:nth-child(n + 2):before {
+              content: "✅ ";
             }
             .styled-0-10 li::before {
               content: "🆕 ";
@@ -105,6 +111,24 @@
               content: "🆕 ";
             }
           </style>
+          <h3>Version 0.20</h3>
+          <ul class="styled styled-0-20">
+            <li>Added preliminary support for macOS Sequoia 15</li>
+            <li>
+              Fixed a bug that prevented retrieving Apple Developer Signing identities
+              from the keychain correctly
+            </li>
+            <li>Fixed a bug that prevented CSV output being exported correctly</li>
+            <li>
+              Bumped
+              <a href="https://github.com/sparkle-project/Sparkle">Sparkle</a> version to
+              <strong>2.6.4</strong>
+            </li>
+            <li>
+              Bumped <a href="https://github.com/jpsim/Yams">Yams</a> version to
+              <strong>5.1.3</strong>
+            </li>
+          </ul>
           <h3>Version 0.10</h3>
           <ul class="styled styled-0-10">
             <li>
@@ -420,12 +444,12 @@
           </ul>
         ]]>
       </description>
-      <pubDate>Mon, 26 Feb 2024 12:00:00 +0000</pubDate>
-      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.10/Mist.0.10.pkg"
+      <pubDate>Mon, 15 Jul 2024 12:00:00 +0000</pubDate>
+      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.20/Mist.0.20.pkg"
                  type="application/octet-stream"
                  sparkle:installationType="package"
-                 sparkle:edSignature="u5Na2N2i4klZDOLZZmA0z7nY3K7OzKOjEkYqEW4kdzfK/gGxmm4dSyjaiwo8o3ZMVwlZ0tOsQj+mGHBBUWKRBA=="
-                 length="9163257"
+                 sparkle:edSignature="TYTG5L8a8hTlB5jPyAr6b23gPj86z/yMVRZiOjYKLwf6AvdpRHdM8HQ9SOmyx7TOrEgH/WdJ+nvAC6LMP66hDg=="
+                 length="9184767"
       />
     </item>
   </channel>
