@@ -152,6 +152,16 @@
 		5795700D2A31B081004C7051 /* MistActionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5795700C2A31B081004C7051 /* MistActionButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		39EAEAC72C8813AB00BA91B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3904519E2856E1D800E0B563 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39CF559C28614DD8006FB5D2;
+			remoteInfo = MistHelperTool;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		39AD68E1286149CE0021CCA8 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -162,15 +172,6 @@
 				39CF55AB286154D1006FB5D2 /* com.ninxsoft.mist.helper in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-		};
-		39CF559B28614DD8006FB5D2 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -614,6 +615,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				39EAEAC82C8813AB00BA91B6 /* PBXTargetDependency */,
 			);
 			name = Mist;
 			packageProductDependencies = (
@@ -650,7 +652,6 @@
 				39CF55BF28616081006FB5D2 /* Run Build Script */,
 				39CF559928614DD8006FB5D2 /* Sources */,
 				39CF559A28614DD8006FB5D2 /* Frameworks */,
-				39CF559B28614DD8006FB5D2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -967,6 +968,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		39EAEAC82C8813AB00BA91B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39CF559C28614DD8006FB5D2 /* MistHelperTool */;
+			targetProxy = 39EAEAC72C8813AB00BA91B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		390451B32856E1DA00E0B563 /* Debug */ = {
