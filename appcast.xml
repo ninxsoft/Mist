@@ -448,8 +448,8 @@
       <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.20.1/Mist.0.20.1.pkg"
                  type="application/octet-stream"
                  sparkle:installationType="package"
-                 sparkle:edSignature="TYTG5L8a8hTlB5jPyAr6b23gPj86z/yMVRZiOjYKLwf6AvdpRHdM8HQ9SOmyx7TOrEgH/WdJ+nvAC6LMP66hDg=="
-                 length="9184767"
+                 sparkle:edSignature="d4xWS3yALhkWTU8+UoKm2t8DpcCY6bZBR65sn62s66WXgU2xkLBp+6R6qVUOiBInX1vdXvVR4w/hPUvQc3brDg=="
+                 length="9185710"
       />
     </item>
   </channel>
