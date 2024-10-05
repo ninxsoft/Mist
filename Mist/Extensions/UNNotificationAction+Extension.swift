@@ -8,6 +8,7 @@
 import UserNotifications
 
 extension UNNotificationAction {
+    /// Mist Notification Action identifiers
     enum Identifier {
         /// Show Identifier
         static let show: String = "Show"

@@ -15,6 +15,9 @@ extension Double {
     /// gigabytes constant
     static let gigabyte: Double = .megabyte * 1_000
 
+    /// Pretty formatted string representation of the double, as bytes.
+    ///
+    /// - Returns: A pretty formatted bytes string.
     func bytesString() -> String {
         if self < .kilobyte {
             "\(Int(self)) bytes"

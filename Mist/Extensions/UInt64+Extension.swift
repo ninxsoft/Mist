@@ -15,6 +15,9 @@ extension UInt64 {
     /// gigabytes constant
     static let gigabyte: UInt64 = .megabyte * 1_000
 
+    /// Pretty formatted string representation of the 64-bit unsigned integer, as bytes.
+    ///
+    /// - Returns: A pretty formatted bytes string.
     func bytesString() -> String {
         if self < .kilobyte {
             "\(self) bytes"
@@ -27,6 +30,9 @@ extension UInt64 {
         }
     }
 
+    /// Hexadecimal representation of the 64-bit unsigned integer.
+    ///
+    /// - Returns: A hexademical string.
     func hexString() -> String {
         String(format: "0x%016X", self)
     }

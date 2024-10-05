@@ -6,6 +6,9 @@
 //
 
 extension Dictionary where Key == String {
+    /// Provides a firmware CSV string representation.
+    ///
+    /// - Returns: A firmware CSV string representation.
     func firmwareCSVString() -> String {
         guard
             let name: String = self["name"] as? String,
@@ -44,6 +47,9 @@ extension Dictionary where Key == String {
         return string
     }
 
+    /// Provides an installer CSV string representation.
+    ///
+    /// - Returns: An installer CSV string representation.
     func installerCSVString() -> String {
         guard
             let identifier: String = self["identifier"] as? String,
