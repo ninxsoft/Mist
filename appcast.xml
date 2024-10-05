@@ -6,9 +6,9 @@
     <language>en</language>
     <link>https://github.com/ninxsoft/Mist</link>
     <item>
-      <title>Version 0.20.0</title>
+      <title>Version 0.20.1</title>
       <link>https://github.com/ninxsoft/Mist</link>
-      <sparkle:version>0.20.0</sparkle:version>
+      <sparkle:version>0.20.1</sparkle:version>
       <sparkle:fullReleaseNotesLink>https://github.com/ninxsoft/Mist/blob/main/CHANGELOG.md</sparkle:fullReleaseNotesLink>
       <description>
         <![CDATA[
@@ -22,6 +22,9 @@
               text-indent: -0.75rem;
               margin-top: 15px;
               margin-bottom: 15px;
+            }
+            .styled-0-20-1 li::before {
+              content: "✅ ";
             }
             .styled-0-20 li::before {
               content: "🆕 ";
@@ -111,6 +114,13 @@
               content: "🆕 ";
             }
           </style>
+          <h3>Version 0.20.1</h3>
+          <ul class="styled styled-0-20-1">
+            <li>
+              Fixed a bug that resulted in macOS installers being created that were only
+              <strong>~500MB</strong> in size
+            </li>
+          </ul>
           <h3>Version 0.20</h3>
           <ul class="styled styled-0-20">
             <li>Added preliminary support for <strong>macOS Sequoia 15</strong></li>
@@ -157,29 +167,29 @@
               correctly
             </li>
             <li>
-              Further improved error messaging for when the Privileged Helper Tool
-              fails to install
+              Further improved error messaging for when the Privileged Helper Tool fails
+              to install
             </li>
             <li>
               Bumped
-              <a href="https://github.com/sparkle-project/Sparkle">Sparkle</a> version
-              to <strong>2.5.2</strong>
+              <a href="https://github.com/sparkle-project/Sparkle">Sparkle</a> version to
+              <strong>2.5.2</strong>
             </li>
           </ul>
           <h3>Version 0.9.1</h3>
           <ul class="styled styled-0-9-1">
             <li>Fixed insecure HTTP URLs for certain Firmware files</li>
             <li>
-              Fixed a bug where downloads were not being cancelled when the Escape key
-              was being pressed
+              Fixed a bug where downloads were not being cancelled when the Escape key was
+              being pressed
             </li>
             <li>
               Rolled back the Bootable Disk Image (ISO) shrinking logic that was
               preventing the ISOs from booting correctly
             </li>
             <li>
-              Improved the error message output when installing the Privileged Helper
-              Tool failed
+              Improved the error message output when installing the Privileged Helper Tool
+              failed
             </li>
             <li>
               Bumped <a href="https://github.com/jpsim/Yams">Yams</a> version to
@@ -199,12 +209,12 @@
             <li>Added a shiny new macOS Sonoma application installer icon!</li>
             <li>Updated Firmware / Installer tooltips to include release names</li>
             <li>
-              Improved the error messaging when refreshing Firmwares fails due to
-              pending server-side updates
+              Improved the error messaging when refreshing Firmwares fails due to pending
+              server-side updates
             </li>
             <li>
-              Bootable Disk Image (ISO) sizes are now calculated dynamically, with
-              minimal free space
+              Bootable Disk Image (ISO) sizes are now calculated dynamically, with minimal
+              free space
             </li>
             <li>
               Fixed a bug where scrolling / clicking on the
@@ -232,8 +242,8 @@
                   right-hand side of the <strong>Installers</strong> list rows
                 </li>
                 <li>
-                  Select a <strong>Mac OS Extended (Journaled)</strong> volume to
-                  create a Bootable Installer
+                  Select a <strong>Mac OS Extended (Journaled)</strong> volume to create a
+                  Bootable Installer
                 </li>
                 <li>
                   Available for <strong>macOS Big Sur 11</strong> and newer on
@@ -251,62 +261,58 @@
               <strong>Intel-based Macs</strong>
             </li>
             <li>
-              Adding missing <strong>tooltips</strong> for Firmwares / Installers
-              (hover to view)
+              Adding missing <strong>tooltips</strong> for Firmwares / Installers (hover
+              to view)
             </li>
             <li>
-              Minor cosmetic fixes, including tweaks to button styles and accent
-              colors
+              Minor cosmetic fixes, including tweaks to button styles and accent colors
             </li>
           </ul>
           <h3>Version 0.7.1</h3>
           <ul class="styled styled-0-7-1">
             <li>
-              Fixed a bug where the list of Firmwares / Installers would wrap
-              incorrectly when <strong>Show scroll bars</strong> was set to
-              <strong>Always</strong> in <strong>Settings &gt; Appearance</strong>
+              Fixed a bug where the list of Firmwares / Installers would wrap incorrectly
+              when <strong>Show scroll bars</strong> was set to <strong>Always</strong> in
+              <strong>Settings &gt; Appearance</strong>
             </li>
           </ul>
           <h3>Version 0.7</h3>
           <ul class="styled styled-0-7">
             <li>Added preliminary support for <strong>macOS Sonoma 14</strong></li>
             <li>
-              Updated the <strong>app icon</strong> and
-              <strong>accent color</strong> to reflect macOS Sonoma (including dark
-              appearance)
+              Updated the <strong>app icon</strong> and <strong>accent color</strong> to
+              reflect macOS Sonoma (including dark appearance)
             </li>
             <li>Updated the <strong>Download</strong> button look and feel</li>
             <li>
-              Moved the <strong>Beta</strong> tag to a ribbon that wraps around the
-              macOS icon
+              Moved the <strong>Beta</strong> tag to a ribbon that wraps around the macOS
+              icon
             </li>
             <li>
               Mist now scrolls to the active task automatically in the activity screen
             </li>
             <li>
               Mist now remembers the last selected
-              <strong>Firmwares</strong> / <strong>Installers</strong> tab when the
-              app is relaunched
+              <strong>Firmwares</strong> / <strong>Installers</strong> tab when the app is
+              relaunched
             </li>
-            <li>
-              Added missing tooltip for the <strong>Refresh</strong> toolbar button
-            </li>
+            <li>Added missing tooltip for the <strong>Refresh</strong> toolbar button</li>
             <li>
               Updated the <strong>Firmware</strong> icon for the
               <strong>Settings &gt; Firmwares</strong>
               pane
             </li>
             <li>
-              Fixed a bug where <strong>Full Disk Access</strong> was being checked
-              even when downloading Firmwares
+              Fixed a bug where <strong>Full Disk Access</strong> was being checked even
+              when downloading Firmwares
             </li>
             <li>
               Fixed a bug where selecting an ISO for compatible Installers caused
               non-compatible Installers to display available export types incorrectly
             </li>
             <li>
-              Fixed a bug where Intel Macs would not determine compatible legacy
-              operating systems (<strong>10.7 - 10.12</strong>) correctly
+              Fixed a bug where Intel Macs would not determine compatible legacy operating
+              systems (<strong>10.7 - 10.12</strong>) correctly
             </li>
           </ul>
           <h3>Version 0.6</h3>
@@ -334,18 +340,17 @@
               <strong>macOS Catalina 10.15 or older</strong> on Apple Silicon Macs
             </li>
             <li>
-              The Mist.app <strong>Login Item</strong> title now displays the app name
-              and not the developer's name
+              The Mist.app <strong>Login Item</strong> title now displays the app name and
+              not the developer's name
             </li>
             <li>
-              Temporary volumes are now hidden, and no longer show in Finder when
-              mounted during image creation
+              Temporary volumes are now hidden, and no longer show in Finder when mounted
+              during image creation
             </li>
             <li>Mist now has more comprehensive error messages of failed tasks</li>
             <li>Fixed a bug where warning messages would not cascade correctly</li>
             <li>
-              Fixed a bug where file and directory ownership was being checked
-              incorrectly
+              Fixed a bug where file and directory ownership was being checked incorrectly
             </li>
             <li>
               Fixed a bug where icons would flicker during animation in the Settings >
@@ -368,8 +373,8 @@
             <li>Removed unused declarations and imports (ie. dead code)</li>
             <li>
               Bumped
-              <a href="https://github.com/sparkle-project/Sparkle">Sparkle</a> version
-              to <strong>2.3.1</strong>
+              <a href="https://github.com/sparkle-project/Sparkle">Sparkle</a> version to
+              <strong>2.3.1</strong>
             </li>
             <li>Minor cosmetic fixes</li>
           </ul>
@@ -380,12 +385,10 @@
               Apple-provided package is just re-used
             </li>
             <li>
-              Custom Catalog URLs have been replaced with a default set of
-              Apple-provided Software Update Catalogs in the app preferences
+              Custom Catalog URLs have been replaced with a default set of Apple-provided
+              Software Update Catalogs in the app preferences
               <ul class="styled-0-4-child">
-                <li>
-                  The standard catalog that ships with macOS is enabled by default
-                </li>
+                <li>The standard catalog that ships with macOS is enabled by default</li>
                 <li>Additional Seed Program catalogs can be enabled</li>
                 <li>
                   Note: Catalogs from the Seed Programs may contain beta / unreleased
@@ -399,8 +402,8 @@
               incorrect ownership / permissions, and are given the option to repair
             </li>
             <li>
-              Cache directories for specific macOS Installers with incorrect ownership
-              / permissions will attempt to repair on-the-fly
+              Cache directories for specific macOS Installers with incorrect ownership /
+              permissions will attempt to repair on-the-fly
             </li>
           </ul>
           <h3>Version 0.3</h3>
@@ -414,24 +417,21 @@
               support macOS Ventura ISOs)
             </li>
             <li>
-              macOS Installer SHA-1 checksums are now only validated when they are
-              present
+              macOS Installer SHA-1 checksums are now only validated when they are present
             </li>
             <li>Minor cosmetic tweaks</li>
           </ul>
           <h3>Version 0.2</h3>
           <ul class="styled styled-0-2">
             <li>
-              Users are now notified of incompatible macOS Firmwares / Installers
-              before downloading
+              Users are now notified of incompatible macOS Firmwares / Installers before
+              downloading
             </li>
             <li>
               Placeholder icons for macOS Ventura have been updated with the real deal
             </li>
             <li>Custom Catalog URLs are no longer being ignored</li>
-            <li>
-              The Catalog URLs heading is now aligned correctly under Preferences
-            </li>
+            <li>The Catalog URLs heading is now aligned correctly under Preferences</li>
           </ul>
           <h3>Version 0.1.1</h3>
           <ul class="styled styled-0-1-1">
@@ -444,12 +444,12 @@
           </ul>
         ]]>
       </description>
-      <pubDate>Mon, 15 Jul 2024 12:00:00 +0000</pubDate>
-      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.20/Mist.0.20.pkg"
+      <pubDate>Sat, 05 Oct 2024 12:00:00 +0000</pubDate>
+      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.20.1/Mist.0.20.1.pkg"
                  type="application/octet-stream"
                  sparkle:installationType="package"
-                 sparkle:edSignature="TYTG5L8a8hTlB5jPyAr6b23gPj86z/yMVRZiOjYKLwf6AvdpRHdM8HQ9SOmyx7TOrEgH/WdJ+nvAC6LMP66hDg=="
-                 length="9184767"
+                 sparkle:edSignature="d4xWS3yALhkWTU8+UoKm2t8DpcCY6bZBR65sn62s66WXgU2xkLBp+6R6qVUOiBInX1vdXvVR4w/hPUvQc3brDg=="
+                 length="9185710"
       />
     </item>
   </channel>
