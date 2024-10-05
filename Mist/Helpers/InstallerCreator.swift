@@ -41,14 +41,15 @@ enum InstallerCreator {
             ["installer", "-pkg", packageURL.path, "-target", mountPoint.path]
         ]
 
-        // workaround for macOS High Sierra
-        if installer.version.range(of: "^10\\.13\\.", options: .regularExpression) != nil {
+        // workaround for macOS High Sierra 10.13, macOS Mojave 10.14 and macOS Catalina 10.15
+        if installer.highSierraOrNewer, !installer.bigSurOrNewer {
             argumentsArrays += [
                 ["ditto", "/Applications/Install \(installer.name).app", "\(mountPoint.path)/Applications/Install \(installer.name).app"],
                 ["rm", "-r", "/Applications/Install \(installer.name).app"]
             ]
         }
 
+        // workaround for macOS Catalina 10.15 and newer
         if installer.catalinaOrNewer {
             argumentsArrays += [
                 ["ditto", "\(mountPoint.path)Applications", "\(mountPoint.path)/Applications"],
