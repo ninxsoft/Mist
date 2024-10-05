@@ -9,6 +9,11 @@ import CryptoKit
 import Foundation
 
 extension URL {
+    /// Provides the size of the file at the URL, in bytes.
+    ///
+    /// - Throws: An `Error` if the file size is unable to be determined.
+    ///
+    /// - Returns: The file size of the provided URL, in bytes.
     func fileSize() throws -> UInt64 {
         let urlResourceKeys: Set<URLResourceKey> = [
             .isRegularFileKey,
@@ -27,6 +32,9 @@ extension URL {
         return UInt64(resourceValues.totalFileAllocatedSize ?? resourceValues.fileAllocatedSize ?? 0)
     }
 
+    /// Provides the SHA1 hash of the file at the URL.
+    ///
+    /// - Returns: The SHA1 hash of the file at the provided URL, or `nil` if a has is unable to be determined.
     func shasum() -> String? {
         let length: Int = 1_024 * 1_024 * 50 // 50 MB
 

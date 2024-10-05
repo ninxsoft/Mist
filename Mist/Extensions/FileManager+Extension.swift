@@ -8,6 +8,14 @@
 import Foundation
 
 extension FileManager {
+    /// Provides the size of a specified directory, in bytes.
+    ///
+    /// - Parameters:
+    ///   - url: The URL of the directory to query.
+    ///
+    /// - Throws: An `Error` if the directory size is unable to be determined.
+    ///
+    /// - Returns: The size of the directory in bytes.
     func sizeOfDirectory(at url: URL) throws -> UInt64 {
         var enumeratorError: Error?
 

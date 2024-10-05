@@ -8,6 +8,7 @@
 import UserNotifications
 
 extension UNNotificationCategory {
+    /// Mist Notification identifiers
     enum Identifier {
         /// Success Identifier
         static let success: String = "Success"
