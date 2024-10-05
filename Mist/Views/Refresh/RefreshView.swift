@@ -242,7 +242,7 @@ struct RefreshView: View {
                 var value: [String: Any] = value as? [String: Any],
                 let date: Date = value["PostDate"] as? Date,
                 let extendedMetaInfo: [String: Any] = value["ExtendedMetaInfo"] as? [String: Any],
-                extendedMetaInfo["InstallAssistantPackageIdentifiers"] as? [String: Any] != nil,
+                extendedMetaInfo["InstallAssistantPackageIdentifiers"] is [String: Any],
                 let distributions: [String: Any] = value["Distributions"] as? [String: Any],
                 let distributionURL: String = distributions["English"] as? String,
                 let url: URL = URL(string: distributionURL) else {

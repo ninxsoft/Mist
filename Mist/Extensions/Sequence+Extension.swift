@@ -30,7 +30,12 @@ extension Sequence where Iterator.Element == [String: Any] {
     /// - Returns: A JSON string representation.
     func jsonString() throws -> String {
         let data: Data = try JSONSerialization.data(withJSONObject: self, options: [.prettyPrinted, .sortedKeys])
-        return String(decoding: data, as: UTF8.self)
+
+        guard let string: String = String(data: data, encoding: .utf8) else {
+            throw MistError.invalidData
+        }
+
+        return string
     }
 
     /// Provides a Property List string representation.
@@ -40,7 +45,12 @@ extension Sequence where Iterator.Element == [String: Any] {
     /// - Returns: A Property List string representation.
     func propertyListString() throws -> String {
         let data: Data = try PropertyListSerialization.data(fromPropertyList: self, format: .xml, options: .bitWidth)
-        return String(decoding: data, as: UTF8.self)
+
+        guard let string: String = String(data: data, encoding: .utf8) else {
+            throw MistError.invalidData
+        }
+
+        return string
     }
 
     /// Provides a YAML string representation.

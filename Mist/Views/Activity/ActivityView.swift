@@ -178,7 +178,7 @@ struct ActivityView: View {
     }
 
     private func checkForUserCancellation(_ failure: Error) -> Bool {
-        if failure as? CancellationError != nil {
+        if failure is CancellationError {
             return true
         }
 
