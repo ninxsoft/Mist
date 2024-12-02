@@ -10,7 +10,7 @@ on:
 jobs:
   unit_tests:
     name: Unit Tests
-    runs-on: macos-13
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
       - uses: swift-actions/setup-swift@v2
@@ -33,7 +33,9 @@ jobs:
           security import "$CERTIFICATE_AUTHORITY_PATH" -P "$APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE_PASSWORD" -A -t cert -f pkcs7 -k "$KEYCHAIN_PATH"
           security list-keychain -d user -s "$KEYCHAIN_PATH"
       - name: Run Unit Tests
-        run: xcodebuild -scheme MistTests clean test -quiet
+        run: |
+          xcodebuild -scheme "MistTests" -destination "platform=macOS,arch=arm64" -quiet clean
+          xcodebuild -scheme "MistTests" -destination "platform=macOS,arch=arm64" -quiet -skipPackagePluginValidation test
       - name: Remove Apple Developer Keychain
         if: ${{ always() }}
         run: security delete-keychain $RUNNER_TEMP/apple-developer.keychain-db
