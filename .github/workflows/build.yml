@@ -10,9 +10,9 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: macos-13
+    runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: swift-actions/setup-swift@v2
       - name: Install Apple Developer ID Application Certificate
         env:
@@ -30,10 +30,12 @@ jobs:
           security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
           security unlock-keychain -p "$APPLE_DEVELOPER_KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
           security import "$CERTIFICATE_PATH" -P "$APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE_PASSWORD" -A -t cert -f pkcs12 -k "$KEYCHAIN_PATH"
-          security import "$CERTIFICATE_AUTHORITY_PATH" -P "$APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE_PASSWORD" -A -t cert -f pkcs7 -k "$KEYCHAIN_PATH"
+          if ! security find-certificate -c "Developer ID Certification Authority" "$KEYCHAIN_PATH" ; then
+            security import "$CERTIFICATE_AUTHORITY_PATH" -P "$APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE_PASSWORD" -A -t cert -f pkcs7 -k "$KEYCHAIN_PATH"
+          fi
           security list-keychain -d user -s "$KEYCHAIN_PATH"
       - name: Select Xcode version
-        run: sudo xcode-select --switch "/Applications/Xcode_16.1.app"
+        run: sudo xcode-select --switch "/Applications/Xcode_26.app"
       - name: Archive Mist
         run: |
           xcodebuild -scheme "Mist" -configuration "release" -destination "platform=macOS,arch=arm64" -quiet clean

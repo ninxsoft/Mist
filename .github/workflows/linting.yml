@@ -10,10 +10,11 @@ on:
 jobs:
   linting:
     name: Linting
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: swift-actions/setup-swift@v2
+      - uses: m-takuma/setup-swiftlint@1.0.0
       - name: Print SwiftLint version
         run: swiftlint --version
       - name: Run SwiftLint

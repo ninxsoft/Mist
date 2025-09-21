@@ -18,7 +18,7 @@ jobs:
       APPLE_DEVELOPER_TEAM_ID: "7K3HVCLV7Z"
       KEYCHAIN_FILE: "apple-developer.keychain-db"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: swift-actions/setup-swift@v2
       - name: Install Apple Developer ID Certificates
         run: |
@@ -33,10 +33,12 @@ jobs:
           security unlock-keychain -p "$APPLE_DEVELOPER_KEYCHAIN_PASSWORD" "$RUNNER_TEMP/$KEYCHAIN_FILE"
           security import "$APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE_PATH" -P "$APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE_PASSWORD" -A -t cert -f pkcs12 -k "$RUNNER_TEMP/$KEYCHAIN_FILE"
           security import "$APPLE_DEVELOPER_ID_INSTALLER_CERTIFICATE_PATH" -P "$APPLE_DEVELOPER_ID_INSTALLER_CERTIFICATE_PASSWORD" -A -t cert -f pkcs12 -k "$RUNNER_TEMP/$KEYCHAIN_FILE"
-          security import "$APPLE_DEVELOPER_CERTIFICATE_AUTHORITY_PATH" -P "$APPLE_DEVELOPER_CERTIFICATE_PASSWORD" -A -t cert -f pkcs7 -k "$RUNNER_TEMP/$KEYCHAIN_FILE"
+          if ! security find-certificate -c "Developer ID Certification Authority" "$RUNNER_TEMP/$KEYCHAIN_FILE" ; then
+            security import "$APPLE_DEVELOPER_CERTIFICATE_AUTHORITY_PATH" -P "$APPLE_DEVELOPER_CERTIFICATE_PASSWORD" -A -t cert -f pkcs7 -k "$RUNNER_TEMP/$KEYCHAIN_FILE"
+          fi
           security list-keychain -d user -s "$RUNNER_TEMP/$KEYCHAIN_FILE"
       - name: Select Xcode version
-        run: sudo xcode-select --switch "/Applications/Xcode_16.1.app"
+        run: sudo xcode-select --switch "/Applications/Xcode_26.app"
       - name: Archive Mist
         run: |
           xcodebuild -scheme "Mist" -configuration "release" -destination "platform=macOS,arch=arm64" -quiet clean
