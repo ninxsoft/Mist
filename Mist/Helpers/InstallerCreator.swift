@@ -28,11 +28,11 @@ enum InstallerCreator {
 
             packageURL = URL(fileURLWithPath: "/Volumes/Install \(installer.name)").appendingPathComponent(package.filename.replacingOccurrences(of: ".dmg", with: ".pkg"))
         } else {
-            guard let url: URL = URL(string: installer.distributionURL) else {
+            guard URL(string: installer.distributionURL) != nil else {
                 throw MistError.invalidURL(installer.distributionURL)
             }
 
-            packageURL = URL(fileURLWithPath: cacheDirectory).appendingPathComponent(installer.id).appendingPathComponent(url.lastPathComponent)
+            packageURL = URL(fileURLWithPath: cacheDirectory).appendingPathComponent(installer.id).appendingPathComponent("InstallAssistant.pkg")
         }
 
         try await DirectoryRemover.remove(installer.temporaryInstallerURL)
