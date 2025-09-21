@@ -46,7 +46,6 @@ struct SettingsGeneralNotificationsView: View {
     private func validateNotifications() {
         let notificationCenter: UNUserNotificationCenter = .current()
         notificationCenter.getNotificationSettings { settings in
-
             guard [.authorized, .provisional].contains(settings.authorizationStatus) else {
                 enableNotifications = false
                 return
@@ -59,7 +58,6 @@ struct SettingsGeneralNotificationsView: View {
         let options: UNAuthorizationOptions = [.alert, .badge, .sound]
 
         userNotificationCenter.requestAuthorization(options: options) { success, _ in
-
             guard success else {
                 enableNotifications = false
                 showAlert = true

@@ -111,13 +111,11 @@ struct ListRowInstaller: View {
             alert(for: alertType)
         }
         .onChange(of: showOpenPanel) { boolean in
-
             if boolean {
                 open()
             }
         }
         .onChange(of: volume) { volume in
-
             if volume != nil {
                 createBootableInstaller()
             }

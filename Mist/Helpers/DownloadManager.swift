@@ -28,7 +28,6 @@ class DownloadManager: NSObject, ObservableObject {
         var completed: Bool = false
         // swiftlint:disable:next closure_body_length
         let completionHandler: (URL?, URLResponse?, Error?) -> Void = { url, _, error in
-
             if let error: URLError = error as? URLError {
                 guard error.code != .cancelled else {
                     mistError = .userCancelled

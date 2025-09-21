@@ -136,7 +136,6 @@ struct ContentView: View {
             refresh()
         }
         .onChange(of: copiedToClipboard) { copied in
-
             guard copied else {
                 return
             }
@@ -166,7 +165,6 @@ struct ContentView: View {
 
         switch type {
         case .firmware:
-
             for firmware in filteredFirmwares {
                 let releaseName: String = firmware.name.replacingOccurrences(of: " beta", with: "")
 
@@ -175,7 +173,6 @@ struct ContentView: View {
                 }
             }
         case .installer:
-
             for installer in filteredInstallers {
                 let releaseName: String = installer.name.replacingOccurrences(of: " beta", with: "")
 

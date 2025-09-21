@@ -190,7 +190,6 @@ struct ActivityView: View {
         case .userCancelled:
             return true
         case let .invalidTerminationStatus(status, _, _):
-
             // SIGTERM triggered via Privileged Helper Tool due to user cancellation
             guard status == 15 else {
                 return false

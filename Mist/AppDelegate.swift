@@ -29,7 +29,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func sendUpdateNotification(title: String, body: String, success: Bool, url: URL?) {
         let notificationCenter: UNUserNotificationCenter = .current()
         notificationCenter.getNotificationSettings { settings in
-
             guard [.authorized, .provisional].contains(settings.authorizationStatus) else {
                 return
             }
@@ -51,7 +50,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let request: UNNotificationRequest = .init(identifier: identifier, content: content, trigger: trigger)
 
             notificationCenter.add(request) { error in
-
                 if let error: Error = error {
                     print(error.localizedDescription)
                 }

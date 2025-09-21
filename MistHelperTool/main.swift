@@ -21,7 +21,6 @@ enum HelperToolCommandRunner {
     static func run(_ request: HelperToolCommandRequest) throws -> HelperToolCommandResponse {
         switch request.type {
         case .remove:
-
             guard let path: String = request.arguments.first else {
                 return HelperToolCommandResponse(terminationStatus: 1, standardOutput: nil, standardError: "Invalid URL: \(request.arguments)")
             }
@@ -37,7 +36,6 @@ enum HelperToolCommandRunner {
                 return HelperToolCommandResponse(terminationStatus: 1, standardOutput: nil, standardError: error.localizedDescription)
             }
         case .fileAttributes:
-
             guard
                 let path: String = request.arguments.first,
                 let ownerAccountName: String = request.arguments.last else {
