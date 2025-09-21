@@ -1,0 +1,57 @@
+---
+name: Bug Report
+description: File a bug report to fix something that is not working.
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for taking the time to fill out this bug report! 🙌
+  - type: textarea
+    attributes:
+      label: 🐞 Description
+      description: |
+        Describe clearly and concisely what is not working.
+
+        Please include steps to reproduce the issue.
+      placeholder: |
+        Feature X of Mist is not working:
+
+        1. I opened Mist.app ...
+        2. I clicked on ...
+        3. I waited for ...
+        4. I observed ...
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: ✅ Expected Behaviour
+      description: Describe what should be happening (i.e. the happy path).
+      placeholder: When I open Mist.app and click on ..., I should see ...
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: macOS Version
+      description: What version of macOS are you running?
+      options:
+        - macOS Tahoe 26
+        - macOS Sequoia 15
+        - macOS Sonoma 14 or older
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Mist Version
+      description: |
+        Can you confirm this issue exists in the latest version of Mist?
+
+        Latest version: **0.20.1**
+      options:
+        - label: Yes, I am using the latest version of Mist.
+          required: true
+  - type: textarea
+    attributes:
+      label: ℹ️ Additional Context
+      description: Please provide any additional information that may be helpful.
+      placeholder: Links to documentation, references, screenshots, tools etc.

@@ -1,0 +1,56 @@
+---
+name: Feature Request
+description: Submit a feature request to help improve this project.
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for taking the time to fill out this feature request! 🙌
+  - type: textarea
+    attributes:
+      label: 💡 Description
+      description: Describe clearly and concisely the feature you would like to see implemented.
+      placeholder: When I open Cyprus.app and click on ..., I do not see ...
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: ✅ Proposed Solution
+      description: Describe what you would like to see happen.
+      placeholder: When I open Cyprus.app and click on ..., I should see ...
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 🩹 Alternative Solutions + Workarounds
+      description: If applicable, describe any alternative solutions or approaches you have considered or implemented to workaround the missing feature.
+      placeholder: |
+        I have tried ...
+        I have considered ...
+        I have implemented ...
+  - type: dropdown
+    attributes:
+      label: macOS Version
+      description: What version of macOS are you running?
+      options:
+        - macOS Tahoe 26
+        - macOS Sequoia 15
+        - macOS Sonoma 14 or older
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Mist Version
+      description: |
+        Can you confirm this feature does not exist in the latest version of Mist?
+
+        Latest version: **0.20.1**
+      options:
+        - label: Yes, I am using the latest version of Mist.
+          required: true
+  - type: textarea
+    attributes:
+      label: ℹ️ Additional Context
+      description: Please provide any additional information that may be helpful.
+      placeholder: Links to documentation, references, screenshots, tools etc.
