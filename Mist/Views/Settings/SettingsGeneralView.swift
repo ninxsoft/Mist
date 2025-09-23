@@ -45,8 +45,10 @@ struct SettingsGeneralView: View {
             PaddedDivider()
             SettingsGeneralUpdatesView(sparkleUpdater: sparkleUpdater, enable: $enableAutomaticChecks, interval: $scheduledCheckInterval, width: width)
             PaddedDivider()
-            SettingsGeneralAppIconView(appIcon: $appIcon)
-            PaddedDivider()
+            if #unavailable(macOS 26) {
+                SettingsGeneralAppIconView(appIcon: $appIcon)
+                PaddedDivider()
+            }
             ResetToDefaultButton {
                 reset()
             }

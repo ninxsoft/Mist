@@ -100,6 +100,7 @@
 		398A13222B78BA6D00F96F7E /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A13212B78BA6D00F96F7E /* LogView.swift */; };
 		398A13472B78F22A00F96F7E /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A13462B78F22A00F96F7E /* LogEntry.swift */; };
 		398BE6B52B62450500FE0C29 /* FloatingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398BE6B42B62450500FE0C29 /* FloatingAlert.swift */; };
+		399F36B82E82752400B61274 /* Mist.icon in Resources */ = {isa = PBXBuildFile; fileRef = 399F36B72E82752400B61274 /* Mist.icon */; };
 		39CA25E32941D8BB0030711E /* FileAttributesUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CA25E22941D8BB0030711E /* FileAttributesUpdater.swift */; };
 		39CB5E3D293F5C2E00CFDBB8 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */; };
 		39CB5E3F2941486D00CFDBB8 /* CatalogSeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB5E3E2941486D00CFDBB8 /* CatalogSeedType.swift */; };
@@ -265,6 +266,7 @@
 		398A13212B78BA6D00F96F7E /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		398A13462B78F22A00F96F7E /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
 		398BE6B42B62450500FE0C29 /* FloatingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingAlert.swift; sourceTree = "<group>"; };
+		399F36B72E82752400B61274 /* Mist.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Mist.icon; sourceTree = "<group>"; };
 		39CA25E22941D8BB0030711E /* FileAttributesUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAttributesUpdater.swift; sourceTree = "<group>"; };
 		39CB5E3C293F5C2E00CFDBB8 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		39CB5E3E2941486D00CFDBB8 /* CatalogSeedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSeedType.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				39252A76285A849F00956C74 /* AppDelegate.swift */,
 				390451AD2856E1DA00E0B563 /* Assets.xcassets */,
 				39CF55A628614F8A006FB5D2 /* Info.plist */,
+				399F36B72E82752400B61274 /* Mist.icon */,
 				390451A92856E1D900E0B563 /* MistApp.swift */,
 				3935F47728643B1F00760AB0 /* UserNotificationCenterDelegate.swift */,
 				390451BD2856E32A00E0B563 /* Extensions */,
@@ -719,6 +722,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				390451AE2856E1DA00E0B563 /* Assets.xcassets in Resources */,
+				399F36B82E82752400B61274 /* Mist.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1106,14 +1110,14 @@
 		390451B62856E1DA00E0B563 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon - Sequoia";
+				ASSETCATALOG_COMPILER_APPICON_NAME = Mist;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.20.1;
+				CURRENT_PROJECT_VERSION = 0.30;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7K3HVCLV7Z;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1129,7 +1133,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.20.1;
+				MARKETING_VERSION = 0.30;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1140,14 +1144,14 @@
 		390451B72856E1DA00E0B563 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon - Sequoia";
+				ASSETCATALOG_COMPILER_APPICON_NAME = Mist;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.20.1;
+				CURRENT_PROJECT_VERSION = 0.30;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7K3HVCLV7Z;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1163,7 +1167,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.20.1;
+				MARKETING_VERSION = 0.30;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

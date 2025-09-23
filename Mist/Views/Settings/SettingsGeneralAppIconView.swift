@@ -13,20 +13,31 @@ struct SettingsGeneralAppIconView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Picker("App Icon:", selection: $appIcon) {
-                    ForEach(AppIcon.allCases) { icon in
-                        VStack {
-                            ScaledImage(name: icon.previewName, length: length)
-                            Text(icon.description)
-                        }
-                        .padding(.trailing)
-                        .tag(icon)
+            Picker("App Icon:", selection: $appIcon) {
+                ForEach(AppIcon.allCases.reversed().prefix(3)) { icon in
+                    VStack {
+                        ScaledImage(name: icon.previewName, length: length)
+                        Text(icon.description)
                     }
+                    .padding(.trailing)
+                    .tag(icon)
                 }
-                .pickerStyle(.radioGroup)
-                .horizontalRadioGroupLayout()
             }
+            .pickerStyle(.radioGroup)
+            .horizontalRadioGroupLayout()
+            Picker("App Icon:", selection: $appIcon) {
+                ForEach(AppIcon.allCases.reversed().suffix(2)) { icon in
+                    VStack {
+                        ScaledImage(name: icon.previewName, length: length)
+                        Text(icon.description)
+                    }
+                    .padding(.trailing)
+                    .tag(icon)
+                }
+            }
+            .labelsHidden()
+            .pickerStyle(.radioGroup)
+            .horizontalRadioGroupLayout()
         }
         .onChange(of: appIcon) { icon in
             setAppIcon(appIcon: icon)

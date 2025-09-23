@@ -8,12 +8,13 @@
 import Foundation
 
 enum AppIcon: String, CaseIterable, Identifiable {
-    case monterey = "Monterey"
-    case ventura = "Ventura"
-    case sonoma = "Sonoma"
-    case sequoia = "Sequoia"
+    case monterey = "macOS Monterey"
+    case ventura = "macOS Ventura"
+    case sonoma = "macOS Sonoma"
+    case sequoia = "macOS Sequoia"
+    case tahoe = "macOS Tahoe"
 
-    static let `default`: AppIcon = .sequoia
+    static let `default`: AppIcon = .tahoe
 
     var id: String {
         rawValue
