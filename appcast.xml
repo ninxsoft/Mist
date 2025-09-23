@@ -6,9 +6,9 @@
     <language>en</language>
     <link>https://github.com/ninxsoft/Mist</link>
     <item>
-      <title>Version 0.20.1</title>
+      <title>Version 0.30</title>
       <link>https://github.com/ninxsoft/Mist</link>
-      <sparkle:version>0.20.1</sparkle:version>
+      <sparkle:version>0.30</sparkle:version>
       <sparkle:fullReleaseNotesLink>https://github.com/ninxsoft/Mist/blob/main/CHANGELOG.md</sparkle:fullReleaseNotesLink>
       <description>
         <![CDATA[
@@ -22,6 +22,12 @@
               text-indent: -0.75rem;
               margin-top: 15px;
               margin-bottom: 15px;
+            }
+            .styled-0-30 li::before {
+              content: "🆕 ";
+            }
+            .styled-0-30 li:nth-child(n + 3):before {
+              content: "✅ ";
             }
             .styled-0-20-1 li::before {
               content: "✅ ";
@@ -114,6 +120,24 @@
               content: "🆕 ";
             }
           </style>
+          <h3>Version 0.30</h3>
+          <ul class="styled styled-0-30">
+            <li>Added support for <strong>macOS Tahoe 26</strong></li>
+            <li>Updated app icon to support new appearances on macOS Tahoe</li>
+            <li>
+              Fixed a bug that prevented macOS Installers from being created on devices
+              running <strong>macOS Sonoma 15</strong> or later
+            </li>
+            <li>
+              Bumped
+              <a href="https://github.com/sparkle-project/Sparkle">Sparkle</a> version to
+              <strong>2.8.0</strong>
+            </li>
+            <li>
+              Bumped <a href="https://github.com/jpsim/Yams">Yams</a> version to
+              <strong>6.1.0</strong>
+            </li>
+          </ul>
           <h3>Version 0.20.1</h3>
           <ul class="styled styled-0-20-1">
             <li>
@@ -444,12 +468,12 @@
           </ul>
         ]]>
       </description>
-      <pubDate>Sat, 05 Oct 2024 12:00:00 +0000</pubDate>
-      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.20.1/Mist.0.20.1.pkg"
+      <pubDate>Tue, 23 Sep 2025 12:00:00 +0000</pubDate>
+      <enclosure url="https://github.com/ninxsoft/Mist/releases/download/v0.30/Mist.0.30.pkg"
                  type="application/octet-stream"
                  sparkle:installationType="package"
-                 sparkle:edSignature="d4xWS3yALhkWTU8+UoKm2t8DpcCY6bZBR65sn62s66WXgU2xkLBp+6R6qVUOiBInX1vdXvVR4w/hPUvQc3brDg=="
-                 length="9185710"
+                 sparkle:edSignature="AcXm9UCIhG8UhUF1NpbsbDyGDjxdEtcT+5vYEdkB5h2OQh75tX6WQFnga+eFGeX58XlJHzTri6ebiOApodRGCw=="
+                 length="13380352"
       />
     </item>
   </channel>
