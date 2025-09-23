@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.30](https://github.com/ninxsoft/Mist/releases/tag/v0.30) - 2025-09-23
+
+- Added support for **macOS Tahoe 26** :tada:
+- Fixed a bug that prevented macOS Installers from being created on devices running **macOS Sonoma 15** or later - thanks [gregneagle](https://github.com/gregneagle)!
+- Updated app icon to support new appearances on macOS Tahoe
+- Bumped [Sparkle](https://github.com/sparkle-project/Sparkle) version to **2.8.0**
+- Bumped [Yams](https://github.com/jpsim/Yams) version to **6.1.0**
+
 ## [0.20.1](https://github.com/ninxsoft/Mist/releases/tag/v0.20.1) - 2024-10-05
 
 - Fixed a bug that resulted in macOS installers being created that were only **~500MB** in size
