@@ -126,7 +126,7 @@
             <li>Updated app icon to support new appearances on macOS Tahoe</li>
             <li>
               Fixed a bug that prevented macOS Installers from being created on devices
-              running <strong>macOS Sonoma 15</strong> or later
+              running <strong>macOS Sequoia 15</strong> or later
             </li>
             <li>
               Bumped
