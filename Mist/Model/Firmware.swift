@@ -21,12 +21,12 @@ struct Firmware: Decodable, Hashable, Identifiable {
 
     static var example: Firmware {
         Firmware(
-            version: "13.0",
-            build: "22A380",
-            shasum: "348f49da377d8c394672d1b2800d23452a1d6215",
-            size: 12_197_669_257,
-            url: "https://updates.cdn-apple.com/2022FallFCS/fullrestores/012-92188/2C38BCD1-2BFF-4A10-B358-94E8E28BE805/UniversalMac_13.0_22A380_Restore.ipsw",
-            date: "2022-10-24T17:20:22Z",
+            version: "26.0",
+            build: "25A354",
+            shasum: "4f724c214e6925a450a38ced592bfadaccbae696",
+            size: 18_267_586_270,
+            url: "https://updates.cdn-apple.com/2025FallFCS/fullrestores/093-37622/CE01FAB2-7F26-48EE-AEE4-5E57A7F6D8BB/UniversalMac_26.0_25A354_Restore.ipsw",
+            date: "2025-09-15T17:27:42Z",
             signed: true,
             compatible: true
         )
@@ -51,7 +51,9 @@ struct Firmware: Decodable, Hashable, Identifiable {
     var name: String {
         var name: String = ""
 
-        if version.range(of: "^15", options: .regularExpression) != nil {
+        if version.range(of: "^26", options: .regularExpression) != nil {
+            name = "macOS Tahoe"
+        } else if version.range(of: "^15", options: .regularExpression) != nil {
             name = "macOS Sequoia"
         } else if version.range(of: "^14", options: .regularExpression) != nil {
             name = "macOS Sonoma"

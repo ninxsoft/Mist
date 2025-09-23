@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Application - macOS Tahoe.png",
+      "idiom" : "mac"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -25,95 +25,63 @@ struct Installer: Decodable, Hashable, Identifiable {
 
     static var example: Installer {
         Installer(
-            id: "012-92138",
-            version: "13.0",
-            build: "22A380",
-            date: "2022-10-25",
-            distributionURL: "https://swdist.apple.com/content/downloads/25/16/012-92138-A_KGGGN26YQB/d0kr042ixfvkboeft8qt2i3aclr5bx1e6p/012-92138.English.dist",
-            distributionSize: 7_467,
+            id: "093-37779",
+            version: "26.0",
+            build: "25A354",
+            date: "2025-09-15",
+            distributionURL: "https://swdist.apple.com/content/downloads/26/38/093-37779-A_Y4733G5GHI/adlxnkoqzyrrzfl1r5krg7ql0cod8vpl5e/093-37779.English.dist",
+            distributionSize: 9_969,
             packages: [
                 Package(
-                    url: "https://swcdn.apple.com/content/downloads/25/16/012-92138-A_KGGGN26YQB/d0kr042ixfvkboeft8qt2i3aclr5bx1e6p/MajorOSInfo.pkg",
-                    size: 1_334_737,
-                    integrityDataURL: "https://swcdn.apple.com/content/downloads/25/16/012-92138-A_KGGGN26YQB/d0kr042ixfvkboeft8qt2i3aclr5bx1e6p/MajorOSInfo.pkg.integrityDataV1",
+                    url: "https://swcdn.apple.com/content/downloads/26/38/093-37779-A_Y4733G5GHI/adlxnkoqzyrrzfl1r5krg7ql0cod8vpl5e/com_apple_MobileAsset_MacSoftwareUpdate.plist",
+                    size: 1_275_173,
+                    // swiftlint:disable:next line_length
+                    integrityDataURL: "https://swcdn.apple.com/content/downloads/26/38/093-37779-A_Y4733G5GHI/adlxnkoqzyrrzfl1r5krg7ql0cod8vpl5e/com_apple_MobileAsset_MacSoftwareUpdate.plist.integrityDataV1",
                     integrityDataSize: 104
                 ),
                 Package(
-                    url: "https://swcdn.apple.com/content/downloads/25/16/012-92138-A_KGGGN26YQB/d0kr042ixfvkboeft8qt2i3aclr5bx1e6p/InstallAssistant.pkg",
-                    size: 12_151_608_300,
-                    integrityDataURL: "https://swcdn.apple.com/content/downloads/25/16/012-92138-A_KGGGN26YQB/d0kr042ixfvkboeft8qt2i3aclr5bx1e6p/InstallAssistant.pkg.integrityDataV1",
-                    integrityDataSize: 41_792
-                ),
-                Package(
-                    url: "https://swcdn.apple.com/content/downloads/25/16/012-92138-A_KGGGN26YQB/d0kr042ixfvkboeft8qt2i3aclr5bx1e6p/BuildManifest.plist",
-                    size: 3_355_762,
-                    integrityDataURL: "https://swcdn.apple.com/content/downloads/25/16/012-92138-A_KGGGN26YQB/d0kr042ixfvkboeft8qt2i3aclr5bx1e6p/BuildManifest.plist.integrityDataV1",
-                    integrityDataSize: 104
-                ),
-                Package(
-                    url: "https://swcdn.apple.com/content/downloads/25/16/012-92138-A_KGGGN26YQB/d0kr042ixfvkboeft8qt2i3aclr5bx1e6p/InstallInfo.plist",
+                    url: "https://swcdn.apple.com/content/downloads/26/38/093-37779-A_Y4733G5GHI/adlxnkoqzyrrzfl1r5krg7ql0cod8vpl5e/InstallInfo.plist",
                     size: 181,
-                    integrityDataURL: "https://swcdn.apple.com/content/downloads/25/16/012-92138-A_KGGGN26YQB/d0kr042ixfvkboeft8qt2i3aclr5bx1e6p/InstallInfo.plist.integrityDataV1",
+                    integrityDataURL: "https://swcdn.apple.com/content/downloads/26/38/093-37779-A_Y4733G5GHI/adlxnkoqzyrrzfl1r5krg7ql0cod8vpl5e/InstallInfo.plist.integrityDataV1",
                     integrityDataSize: 104
                 ),
                 Package(
-                    url: "https://swcdn.apple.com/content/downloads/25/16/012-92138-A_KGGGN26YQB/d0kr042ixfvkboeft8qt2i3aclr5bx1e6p/UpdateBrain.zip",
-                    size: 3_450_528,
-                    integrityDataURL: "https://swcdn.apple.com/content/downloads/25/16/012-92138-A_KGGGN26YQB/d0kr042ixfvkboeft8qt2i3aclr5bx1e6p/UpdateBrain.zip.integrityDataV1",
+                    url: "https://swcdn.apple.com/content/downloads/26/38/093-37779-A_Y4733G5GHI/adlxnkoqzyrrzfl1r5krg7ql0cod8vpl5e/InstallAssistant.pkg",
+                    size: 16_947_861_409,
+                    integrityDataURL: "https://swcdn.apple.com/content/downloads/26/38/093-37779-A_Y4733G5GHI/adlxnkoqzyrrzfl1r5krg7ql0cod8vpl5e/InstallAssistant.pkg.integrityDataV1",
+                    integrityDataSize: 58_280
+                ),
+                Package(
+                    url: "https://swcdn.apple.com/content/downloads/26/38/093-37779-A_Y4733G5GHI/adlxnkoqzyrrzfl1r5krg7ql0cod8vpl5e/MajorOSInfo.pkg",
+                    size: 1_365_732,
+                    integrityDataURL: "https://swcdn.apple.com/content/downloads/26/38/093-37779-A_Y4733G5GHI/adlxnkoqzyrrzfl1r5krg7ql0cod8vpl5e/MajorOSInfo.pkg.integrityDataV1",
                     integrityDataSize: 104
                 ),
                 Package(
-                    url: "https://swcdn.apple.com/content/downloads/25/16/012-92138-A_KGGGN26YQB/d0kr042ixfvkboeft8qt2i3aclr5bx1e6p/Info.plist",
-                    size: 5_042,
-                    integrityDataURL: "https://swcdn.apple.com/content/downloads/25/16/012-92138-A_KGGGN26YQB/d0kr042ixfvkboeft8qt2i3aclr5bx1e6p/Info.plist.integrityDataV1",
+                    url: "https://swcdn.apple.com/content/downloads/26/38/093-37779-A_Y4733G5GHI/adlxnkoqzyrrzfl1r5krg7ql0cod8vpl5e/UpdateBrain.zip",
+                    size: 4_264_697,
+                    integrityDataURL: "https://swcdn.apple.com/content/downloads/26/38/093-37779-A_Y4733G5GHI/adlxnkoqzyrrzfl1r5krg7ql0cod8vpl5e/UpdateBrain.zip.integrityDataV1",
                     integrityDataSize: 104
                 )
             ],
             boardIDs: [
-                "Mac-0CFF9C7C2B63DF8D",
                 "Mac-112818653D3AABFC",
-                "Mac-1E7E29AD0135F9BC",
-                "Mac-226CB3C6A851A671",
                 "Mac-27AD2F918AE68F61",
-                "Mac-4B682C642B45593E",
-                "Mac-53FDB3D8DB8CA971",
-                "Mac-551B86E5744E2388",
                 "Mac-5F9802EFE386AA28",
-                "Mac-63001698E7A34814",
-                "Mac-77F17D7DA9285301",
-                "Mac-7BA5B2D9E42DDD94",
-                "Mac-7BA5B2DFE22DDD8C",
-                "Mac-827FAC58A8FDFA22",
-                "Mac-827FB448E656EC26",
-                "Mac-937A206F2EE63C01",
                 "Mac-A61BADE1FDAD7B05",
-                "Mac-AA95B1DDAB278B95",
                 "Mac-AF89B6D9451A490B",
-                "Mac-B4831CEBD52A0C4C",
-                "Mac-BE088AF8C5EB4FA2",
-                "Mac-CAD6701F7CEA0921",
                 "Mac-CFF7D910A743CAAF",
-                "Mac-E1008331FDC96864",
-                "Mac-E7203C0F68AA0004",
-                "Mac-EE2EBD4B90B839A8"
+                "Mac-E1008331FDC96864"
             ],
             deviceIDs: [
-                "J132AP",
-                "J137AP",
-                "J140AAP",
-                "J140KAP",
                 "J152FAP",
                 "J160AP",
-                "J174AP",
+                "J180DAP",
                 "J185AP",
                 "J185FAP",
-                "J213AP",
                 "J214AP",
                 "J214KAP",
                 "J215AP",
-                "J223AP",
-                "J230AP",
-                "J230KAP",
                 "J274AP",
                 "J293AP",
                 "J313AP",
@@ -124,11 +92,42 @@ struct Installer: Decodable, Hashable, Identifiable {
                 "J375CAP",
                 "J375DAP",
                 "J413AP",
+                "J414CAP",
+                "J414SAP",
+                "J415AP",
+                "J416CAP",
+                "J416SAP",
+                "J433AP",
+                "J434AP",
                 "J456AP",
                 "J457AP",
+                "J473AP",
+                "J474SAP",
+                "J475CAP",
+                "J475DAP",
                 "J493AP",
-                "J680AP",
-                "J780AP",
+                "J504AP",
+                "J514CAP",
+                "J514MAP",
+                "J514SAP",
+                "J516CAP",
+                "J516MAP",
+                "J516SAP",
+                "J575CAP",
+                "J575DAP",
+                "J604AP",
+                "J613AP",
+                "J614CAP",
+                "J614SAP",
+                "J615AP",
+                "J616CAP",
+                "J616SAP",
+                "J623AP",
+                "J624AP",
+                "J713AP",
+                "J715AP",
+                "J773GAP",
+                "J773SAP",
                 "VMA2MACOSAP",
                 "VMM-X86_64",
                 "X589AMLUAP",
@@ -655,7 +654,9 @@ struct Installer: Decodable, Hashable, Identifiable {
     var name: String {
         var name: String = ""
 
-        if version.range(of: "^15", options: .regularExpression) != nil {
+        if version.range(of: "^26", options: .regularExpression) != nil {
+            name = "macOS Tahoe"
+        } else if version.range(of: "^15", options: .regularExpression) != nil {
             name = "macOS Sequoia"
         } else if version.range(of: "^14", options: .regularExpression) != nil {
             name = "macOS Sonoma"
@@ -734,6 +735,10 @@ struct Installer: Decodable, Hashable, Identifiable {
         (sierraOrOlder ? [] : [Package(url: distributionURL, size: distributionSize, integrityDataURL: nil, integrityDataSize: nil)]) + packages.sorted { $0.filename < $1.filename }
     }
 
+    var containsInstallAssistantPackage: Bool {
+        packages.contains { $0.filename == "InstallAssistant.pkg" }
+    }
+
     var temporaryDiskImageMountPointURL: URL {
         URL(fileURLWithPath: "/Volumes/\(id)")
     }
@@ -778,7 +783,7 @@ struct Installer: Decodable, Hashable, Identifiable {
     }
 
     var bigSurOrNewer: Bool {
-        version.range(of: "^1[1-9]\\.", options: .regularExpression) != nil
+        version.range(of: "^(1[1-5]|26)\\.", options: .regularExpression) != nil
     }
 
     var beta: Bool {

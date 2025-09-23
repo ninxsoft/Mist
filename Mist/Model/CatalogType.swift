@@ -6,6 +6,7 @@
 //
 
 enum CatalogType: String, CaseIterable, Comparable, Decodable {
+    case tahoe = "macOS Tahoe"
     case sequoia = "macOS Sequoia"
     case sonoma = "macOS Sonoma"
     case ventura = "macOS Ventura"
@@ -22,16 +23,18 @@ enum CatalogType: String, CaseIterable, Comparable, Decodable {
 
     private var sortOrder: Int {
         switch self {
-        case .sequoia:
+        case .tahoe:
             0
-        case .sonoma:
+        case .sequoia:
             1
-        case .ventura:
+        case .sonoma:
             2
-        case .monterey:
+        case .ventura:
             3
-        case .bigSur:
+        case .monterey:
             4
+        case .bigSur:
+            5
         }
     }
 
@@ -42,6 +45,20 @@ enum CatalogType: String, CaseIterable, Comparable, Decodable {
     // swiftlint:disable:next cyclomatic_complexity function_body_length
     func url(for seedType: CatalogSeedType) -> String {
         switch self {
+        case .tahoe:
+            switch seedType {
+            case .standard:
+                "https://swscan.apple.com/content/catalogs/others/index-26-15-14-13-12-10.16-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog.gz"
+            case .customer:
+                // swiftlint:disable:next line_length
+                "https://swscan.apple.com/content/catalogs/others/index-26customerseed-26-15-14-13-12-10.16-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog.gz"
+            case .developer:
+                // swiftlint:disable:next line_length
+                "https://swscan.apple.com/content/catalogs/others/index-26seed-26-15-14-13-12-10.16-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog.gz"
+            case .public:
+                // swiftlint:disable:next line_length
+                "https://swscan.apple.com/content/catalogs/others/index-26beta-26-15-14-13-12-10.16-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog.gz"
+            }
         case .sequoia:
             switch seedType {
             case .standard:

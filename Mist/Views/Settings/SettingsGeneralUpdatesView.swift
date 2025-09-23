@@ -17,7 +17,7 @@ struct SettingsGeneralUpdatesView: View {
         VStack(alignment: .leading) {
             HStack {
                 Toggle(isOn: $enable) {
-                    Text("Automatically check for app updates:")
+                    Text("Automatically check app updates:")
                 }
                 Picker("Scheduled Check Interval", selection: $interval) {
                     Text("Once a day")

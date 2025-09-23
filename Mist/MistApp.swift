@@ -26,7 +26,9 @@ struct MistApp: App {
                     hideZoomButton()
                 }
                 .onAppear {
-                    setAppIcon()
+                    if #unavailable(macOS 26) {
+                        setAppIcon()
+                    }
                 }
         }
         .fixedWindow()
