@@ -46,7 +46,7 @@ body:
       description: |
         Can you confirm this issue exists in the latest version of Mist?
 
-        Latest version: **0.20.1**
+        Latest version: **0.30**
       options:
         - label: Yes, I am using the latest version of Mist.
           required: true
