@@ -3,7 +3,7 @@ on: workflow_dispatch
 jobs:
   build:
     name: Draft New Release
-    runs-on: macos-14
+    runs-on: macos-15
     env:
       APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE: ${{ secrets.APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE }}
       APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE_PASSWORD }}
