@@ -11,14 +11,14 @@ body:
     attributes:
       label: 💡 Description
       description: Describe clearly and concisely the feature you would like to see implemented.
-      placeholder: When I open Cyprus.app and click on ..., I do not see ...
+      placeholder: When I open Mist.app and click on ..., I do not see ...
     validations:
       required: true
   - type: textarea
     attributes:
       label: ✅ Proposed Solution
       description: Describe what you would like to see happen.
-      placeholder: When I open Cyprus.app and click on ..., I should see ...
+      placeholder: When I open Mist.app and click on ..., I should see ...
     validations:
       required: true
   - type: textarea
