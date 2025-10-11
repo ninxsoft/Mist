@@ -14,6 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: 5.10
       - uses: m-takuma/setup-swiftlint@1.0.0
         with:
           swiftlint-version: 0.61.0

@@ -20,6 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: 5.10
       - name: Install Apple Developer ID Certificates
         run: |
           APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE_PATH="$RUNNER_TEMP/apple-developer-id-application-certificate.p12"
