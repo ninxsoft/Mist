@@ -9,7 +9,7 @@ import Foundation
 
 /// Helper struct to convert Disk Images to ISOs.
 enum ISOConverter {
-    /// Convert a Disk Image to an ISO.
+    /// Convert a Disk Image to an true ISO format image.
     ///
     /// - Parameters:
     ///   - source:      The URL of the Disk Image to be converted.
@@ -17,7 +17,7 @@ enum ISOConverter {
     ///
     /// - Throws: An `Error` if the command failed to execute.
     static func convert(_ source: URL, destination: URL) async throws {
-        let arguments: [String] = ["hdiutil", "convert", source.path, "-format", "UDTO", "-o", destination.path]
+        let arguments: [String] = ["hdiutil", "makehybrid", source.path, "-hfs", "-udf", "-o", destination.path]
         let response: HelperToolCommandResponse = try ShellExecutor.shared.execute(arguments)
 
         guard response.terminationStatus == 0 else {
