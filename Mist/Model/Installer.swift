@@ -746,11 +746,6 @@ struct Installer: Decodable, Hashable, Identifiable {
     var temporaryInstallerURL: URL {
         temporaryDiskImageMountPointURL.appendingPathComponent("Applications/Install \(name).app")
     }
-    
-    // swiftlint:disable:next identifier_name
-    var temporaryInstallerWithAdHocCodeSignaturesURL: URL {
-        URL(fileURLWithPath: "\(NSTemporaryDirectory())Install \(name).ad-hoc-code-signatures.app")
-    }
 
     var temporaryISOMountPointURL: URL {
         URL(fileURLWithPath: "/Volumes/Install \(name)")
