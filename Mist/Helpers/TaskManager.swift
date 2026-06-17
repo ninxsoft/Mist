@@ -495,7 +495,6 @@ class TaskManager: ObservableObject {
                         architecture == .appleSilicon, !installer.bigSurOrNewer {
                         for url in [
                             temporaryInstallerWithAdHocCodeSignaturesURL,
-                            installer.temporaryISOInstallerWithAdHocCodeSignaturesURL,
                             installer.temporaryISOInstallerURL
                         ] where FileManager.default.fileExists(atPath: url.path) {
                             LogManager.shared.log(.info, message: "Deleting '\(url.path)'...")

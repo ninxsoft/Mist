@@ -754,11 +754,6 @@ struct Installer: Decodable, Hashable, Identifiable {
     var temporaryISOInstallerURL: URL {
         temporaryISOMountPointURL.appendingPathComponent("Install \(name).app")
     }
-    
-    // swiftlint:disable:next identifier_name
-    var temporaryISOInstallerWithAdHocCodeSignaturesURL: URL {
-        temporaryISOMountPointURL.appendingPathComponent("Install \(name).ad-hoc-code-signatures.app")
-    }
 
     var dictionary: [String: Any] {
         [
