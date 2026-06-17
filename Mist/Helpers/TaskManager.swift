@@ -452,7 +452,7 @@ class TaskManager: ObservableObject {
         let createInstallMediaURL: URL = installer.temporaryInstallerURL.appendingPathComponent(createInstallMediaAppendingPathComponent)
         let temporaryCDRURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).cdr")
         let isoURL: URL = destinationURL.appendingPathComponent(filename.stringWithSubstitutions(name: installer.name, version: installer.version, build: installer.build))
-        let temporaryInstallerWithAdHocCodeSignaturesURL: URL = temporaryDirectoryURL.appendingPathComponent("Install \(installer.name).app")
+        let temporaryInstallerWithAdHocCodeSignaturesURL: URL = temporaryDirectoryURL.appendingPathComponent("Install \(installer.name).app") // Same name for ad-hoc signed app allows ISO to boot without modifying plists
 
         if installer.mavericksOrNewer {
             return [
