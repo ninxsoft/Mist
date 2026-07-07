@@ -58,7 +58,7 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
 
 ## Build Requirements
 
-- Swift **5.10** | Xcode **15.0**.
+- Swift **6.3.1** | Xcode **26.0**.
 - Runs on macOS Monterey **12.0** and later.
 
 ## Download
@@ -76,7 +76,7 @@ A Mac utility that automatically downloads macOS Firmwares / Installers:
 
 ## License
 
-> Copyright © 2021-2025 Nindi Gill
+> Copyright © 2021-2026 Nindi Gill
 >
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal

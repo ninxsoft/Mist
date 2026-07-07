@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SettingsApplicationsView: View {
     private static let imageNames: [String] = [
+        "Application - macOS Golden Gate",
         "Application - macOS Tahoe",
         "Application - macOS Sequoia",
         "Application - macOS Sonoma",

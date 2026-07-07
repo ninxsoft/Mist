@@ -8,7 +8,7 @@
 import XCTest
 
 final class MistTests: XCTestCase {
-    func test() throws {
+    func test() {
         XCTAssertTrue(true)
     }
 }

@@ -3,7 +3,7 @@ on: workflow_dispatch
 jobs:
   build:
     name: Draft New Release
-    runs-on: macos-15
+    runs-on: macos-26
     env:
       APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE: ${{ secrets.APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE }}
       APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE_PASSWORD }}
@@ -18,10 +18,10 @@ jobs:
       APPLE_DEVELOPER_TEAM_ID: "7K3HVCLV7Z"
       KEYCHAIN_FILE: "apple-developer.keychain-db"
     steps:
-      - uses: actions/checkout@v5
-      - uses: swift-actions/setup-swift@v2
+      - uses: actions/checkout@v6
+      - uses: swift-actions/setup-swift@v3
         with:
-          swift-version: 5.10.1
+          swift-version: "6.3.1"
       - name: Install Apple Developer ID Certificates
         run: |
           APPLE_DEVELOPER_ID_APPLICATION_CERTIFICATE_PATH="$RUNNER_TEMP/apple-developer-id-application-certificate.p12"
@@ -86,7 +86,7 @@ jobs:
           xcrun notarytool submit "${{ env.PACKAGE_FILENAME }}" --apple-id "$APPLE_DEVELOPER_APPLE_ID" --password "$APPLE_DEVELOPER_APPLE_ID_PASSWORD" --team-id "$APPLE_DEVELOPER_TEAM_ID" --wait
           xcrun stapler staple "${{ env.PACKAGE_FILENAME }}"
       - name: Draft New Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           name: ${{ env.APP_VERSION }}
           tag_name: v${{ env.APP_VERSION }}

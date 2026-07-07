@@ -133,7 +133,7 @@ struct ListRowFirmware: View {
         savePanel.canSelectHiddenExtension = true
         savePanel.isExtensionHidden = false
 
-        Task {
+        _ = Task {
             let response: NSApplication.ModalResponse = savePanel.runModal()
 
             guard response == .OK else {

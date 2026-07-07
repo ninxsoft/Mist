@@ -13,8 +13,9 @@ enum AppIcon: String, CaseIterable, Identifiable {
     case sonoma = "macOS Sonoma"
     case sequoia = "macOS Sequoia"
     case tahoe = "macOS Tahoe"
+    case goldenGate = "macOS Golden Gate"
 
-    static let `default`: AppIcon = .tahoe
+    static let `default`: AppIcon = .goldenGate
 
     var id: String {
         rawValue

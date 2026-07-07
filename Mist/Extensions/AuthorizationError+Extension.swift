@@ -7,7 +7,7 @@
 
 import Authorized
 
-extension AuthorizationError: Equatable {
+extension AuthorizationError: @retroactive Equatable {
     public static func == (lhs: AuthorizationError, rhs: AuthorizationError) -> Bool {
         lhs.localizedDescription == rhs.localizedDescription
     }

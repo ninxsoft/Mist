@@ -33,7 +33,7 @@ extension Dictionary where Key == String {
         let signedString: String = "\(signed ? "YES" : "NO")"
         let betaString: String = "\(beta ? "YES" : "NO")"
 
-        let string: String = [
+        return [
             nameString,
             versionString,
             buildString,
@@ -44,7 +44,6 @@ extension Dictionary where Key == String {
             signedString,
             betaString
         ].joined(separator: ",") + "\n"
-        return string
     }
 
     /// Provides an installer CSV string representation.
@@ -72,7 +71,7 @@ extension Dictionary where Key == String {
         let compatibleString: String = "\(compatible ? "YES" : "NO")"
         let betaString: String = "\(beta ? "YES" : "NO")"
 
-        let string: String = [
+        return [
             identifierString,
             nameString,
             versionString,
@@ -82,6 +81,5 @@ extension Dictionary where Key == String {
             compatibleString,
             betaString
         ].joined(separator: ",") + "\n"
-        return string
     }
 }
