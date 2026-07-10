@@ -239,7 +239,7 @@ class TaskManager: ObservableObject {
     ) throws -> [(section: MistTaskSection, tasks: [MistTask])] {
         let cacheDirectoryURL: URL = .init(fileURLWithPath: cacheDirectory).appendingPathComponent(installer.id)
         let temporaryDirectoryURL: URL = .init(fileURLWithPath: .temporaryDirectory)
-        let taskGroups: [(section: MistTaskSection, tasks: [MistTask])] = try [
+        return try [
             (
                 section: .download,
                 tasks: downloadTasks(for: installer, cacheDirectory: cacheDirectoryURL, retries: retries, delay: retryDelay)
@@ -262,8 +262,6 @@ class TaskManager: ObservableObject {
                 )
             )
         ]
-
-        return taskGroups
     }
 
     private static func downloadTasks(for installer: Installer, cacheDirectory cacheDirectoryURL: URL, retries: Int, delay retryDelay: Int) throws -> [MistTask] {
@@ -596,7 +594,7 @@ class TaskManager: ObservableObject {
         let installerNameAppendingPathComponent: String = "Install \(installer.name).app" // Same name for ad-hoc signed app allows installer to boot without modifying plists
         let temporaryInstallerWithAdHocCodeSignaturesURL: URL = temporaryDirectoryURL.appendingPathComponent(installerNameAppendingPathComponent)
         let bootableInstallerURL: URL = mountPointURL.deletingLastPathComponent().appendingPathComponent("Install \(installer.name)").appendingPathComponent(installerNameAppendingPathComponent)
-        let tasks: [MistTask] = [
+        return [
             MistTask(type: .create, description: "Bootable Installer") {
                 // Workaround to make macOS Sierra 10.12 createinstallmedia work
                 if installer.version.hasPrefix("10.12") {
@@ -639,8 +637,6 @@ class TaskManager: ObservableObject {
                 }
             }
         ]
-
-        return tasks
     }
 
     private static func cleanupTasks(mountPoint mountPointURL: URL, temporaryDirectory temporaryDirectoryURL: URL, cacheDownloads: Bool, cacheDirectory cacheDirectoryURL: URL) -> [MistTask] {

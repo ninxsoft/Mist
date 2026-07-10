@@ -168,7 +168,7 @@ struct ListRowInstaller: View {
         openPanel.accessoryView = NSHostingView(rootView: InstallerExportView(installer: installer, exports: $exports))
         openPanel.isAccessoryViewDisclosed = true
 
-        Task {
+        _ = Task {
             let response: NSApplication.ModalResponse = openPanel.runModal()
 
             guard response == .OK else {
@@ -204,7 +204,7 @@ struct ListRowInstaller: View {
             return
         }
 
-        Task {
+        _ = Task {
             taskManager.taskGroups = try TaskManager.taskGroups(
                 for: installer,
                 cacheDownloads: cacheDownloads,
@@ -334,7 +334,7 @@ struct ListRowInstaller: View {
             Alert(
                 title: Text("Cache directory settings incorrect!"),
                 message: Text(cacheDirectoryMessage),
-                primaryButton: .default(Text("Repair...")) { Task { try await repairCacheDirectoryOwnershipAndPermissions() } },
+                primaryButton: .default(Text("Repair...")) { _ = Task { try await repairCacheDirectoryOwnershipAndPermissions() } },
                 secondaryButton: .default(Text("Cancel"))
             )
         case .error:

@@ -17,7 +17,7 @@ struct Catalog: Identifiable, Decodable, Equatable {
     }
 
     static var example: Catalog {
-        Catalog(type: .tahoe, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)
+        Catalog(type: .goldenGate, standard: true, customerSeed: false, developerSeed: false, publicSeed: false)
     }
 
     var id: UUID = .init()

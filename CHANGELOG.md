@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.40](https://github.com/ninxsoft/Mist/releases/tag/v0.40) - 2026-07-07
+
+- Added support for **macOS Golden Gate 27** :tada:
+- Updated app icon to support new appearances on macOS Golden Gate
+- Bumped [Sparkle](https://github.com/sparkle-project/Sparkle) version to **2.9.4**
+- Bumped [Yams](https://github.com/jpsim/Yams) version to **6.2.2**
+
 ## [0.30](https://github.com/ninxsoft/Mist/releases/tag/v0.30) - 2025-09-23
 
 - Added support for **macOS Tahoe 26** :tada:

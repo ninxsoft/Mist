@@ -677,7 +677,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 2600;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
 					390451A52856E1D900E0B563 = {
 						CreatedOnToolsVersion = 14.0;
@@ -1117,7 +1117,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.30;
+				CURRENT_PROJECT_VERSION = 0.40;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7K3HVCLV7Z;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1133,7 +1133,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.30;
+				MARKETING_VERSION = 0.40;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1151,7 +1151,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.30;
+				CURRENT_PROJECT_VERSION = 0.40;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7K3HVCLV7Z;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1167,7 +1167,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.30;
+				MARKETING_VERSION = 0.40;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1334,7 +1334,7 @@
 			repositoryURL = "https://github.com/jpsim/Yams";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.1.0;
+				minimumVersion = 6.2.2;
 			};
 		};
 		3935F4C3286B546A00760AB0 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
@@ -1342,7 +1342,7 @@
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.8.0;
+				minimumVersion = 2.9.4;
 			};
 		};
 		39CF55A8286154A5006FB5D2 /* XCRemoteSwiftPackageReference "Blessed" */ = {

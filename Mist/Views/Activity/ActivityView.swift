@@ -227,7 +227,7 @@ struct ActivityView: View {
         DownloadManager.shared.cancelTask()
         taskManager.cancelTask()
         ShellExecutor.shared.terminate()
-        Task { try await ProcessKiller.kill() }
+        _ = Task { try await ProcessKiller.kill() }
         presentationMode.wrappedValue.dismiss()
     }
 }

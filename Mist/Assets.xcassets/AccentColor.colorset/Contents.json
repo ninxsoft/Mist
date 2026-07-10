@@ -5,9 +5,9 @@
         "color-space" : "srgb",
         "components" : {
           "alpha" : "1.000",
-          "blue" : "213",
-          "green" : "88",
-          "red" : "0"
+          "blue" : "137",
+          "green" : "100",
+          "red" : "85"
         }
       },
       "idiom" : "mac"
@@ -23,9 +23,9 @@
         "color-space" : "srgb",
         "components" : {
           "alpha" : "1.000",
-          "blue" : "213",
-          "green" : "88",
-          "red" : "0"
+          "blue" : "137",
+          "green" : "100",
+          "red" : "85"
         }
       },
       "idiom" : "mac"
@@ -41,9 +41,9 @@
         "color-space" : "srgb",
         "components" : {
           "alpha" : "1.000",
-          "blue" : "245",
-          "green" : "101",
-          "red" : "0"
+          "blue" : "158",
+          "green" : "115",
+          "red" : "98"
         }
       },
       "idiom" : "mac"
