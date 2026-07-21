@@ -12,7 +12,9 @@ class DownloadManager: NSObject, ObservableObject {
     private var task: URLSessionDownloadTask?
     private var progress: Progress = .init()
     var currentValue: Double {
-        progress.fractionCompleted
+        // ponytail: clamp to 1.0 - Progress.fractionCompleted can exceed 1.0 when the
+        // server sends more bytes than the expected Content-Length (e.g. resumed downloads)
+        min(progress.fractionCompleted, 1)
     }
 
     // swiftlint:disable:next cyclomatic_complexity function_body_length
