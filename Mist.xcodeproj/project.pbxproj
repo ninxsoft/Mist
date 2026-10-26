@@ -677,7 +677,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 2700;
+				LastUpgradeCheck = 2720;
 				TargetAttributes = {
 					390451A52856E1D900E0B563 = {
 						CreatedOnToolsVersion = 14.0;
@@ -1132,7 +1132,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 0.40;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1166,7 +1166,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 0.40;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1185,7 +1185,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = 7K3HVCLV7Z;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mist.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1205,7 +1205,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = 7K3HVCLV7Z;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ninxsoft.mist.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1230,7 +1230,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MistHelperTool/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Mist;
 				LAUNCHDPLIST_FILE = "$(SRCROOT)/MistHelperTool/launchd.plist";
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 0.10;
 				OTHER_LDFLAGS = (
 					"-sectcreate",
@@ -1266,7 +1266,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MistHelperTool/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Mist;
 				LAUNCHDPLIST_FILE = "$(SRCROOT)/MistHelperTool/launchd.plist";
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 0.10;
 				OTHER_LDFLAGS = (
 					"-sectcreate",
@@ -1342,7 +1342,7 @@
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.9.4;
+				minimumVersion = 2.10.1;
 			};
 		};
 		39CF55A8286154A5006FB5D2 /* XCRemoteSwiftPackageReference "Blessed" */ = {
