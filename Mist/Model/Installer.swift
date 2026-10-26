@@ -745,8 +745,16 @@ struct Installer: Decodable, Hashable, Identifiable {
         URL(fileURLWithPath: "/Volumes/\(id)")
     }
 
+    var applicationName: String {
+        if version.range(of: "^27", options: .regularExpression) != nil {
+            return "Install macOS 27 Golden Gate"
+        }
+
+        return "Install \(name)"
+    }
+
     var temporaryInstallerURL: URL {
-        temporaryDiskImageMountPointURL.appendingPathComponent("Applications/Install \(name).app")
+        temporaryDiskImageMountPointURL.appendingPathComponent("Applications/\(applicationName).app")
     }
 
     var temporaryISOMountPointURL: URL {
