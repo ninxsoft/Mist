@@ -98,7 +98,7 @@ struct ListRowFirmware: View {
                 )
             }
         }
-        .onChange(of: showSavePanel) { boolean in
+        .onChange(of: showSavePanel) { _, boolean in
             if boolean {
                 save()
             }

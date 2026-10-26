@@ -78,7 +78,7 @@ struct ActivityView: View {
                         }
                     }
                 }
-                .onChange(of: currentTaskId) { id in
+                .onChange(of: currentTaskId) { _, id in
                     withAnimation(.easeOut(duration: 1)) {
                         proxy.scrollTo(id, anchor: .center)
                     }

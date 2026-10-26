@@ -29,7 +29,7 @@ struct RefreshRowView: View {
                 .rotationEffect(.degrees(degrees))
                 .animation(animation, value: degrees)
         }
-        .onChange(of: state) { state in
+        .onChange(of: state) { _, state in
             degrees = state == .inProgress ? 360 : 0
         }
     }

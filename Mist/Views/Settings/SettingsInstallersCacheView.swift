@@ -58,7 +58,7 @@ struct SettingsInstallersCacheView: View {
         .onAppear {
             retrieveCache()
         }
-        .onChange(of: cacheDirectory) { _ in
+        .onChange(of: cacheDirectory) {
             retrieveCache()
         }
         .alert(isPresented: $showAlert) {

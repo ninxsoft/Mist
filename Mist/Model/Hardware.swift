@@ -12,11 +12,11 @@ enum Hardware {
     /// Hardware Architecture (Apple Silicon or Intel).
     static var architecture: Architecture? {
         #if arch(arm64)
-            return .appleSilicon
+            .appleSilicon
         #elseif arch(x86_64)
-            return .intel
+            .intel
         #else
-            return nil
+            nil
         #endif
     }
 
@@ -68,11 +68,11 @@ enum Hardware {
         guard
             let dictionary: [String: Any] = nsDictionary as? [String: Any],
             dictionary.keys.contains(key),
-            let data: Data = IORegistryEntryCreateCFProperty(entry, key as CFString, kCFAllocatorDefault, 0).takeRetainedValue() as? Data else {
+            let data: Data = IORegistryEntryCreateCFProperty(entry, key as CFString, kCFAllocatorDefault, 0).takeRetainedValue() as? Data,
+            let string: String = .init(bytes: data, encoding: .utf8) else {
             return nil
         }
 
-        let string: String = .init(decoding: data, as: UTF8.self)
         return string.trimmingCharacters(in: CharacterSet(["\0"]))
     }
 }

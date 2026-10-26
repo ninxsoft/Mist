@@ -53,16 +53,16 @@ struct InstallerExportView: View {
             }
         }
         .padding()
-        .onChange(of: exportApplication) { _ in
+        .onChange(of: exportApplication) {
             updateExports()
         }
-        .onChange(of: exportDiskImage) { _ in
+        .onChange(of: exportDiskImage) {
             updateExports()
         }
-        .onChange(of: exportISO) { _ in
+        .onChange(of: exportISO) {
             updateExports()
         }
-        .onChange(of: exportPackage) { _ in
+        .onChange(of: exportPackage) {
             updateExports()
         }
         .onAppear {

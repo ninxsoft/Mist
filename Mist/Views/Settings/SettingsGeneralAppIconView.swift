@@ -39,7 +39,7 @@ struct SettingsGeneralAppIconView: View {
             .pickerStyle(.radioGroup)
             .horizontalRadioGroupLayout()
         }
-        .onChange(of: appIcon) { icon in
+        .onChange(of: appIcon) { _, icon in
             setAppIcon(appIcon: icon)
         }
     }

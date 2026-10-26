@@ -36,7 +36,7 @@ struct SettingsInstallersView: View {
         .onAppear {
             catalogs = getCatalogs()
         }
-        .onChange(of: catalogs) { catalogs in
+        .onChange(of: catalogs) { _, catalogs in
             UserDefaults.standard.setValue(catalogs.map { $0.dictionary() }, forKey: "catalogs")
         }
     }

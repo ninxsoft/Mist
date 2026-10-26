@@ -27,7 +27,7 @@ struct FooterView: View {
             }
         }
         .padding()
-        .onChange(of: exportListType) { _ in
+        .onChange(of: exportListType) {
             updateSavePanel()
         }
     }

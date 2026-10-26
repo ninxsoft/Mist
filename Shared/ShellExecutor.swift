@@ -51,9 +51,9 @@ class ShellExecutor: NSObject {
         process.waitUntilExit()
 
         let outputData: Data = outputPipe.fileHandleForReading.readDataToEndOfFile()
-        let standardOutput: String = .init(decoding: outputData, as: UTF8.self)
+        let standardOutput: String = .init(bytes: outputData, encoding: .utf8) ?? ""
         let errorData: Data = errorPipe.fileHandleForReading.readDataToEndOfFile()
-        let standardError: String = .init(decoding: errorData, as: UTF8.self)
+        let standardError: String = .init(bytes: errorData, encoding: .utf8) ?? ""
         let terminationStatus: Int32 = process.terminationStatus
         return HelperToolCommandResponse(terminationStatus: terminationStatus, standardOutput: standardOutput, standardError: standardError)
     }

@@ -28,7 +28,7 @@ struct SettingsGeneralNotificationsView: View {
         .onAppear {
             validateNotifications()
         }
-        .onChange(of: enableNotifications) { boolean in
+        .onChange(of: enableNotifications) { _, boolean in
             if boolean {
                 request()
             }

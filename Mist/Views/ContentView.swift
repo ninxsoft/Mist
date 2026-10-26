@@ -135,7 +135,7 @@ struct ContentView: View {
         .onAppear {
             refresh()
         }
-        .onChange(of: copiedToClipboard) { copied in
+        .onChange(of: copiedToClipboard) { _, copied in
             guard copied else {
                 return
             }

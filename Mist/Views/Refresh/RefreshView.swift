@@ -251,9 +251,9 @@ struct RefreshView: View {
 
             do {
                 let (data, _): (Data, URLResponse) = try await URLSession.shared.data(from: url)
-                let string: String = .init(decoding: data, as: UTF8.self)
 
                 guard
+                    let string: String = .init(bytes: data, encoding: .utf8),
                     let name: String = nameFromDistribution(string),
                     let version: String = versionFromDistribution(string),
                     let build: String = buildFromDistribution(string),

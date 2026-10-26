@@ -110,17 +110,17 @@ struct ListRowInstaller: View {
         .alert(isPresented: $showAlert) {
             alert(for: alertType)
         }
-        .onChange(of: showOpenPanel) { boolean in
+        .onChange(of: showOpenPanel) { _, boolean in
             if boolean {
                 open()
             }
         }
-        .onChange(of: volume) { volume in
+        .onChange(of: volume) { _, volume in
             if volume != nil {
                 createBootableInstaller()
             }
         }
-        .onChange(of: sheetType) { _ in } // hack to make cascading sheets work
+        .onChange(of: sheetType) {} // hack to make cascading sheets work
         .sheet(isPresented: $showSheet) {
             switch sheetType {
             case .download:
