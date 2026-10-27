@@ -24,4 +24,53 @@ enum Codesigner {
             throw MistError.invalidTerminationStatus(status: response.terminationStatus, output: response.standardOutput, error: response.standardError)
         }
     }
+    
+    /// Sign the provided URL with an ad-hoc code signature.
+    ///
+    /// - Parameters:
+    ///   - url: The URL of the file or directory to sign with an ad-hoc code signature.
+    ///
+    /// - Throws: A `MistError` if the provided URL is invalid or a command failed to execute.
+    static func adHocCodesign(_ url: URL) throws {
+        guard
+            let enumerator: FileManager.DirectoryEnumerator = FileManager.default.enumerator(
+                at: url,
+                includingPropertiesForKeys: [.isRegularFileKey],
+                options: [.skipsHiddenFiles, .skipsPackageDescendants]
+            ) else {
+            throw MistError.invalidURL(url.path)
+        }
+        
+        for case let url as URL in enumerator {
+            let fileAttributes: URLResourceValues = try url.resourceValues(forKeys: [.isRegularFileKey])
+            
+            guard
+                let isRegularFile: Bool = fileAttributes.isRegularFile,
+                isRegularFile else {
+                continue
+            }
+            
+            do {
+                let arguments: [String] = ["codesign", "--remove-signature", "--force", url.path]
+                let response: HelperToolCommandResponse = try ShellExecutor.shared.execute(arguments)
+                
+                guard response.terminationStatus == 0 else {
+                    throw MistError.invalidTerminationStatus(status: response.terminationStatus, output: response.standardOutput, error: response.standardError)
+                }
+            } catch {
+                // do nothing
+            }
+            
+            do {
+                let arguments: [String] = ["codesign", "--sign", "-", "--force", url.path]
+                let response: HelperToolCommandResponse = try ShellExecutor.shared.execute(arguments)
+                
+                guard response.terminationStatus == 0 else {
+                    throw MistError.invalidTerminationStatus(status: response.terminationStatus, output: response.standardOutput, error: response.standardError)
+                }
+            } catch {
+                // do nothing
+            }
+        }
+    }
 }

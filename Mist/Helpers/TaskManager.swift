@@ -250,7 +250,7 @@ class TaskManager: ObservableObject {
             ),
             (
                 section: .bootableInstaller,
-                tasks: bootableInstallerTasks(for: installer, volume: volume)
+                tasks: bootableInstallerTasks(for: installer, temporaryDirectory: temporaryDirectoryURL, volume: volume)
             ),
             (
                 section: .cleanup,
@@ -446,9 +446,11 @@ class TaskManager: ObservableObject {
     // swiftlint:disable:next function_body_length
     private static func isoTasks(for installer: Installer, filename: String, destination destinationURL: URL, temporaryDirectory temporaryDirectoryURL: URL) -> [MistTask] {
         let temporaryImageURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).dmg")
-        let createInstallMediaURL: URL = installer.temporaryInstallerURL.appendingPathComponent("Contents/Resources/createinstallmedia")
+        let createInstallMediaAppendingPathComponent: String = "Contents/Resources/createinstallmedia"
+        let createInstallMediaURL: URL = installer.temporaryInstallerURL.appendingPathComponent(createInstallMediaAppendingPathComponent)
         let temporaryCDRURL: URL = temporaryDirectoryURL.appendingPathComponent("\(installer.id).cdr")
         let isoURL: URL = destinationURL.appendingPathComponent(filename.stringWithSubstitutions(name: installer.name, version: installer.version, build: installer.build))
+        let temporaryInstallerWithAdHocCodeSignaturesURL: URL = temporaryDirectoryURL.appendingPathComponent("Install \(installer.name).app") // Same name for ad-hoc signed app allows ISO to boot without modifying plists
 
         if installer.mavericksOrNewer {
             return [
@@ -467,10 +469,39 @@ class TaskManager: ObservableObject {
                         LogManager.shared.log(.info, message: "Updating Property List '\(infoPlistURL.path)'...")
                         try PropertyListUpdater.update(infoPlistURL, key: "CFBundleShortVersionString", value: "12.6.03")
                     }
+                    
+                    var createInstallMediaURLToUse: URL = createInstallMediaURL
+                    // Workaround to make OS X Mavericks 10.9 to macOS Catalina 10.15 createinstallmedia work on Apple Silicon
+                    if
+                        let architecture: Architecture = Hardware.architecture,
+                        architecture == .appleSilicon, !installer.bigSurOrNewer {
+                        LogManager.shared.log(.info, message: "Copying '\(installer.temporaryInstallerURL.path)' to '\(temporaryInstallerWithAdHocCodeSignaturesURL.path)'...")
+                        try FileManager.default.copyItem(at: installer.temporaryInstallerURL, to: temporaryInstallerWithAdHocCodeSignaturesURL)
+                        
+                        LogManager.shared.log(.info, message: "Ad-hoc code signing '\(temporaryInstallerWithAdHocCodeSignaturesURL.path)'...")
+                        try Codesigner.adHocCodesign(temporaryInstallerWithAdHocCodeSignaturesURL)
+                        
+                        createInstallMediaURLToUse = temporaryInstallerWithAdHocCodeSignaturesURL.appendingPathComponent(createInstallMediaAppendingPathComponent)
+                    }
 
                     // swiftlint:disable:next line_length
-                    LogManager.shared.log(.info, message: "Creating macOS Installer in temporary Disk Image at mount point '\(installer.temporaryISOMountPointURL.path)' using createinstallmedia '\(createInstallMediaURL.path)'...")
-                    try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: installer.temporaryISOMountPointURL, sierraOrOlder: installer.sierraOrOlder)
+                    LogManager.shared.log(.info, message: "Creating macOS Installer in temporary Disk Image at mount point '\(installer.temporaryISOMountPointURL.path)' using createinstallmedia '\(createInstallMediaURLToUse.path)'...")
+                    try await InstallMediaCreator.create(createInstallMediaURLToUse, mountPoint: installer.temporaryISOMountPointURL, sierraOrOlder: installer.sierraOrOlder)
+                    
+                    if
+                        let architecture: Architecture = Hardware.architecture,
+                        architecture == .appleSilicon, !installer.bigSurOrNewer {
+                        for url in [
+                            temporaryInstallerWithAdHocCodeSignaturesURL,
+                            installer.temporaryISOInstallerURL
+                        ] where FileManager.default.fileExists(atPath: url.path) {
+                            LogManager.shared.log(.info, message: "Deleting '\(url.path)'...")
+                            try FileManager.default.removeItem(at: url)
+                        }
+                        
+                        LogManager.shared.log(.info, message: "Copying '\(installer.temporaryInstallerURL.path)' to '\(installer.temporaryISOInstallerURL.path)'...")
+                        try FileManager.default.copyItem(at: installer.temporaryInstallerURL, to: installer.temporaryISOInstallerURL)
+                    }
                 },
                 MistTask(type: .unmount, description: "temporary Disk Image") {
                     if FileManager.default.fileExists(atPath: installer.temporaryISOMountPointURL.path) {
@@ -556,9 +587,13 @@ class TaskManager: ObservableObject {
         return tasks
     }
 
-    private static func bootableInstallerTasks(for installer: Installer, volume: InstallerVolume) -> [MistTask] {
-        let createInstallMediaURL: URL = installer.temporaryInstallerURL.appendingPathComponent("Contents/Resources/createinstallmedia")
+    private static func bootableInstallerTasks(for installer: Installer, temporaryDirectory temporaryDirectoryURL: URL, volume: InstallerVolume) -> [MistTask] {
+        let createInstallMediaAppendingPathComponent: String = "Contents/Resources/createinstallmedia"
+        let createInstallMediaURL: URL = installer.temporaryInstallerURL.appendingPathComponent(createInstallMediaAppendingPathComponent)
         let mountPointURL: URL = .init(fileURLWithPath: volume.path)
+        let installerNameAppendingPathComponent: String = "Install \(installer.name).app" // Same name for ad-hoc signed app allows installer to boot without modifying plists
+        let temporaryInstallerWithAdHocCodeSignaturesURL: URL = temporaryDirectoryURL.appendingPathComponent(installerNameAppendingPathComponent)
+        let bootableInstallerURL: URL = mountPointURL.deletingLastPathComponent().appendingPathComponent("Install \(installer.name)").appendingPathComponent(installerNameAppendingPathComponent)
         return [
             MistTask(type: .create, description: "Bootable Installer") {
                 // Workaround to make macOS Sierra 10.12 createinstallmedia work
@@ -567,9 +602,39 @@ class TaskManager: ObservableObject {
                     LogManager.shared.log(.info, message: "Updating Property List '\(infoPlistURL.path)'...")
                     try PropertyListUpdater.update(infoPlistURL, key: "CFBundleShortVersionString", value: "12.6.03")
                 }
+                
+                var createInstallMediaURLToUse: URL = createInstallMediaURL
+                // Workaround to make OS X Mavericks 10.9 to macOS Catalina 10.15 createinstallmedia work on Apple Silicon
+                if
+                    let architecture: Architecture = Hardware.architecture,
+                    architecture == .appleSilicon, !installer.bigSurOrNewer {
+                    LogManager.shared.log(.info, message: "Copying '\(installer.temporaryInstallerURL.path)' to '\(temporaryInstallerWithAdHocCodeSignaturesURL.path)'...")
+                    try FileManager.default.copyItem(at: installer.temporaryInstallerURL, to: temporaryInstallerWithAdHocCodeSignaturesURL)
+                    
+                    LogManager.shared.log(.info, message: "Ad-hoc code signing '\(temporaryInstallerWithAdHocCodeSignaturesURL.path)'...")
+                    try Codesigner.adHocCodesign(temporaryInstallerWithAdHocCodeSignaturesURL)
+                    
+                    createInstallMediaURLToUse = temporaryInstallerWithAdHocCodeSignaturesURL.appendingPathComponent(createInstallMediaAppendingPathComponent)
+                }
 
-                LogManager.shared.log(.info, message: "Creating Bootable Installer at mount point '\(mountPointURL.path)' using createinstallmedia '\(createInstallMediaURL.path)'...")
-                try await InstallMediaCreator.create(createInstallMediaURL, mountPoint: mountPointURL, sierraOrOlder: installer.sierraOrOlder)
+                LogManager.shared.log(.info, message: "Creating Bootable Installer at mount point '\(mountPointURL.path)' using createinstallmedia '\(createInstallMediaURLToUse.path)'...")
+                try await InstallMediaCreator.create(createInstallMediaURLToUse, mountPoint: mountPointURL, sierraOrOlder: installer.sierraOrOlder)
+                
+                if
+                    let architecture: Architecture = Hardware.architecture,
+                    architecture == .appleSilicon, !installer.bigSurOrNewer {
+                    
+                    for url in [
+                        temporaryInstallerWithAdHocCodeSignaturesURL,
+                        bootableInstallerURL
+                    ] {
+                        LogManager.shared.log(.info, message: "Deleting '\(url.path)'...")
+                        try FileManager.default.removeItem(at: url)
+                    }
+                    
+                    LogManager.shared.log(.info, message: "Copying '\(installer.temporaryInstallerURL.path)' to '\(bootableInstallerURL.path)'...")
+                    try FileManager.default.copyItem(at: installer.temporaryInstallerURL, to: bootableInstallerURL)
+                }
             }
         ]
     }

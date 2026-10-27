@@ -752,6 +752,10 @@ struct Installer: Decodable, Hashable, Identifiable {
     var temporaryISOMountPointURL: URL {
         URL(fileURLWithPath: "/Volumes/Install \(name)")
     }
+    
+    var temporaryISOInstallerURL: URL {
+        temporaryISOMountPointURL.appendingPathComponent("Install \(name).app")
+    }
 
     var dictionary: [String: Any] {
         [
