@@ -740,6 +740,10 @@ struct Installer: Decodable, Hashable, Identifiable {
     var containsInstallAssistantPackage: Bool {
         packages.contains { $0.filename == "InstallAssistant.pkg" }
     }
+    
+    var containsInstallAssistantAutoPackage: Bool {
+        packages.contains { $0.filename == "InstallAssistantAuto.pkg" }
+    }
 
     var temporaryDiskImageMountPointURL: URL {
         URL(fileURLWithPath: "/Volumes/\(id)")
